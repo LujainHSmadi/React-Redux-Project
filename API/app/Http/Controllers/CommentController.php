@@ -60,7 +60,7 @@ class CommentController extends Controller
     public function show($id)
     {
         $comment = Comment::findOrFail($id);
-        return response()->json($id);
+        return response()->json($comment);
     }
 
     /**
