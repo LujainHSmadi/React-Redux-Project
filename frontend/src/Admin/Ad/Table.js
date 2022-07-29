@@ -1,14 +1,16 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAds } from "../../redux/adSlice";
+import { getAds } from "../redux/adSlice";
 const Table = () => {
   const dispatch = useDispatch();
-  const ads = useSelector(state => state.ad.ads);
+  const ads = useSelector(state => state.ad);
   const loading = useSelector(state => state.ad.loading);
 
   useEffect(() => {
     dispatch(getAds());
-  }, [dispatch]);
 
+  }, [dispatch]);
+  console.log(ads);
   return (
     <>
       {/* <!-- Layout wrapper --> */}

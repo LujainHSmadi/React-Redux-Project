@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";  
-import { getAds } from "../../redux/adSlice";
+// import { getAds } from "../../redux/adSlice";
 const Create = () => {
   const dispatch = useDispatch();
   const ads = useSelector(state => state.ad.ads);

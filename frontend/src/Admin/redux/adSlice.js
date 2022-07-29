@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit/dist/createAsyncThunk";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 
 export const getAds = createAsyncThunk('ad/getAds', async () => {
@@ -8,7 +8,7 @@ export const getAds = createAsyncThunk('ad/getAds', async () => {
 });
 
 const adSlice = createSlice({
-    name: ad,
+    name: 'ad',
     initialState: {
         ads: [],
         loading: false,

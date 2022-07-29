@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import {adSlice} from "./adSlice";
+import {adSlice} from "../adSlice";
 
 export default configureStore({
     reducer: {
-        
+        ad: adSlice,
     },
 });
