@@ -1,10 +1,16 @@
-const Create =()=>{
-  return (
-    <>
-      {/* <!-- Layout wrapper --> */}
-      <div class="layout-wrapper layout-content-navbar">
-        <div class="layout-container">
-          {/* <!-- Menu --> */}
+import { useDispatch, useSelector } from "react-redux";  
+// import { getAds } from "../../redux/adSlice";
+const Create = () => {
+  const dispatch = useDispatch();
+  const ads = useSelector(state => state.ad.ads);
+  const loading = useSelector(state => state.ad.loading);
+
+    return (
+      <>
+        {/* <!-- Layout wrapper --> */}
+        <div class="layout-wrapper layout-content-navbar">
+          <div class="layout-container">
+            {/* <!-- Menu --> */}
 
           <aside
             id="layout-menu"
