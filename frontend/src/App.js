@@ -12,8 +12,8 @@ import Agents from "./Components/Agents";
 import NavBar from "./Layout/NavBar";
 import SignIn from "./Components/Login";
 import Admin from "./Admin/Admin";
-import Create from "./Admin/Create";
-import Table from "./Admin/Table";
+import Create from "./Admin/User/Create";
+import Table from "./Admin/User/Table";
 import Blog from "./Components/Blog";
 
 function App() {
