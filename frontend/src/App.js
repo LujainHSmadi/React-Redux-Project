@@ -10,6 +10,10 @@ import Agency from "./Components/Agency";
 import AgentsDetail from "./Components/AgentsDetail";
 import Agents from "./Components/Agents";
 import NavBar from "./Layout/NavBar";
+import SignIn from "./Components/Login";
+import Admin from "./Admin/Admin";
+import Create from "./Admin/Create";
+import Table from "./Admin/Table";
 
 function App() {
   return (
@@ -25,6 +29,10 @@ function App() {
           <Route path="/Agency" element={<Agency />} />
           <Route path="/AgentsDetail" element={<AgentsDetail />} />
           <Route path="/Agents" element={<Agents />} />
+          <Route path="login" element={<SignIn />} />
+          <Route path="Admin" element={<Admin />} />
+          <Route path="Table" element={<Table />} />
+          <Route path="create" element={<Create />} />
         </Routes>
       </BrowserRouter>
       <></>
