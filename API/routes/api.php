@@ -26,3 +26,6 @@ Route::apiResource('/ads', AdController::class);
 Route::apiResource('/comments', CommentController::class);
 Route::apiResource('/posts', PostController::class);
 Route::apiResource('/users', UserController::class);
+
+ Route::get('posts' , [PostController::class , 'index']);
+ Route::post('addpost' , [PostController::class , 'store']);
