@@ -1312,10 +1312,7 @@ const Home = () => {
 
     {/* <!-- SCROLL TO TOP --> */}
     <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-            
-               
-              
 </>
     )
 }
-   export default Home
+export default Home
