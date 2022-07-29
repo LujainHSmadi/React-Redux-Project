@@ -49,14 +49,14 @@ function App() {
           <Route path="usercreate" element={<CreateUser />} />
           <Route path="useredit" element={<EditUser />} />
           <Route path="usertable" element={<TableUser />} />
-          {/* Ads */}
-          <Route path="commentcreate" element={<CreateAd />} />
-          <Route path="commentedit" element={<EditAd />} />
-          <Route path="commenttable" element={<TableAd />} />
-            {/* Comments */}
-          <Route path="adcreate" element={<CreateComments />} />
-          <Route path="adedit" element={<EditComments />} />
-          <Route path="adtable" element={<TableComments />} />
+          {/* Comments */}
+          <Route path="commentcreate" element={<CreateComments />} />
+          <Route path="commentedit" element={<TableComments />} />
+          <Route path="commenttable" element={<EditComments />} />
+            {/* Ads */}
+          <Route path="adcreate" element={<CreateAd/>} />
+          <Route path="adedit" element={<EditAd />} />
+          <Route path="adtable" element={<TableAd />} />
             {/* Posts */}
           <Route path="postcreate" element={<CreatePost />} />
           <Route path="postedit" element={<EditPost />} />
