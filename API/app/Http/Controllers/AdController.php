@@ -39,6 +39,7 @@ class AdController extends Controller
             'title' => 'required',
             'description' => 'required',
             'price' => 'required',
+            'type' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'image_2'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'image_3'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -48,6 +49,7 @@ class AdController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'price' => $request->price,
+            'type' => $request->type,
             'image' => $request->image->store('public/images'),
             'image_2' => $request->image_2->store('public/images'),
             'image_3' => $request->image_3->store('public/images'),
@@ -94,11 +96,13 @@ class AdController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'type' => 'required',
             'price' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $ad->title = $request->get('name');
         $ad->description = $request->get('description');
+        $ad->type = $request->get('type');
         $ad->price = $request->get('price');
         $ad->image = $request->get('image')->store('public/images');
         $ad->image_2 = $request->get('image_2')->store('public/images');
