@@ -11,9 +11,19 @@ import AgentsDetail from "./Components/AgentsDetail";
 import Agents from "./Components/Agents";
 import NavBar from "./Layout/NavBar";
 import SignIn from "./Components/Login";
-import Admin from "./Admin/Admin";
-import Create from "./Admin/User/Create";
-import Table from "./Admin/User/Table";
+import Admin from "./Admin/Home";
+import CreateUser from "./Admin/User/Create";
+import TableUser  from "./Admin/User/Table";
+import EditUser  from "./Admin/User/Edit";
+import CreateAd from "./Admin/Ad/Create";
+import TableAd from "./Admin/Ad/Table";
+import EditAd from "./Admin/Ad/Edit";
+import CreatePost from "./Admin/Post/Create";
+import TablePost from "./Admin/Post/Table";
+import EditPost from "./Admin/Post/Edit";
+import CreateComments from "./Admin/Comments/Create";
+import TableComments from "./Admin/Comments/Table";
+import EditComments from "./Admin/Comments/Edit";
 import Blog from "./Components/Blog";
 
 function App() {
@@ -31,10 +41,28 @@ function App() {
           <Route path="/AgentsDetail" element={<AgentsDetail />} />
           <Route path="/Agents" element={<Agents />} />
           <Route path="login" element={<SignIn />} />
-          <Route path="Admin" element={<Admin />} />
-          <Route path="Table" element={<Table />} />
-          <Route path="create" element={<Create />} />
           <Route path="blog" element={<Blog />} />
+
+          {/* admin Routes */}
+           {/* User */}
+          <Route path="Admin" element={<Admin />} />
+          <Route path="usercreate" element={<CreateUser />} />
+          <Route path="useredit" element={<EditUser />} />
+          <Route path="usertable" element={<TableUser />} />
+          {/* Ads */}
+          <Route path="commentcreate" element={<CreateAd />} />
+          <Route path="commentedit" element={<EditAd />} />
+          <Route path="commenttable" element={<TableAd />} />
+            {/* Comments */}
+          <Route path="adcreate" element={<CreateComments />} />
+          <Route path="adedit" element={<EditComments />} />
+          <Route path="adtable" element={<TableComments />} />
+            {/* Posts */}
+          <Route path="postcreate" element={<CreatePost />} />
+          <Route path="postedit" element={<EditPost />} />
+          <Route path="posttable" element={<TablePost />} />
+     
+ 
         </Routes>
       </BrowserRouter>
       <></>
