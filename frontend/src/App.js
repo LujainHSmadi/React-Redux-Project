@@ -9,11 +9,13 @@ import SingleDetail from "./Components/SingleDetail";
 import Agency from "./Components/Agency";
 import AgentsDetail from "./Components/AgentsDetail";
 import Agents from "./Components/Agents";
+import NavBar from "./Layout/NavBar";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/About" element={<About />} />

@@ -40,15 +40,25 @@ class UserController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-        $newUser = new User([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password,
-            'image' => $request->image->store('public/images'),
-        ]);
-        $newUser->save();
-        return response()->json( $newUser );
-        
+        // $newUser = new User([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'password' => $request->password,
+        //     'image' => $request->image->store('public/images'),
+        // ]);
+        $newUser = $request->all();
+
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('Image'), $filename);
+            $newUser['image'] = "$filename";
+
+        }
+
+        $storeUser = User::create($newUser);
+        return response()->json($storeUser);
+
     }
 
     /**
@@ -81,7 +91,7 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
         $request->validate([
@@ -89,12 +99,25 @@ class UserController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-        $user->name = $request->get('name');
-        $user->email = $request->get('email');
-        $user->password = $request->get('password');
-        $user->image = $request->get('image');
-        $user->save();
-        return response()->json($user);
+        // $user->name = $request->get('name');
+        // $user->email = $request->get('email');
+        // $user->password = $request->get('password');
+        // $user->image = $request->get('image');
+        // $user->save();
+
+        $newUser = $request->all();
+
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('Image'), $filename);
+            $newUser['image'] = "$filename";
+
+        }
+
+        $updateUser = User::update($newUser);
+        return response()->json($updateUser);
+
     }
 
     /**
