@@ -14,6 +14,7 @@ import SignIn from "./Components/Login";
 import Admin from "./Admin/Admin";
 import Create from "./Admin/Create";
 import Table from "./Admin/Table";
+import Blog from "./Components/Blog";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="Admin" element={<Admin />} />
           <Route path="Table" element={<Table />} />
           <Route path="create" element={<Create />} />
+          <Route path="blog" element={<Blog />} />
         </Routes>
       </BrowserRouter>
       <></>

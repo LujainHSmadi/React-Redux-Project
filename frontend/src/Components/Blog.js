@@ -1,202 +1,13 @@
-const Agency =()=>{
+const Blog =()=>{
     return (
 
+<>
 
-                <div class="bg-theme-overlay">
-            <section class="section__breadcrumb ">
-                <div class="container">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-md-8 text-center">
-                            <h2 class="text-capitalize text-white">about us</h2>
-                            <ul class="list-inline ">
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-white">
-                                        home
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-white">
-                                        page
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-white">
-                                        about us
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        {/* <!-- END BREADCRUMB --> */}
   
     <div class="clearfix"></div>
 
 
-        <!-- NAVBAR TOP -->
-        <div class="topbar d-none d-sm-block">
-            <div class="container ">
-                <div class="row">
-                    <div class="col-sm-12 col-md-5">
-                        <div class="topbar-left">
-                            <div class="topbar-text">
-                                Monday, March 22, 2020
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-7">
-                        <div class="list-unstyled topbar-right">
-                            <ul class="topbar-link">
-                                <li><a href="#" title="">Career</a></li>
-                                <li><a href="#" title="">Contact Us</a></li>
-                                <li><a href="#" title="">Login / Register</a></li>
-                            </ul>
-                            <ul class="topbar-sosmed">
-                                <li>
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END NAVBAR TOP -->
-        <!-- NAVBAR -->
-        <nav class="navbar navbar-hover navbar-expand-lg navbar-soft">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="images/logo-blue-stiky.png" alt="" class="img-fluid">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav99">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="main_nav99">
-                    <ul class="navbar-nav  mx-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown"> Home </a>
-                            <ul class="dropdown-menu dropdown-menu-left animate fade-up">
-                                <li><a class="dropdown-item" href="/homepage-v1.html"> Home version one </a>
-                                </li>
-                                <li><a class="dropdown-item" href="homepage-v2.html"> Home version two </a></li>
-                                <li><a class="dropdown-item" href="/homepage-v3.html"> Home version three </a></li>
-                                <li><a class="dropdown-item" href="/homepage-v4.html"> Home version four </a></li>
-                                <li><a class="dropdown-item" href="/homepage-v5.html"> Home version five </a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> Pages </a>
-                            <ul class="dropdown-menu animate fade-up">
-
-                                <li><a class="dropdown-item icon-arrow" href="#"> Property Listing </a>
-                                    <ul class="submenu dropdown-menu  animate fade-up">
-                                        <li><a class="dropdown-item" href="/listing-style-v1.html"> Style 1</a></li>
-                                        <li><a class="dropdown-item" href="/listing-style-v2.html"> Style 2</a></li>
-                                        <li><a class="dropdown-item" href="/listing-style-v3.html"> Style 3</a></li>
-                                        <li><a class="dropdown-item" href="/listing-style-v4.html"> Style 4</a></li>
-                                        <li><a class="dropdown-item" href="/listing-style-v5.html"> Style 5</a></li>
-                                        <li><a class="dropdown-item icon-arrow" href="">Submenu item 3 </a>
-                                            <ul class="submenu dropdown-menu  animate fade-up">
-                                                <li><a class="dropdown-item" href="">Multi level 1</a></li>
-                                                <li><a class="dropdown-item" href="">Multi level 2</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a class="dropdown-item" href="">Submenu item 4</a></li>
-                                        <li><a class="dropdown-item" href="">Submenu item 5</a></li>
-                                    </ul>
-                                </li>
-                                <li><a class="dropdown-item icon-arrow" href="#"> Property single detail </a>
-                                    <ul class="submenu dropdown-menu  animate fade-up">
-                                        <li><a class="dropdown-item" href="/single-detail-v1.html">Style 1</a></li>
-                                        <li><a class="dropdown-item" href="/single-detail-v2.html">Style 2</a></li>
-                                        <li><a class="dropdown-item" href="/single-detail-v3.html">Style 3</a></li>
-                                        <li><a class="dropdown-item" href="/single-detail-v4.html">Style 4</a></li>
-                                        <li><a class="dropdown-item" href="/single-detail-v5.html">Style 5</a></li>
-                                    </ul>
-
-                                </li>
-
-                                <li><a class="dropdown-item icon-arrow" href="#"> Agent </a>
-                                    <ul class="submenu dropdown-menu  animate fade-up">
-                                        <li><a class="dropdown-item" href="/agents-v1.html">Style 1</a></li>
-                                        <li><a class="dropdown-item" href="/agents-v2.html">Style 2</a></li>
-                                        <li><a class="dropdown-item" href="/agents-detail.html">Agent detail</a></li>
-                                    </ul>
-                                </li>
-                                <li><a class="dropdown-item icon-arrow" href="#"> Agency </a>
-                                    <ul class="submenu dropdown-menu  animate fade-up">
-                                        <li><a class="dropdown-item" href="/agency-v1.html">Style 1</a></li>
-                                        <li><a class="dropdown-item" href="/agency-v2.html">Style 2</a></li>
-                                        <li><a class="dropdown-item" href="/agency-detail.html">Agency detail</a></li>
-                                    </ul>
-                                </li>
-                                <li><a class="dropdown-item" href="/about-us.html">About us </a>
-                                <li><a class="dropdown-item" href="/login.html">Login </a>
-                                <li><a class="dropdown-item" href="/register.html"> Register </a>
-                                <li><a class="dropdown-item" href="/contact.html"> Contact </a>
-                                <li><a class="dropdown-item" href="/404.html"> 404 Error </a>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown"> Blog </a>
-                            <ul class="dropdown-menu dropdown-menu-left animate fade-up">
-                                <li><a class="dropdown-item" href="/blog.html"> Blog </a>
-                                </li>
-                                <li><a class="dropdown-item" href="/blog-single.html"> Blog Single </a></li>
-
-                            </ul>
-                        </li>
-
-                        <li class="nav-item"><a class="nav-link" href="/contact.html"> contact </a></li>
-                    </ul>
-
-
-                    <!-- Search bar.// -->
-                    <ul class="navbar-nav">
-                        <li>
-                            <a href="#" class="btn btn-primary text-capitalize">
-                                <i class="fa fa-plus-circle mr-1"></i> add listing</a>
-                        </li>
-                    </ul>
-                    <!-- Search content bar.// -->
-                    <div class="top-search navigation-shadow">
-                        <div class="container">
-                            <div class="input-group ">
-                                <form action="#">
-
-                                    <div class="row no-gutters mt-3">
-                                        <div class="col">
-                                            <input class="form-control border-secondary border-right-0 rounded-0"
-                                                type="search" value="" placeholder="Search " id="example-search-input4">
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="btn btn-outline-secondary border-left-0 rounded-0 rounded-right"
-                                                href="/search-result.html">
-                                                <i class="fa fa-search"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Search content bar.// -->
-                </div> <!-- navbar-collapse.// -->
-            </div>
-        </nav>
-        <!-- END NAVBAR -->
-        <!-- BREADCRUMB -->
+        {/* <!-- BREADCRUMB --> */} 
         <div class="bg-theme-overlay">
             <section class="section__breadcrumb ">
                 <div class="container">
@@ -226,11 +37,11 @@ const Agency =()=>{
                 </div>
             </section>
         </div>
-        <!-- END BREADCRUMB -->
-    </header>
+        {/* <!-- END BREADCRUMB --> */}
+  
     <div class="clearfix"></div>
-
-    <!-- LISTING LIST -->
+{/* 
+    <!-- LISTING LIST --> */}
     <section>
         <div class="container">
             <div class="row">
@@ -244,7 +55,7 @@ const Agency =()=>{
                             <ul class="list-inline">
                                 <li class="list-inline-item">
                                     <figure class="image-profile">
-                                        <img src="images/80x80.jpg" class="img-fluid" alt="">
+                                        <img src="images/80x80.jpg" class="img-fluid" alt=""/>
                                     </figure>
                                 </li>
                                 <li class="list-inline-item">
@@ -273,7 +84,7 @@ const Agency =()=>{
                             </ul>
                         </div>
                         <figure>
-                            <img src="images/1920x1080.jpg" class="img-fluid" alt="">
+                            <img src="images/1920x1080.jpg" class="img-fluid" alt=""/>
                         </figure>
 
                         <p class="drop-cap">
@@ -298,7 +109,7 @@ const Agency =()=>{
                             Cambridge friend of mine told me what Occidental is.
                         </p>
 
-                        <!-- BLOCKQUOTE -->
+                        {/* <!-- BLOCKQUOTE --> */}
                         <blockquote class="block-quote">
                             <p>
                                 It is a long established fact that a reader will be distracted by the readable content
@@ -309,7 +120,7 @@ const Agency =()=>{
                                 Tom Cruise
                             </cite>
                         </blockquote>
-                        <!-- END BLOCKQUOTE -->
+                        {/* <!-- END BLOCKQUOTE --> */}
 
                         <p>
                             Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
@@ -320,7 +131,7 @@ const Agency =()=>{
 
 
 
-                        <!-- TAGS -->
+                        {/* <!-- TAGS --> */}
                         <div class="blog__tags mb-4">
                             <ul class="list-inline">
 
@@ -353,14 +164,14 @@ const Agency =()=>{
                                 </li>
                             </ul>
                         </div>
-                        <!-- END TAGS -->
+                        {/* <!-- END TAGS -->
 
                         <!-- AUTHOR -->
-                        <!-- Profile author -->
+                        <!-- Profile author --> */}
                         <div class="wrap__profile">
                             <div class="wrap__profile-author">
                                 <figure>
-                                    <img src="images/80x80.jpg" alt="" class="img-fluid img-circle">
+                                    <img src="images/80x80.jpg" alt="" class="img-fluid img-circle"/>
                                 </figure>
                                 <div class="wrap__profile-author-detail">
                                     <div class="wrap__profile-author-detail-name">author</div>
@@ -399,7 +210,7 @@ const Agency =()=>{
                                 </div>
                             </div>
                         </div>
-                        <!-- END AUTHOR -->
+                        {/* <!-- END AUTHOR --> */}
 
 
                         <div class="row">
@@ -422,11 +233,11 @@ const Agency =()=>{
                         </div>
                         <div class="clearfix"></div>
 
-                        <!-- COMMENTS -->
+                        {/* <!-- COMMENTS --> */}
                         <h6>3 Comments:</h6>
                         <div class="single__detail-features-review">
                             <div class="media mt-4">
-                                <img class="mr-3 img-fluid rounded-circle" src="images/80x80.jpg" alt="">
+                                <img class="mr-3 img-fluid rounded-circle" src="images/80x80.jpg" alt=""/>
                                 <div class="media-body">
                                     <h6 class="mt-0">Jhon doe</h6>
                                     <span class="mb-3">Mei 13, 2020</span>
@@ -448,7 +259,7 @@ const Agency =()=>{
 
                                     <div class="media mt-4">
                                         <a class="pr-3" href="#">
-                                            <img src="images/80x80.jpg" alt="" class="img-fluid rounded-circle">
+                                            <img src="images/80x80.jpg" alt="" class="img-fluid rounded-circle"/>
                                         </a>
                                         <div class="media-body">
                                             <h6 class="mt-0">Christine </h6>
@@ -471,7 +282,7 @@ const Agency =()=>{
                             </div>
 
                             <div class="media mt-4">
-                                <img class="mr-3 img-fluid rounded-circle" src="images/80x80.jpg" alt="">
+                                <img class="mr-3 img-fluid rounded-circle" src="images/80x80.jpg" alt=""/>
                                 <div class="media-body">
                                     <h6 class="mt-0">Jhon Doe</h6>
                                     <span class="mb-3">Mei 13, 2020</span>
@@ -494,8 +305,8 @@ const Agency =()=>{
 
                                 </div>
                             </div>
-                            <!-- COMMENT -->
-                            <hr>
+                            {/* <!-- COMMENT --> */}
+                            <hr />
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="mb-2">Your rating for this listing:</p>
@@ -511,21 +322,21 @@ const Agency =()=>{
                                     </ul>
                                     <div class="form-group">
                                         <label>Your Name</label>
-                                        <input type="text" class="form-control" required="required">
+                                        <input type="text" class="form-control" required="required"/>
 
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>What's your Email?</label>
-                                        <input type="email" class="form-control" required="required">
+                                        <input type="email" class="form-control" required="required"/>
 
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Subject</label>
-                                        <input type="text" class="form-control" required="required">
+                                        <input type="text" class="form-control" required="required"/>
 
                                     </div>
                                 </div>
@@ -539,13 +350,13 @@ const Agency =()=>{
 
                             <button type="submit" class="btn btn-primary float-right "> Submit review <i
                                     class="fa fa-paper-plane ml-2"></i></button>
-                            <!-- END COMMENT -->
+                            {/* <!-- END COMMENT --> */}
 
                         </div>
-                        <!-- END COMMENTS -->
+                        {/* <!-- END COMMENTS --> */}
                     </div>
                 </div>
-                <!-- WIDGET BLOG -->
+                {/* <!-- WIDGET BLOG --> */}
                 <div class="col-lg-4">
                     <div class="sticky-top">
                         <aside>
@@ -556,7 +367,7 @@ const Agency =()=>{
                                 <div class="widget__sidebar__body">
                                     <div class="input-group">
                                         <input type="text" name="search_term_string" class="form-control"
-                                            placeholder="Search article . . .">
+                                            placeholder="Search article . . ."/>
                                         <span class="input-group-btn">
                                             <button type="submit" class="btn-search btn"><i
                                                     class="fa fa-search"></i></button>
@@ -620,9 +431,9 @@ const Agency =()=>{
                                     <h6 class="text-capitalize">recents news</h6>
                                 </div>
                                 <div class="widget__sidebar__body">
-                                    <!-- ONE -->
+                                    {/* <!-- ONE --> */}
                                     <div class="widget__sidebar__body-img">
-                                        <img src="images/500x400.jpg" alt="" class="img-fluid">
+                                        <img src="images/500x400.jpg" alt="" class="img-fluid"/>
                                         <div class="widget__sidebar__body-heading">
                                             <h6 class="text-capitalize">
                                                 tips memilih rumah bagi kelurga muda
@@ -631,9 +442,9 @@ const Agency =()=>{
                                         <span class="badge badge-secondary p-1 text-capitalize mb-1">May 08, 2019
                                         </span>
                                     </div>
-                                    <!-- TWO -->
+                                    {/* <!-- TWO --> */}
                                     <div class="widget__sidebar__body-img">
-                                        <img src="images/500x400.jpg" alt="" class="img-fluid">
+                                        <img src="images/500x400.jpg" alt="" class="img-fluid"/>
 
                                         <div class="widget__sidebar__body-heading">
                                             <h6 class="text-capitalize">
@@ -644,9 +455,9 @@ const Agency =()=>{
                                         <span class="badge badge-secondary p-1 text-capitalize mb-1">May 08, 2019
                                         </span>
                                     </div>
-                                    <!-- THREE -->
+                                    {/* <!-- THREE --> */}
                                     <div class="widget__sidebar__body-img">
-                                        <img src="images/500x400.jpg" alt="" class="img-fluid">
+                                        <img src="images/500x400.jpg" alt="" class="img-fluid"/>
 
                                         <div class="widget__sidebar__body-heading">
                                             <h6 class="text-capitalize">
@@ -657,9 +468,9 @@ const Agency =()=>{
                                         <span class="badge badge-secondary p-1 text-capitalize mb-1">May 08, 2019
                                         </span>
                                     </div>
-                                    <!-- FOUR -->
+                                    {/* <!-- FOUR --> */}
                                     <div class="widget__sidebar__body-img">
-                                        <img src="images/500x400.jpg" alt="" class="img-fluid">
+                                        <img src="images/500x400.jpg" alt="" class="img-fluid"/>
 
                                         <div class="widget__sidebar__body-heading">
                                             <h6 class="text-capitalize">
@@ -672,7 +483,7 @@ const Agency =()=>{
                                     </div>
 
                                     <div class="widget__sidebar__body-img">
-                                        <img src="images/500x400.jpg" alt="" class="img-fluid">
+                                        <img src="images/500x400.jpg" alt="" class="img-fluid"/>
 
                                         <div class="widget__sidebar__body-heading">
                                             <h6 class="text-capitalize">
@@ -763,13 +574,13 @@ const Agency =()=>{
                     </div>
                 </div>
             </div>
-            <!-- END WIDGET BLOG -->
+            {/* <!-- END WIDGET BLOG --> */}
         </div>
     </section>
-    <!-- END LISTING LIST -->
+    {/* <!-- END LISTING LIST -->
 
 
-    <!-- CALL TO ACTION -->
+    <!-- CALL TO ACTION --> */}
     <section class="cta-v1 py-5">
         <div class="container">
             <div class="row align-items-center">
@@ -788,18 +599,18 @@ const Agency =()=>{
             </div>
         </div>
     </section>
-    <!-- END CALL TO ACTION -->
+    {/* <!-- END CALL TO ACTION -->
 
-    <!-- Footer  -->
+    <!-- Footer  --> */}
     <footer>
         <div class="wrapper__footer bg-theme-footer">
             <div class="container">
                 <div class="row">
-                    <!-- ADDRESS -->
+                    {/* <!-- ADDRESS --> */}
                     <div class="col-md-4">
                         <div class="widget__footer">
                             <figure>
-                                <img src="images/logo-blue.png" alt="" class="logo-footer">
+                                <img src="images/logo-blue.png" alt="" class="logo-footer"/>
                             </figure>
                             <p>
                                 Rethouse Real Estate is a premium Property template based on Bootstrap 4. Rethouse Real
@@ -818,9 +629,9 @@ const Agency =()=>{
                         </div>
 
                     </div>
-                    <!-- END ADDRESS -->
+                    {/* <!-- END ADDRESS -->
 
-                    <!-- QUICK LINKS -->
+                    <!-- QUICK LINKS --> */}
                     <div class="col-md-4">
                         <div class="widget__footer">
                             <h4 class="footer-title">Quick Links</h4>
@@ -872,10 +683,10 @@ const Agency =()=>{
                             </div>
                         </div>
                     </div>
-                    <!-- END QUICK LINKS -->
+                    {/* <!-- END QUICK LINKS -->
 
 
-                    <!-- NEWSLETTERS -->
+                    <!-- NEWSLETTERS --> */}
                     <div class="col-md-4">
                         <div class="widget__footer">
                             <h4 class="footer-title">follow us </h4>
@@ -901,16 +712,16 @@ const Agency =()=>{
                                     <i class="fa fa-youtube"></i>
                                 </button>
                             </p>
-                            <br>
+                            <br/>
                             <h4 class="footer-title">newsletter</h4>
-                            <!-- Form Newsletter -->
+                            {/* <!-- Form Newsletter --> */}
                             <div class="widget__form-newsletter ">
                                 <p>
 
                                     Don’t miss to subscribe to our news feeds, kindly fill the form below
                                 </p>
                                 <div class="mt-3">
-                                    <input type="text" class="form-control mb-2" placeholder="Your email address">
+                                    <input type="text" class="form-control mb-2" placeholder="Your email address"/>
 
                                     <button class="btn btn-primary btn-block text-capitalize" type="button">subscribe
 
@@ -920,12 +731,12 @@ const Agency =()=>{
 
                         </div>
                     </div>
-                    <!-- END NEWSLETTER -->
+                    {/* <!-- END NEWSLETTER --> */}
                 </div>
             </div>
         </div>
 
-        <!-- Footer Bottom -->
+        {/* <!-- Footer Bottom --> */}
         <div class="bg__footer-bottom-v1">
             <div class="container">
                 <div class="row flex-column-reverse flex-md-row">
@@ -962,21 +773,12 @@ const Agency =()=>{
                 </div>
             </div>
         </div>
-        <!-- End Footer  -->
+        {/* <!-- End Footer  --> */}
     </footer>
 
 
 
-
-
-    <!-- SCROLL TO TOP -->
-    <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-    <!-- END SCROLL TO TOP -->
-    <script src="./js/index.bundle.js?fd365619e86ad9137a29"></script>
-
-</body>
-
-</html>
+</>
 )
 }
-export default AgencyDetails;
+export default Blog;
