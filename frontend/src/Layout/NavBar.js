@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const NavBar = () => {
   return (
     <>
@@ -99,6 +101,8 @@ const NavBar = () => {
             {/* <!-- Search bar.// --> */}
             <ul class="navbar-nav">
               <li>
+              {/* <Link class="btn btn-primary text-capitalize" to="/about"><i class="fa fa-plus-circle mr-1"></i> About</Link> */}
+
                 <a href="#" class="btn btn-primary text-capitalize">
                   <i class="fa fa-plus-circle mr-1"></i> add listing
                 </a>
