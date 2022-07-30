@@ -1,3 +1,4 @@
+
 import Home from './Components/Home'
 import About from "./Components/About";
 import List from "./Components/List";
@@ -24,7 +25,14 @@ import TableComments from "./Admin/Comments/Table";
 import EditComments from "./Admin/Comments/Edit";
 import Blog from "./Components/Blog";
 
+
 function App() {
+
+
+
+
+
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -62,7 +70,7 @@ function App() {
           <Route path="posttable" element={<TablePost />} />
         </Routes>
       </BrowserRouter>
-      <></>
+   
     </div>
   );
 }

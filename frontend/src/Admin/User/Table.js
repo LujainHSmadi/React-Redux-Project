@@ -1,8 +1,20 @@
 import Sidebar from "../layouts/Sidebar";
 import Footer from "../layouts/Footer";
+import { useEffect } from "react";
+import {getUsers} from "../redux/userSlice"
+import { useDispatch,useSelector} from "react-redux";
 
 
 const Table =()=>{
+  const dispatch = useDispatch();
+  const user=useSelector((state)=>state.users);
+
+  useEffect(() => {
+    dispatch(getUsers())
+  }, [dispatch])
+
+  console.log(user);
+  
   return (
     <>
       {/* <!-- Layout wrapper --> */}

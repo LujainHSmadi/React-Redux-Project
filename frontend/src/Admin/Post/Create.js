@@ -1,18 +1,9 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+
 import Sidebar from "../layouts/Sidebar";
 import Footer from "../layouts/Footer";
-import { getAds } from "../redux/adSlice";
-const Table = () => {
-  const dispatch = useDispatch();
-  const ads = useSelector(state => state.ad);
-  const loading = useSelector(state => state.ad.loading);
 
-  useEffect(() => {
-    dispatch(getAds());
+const Create = () => {
 
-  }, [dispatch]);
-  console.log(ads);
   return (
     <>
       {/* <!-- Layout wrapper --> */}
@@ -343,4 +334,4 @@ const Table = () => {
 }
 
 
-export default Table
+export default Create
