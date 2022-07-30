@@ -433,58 +433,7 @@ const Create = () => {
               {/* <!-- / Content -->
 
           <!-- Footer --> */}
-<<<<<<< HEAD
-              <footer class="content-footer footer bg-footer-theme">
-                <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                  <div class="mb-2 mb-md-0">
-                    ©
-                    <script>document.write(new Date().getFullYear());</script>
-                    , made with ❤️ by
-                    <a
-                      href="https://themeselection.com"
-                      target="_blank"
-                      class="footer-link fw-bolder"
-                    >
-                      ThemeSelection
-                    </a>
-                  </div>
-                  <div>
-                    <a
-                      href="https://themeselection.com/license/"
-                      class="footer-link me-4"
-                      target="_blank"
-                    >
-                      License
-                    </a>
-                    <a
-                      href="https://themeselection.com/"
-                      target="_blank"
-                      class="footer-link me-4"
-                    >
-                      More Themes
-                    </a>
-
-                    <a
-                      href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                      target="_blank"
-                      class="footer-link me-4"
-                    >
-                      Documentation
-                    </a>
-
-                    <a
-                      href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                      target="_blank"
-                      class="footer-link me-4"
-                    >
-                      Support
-                    </a>
-                  </div>
-                </div>
-              </footer>
-=======
            <Footer />
->>>>>>> 4ab845183f47b80393442c6dca910f2012987e9f
               {/* <!-- / Footer --> */}
 
               <div class="content-backdrop fade"></div>
@@ -501,8 +450,4 @@ const Create = () => {
     </>
   );
 }
-<<<<<<< HEAD
 export default Create
-=======
-export default Create
->>>>>>> 4ab845183f47b80393442c6dca910f2012987e9f
