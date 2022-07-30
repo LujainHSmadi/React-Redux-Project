@@ -1,3 +1,4 @@
+
 import Home from './Components/Home'
 import About from "./Components/About";
 import List from "./Components/List";
@@ -26,10 +27,18 @@ import Blog from "./Components/Blog";
 import SignUp from './Components/Register';
 import Profile from "./Components/Profile";
 
+
 function App() {
+
+
+
+
+
+
   return (
     <div className="App">
       <BrowserRouter>
+     
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -43,9 +52,13 @@ function App() {
           <Route path="login" element={<SignIn />} />
           <Route path="register" element={<SignUp />} />
           <Route path="blog" element={<Blog />} />
+<<<<<<< HEAD
           <Route path="users/:id" element={<Profile />} />
          
 
+=======
+      
+>>>>>>> 31608ed1343a288ed3f275bd00bc8fb459bc2d61
           {/* admin Routes */}
           {/* User */}
           <Route path="Admin" element={<Admin />} />
@@ -66,7 +79,7 @@ function App() {
           <Route path="posttable" element={<TablePost />} />
         </Routes>
       </BrowserRouter>
-      <></>
+   
     </div>
   );
 }

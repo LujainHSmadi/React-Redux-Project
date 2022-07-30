@@ -1,22 +1,49 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import Sidebar from "../layouts/Sidebar";
+import Footer from "../layouts/Footer";
 import { addAd } from "../redux/adSlice";
 const Create = () => {
-  const dispatch = useDispatch();
-  const title = useRef();
-  const description = useRef();
-  const type = useRef();
-  const image = useRef();
-  const image_2 = useRef();
-  const image_3 = useRef();
-  const image_4 = useRef();
-  const phone = useRef();
-  const location = useRef();
 
+
+  const dispatch = useDispatch();
+  const title = useRef(null);
+  const description = useRef(null);
+  const type = useRef(null);
+  const image = useRef(null);
+  const image_2 = useRef(null);
+  const image_3 = useRef(null);
+  const image_4 = useRef(null);
+  const phone = useRef(null);
+  const location = useRef(null);
+  const ads = useSelector(state => state.ad);
   const handelSubmit = (e) => {
     e.preventDefault();
-    console.log('form submitted');
+    const formData = new FormData();
+    formData.append("title", title.current.value);
+    formData.append("description", description.current.value);
+    formData.append("type", type.current.value);
+    formData.append("image", image.current.files[0]);
+    formData.append("image_2", image_2.current.files[0]);
+    formData.append("image_3", image_3.current.files[0]);
+    formData.append("image_4", image_4.current.files[0]);
+    formData.append("phone", phone.current.value);
+    formData.append("location", location.current.value);
+    console.log(formData);
+    console.log(image.current.files[0]);
+    dispatch(addAd(formData));
+    title.current.value = "";
+    description.current.value = "";
+    type.current.value = "";
+    image.current.value = "";
+    image_2.current.value = "";
+    image_3.current.value = "";
+    image_4.current.value = "";
+    phone.current.value = "";
+    location.current.value = "";
   }
+
+
 
 
 
@@ -27,194 +54,7 @@ const Create = () => {
         <div class="layout-container">
           {/* <!-- Menu --> */}
 
-          <aside
-            id="layout-menu"
-            class="layout-menu menu-vertical menu bg-menu-theme"
-          >
-
-
-            <div class="menu-inner-shadow"></div>
-
-            <ul class="menu-inner py-1">
-              {/* <!-- Dashboard --> */}
-              <li class="menu-item">
-                <a href="index.html" class="menu-link">
-                  <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                  <div data-i18n="Analytics">Dashboard</div>
-                </a>
-              </li>
-
-              {/* <!-- Layouts --> */}
-              <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-layout"></i>
-                  <div data-i18n="Layouts">Layouts</div>
-                </a>
-
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a href="layouts-without-menu.html" class="menu-link">
-                      <div data-i18n="Without menu">Without menu</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="layouts-without-navbar.html" class="menu-link">
-                      <div data-i18n="Without navbar">Without navbar</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="layouts-container.html" class="menu-link">
-                      <div data-i18n="Container">Container</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="layouts-fluid.html" class="menu-link">
-                      <div data-i18n="Fluid">Fluid</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="layouts-blank.html" class="menu-link">
-                      <div data-i18n="Blank">Blank</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">Pages</span>
-              </li>
-              <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                  <div data-i18n="Account Settings">Account Settings</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a
-                      href="pages-account-settings-account.html"
-                      class="menu-link"
-                    >
-                      <div data-i18n="Account">Account</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a
-                      href="pages-account-settings-notifications.html"
-                      class="menu-link"
-                    >
-                      <div data-i18n="Notifications">Notifications</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a
-                      href="pages-account-settings-connections.html"
-                      class="menu-link"
-                    >
-                      <div data-i18n="Connections">Connections</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                  <div data-i18n="Authentications">Authentications</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a
-                      href="auth-login-basic.html"
-                      class="menu-link"
-                      target="_blank"
-                    >
-                      <div data-i18n="Basic">Login</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a
-                      href="auth-register-basic.html"
-                      class="menu-link"
-                      target="_blank"
-                    >
-                      <div data-i18n="Basic">Register</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a
-                      href="auth-forgot-password-basic.html"
-                      class="menu-link"
-                      target="_blank"
-                    >
-                      <div data-i18n="Basic">Forgot Password</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              {/* <!-- Forms & Tables --> */}
-              <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">Forms &amp; Tables</span>
-              </li>
-              {/* <!-- Forms --> */}
-              <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-detail"></i>
-                  <div data-i18n="Form Elements">Posts</div>
-                </a>
-              </li>
-              <li class="menu-item active open">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-detail"></i>
-                  <div data-i18n="Form Layouts">Posts</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a href="/table" class="menu-link">
-                      <i class="menu-icon tf-icons bx bx-table"></i>
-                      <div data-i18n="Tables">Tables</div>
-                    </a>
-                  </li>
-                  <li class="menu-item active">
-                    <a href="/create" class="menu-link">
-                      <div data-i18n="Horizontal Form">create</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              {/* <!-- Forms & Tables -->
-            <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">Forms &amp; Tables</span>
-            </li> */}
-              {/* <!-- Forms --> */}
-              <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-detail"></i>
-                  <div data-i18n="Form Elements">User</div>
-                </a>
-              </li>
-              <li class="menu-item active open">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-detail"></i>
-                  <div data-i18n="Form Layouts">User</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a href="/table" class="menu-link">
-                      <i class="menu-icon tf-icons bx bx-table"></i>
-                      <div data-i18n="Tables">Tables</div>
-                    </a>
-                  </li>
-                  <li class="menu-item active">
-                    <a href="/create" class="menu-link">
-                      <div data-i18n="Horizontal Form">create</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-            </ul>
-          </aside>
+        <Sidebar />
           {/* <!-- / Menu -->
 
 
@@ -230,8 +70,7 @@ const Create = () => {
 
               <div class="container-xxl flex-grow-1 container-p-y">
                 <h4 class="fw-bold py-3 mb-4">
-                  <span class="text-muted fw-light">Forms/</span> Horizontal
-                  Layouts
+                  <span class="text-muted fw-light">Ads Form</span> 
                 </h4>
 
                 {/* <!-- Basic Layout & Basic with Icons --> */}
@@ -240,7 +79,7 @@ const Create = () => {
                   <div class="col-xxl">
                     <div class="card mb-4">
                       <div class="card-header d-flex align-items-center justify-content-between">
-                        <h5 class="mb-0">Basic Layout</h5>
+                        <h5 class="mb-0">Create Ads</h5>
                         <small class="text-muted float-end">
                           Default label
                         </small>
@@ -252,7 +91,7 @@ const Create = () => {
                               class="col-sm-2 col-form-label"
                               for="basic-default-name"
                             >
-                              Name
+                              Title
                             </label>
                             <div class="col-sm-10">
                               <input
@@ -260,6 +99,7 @@ const Create = () => {
                                 class="form-control"
                                 id="basic-default-name"
                                 placeholder="John Doe"
+                                ref={title}
                               />
                             </div>
                           </div>
@@ -268,7 +108,7 @@ const Create = () => {
                               class="col-sm-2 col-form-label"
                               for="basic-default-company"
                             >
-                              Company
+                              Type
                             </label>
                             <div class="col-sm-10">
                               <input
@@ -276,38 +116,28 @@ const Create = () => {
                                 class="form-control"
                                 id="basic-default-company"
                                 placeholder="ACME Inc."
+                               ref ={type}
                               />
                             </div>
                           </div>
                           <div class="row mb-3">
                             <label
                               class="col-sm-2 col-form-label"
-                              for="basic-default-email"
+                              for="basic-default-company"
                             >
-                              Email
+                              Location
                             </label>
                             <div class="col-sm-10">
-                              <div class="input-group input-group-merge">
-                                <input
-                                  type="text"
-                                  id="basic-default-email"
-                                  class="form-control"
-                                  placeholder="john.doe"
-                                  aria-label="john.doe"
-                                  aria-describedby="basic-default-email2"
-                                />
-                                <span
-                                  class="input-group-text"
-                                  id="basic-default-email2"
-                                >
-                                  @example.com
-                                </span>
-                              </div>
-                              <div class="form-text">
-                                You can use letters, numbers & periods
-                              </div>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="basic-default-company"
+                                placeholder="ACME Inc."
+                                ref={location}
+                              />
                             </div>
                           </div>
+
                           <div class="row mb-3">
                             <label
                               class="col-sm-2 col-form-label"
@@ -323,6 +153,7 @@ const Create = () => {
                                 placeholder="658 799 8941"
                                 aria-label="658 799 8941"
                                 aria-describedby="basic-default-phone"
+                                ref={phone}
                               />
                             </div>
                           </div>
@@ -331,7 +162,7 @@ const Create = () => {
                               class="col-sm-2 col-form-label"
                               for="basic-default-message"
                             >
-                              Message
+                              Description
                             </label>
                             <div class="col-sm-10">
                               <textarea
@@ -340,9 +171,94 @@ const Create = () => {
                                 placeholder="Hi, Do you have a moment to talk Joe?"
                                 aria-label="Hi, Do you have a moment to talk Joe?"
                                 aria-describedby="basic-icon-default-message2"
+                                ref={description}
                               ></textarea>
                             </div>
                           </div>
+
+                          <div class="row mb-3">
+                            <label
+                              class="col-sm-2 col-form-label"
+                              for="basic-default-phone"
+                            >
+                              Image
+                            </label>
+                            <div class="col-sm-10">
+                              <input
+                                type="file"
+                                id="basic-default-phone"
+                                class="form-control phone-mask"
+                                placeholder="658 799 8941"
+                                aria-label="658 799 8941"
+                                aria-describedby="basic-default-phone"
+                                ref={image}
+                              />
+                            </div>
+                          </div>
+
+                          <div class="row mb-3">
+                            <label
+                              class="col-sm-2 col-form-label"
+                              for="basic-default-phone"
+                            >
+                              Image 2
+                            </label>
+                            <div class="col-sm-10">
+                              <input
+                                type="file"
+                                id="basic-default-phone"
+                                class="form-control phone-mask"
+                                placeholder="658 799 8941"
+                                aria-label="658 799 8941"
+                                aria-describedby="basic-default-phone"
+                                ref={image_2}
+                              />
+                            </div>
+                          </div>
+
+
+                          <div class="row mb-3">
+                            <label
+                              class="col-sm-2 col-form-label"
+                              for="basic-default-phone"
+                            >
+                              Image 3
+                            </label>
+                            <div class="col-sm-10">
+                              <input
+                                type="file"
+                                id="basic-default-phone"
+                                class="form-control phone-mask"
+                                placeholder="658 799 8941"
+                                aria-label="658 799 8941"
+                                aria-describedby="basic-default-phone"
+                                ref={image_3}
+                              />
+                            </div>
+                          </div>
+
+
+                          <div class="row mb-3">
+                            <label
+                              class="col-sm-2 col-form-label"
+                              for="basic-default-phone"
+                            >
+                              Image 4
+                            </label>
+                            <div class="col-sm-10">
+                              <input
+                                type="file"
+                                id="basic-default-phone"
+                                class="form-control phone-mask"
+                                placeholder="658 799 8941"
+                                aria-label="658 799 8941"
+                                aria-describedby="basic-default-phone"
+                                ref={image_4}
+                              />
+                            </div>
+                          </div>
+
+
                           <div class="row justify-content-end">
                             <div class="col-sm-10">
                               <button type="submit" class="btn btn-primary">
@@ -356,7 +272,7 @@ const Create = () => {
                     </div>
                   </div>
                   {/* <!-- Basic with Icons --> */}
-                  <div class="col-xxl">
+                  {/* <div class="col-xxl">
                     <div class="card mb-4">
                       <div class="card-header d-flex align-items-center justify-content-between">
                         <h5 class="mb-0">Basic with Icons</h5>
@@ -511,60 +427,13 @@ const Create = () => {
                         </form>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               {/* <!-- / Content -->
 
           <!-- Footer --> */}
-              <footer class="content-footer footer bg-footer-theme">
-                <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                  <div class="mb-2 mb-md-0">
-                    ©
-                    <script>document.write(new Date().getFullYear());</script>
-                    , made with ❤️ by
-                    <a
-                      href="https://themeselection.com"
-                      target="_blank"
-                      class="footer-link fw-bolder"
-                    >
-                      ThemeSelection
-                    </a>
-                  </div>
-                  <div>
-                    <a
-                      href="https://themeselection.com/license/"
-                      class="footer-link me-4"
-                      target="_blank"
-                    >
-                      License
-                    </a>
-                    <a
-                      href="https://themeselection.com/"
-                      target="_blank"
-                      class="footer-link me-4"
-                    >
-                      More Themes
-                    </a>
-
-                    <a
-                      href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                      target="_blank"
-                      class="footer-link me-4"
-                    >
-                      Documentation
-                    </a>
-
-                    <a
-                      href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                      target="_blank"
-                      class="footer-link me-4"
-                    >
-                      Support
-                    </a>
-                  </div>
-                </div>
-              </footer>
+           <Footer />
               {/* <!-- / Footer --> */}
 
               <div class="content-backdrop fade"></div>
