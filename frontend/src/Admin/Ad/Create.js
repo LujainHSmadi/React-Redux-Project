@@ -1,21 +1,37 @@
-import { useDispatch, useSelector } from "react-redux";  
+import { useDispatch, useSelector } from "react-redux";
+import { useRef } from "react";
 import { addAd } from "../redux/adSlice";
 const Create = () => {
   const dispatch = useDispatch();
-  
-  
-    return (
-      <>
-        {/* <!-- Layout wrapper --> */}
-        <div class="layout-wrapper layout-content-navbar">
-          <div class="layout-container">
-            {/* <!-- Menu --> */}
+  const title = useRef();
+  const description = useRef();
+  const type = useRef();
+  const image = useRef();
+  const image_2 = useRef();
+  const image_3 = useRef();
+  const image_4 = useRef();
+  const phone = useRef();
+  const location = useRef();
+
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    console.log('form submitted');
+  }
+
+
+
+  return (
+    <>
+      {/* <!-- Layout wrapper --> */}
+      <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+          {/* <!-- Menu --> */}
 
           <aside
             id="layout-menu"
             class="layout-menu menu-vertical menu bg-menu-theme"
           >
-         
+
 
             <div class="menu-inner-shadow"></div>
 
@@ -230,7 +246,7 @@ const Create = () => {
                         </small>
                       </div>
                       <div class="card-body">
-                        <form>
+                        <form onSubmit={handelSubmit}>
                           <div class="row mb-3">
                             <label
                               class="col-sm-2 col-form-label"
@@ -335,6 +351,7 @@ const Create = () => {
                             </div>
                           </div>
                         </form>
+
                       </div>
                     </div>
                   </div>
