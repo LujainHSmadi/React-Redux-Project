@@ -1,8 +1,10 @@
+import Sidebar from "../layouts/Sidebar";
+import Footer from "../layouts/Footer";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAds } from "../redux/adSlice";
-import Sidebar from "../layouts/Sidebar";
-import Footer from "../layouts/Footer";
+
+
 const Table = () => {
   const dispatch = useDispatch();
   const ads = useSelector(state => state.ad);

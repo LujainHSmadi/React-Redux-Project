@@ -1,7 +1,62 @@
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { editAd } from "../redux/adSlice";
 import Sidebar from "../layouts/Sidebar";
 import Footer from "../layouts/Footer";
-
 const Edit = () => {
+  const dispatch = useDispatch();
+  const allAds = useSelector(state => state.ad.ads);
+  const { id } = useParams();
+  let navigate = useNavigate();
+  const [addData, setaddData] = useState({ title: "", description: "", type: "", phone: "", location: "", image: "",image_2:"",image_3:"",image_4:"" });
+  let obj = {};
+
+  allAds.forEach(element => {
+    if (element.id == id) {
+      obj['id'] = element.id;
+      obj['title'] = element.name;
+      obj['description'] = element.description;
+      obj['type'] = element.type;
+      obj['image'] = element.image;
+      obj['image_2'] = element.image_2;
+      obj['image_3'] = element.image_2;
+      obj['image_4'] = element.image_4;
+      obj['phone'] = element.phone;
+      obj['location'] = element.location;
+
+    }
+  });
+
+  useEffect(() => {
+    setaddData(obj)
+  }, [allAds]);
+
+
+  const handleChange = (e) => {
+    e.preventDefault()
+    // const value = e.target.value;
+    // setaddData({
+    //   ...addData,
+    //   [e.target.name]: value
+    // })
+  }
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // const value = e.target.value;
+    // setaddData({
+    //   ...addData,
+
+    // })
+
+    // dispatch(updateItem(addData));
+    // navigate('/main', { replace: true })
+  }
+
+
+
   return (
 <>
       {/* <!-- Layout wrapper --> */}
@@ -248,5 +303,5 @@ const Edit = () => {
       {/* <!-- / Layout wrapper --> */}
     </>
   );
-};
+}
 export default Edit;
