@@ -1,4 +1,20 @@
+
+import { Link } from "react-router-dom";
 const NavBar = () => {
+  let isLoggedIn = JSON.parse(localStorage.getItem("user"));
+
+  
+  function logout() {
+    swal({
+      title: "logging out!",
+      text: "Are you sure you want to log out!",
+      icon: "warning",
+      button: "sure!",
+    }).then(function () {
+      window.location.href = "/";
+    });
+    localStorage.clear();
+  }
   return (
     <>
       <div class="topbar d-none d-sm-block">
@@ -98,11 +114,32 @@ const NavBar = () => {
 
             {/* <!-- Search bar.// --> */}
             <ul class="navbar-nav">
-              <li>
+              {/* <li>
                 <a href="#" class="btn btn-primary text-capitalize">
                   <i class="fa fa-plus-circle mr-1"></i> add listing
                 </a>
-              </li>
+              </li> */}
+              {!isLoggedIn ? (
+                <li className="nav-item">
+                  <a className="nav-link" href="/login">
+                    Log in
+                  </a>
+                </li>
+              ) : null}
+
+              {isLoggedIn ? (
+                <>
+                  <Link to={"/users/" + isLoggedIn.logged_user.id}>
+                    Profile
+                    
+                  </Link>
+                  <li className="nav-item">
+                    <a className="nav-link" onClick={logout}>
+                      Log out
+                    </a>
+                  </li>
+                </>
+              ) : null}
             </ul>
             {/* <!-- Search content bar.// --> */}
             <div class="top-search navigation-shadow">

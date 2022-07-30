@@ -23,6 +23,8 @@ import CreateComments from "./Admin/Comments/Create";
 import TableComments from "./Admin/Comments/Table";
 import EditComments from "./Admin/Comments/Edit";
 import Blog from "./Components/Blog";
+import SignUp from './Components/Register';
+import Profile from "./Components/Profile";
 
 function App() {
   return (
@@ -39,10 +41,13 @@ function App() {
           <Route path="/AgentsDetail" element={<AgentsDetail />} />
           <Route path="/Agents" element={<Agents />} />
           <Route path="login" element={<SignIn />} />
+          <Route path="register" element={<SignUp />} />
           <Route path="blog" element={<Blog />} />
+          <Route path="users/:id" element={<Profile />} />
+         
 
           {/* admin Routes */}
-           {/* User */}
+          {/* User */}
           <Route path="Admin" element={<Admin />} />
           <Route path="usercreate" element={<CreateUser />} />
           <Route path="useredit" element={<EditUser />} />
@@ -51,11 +56,11 @@ function App() {
           <Route path="commentcreate" element={<CreateComments />} />
           <Route path="commentedit" element={<TableComments />} />
           <Route path="commenttable" element={<EditComments />} />
-            {/* Ads */}
-          <Route path="adcreate" element={<CreateAd/>} />
+          {/* Ads */}
+          <Route path="adcreate" element={<CreateAd />} />
           <Route path="adedit" element={<EditAd />} />
           <Route path="adtable" element={<TableAd />} />
-            {/* Posts */}
+          {/* Posts */}
           <Route path="postcreate" element={<CreatePost />} />
           <Route path="postedit" element={<EditPost />} />
           <Route path="posttable" element={<TablePost />} />

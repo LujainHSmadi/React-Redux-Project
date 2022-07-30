@@ -9,7 +9,7 @@ import thunk from "redux-thunk"; // put it in middleware
 import {store} from "./Admin/redux/store/store";
 import RootReducer from "./Store/Reducer/SignIn"; // import rootReducer from my folder store
 // import { createStore, applyMiddleware, compose } from "redux";//create store
-const middleware = [thunk];
+// const middleware = [thunk];
 
 // const store = createStore(
 //   RootReducer,

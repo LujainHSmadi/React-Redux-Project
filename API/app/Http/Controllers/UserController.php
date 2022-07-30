@@ -93,30 +93,26 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-        ]);
-        // $user->name = $request->get('name');
-        // $user->email = $request->get('email');
-        // $user->password = $request->get('password');
-        // $user->image = $request->get('image');
-        // $user->save();
-
-        $newUser = $request->all();
-
-        if ($request->file('image')) {
-            $file = $request->file('image');
-            $filename = date('YmdHi') . $file->getClientOriginalName();
-            $file->move(public_path('Image'), $filename);
-            $newUser['image'] = "$filename";
-
-        }
-
-        $updateUser = User::update($newUser);
-        return response()->json($updateUser);
+     $id=$request->id;
+        $user = User::find($id);
+        // if($request->hasfile('image')){
+        //     $file=$request->file('image');
+        //     $ex=$file->getClientOriginalExtension();
+        //     $filename=time().'.'.$ex;
+        //     $file->move('uploads/clothes',$filename);
+        //     $cloth->image=$filename;
+        // }
+    
+        $user->name=$request->name;
+          $user->email=$request->email;
+          $user->image=$request->image	;
+       
+     
+        $user->save();
+         return response()->json([
+            'status' => true,
+            'message' => "User save successfully!",
+        ], 200);
 
     }
 
