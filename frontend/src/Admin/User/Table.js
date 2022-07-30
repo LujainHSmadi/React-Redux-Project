@@ -1,28 +1,33 @@
 import Sidebar from "../layouts/Sidebar";
 import Footer from "../layouts/Footer";
 import { useEffect } from "react";
-import {getUsers} from "../redux/userSlice"
-import { useDispatch,useSelector} from "react-redux";
+import { getUsers } from "../redux/userSlice"
+import { useDispatch, useSelector } from "react-redux";
 
 
-const Table =()=>{
+const Table = () => {
+
   const dispatch = useDispatch();
-  const user=useSelector((state)=>state.users);
+  const users = useSelector((state) => state.user.users);
+console.log(users);
 
   useEffect(() => {
     dispatch(getUsers())
   }, [dispatch])
 
-  console.log(user);
+
   
   return (
     <>
+
+
+
       {/* <!-- Layout wrapper --> */}
       <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
           {/* <!-- Menu --> */}
 
-         <Sidebar />
+          <Sidebar />
           {/* <!-- / Menu -->
 
 
@@ -30,13 +35,13 @@ const Table =()=>{
           <div class="layout-page">
             {/* <!-- Navbar --> */}
 
-          
-            
-               
-                
-               
-           
-         
+
+
+
+
+
+
+
 
             {/* <!-- / Navbar --> */}
 
@@ -64,34 +69,16 @@ const Table =()=>{
                         </tr>
                       </thead>
                       <tbody class="table-border-bottom-0">
-                        <tr>
-                          <td>
-                            <i class="fab fa-angular fa-lg text-danger me-3"></i>{" "}
-                            <strong>Angular Project</strong>
-                          </td>
-                          <td>Albert Cook</td>
-                          <td>
 
-                          </td>
-                          <td>
-                            <span class="badge bg-label-primary me-1">
-                            
-                            </span>
-                          </td>
-                          <td>
-                                <a 
-                                  href="/">
-                                  <i class="bx bx-edit-alt me-1 "></i> 
-                                </a>
-                                <a
-                                 
-                                  href="/">
-                                  <i class="bx bx-trash me-2"></i> 
-                                </a>             
+                     
+                      
+              
                           
-                          </td>
-                        </tr>
-                    
+                             
+                            
+
+                        
+
                       </tbody>
                     </table>
                   </div>
@@ -100,12 +87,12 @@ const Table =()=>{
 
                 <hr class="my-5" />
 
-               
+
               </div>
               {/* <!-- / Content -->
 
             <!-- Footer --> */}
-             <Footer />
+              <Footer />
               {/* <!-- / Footer --> */}
 
               <div class="content-backdrop fade"></div>
@@ -122,6 +109,6 @@ const Table =()=>{
     </>
   );
 }
-   
+
 
 export default Table

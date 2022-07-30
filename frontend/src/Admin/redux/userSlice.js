@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 
-export const getUsers = createAsyncThunk('user/getuser', async()=>{
+export const getUsers = createAsyncThunk('user/getUsers', async()=>{
 
 const response = await fetch('http://127.0.0.1:8000/api/users');
 const result  = await response.json();
@@ -24,7 +24,7 @@ const userSlice = createSlice({
             console.log(action);
         },
         [getUsers.fulfilled]: (state, action) => {
-            state.users = action.payload;
+            state.ads = action.payload;
             state.loading = false;
             console.log(state.users);
         },
