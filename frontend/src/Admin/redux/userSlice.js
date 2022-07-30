@@ -24,7 +24,7 @@ const userSlice = createSlice({
             console.log(action);
         },
         [getUsers.fulfilled]: (state, action) => {
-            state.users = action.payload;
+            state.ads = action.payload;
             state.loading = false;
             console.log(state.users);
         },
