@@ -52,13 +52,10 @@ function App() {
           <Route path="login" element={<SignIn />} />
           <Route path="register" element={<SignUp />} />
           <Route path="blog" element={<Blog />} />
-<<<<<<< HEAD
           <Route path="users/:id" element={<Profile />} />
          
 
-=======
       
->>>>>>> 31608ed1343a288ed3f275bd00bc8fb459bc2d61
           {/* admin Routes */}
           {/* User */}
           <Route path="Admin" element={<Admin />} />
