@@ -1,4 +1,59 @@
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { editAd } from "../redux/adSlice";
 const Edit = () => {
+  const dispatch = useDispatch();
+  const allAds = useSelector(state => state.ad.ads);
+  const { id } = useParams();
+  let navigate = useNavigate();
+  const [itemData, setItemData] = useState({ title: "", description: "", type: "", phone: "", location: "", image: "",image_2:"",image_3:"",image_4:"" });
+  let obj = {};
+
+  allAds.forEach(element => {
+    if (element.id == id) {
+      obj['id'] = element.id;
+      obj['title'] = element.name;
+      obj['description'] = element.description;
+      obj['type'] = element.type;
+      obj['image'] = element.image;
+      obj['image_2'] = element.image_2;
+      obj['image_3'] = element.image_2;
+      obj['image_4'] = element.image_4;
+      obj['phone'] = element.phone;
+      obj['location'] = element.location;
+
+    }
+  });
+
+  useEffect(() => {
+    setItemData(obj)
+  }, [allItems]);
+
+
+  const handleChange = (e) => {
+    e.preventDefault()
+    const value = e.target.value;
+    setItemData({
+      ...itemData,
+      [e.target.name]: value
+    })
+  }
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const value = e.target.value;
+    setItemData({
+      ...itemData,
+
+    })
+
+    dispatch(updateItem(itemData));
+    navigate('/main', { replace: true })
+  }
+
+
+
   return (
     <>
       {/* <!-- Layout wrapper --> */}
@@ -10,21 +65,7 @@ const Edit = () => {
             id="layout-menu"
             class="layout-menu menu-vertical menu bg-menu-theme"
           >
-            <div class="app-brand demo">
-              <a href="index.html" class="app-brand-link">
-                <span class="app-brand-logo demo"></span>
-                <span class="app-brand-text demo menu-text fw-bolder ms-2">
-                  Sneat
-                </span>
-              </a>
 
-              <a
-                href="javascript:void(0);"
-                class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none"
-              >
-                <i class="bx bx-chevron-left bx-sm align-middle"></i>
-              </a>
-            </div>
 
             <div class="menu-inner-shadow"></div>
 
@@ -176,9 +217,9 @@ const Edit = () => {
               </li>
 
               {/* <!-- Forms & Tables -->
-              <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">Forms &amp; Tables</span>
-              </li> */}
+            <li class="menu-header small text-uppercase">
+              <span class="menu-header-text">Forms &amp; Tables</span>
+            </li> */}
               {/* <!-- Forms --> */}
               <li class="menu-item">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -205,36 +246,13 @@ const Edit = () => {
                   </li>
                 </ul>
               </li>
-              {/* <!-- Misc --> */}
-              <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">Misc</span>
-              </li>
-              <li class="menu-item">
-                <a
-                  href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                  target="_blank"
-                  class="menu-link"
-                >
-                  <i class="menu-icon tf-icons bx bx-support"></i>
-                  <div data-i18n="Support">Support</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a
-                  href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                  target="_blank"
-                  class="menu-link"
-                >
-                  <i class="menu-icon tf-icons bx bx-file"></i>
-                  <div data-i18n="Documentation">Documentation</div>
-                </a>
-              </li>
+
             </ul>
           </aside>
           {/* <!-- / Menu -->
 
 
-        <!-- Layout container --> */}
+      <!-- Layout container --> */}
           <div class="layout-page">
             {/* <!-- Navbar --> */}
 
@@ -246,8 +264,7 @@ const Edit = () => {
 
               <div class="container-xxl flex-grow-1 container-p-y">
                 <h4 class="fw-bold py-3 mb-4">
-                  <span class="text-muted fw-light">Forms/</span> Horizontal
-                  Layouts
+                  <span class="text-muted fw-light">Ads Form</span>
                 </h4>
 
                 {/* <!-- Basic Layout & Basic with Icons --> */}
@@ -256,19 +273,19 @@ const Edit = () => {
                   <div class="col-xxl">
                     <div class="card mb-4">
                       <div class="card-header d-flex align-items-center justify-content-between">
-                        <h5 class="mb-0">Basic Layout</h5>
+                        <h5 class="mb-0">Create Ads</h5>
                         <small class="text-muted float-end">
                           Default label
                         </small>
                       </div>
                       <div class="card-body">
-                        <form>
+                        <form onSubmit={handelSubmit}>
                           <div class="row mb-3">
                             <label
                               class="col-sm-2 col-form-label"
                               for="basic-default-name"
                             >
-                              Name
+                              Title
                             </label>
                             <div class="col-sm-10">
                               <input
@@ -276,6 +293,7 @@ const Edit = () => {
                                 class="form-control"
                                 id="basic-default-name"
                                 placeholder="John Doe"
+                                ref={title}
                               />
                             </div>
                           </div>
@@ -284,7 +302,7 @@ const Edit = () => {
                               class="col-sm-2 col-form-label"
                               for="basic-default-company"
                             >
-                              Company
+                              Type
                             </label>
                             <div class="col-sm-10">
                               <input
@@ -292,38 +310,28 @@ const Edit = () => {
                                 class="form-control"
                                 id="basic-default-company"
                                 placeholder="ACME Inc."
+                                ref={type}
                               />
                             </div>
                           </div>
                           <div class="row mb-3">
                             <label
                               class="col-sm-2 col-form-label"
-                              for="basic-default-email"
+                              for="basic-default-company"
                             >
-                              Email
+                              Location
                             </label>
                             <div class="col-sm-10">
-                              <div class="input-group input-group-merge">
-                                <input
-                                  type="text"
-                                  id="basic-default-email"
-                                  class="form-control"
-                                  placeholder="john.doe"
-                                  aria-label="john.doe"
-                                  aria-describedby="basic-default-email2"
-                                />
-                                <span
-                                  class="input-group-text"
-                                  id="basic-default-email2"
-                                >
-                                  @example.com
-                                </span>
-                              </div>
-                              <div class="form-text">
-                                You can use letters, numbers & periods
-                              </div>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="basic-default-company"
+                                placeholder="ACME Inc."
+                                ref={location}
+                              />
                             </div>
                           </div>
+
                           <div class="row mb-3">
                             <label
                               class="col-sm-2 col-form-label"
@@ -339,6 +347,7 @@ const Edit = () => {
                                 placeholder="658 799 8941"
                                 aria-label="658 799 8941"
                                 aria-describedby="basic-default-phone"
+                                ref={phone}
                               />
                             </div>
                           </div>
@@ -347,7 +356,7 @@ const Edit = () => {
                               class="col-sm-2 col-form-label"
                               for="basic-default-message"
                             >
-                              Message
+                              Description
                             </label>
                             <div class="col-sm-10">
                               <textarea
@@ -356,9 +365,94 @@ const Edit = () => {
                                 placeholder="Hi, Do you have a moment to talk Joe?"
                                 aria-label="Hi, Do you have a moment to talk Joe?"
                                 aria-describedby="basic-icon-default-message2"
+                                ref={description}
                               ></textarea>
                             </div>
                           </div>
+
+                          <div class="row mb-3">
+                            <label
+                              class="col-sm-2 col-form-label"
+                              for="basic-default-phone"
+                            >
+                              Image
+                            </label>
+                            <div class="col-sm-10">
+                              <input
+                                type="file"
+                                id="basic-default-phone"
+                                class="form-control phone-mask"
+                                placeholder="658 799 8941"
+                                aria-label="658 799 8941"
+                                aria-describedby="basic-default-phone"
+                                ref={image}
+                              />
+                            </div>
+                          </div>
+
+                          <div class="row mb-3">
+                            <label
+                              class="col-sm-2 col-form-label"
+                              for="basic-default-phone"
+                            >
+                              Image 2
+                            </label>
+                            <div class="col-sm-10">
+                              <input
+                                type="file"
+                                id="basic-default-phone"
+                                class="form-control phone-mask"
+                                placeholder="658 799 8941"
+                                aria-label="658 799 8941"
+                                aria-describedby="basic-default-phone"
+                                ref={image_2}
+                              />
+                            </div>
+                          </div>
+
+
+                          <div class="row mb-3">
+                            <label
+                              class="col-sm-2 col-form-label"
+                              for="basic-default-phone"
+                            >
+                              Image 3
+                            </label>
+                            <div class="col-sm-10">
+                              <input
+                                type="file"
+                                id="basic-default-phone"
+                                class="form-control phone-mask"
+                                placeholder="658 799 8941"
+                                aria-label="658 799 8941"
+                                aria-describedby="basic-default-phone"
+                                ref={image_3}
+                              />
+                            </div>
+                          </div>
+
+
+                          <div class="row mb-3">
+                            <label
+                              class="col-sm-2 col-form-label"
+                              for="basic-default-phone"
+                            >
+                              Image 4
+                            </label>
+                            <div class="col-sm-10">
+                              <input
+                                type="file"
+                                id="basic-default-phone"
+                                class="form-control phone-mask"
+                                placeholder="658 799 8941"
+                                aria-label="658 799 8941"
+                                aria-describedby="basic-default-phone"
+                                ref={image_4}
+                              />
+                            </div>
+                          </div>
+
+
                           <div class="row justify-content-end">
                             <div class="col-sm-10">
                               <button type="submit" class="btn btn-primary">
@@ -367,176 +461,22 @@ const Edit = () => {
                             </div>
                           </div>
                         </form>
+
                       </div>
                     </div>
                   </div>
-                  {/* <!-- Basic with Icons --> */}
-                  <div class="col-xxl">
-                    <div class="card mb-4">
-                      <div class="card-header d-flex align-items-center justify-content-between">
-                        <h5 class="mb-0">Basic with Icons</h5>
-                        <small class="text-muted float-end">
-                          Merged input group
-                        </small>
-                      </div>
-                      <div class="card-body">
-                        <form>
-                          <div class="row mb-3">
-                            <label
-                              class="col-sm-2 col-form-label"
-                              for="basic-icon-default-fullname"
-                            >
-                              Name
-                            </label>
-                            <div class="col-sm-10">
-                              <div class="input-group input-group-merge">
-                                <span
-                                  id="basic-icon-default-fullname2"
-                                  class="input-group-text"
-                                >
-                                  <i class="bx bx-user"></i>
-                                </span>
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  id="basic-icon-default-fullname"
-                                  placeholder="John Doe"
-                                  aria-label="John Doe"
-                                  aria-describedby="basic-icon-default-fullname2"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label
-                              class="col-sm-2 col-form-label"
-                              for="basic-icon-default-company"
-                            >
-                              Company
-                            </label>
-                            <div class="col-sm-10">
-                              <div class="input-group input-group-merge">
-                                <span
-                                  id="basic-icon-default-company2"
-                                  class="input-group-text"
-                                >
-                                  <i class="bx bx-buildings"></i>
-                                </span>
-                                <input
-                                  type="text"
-                                  id="basic-icon-default-company"
-                                  class="form-control"
-                                  placeholder="ACME Inc."
-                                  aria-label="ACME Inc."
-                                  aria-describedby="basic-icon-default-company2"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label
-                              class="col-sm-2 col-form-label"
-                              for="basic-icon-default-email"
-                            >
-                              Email
-                            </label>
-                            <div class="col-sm-10">
-                              <div class="input-group input-group-merge">
-                                <span class="input-group-text">
-                                  <i class="bx bx-envelope"></i>
-                                </span>
-                                <input
-                                  type="text"
-                                  id="basic-icon-default-email"
-                                  class="form-control"
-                                  placeholder="john.doe"
-                                  aria-label="john.doe"
-                                  aria-describedby="basic-icon-default-email2"
-                                />
-                                <span
-                                  id="basic-icon-default-email2"
-                                  class="input-group-text"
-                                >
-                                  @example.com
-                                </span>
-                              </div>
-                              <div class="form-text">
-                                You can use letters, numbers & periods
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label
-                              class="col-sm-2 form-label"
-                              for="basic-icon-default-phone"
-                            >
-                              Phone No
-                            </label>
-                            <div class="col-sm-10">
-                              <div class="input-group input-group-merge">
-                                <span
-                                  id="basic-icon-default-phone2"
-                                  class="input-group-text"
-                                >
-                                  <i class="bx bx-phone"></i>
-                                </span>
-                                <input
-                                  type="text"
-                                  id="basic-icon-default-phone"
-                                  class="form-control phone-mask"
-                                  placeholder="658 799 8941"
-                                  aria-label="658 799 8941"
-                                  aria-describedby="basic-icon-default-phone2"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label
-                              class="col-sm-2 form-label"
-                              for="basic-icon-default-message"
-                            >
-                              Message
-                            </label>
-                            <div class="col-sm-10">
-                              <div class="input-group input-group-merge">
-                                <span
-                                  id="basic-icon-default-message2"
-                                  class="input-group-text"
-                                >
-                                  <i class="bx bx-comment"></i>
-                                </span>
-                                <textarea
-                                  id="basic-icon-default-message"
-                                  class="form-control"
-                                  placeholder="Hi, Do you have a moment to talk Joe?"
-                                  aria-label="Hi, Do you have a moment to talk Joe?"
-                                  aria-describedby="basic-icon-default-message2"
-                                ></textarea>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row justify-content-end">
-                            <div class="col-sm-10">
-                              <button type="submit" class="btn btn-primary">
-                                Send
-                              </button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
+                 
                 </div>
               </div>
               {/* <!-- / Content -->
 
-            <!-- Footer --> */}
+          <!-- Footer --> */}
               <footer class="content-footer footer bg-footer-theme">
                 <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                   <div class="mb-2 mb-md-0">
-                    ©<script>document.write(new Date().getFullYear());</script>,
-                    made with ❤️ by
+                    ©
+                    <script>document.write(new Date().getFullYear());</script>
+                    , made with ❤️ by LA-AEL
                     <a
                       href="https://themeselection.com"
                       target="_blank"

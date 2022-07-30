@@ -1,22 +1,46 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { addAd } from "../redux/adSlice";
 const Create = () => {
-  const dispatch = useDispatch();
-  const title = useRef();
-  const description = useRef();
-  const type = useRef();
-  const image = useRef();
-  const image_2 = useRef();
-  const image_3 = useRef();
-  const image_4 = useRef();
-  const phone = useRef();
-  const location = useRef();
 
+  const dispatch = useDispatch();
+  const title = useRef(null);
+  const description = useRef(null);
+  const type = useRef(null);
+  const image = useRef(null);
+  const image_2 = useRef(null);
+  const image_3 = useRef(null);
+  const image_4 = useRef(null);
+  const phone = useRef(null);
+  const location = useRef(null);
+  const ads = useSelector(state => state.ad);
   const handelSubmit = (e) => {
     e.preventDefault();
-    console.log('form submitted');
+    const formData = new FormData();
+    formData.append("title", title.current.value);
+    formData.append("description", description.current.value);
+    formData.append("type", type.current.value);
+    formData.append("image", image.current.files[0]);
+    formData.append("image_2", image_2.current.files[0]);
+    formData.append("image_3", image_3.current.files[0]);
+    formData.append("image_4", image_4.current.files[0]);
+    formData.append("phone", phone.current.value);
+    formData.append("location", location.current.value);
+    console.log(formData);
+    console.log(image.current.files[0]);
+    dispatch(addAd(formData));
+    title.current.value = "";
+    description.current.value = "";
+    type.current.value = "";
+    image.current.value = "";
+    image_2.current.value = "";
+    image_3.current.value = "";
+    image_4.current.value = "";
+    phone.current.value = "";
+    location.current.value = "";
   }
+
+
 
 
 
@@ -230,8 +254,7 @@ const Create = () => {
 
               <div class="container-xxl flex-grow-1 container-p-y">
                 <h4 class="fw-bold py-3 mb-4">
-                  <span class="text-muted fw-light">Forms/</span> Horizontal
-                  Layouts
+                  <span class="text-muted fw-light">Ads Form</span> 
                 </h4>
 
                 {/* <!-- Basic Layout & Basic with Icons --> */}
@@ -240,7 +263,7 @@ const Create = () => {
                   <div class="col-xxl">
                     <div class="card mb-4">
                       <div class="card-header d-flex align-items-center justify-content-between">
-                        <h5 class="mb-0">Basic Layout</h5>
+                        <h5 class="mb-0">Create Ads</h5>
                         <small class="text-muted float-end">
                           Default label
                         </small>
@@ -252,7 +275,7 @@ const Create = () => {
                               class="col-sm-2 col-form-label"
                               for="basic-default-name"
                             >
-                              Name
+                              Title
                             </label>
                             <div class="col-sm-10">
                               <input
@@ -260,6 +283,7 @@ const Create = () => {
                                 class="form-control"
                                 id="basic-default-name"
                                 placeholder="John Doe"
+                                ref={title}
                               />
                             </div>
                           </div>
@@ -268,7 +292,7 @@ const Create = () => {
                               class="col-sm-2 col-form-label"
                               for="basic-default-company"
                             >
-                              Company
+                              Type
                             </label>
                             <div class="col-sm-10">
                               <input
@@ -276,38 +300,28 @@ const Create = () => {
                                 class="form-control"
                                 id="basic-default-company"
                                 placeholder="ACME Inc."
+                               ref ={type}
                               />
                             </div>
                           </div>
                           <div class="row mb-3">
                             <label
                               class="col-sm-2 col-form-label"
-                              for="basic-default-email"
+                              for="basic-default-company"
                             >
-                              Email
+                              Location
                             </label>
                             <div class="col-sm-10">
-                              <div class="input-group input-group-merge">
-                                <input
-                                  type="text"
-                                  id="basic-default-email"
-                                  class="form-control"
-                                  placeholder="john.doe"
-                                  aria-label="john.doe"
-                                  aria-describedby="basic-default-email2"
-                                />
-                                <span
-                                  class="input-group-text"
-                                  id="basic-default-email2"
-                                >
-                                  @example.com
-                                </span>
-                              </div>
-                              <div class="form-text">
-                                You can use letters, numbers & periods
-                              </div>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="basic-default-company"
+                                placeholder="ACME Inc."
+                                ref={location}
+                              />
                             </div>
                           </div>
+
                           <div class="row mb-3">
                             <label
                               class="col-sm-2 col-form-label"
@@ -323,6 +337,7 @@ const Create = () => {
                                 placeholder="658 799 8941"
                                 aria-label="658 799 8941"
                                 aria-describedby="basic-default-phone"
+                                ref={phone}
                               />
                             </div>
                           </div>
@@ -331,7 +346,7 @@ const Create = () => {
                               class="col-sm-2 col-form-label"
                               for="basic-default-message"
                             >
-                              Message
+                              Description
                             </label>
                             <div class="col-sm-10">
                               <textarea
@@ -340,9 +355,94 @@ const Create = () => {
                                 placeholder="Hi, Do you have a moment to talk Joe?"
                                 aria-label="Hi, Do you have a moment to talk Joe?"
                                 aria-describedby="basic-icon-default-message2"
+                                ref={description}
                               ></textarea>
                             </div>
                           </div>
+
+                          <div class="row mb-3">
+                            <label
+                              class="col-sm-2 col-form-label"
+                              for="basic-default-phone"
+                            >
+                              Image
+                            </label>
+                            <div class="col-sm-10">
+                              <input
+                                type="file"
+                                id="basic-default-phone"
+                                class="form-control phone-mask"
+                                placeholder="658 799 8941"
+                                aria-label="658 799 8941"
+                                aria-describedby="basic-default-phone"
+                                ref={image}
+                              />
+                            </div>
+                          </div>
+
+                          <div class="row mb-3">
+                            <label
+                              class="col-sm-2 col-form-label"
+                              for="basic-default-phone"
+                            >
+                              Image 2
+                            </label>
+                            <div class="col-sm-10">
+                              <input
+                                type="file"
+                                id="basic-default-phone"
+                                class="form-control phone-mask"
+                                placeholder="658 799 8941"
+                                aria-label="658 799 8941"
+                                aria-describedby="basic-default-phone"
+                                ref={image_2}
+                              />
+                            </div>
+                          </div>
+
+
+                          <div class="row mb-3">
+                            <label
+                              class="col-sm-2 col-form-label"
+                              for="basic-default-phone"
+                            >
+                              Image 3
+                            </label>
+                            <div class="col-sm-10">
+                              <input
+                                type="file"
+                                id="basic-default-phone"
+                                class="form-control phone-mask"
+                                placeholder="658 799 8941"
+                                aria-label="658 799 8941"
+                                aria-describedby="basic-default-phone"
+                                ref={image_3}
+                              />
+                            </div>
+                          </div>
+
+
+                          <div class="row mb-3">
+                            <label
+                              class="col-sm-2 col-form-label"
+                              for="basic-default-phone"
+                            >
+                              Image 4
+                            </label>
+                            <div class="col-sm-10">
+                              <input
+                                type="file"
+                                id="basic-default-phone"
+                                class="form-control phone-mask"
+                                placeholder="658 799 8941"
+                                aria-label="658 799 8941"
+                                aria-describedby="basic-default-phone"
+                                ref={image_4}
+                              />
+                            </div>
+                          </div>
+
+
                           <div class="row justify-content-end">
                             <div class="col-sm-10">
                               <button type="submit" class="btn btn-primary">
@@ -356,7 +456,7 @@ const Create = () => {
                     </div>
                   </div>
                   {/* <!-- Basic with Icons --> */}
-                  <div class="col-xxl">
+                  {/* <div class="col-xxl">
                     <div class="card mb-4">
                       <div class="card-header d-flex align-items-center justify-content-between">
                         <h5 class="mb-0">Basic with Icons</h5>
@@ -511,7 +611,7 @@ const Create = () => {
                         </form>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               {/* <!-- / Content -->
