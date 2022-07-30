@@ -16,7 +16,7 @@ import CreateUser from "./Admin/User/Create";
 import TableUser  from "./Admin/User/Table";
 import EditUser  from "./Admin/User/Edit";
 import CreateAd from "./Admin/Ad/Create";
-import TableAd from "./Admin/Ad/Table";
+import Table from "./Admin/Ad/Table";
 import EditAd from "./Admin/Ad/Edit";
 import CreatePost from "./Admin/Post/Create";
 import TablePost from "./Admin/Post/Table";
@@ -52,11 +52,11 @@ function App() {
           {/* Ads */}
           <Route path="commentcreate" element={<CreateAd />} />
           <Route path="commentedit" element={<EditAd />} />
-          <Route path="commenttable" element={<TableAd />} />
+          <Route path="adtable" element={<Table />} />
             {/* Comments */}
           <Route path="adcreate" element={<CreateComments />} />
           <Route path="adedit" element={<EditComments />} />
-          <Route path="adtable" element={<TableComments />} />
+          <Route path="commenttable" element={<TableComments />} />
             {/* Posts */}
           <Route path="postcreate" element={<CreatePost />} />
           <Route path="postedit" element={<EditPost />} />
