@@ -12,7 +12,7 @@ export const addAd = createAsyncThunk('ad/addAd', async (data, thunkAPI) => {
     try {
         const response = await axios.post('http://127.0.0.1:8000/api/ads', data);
         const ad = await response.data;
-        console.log('add', ad);
+        // console.log('add', ad);
         return ad;
     }
     catch (error) {
