@@ -28,6 +28,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+     
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -40,7 +41,7 @@ function App() {
           <Route path="/Agents" element={<Agents />} />
           <Route path="login" element={<SignIn />} />
           <Route path="blog" element={<Blog />} />
-
+      
           {/* admin Routes */}
            {/* User */}
           <Route path="Admin" element={<Admin />} />

@@ -1,25 +1,18 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useRef } from "react";
-import { addAd } from "../redux/adSlice";
-const Create = () => {
+import Sidebar from "../layouts/Sidebar";
+import Footer from "../layouts/Footer";
+import { getAds } from "../redux/adSlice";
+const Table = () => {
   const dispatch = useDispatch();
-  const title = useRef();
-  const description = useRef();
-  const type = useRef();
-  const image = useRef();
-  const image_2 = useRef();
-  const image_3 = useRef();
-  const image_4 = useRef();
-  const phone = useRef();
-  const location = useRef();
+  const ads = useSelector(state => state.ad);
+  const loading = useSelector(state => state.ad.loading);
 
-  const handelSubmit = (e) => {
-    e.preventDefault();
-    console.log('form submitted');
-  }
+  useEffect(() => {
+    dispatch(getAds());
 
-
-
+  }, [dispatch]);
+  console.log(ads);
   return (
     <>
       {/* <!-- Layout wrapper --> */}
@@ -27,198 +20,13 @@ const Create = () => {
         <div class="layout-container">
           {/* <!-- Menu --> */}
 
-          <aside
-            id="layout-menu"
-            class="layout-menu menu-vertical menu bg-menu-theme"
-          >
 
+          <Sidebar />
 
-            <div class="menu-inner-shadow"></div>
-
-            <ul class="menu-inner py-1">
-              {/* <!-- Dashboard --> */}
-              <li class="menu-item">
-                <a href="index.html" class="menu-link">
-                  <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                  <div data-i18n="Analytics">Dashboard</div>
-                </a>
-              </li>
-
-              {/* <!-- Layouts --> */}
-              <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-layout"></i>
-                  <div data-i18n="Layouts">Layouts</div>
-                </a>
-
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a href="layouts-without-menu.html" class="menu-link">
-                      <div data-i18n="Without menu">Without menu</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="layouts-without-navbar.html" class="menu-link">
-                      <div data-i18n="Without navbar">Without navbar</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="layouts-container.html" class="menu-link">
-                      <div data-i18n="Container">Container</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="layouts-fluid.html" class="menu-link">
-                      <div data-i18n="Fluid">Fluid</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="layouts-blank.html" class="menu-link">
-                      <div data-i18n="Blank">Blank</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">Pages</span>
-              </li>
-              <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                  <div data-i18n="Account Settings">Account Settings</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a
-                      href="pages-account-settings-account.html"
-                      class="menu-link"
-                    >
-                      <div data-i18n="Account">Account</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a
-                      href="pages-account-settings-notifications.html"
-                      class="menu-link"
-                    >
-                      <div data-i18n="Notifications">Notifications</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a
-                      href="pages-account-settings-connections.html"
-                      class="menu-link"
-                    >
-                      <div data-i18n="Connections">Connections</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                  <div data-i18n="Authentications">Authentications</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a
-                      href="auth-login-basic.html"
-                      class="menu-link"
-                      target="_blank"
-                    >
-                      <div data-i18n="Basic">Login</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a
-                      href="auth-register-basic.html"
-                      class="menu-link"
-                      target="_blank"
-                    >
-                      <div data-i18n="Basic">Register</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a
-                      href="auth-forgot-password-basic.html"
-                      class="menu-link"
-                      target="_blank"
-                    >
-                      <div data-i18n="Basic">Forgot Password</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              {/* <!-- Forms & Tables --> */}
-              <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">Forms &amp; Tables</span>
-              </li>
-              {/* <!-- Forms --> */}
-              <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-detail"></i>
-                  <div data-i18n="Form Elements">Posts</div>
-                </a>
-              </li>
-              <li class="menu-item active open">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-detail"></i>
-                  <div data-i18n="Form Layouts">Posts</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a href="/table" class="menu-link">
-                      <i class="menu-icon tf-icons bx bx-table"></i>
-                      <div data-i18n="Tables">Tables</div>
-                    </a>
-                  </li>
-                  <li class="menu-item active">
-                    <a href="/create" class="menu-link">
-                      <div data-i18n="Horizontal Form">create</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              {/* <!-- Forms & Tables -->
-            <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">Forms &amp; Tables</span>
-            </li> */}
-              {/* <!-- Forms --> */}
-              <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-detail"></i>
-                  <div data-i18n="Form Elements">User</div>
-                </a>
-              </li>
-              <li class="menu-item active open">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-detail"></i>
-                  <div data-i18n="Form Layouts">User</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a href="/table" class="menu-link">
-                      <i class="menu-icon tf-icons bx bx-table"></i>
-                      <div data-i18n="Tables">Tables</div>
-                    </a>
-                  </li>
-                  <li class="menu-item active">
-                    <a href="/create" class="menu-link">
-                      <div data-i18n="Horizontal Form">create</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-            </ul>
-          </aside>
           {/* <!-- / Menu -->
 
 
-      <!-- Layout container --> */}
+        <!-- Layout container --> */}
           <div class="layout-page">
             {/* <!-- Navbar --> */}
 
@@ -246,7 +54,7 @@ const Create = () => {
                         </small>
                       </div>
                       <div class="card-body">
-                        <form onSubmit={handelSubmit}>
+                        <form>
                           <div class="row mb-3">
                             <label
                               class="col-sm-2 col-form-label"
@@ -351,7 +159,6 @@ const Create = () => {
                             </div>
                           </div>
                         </form>
-
                       </div>
                     </div>
                   </div>
@@ -516,55 +323,8 @@ const Create = () => {
               </div>
               {/* <!-- / Content -->
 
-          <!-- Footer --> */}
-              <footer class="content-footer footer bg-footer-theme">
-                <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                  <div class="mb-2 mb-md-0">
-                    ©
-                    <script>document.write(new Date().getFullYear());</script>
-                    , made with ❤️ by
-                    <a
-                      href="https://themeselection.com"
-                      target="_blank"
-                      class="footer-link fw-bolder"
-                    >
-                      ThemeSelection
-                    </a>
-                  </div>
-                  <div>
-                    <a
-                      href="https://themeselection.com/license/"
-                      class="footer-link me-4"
-                      target="_blank"
-                    >
-                      License
-                    </a>
-                    <a
-                      href="https://themeselection.com/"
-                      target="_blank"
-                      class="footer-link me-4"
-                    >
-                      More Themes
-                    </a>
-
-                    <a
-                      href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                      target="_blank"
-                      class="footer-link me-4"
-                    >
-                      Documentation
-                    </a>
-
-                    <a
-                      href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                      target="_blank"
-                      class="footer-link me-4"
-                    >
-                      Support
-                    </a>
-                  </div>
-                </div>
-              </footer>
+            <!-- Footer --> */}
+          <Footer />
               {/* <!-- / Footer --> */}
 
               <div class="content-backdrop fade"></div>
@@ -581,4 +341,6 @@ const Create = () => {
     </>
   );
 }
-export default Create
+
+
+export default Table

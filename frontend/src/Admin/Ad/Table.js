@@ -1,16 +1,27 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAds } from "../redux/adSlice";
-const Table = () => {
+import { useRef } from "react";
+import Sidebar from "../layouts/Sidebar";
+import Footer from "../layouts/Footer";
+import { addAd } from "../redux/adSlice";
+const Create = () => {
   const dispatch = useDispatch();
-  const ads = useSelector(state => state.ad);
-  const loading = useSelector(state => state.ad.loading);
+  const title = useRef();
+  const description = useRef();
+  const type = useRef();
+  const image = useRef();
+  const image_2 = useRef();
+  const image_3 = useRef();
+  const image_4 = useRef();
+  const phone = useRef();
+  const location = useRef();
 
-  useEffect(() => {
-    dispatch(getAds());
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    console.log('form submitted');
+  }
 
-  }, [dispatch]);
-  console.log(ads);
+
+
   return (
     <>
       {/* <!-- Layout wrapper --> */}
@@ -18,230 +29,13 @@ const Table = () => {
         <div class="layout-container">
           {/* <!-- Menu --> */}
 
-          <aside
-            id="layout-menu"
-            class="layout-menu menu-vertical menu bg-menu-theme"
-          >
-          
-            <div class="menu-inner-shadow"></div>
-
-            <ul class="menu-inner py-1">
-              {/* <!-- Dashboard --> */}
-              <li class="menu-item">
-                <a href="index.html" class="menu-link">
-                  <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                  <div data-i18n="Analytics">Dashboard</div>
-                </a>
-              </li>
-
-              {/* <!-- Layouts --> */}
-              <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-layout"></i>
-                  <div data-i18n="Layouts">Layouts</div>
-                </a>
-
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a href="layouts-without-menu.html" class="menu-link">
-                      <div data-i18n="Without menu">Without menu</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="layouts-without-navbar.html" class="menu-link">
-                      <div data-i18n="Without navbar">Without navbar</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="layouts-container.html" class="menu-link">
-                      <div data-i18n="Container">Container</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="layouts-fluid.html" class="menu-link">
-                      <div data-i18n="Fluid">Fluid</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="layouts-blank.html" class="menu-link">
-                      <div data-i18n="Blank">Blank</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">Pages</span>
-              </li>
-              <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                  <div data-i18n="Account Settings">Account Settings</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a
-                      href="pages-account-settings-account.html"
-                      class="menu-link"
-                    >
-                      <div data-i18n="Account">Account</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a
-                      href="pages-account-settings-notifications.html"
-                      class="menu-link"
-                    >
-                      <div data-i18n="Notifications">Notifications</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a
-                      href="pages-account-settings-connections.html"
-                      class="menu-link"
-                    >
-                      <div data-i18n="Connections">Connections</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                  <div data-i18n="Authentications">Authentications</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a
-                      href="auth-login-basic.html"
-                      class="menu-link"
-                      target="_blank"
-                    >
-                      <div data-i18n="Basic">Login</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a
-                      href="auth-register-basic.html"
-                      class="menu-link"
-                      target="_blank"
-                    >
-                      <div data-i18n="Basic">Register</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a
-                      href="auth-forgot-password-basic.html"
-                      class="menu-link"
-                      target="_blank"
-                    >
-                      <div data-i18n="Basic">Forgot Password</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              {/* <!-- Forms & Tables --> */}
-              <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">Forms &amp; Tables</span>
-              </li>
-              {/* <!-- Forms --> */}
-              <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-detail"></i>
-                  <div data-i18n="Form Elements">Posts</div>
-                </a>
-              </li>
-              <li class="menu-item active open">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-detail"></i>
-                  <div data-i18n="Form Layouts">Posts</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a href="/table" class="menu-link">
-                      <i class="menu-icon tf-icons bx bx-table"></i>
-                      <div data-i18n="Tables">Tables</div>
-                    </a>
-                  </li>
-                  <li class="menu-item active">
-                    <a href="/create" class="menu-link">
-                      <div data-i18n="Horizontal Form">create</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              {/* <!-- Forms & Tables -->
-              <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">Forms &amp; Tables</span>
-              </li> */}
-              {/* <!-- Forms --> */}
-              <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-detail"></i>
-                  <div data-i18n="Form Elements">User</div>
-                </a>
-              </li>
-              <li class="menu-item active open">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-detail"></i>
-                  <div data-i18n="Form Layouts">User</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item">
-                    <a href="/table" class="menu-link">
-                      <i class="menu-icon tf-icons bx bx-table"></i>
-                      <div data-i18n="Tables">Tables</div>
-                    </a>
-                  </li>
-                  <li class="menu-item active">
-                    <a href="/create" class="menu-link">
-                      <div data-i18n="Horizontal Form">create</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              {/* <!-- Misc --> */}
-              <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">Misc</span>
-              </li>
-              <li class="menu-item">
-                <a
-                  href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                  target="_blank"
-                  class="menu-link"
-                >
-                  <i class="menu-icon tf-icons bx bx-support"></i>
-                  <div data-i18n="Support">Support</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a
-                  href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                  target="_blank"
-                  class="menu-link"
-                >
-                  <i class="menu-icon tf-icons bx bx-file"></i>
-                  <div data-i18n="Documentation">Documentation</div>
-                </a>
-              </li>
-            </ul>
-          </aside>
+          <Sidebar />
           {/* <!-- / Menu -->
 
 
-        <!-- Layout container --> */}
+    <!-- Layout container --> */}
           <div class="layout-page">
             {/* <!-- Navbar --> */}
-
-          
-            
-               
-                
-               
-           
-         
 
             {/* <!-- / Navbar --> */}
 
@@ -251,404 +45,62 @@ const Table = () => {
 
               <div class="container-xxl flex-grow-1 container-p-y">
                 <h4 class="fw-bold py-3 mb-4">
-                  <span class="text-muted fw-light">Tables /</span> Basic Tables
+                  <span class="text-muted fw-light">Forms/</span> Horizontal
+                  Layouts
                 </h4>
 
-                {/* <!-- Basic Bootstrap Table --> */}
-                <div class="card">
-                  <h5 class="card-header">Table Basic</h5>
-                  <div class="table-responsive text-nowrap">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>Project</th>
-                          <th>Client</th>
-                          <th>Users</th>
-                          <th>Status</th>
-                          <th>Actions</th>
-                        </tr>
-                      </thead>
-                      <tbody class="table-border-bottom-0">
-                        <tr>
-                          <td>
-                            <i class="fab fa-angular fa-lg text-danger me-3"></i>{" "}
-                            <strong>Angular Project</strong>
-                          </td>
-                          <td>Albert Cook</td>
-                          <td>
-                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Lilian Fuller"
-                              >
-                                <img
-                                  src="../assets/img/avatars/5.png"
-                                  alt="Avatar"
-                                  class="rounded-circle"
-                                />
-                              </li>
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Sophia Wilkerson"
-                              >
-                                <img
-                                  src="../assets/img/avatars/6.png"
-                                  alt="Avatar"
-                                  class="rounded-circle"
-                                />
-                              </li>
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Christina Parker"
-                              >
-                                <img
-                                  src="../assets/img/avatars/7.png"
-                                  alt="Avatar"
-                                  class="rounded-circle"
-                                />
-                              </li>
-                            </ul>
-                          </td>
-                          <td>
-                            <span class="badge bg-label-primary me-1">
-                              Active
-                            </span>
-                          </td>
-                          <td>
-                            <div class="dropdown">
-                              <button
-                                type="button"
-                                class="btn p-0 dropdown-toggle hide-arrow"
-                                data-bs-toggle="dropdown"
-                              >
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu">
-                                <a
-                                  class="dropdown-item"
-                                  href="javascript:void(0);"
-                                >
-                                  <i class="bx bx-edit-alt me-1"></i> Edit
-                                </a>
-                                <a
-                                  class="dropdown-item"
-                                  href="javascript:void(0);"
-                                >
-                                  <i class="bx bx-trash me-1"></i> Delete
-                                </a>
-                              </div>
+
+              
+
+                  <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+                    <div class="col">
+                      <div class="card h-100">
+                        {/* image slider */}
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                          <div class="carousel-inner">
+                            <div class="carousel-item active">
+                              <img class="d-block w-100" src="https://static-resources.mirai.com/wp-content/uploads/sites/1745/20211124094735/Joan-Mir%C3%B3.jpg" alt="First slide" />
                             </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <i class="fab fa-react fa-lg text-info me-3"></i>{" "}
-                            <strong>React Project</strong>
-                          </td>
-                          <td>Barry Hunter</td>
-                          <td>
-                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Lilian Fuller"
-                              >
-                                <img
-                                  src="../assets/img/avatars/5.png"
-                                  alt="Avatar"
-                                  class="rounded-circle"
-                                />
-                              </li>
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Sophia Wilkerson"
-                              >
-                                <img
-                                  src="../assets/img/avatars/6.png"
-                                  alt="Avatar"
-                                  class="rounded-circle"
-                                />
-                              </li>
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Christina Parker"
-                              >
-                                <img
-                                  src="../assets/img/avatars/7.png"
-                                  alt="Avatar"
-                                  class="rounded-circle"
-                                />
-                              </li>
-                            </ul>
-                          </td>
-                          <td>
-                            <span class="badge bg-label-success me-1">
-                              Completed
-                            </span>
-                          </td>
-                          <td>
-                            <div class="dropdown">
-                              <button
-                                type="button"
-                                class="btn p-0 dropdown-toggle hide-arrow"
-                                data-bs-toggle="dropdown"
-                              >
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu">
-                                <a
-                                  class="dropdown-item"
-                                  href="javascript:void(0);"
-                                >
-                                  <i class="bx bx-edit-alt me-2"></i> Edit
-                                </a>
-                                <a
-                                  class="dropdown-item"
-                                  href="javascript:void(0);"
-                                >
-                                  <i class="bx bx-trash me-2"></i> Delete
-                                </a>
-                              </div>
+                            <div class="carousel-item">
+                              <img class="d-block w-100" src="https://ae01.alicdn.com/kf/Hdfc51cd5a1664db692a422ec15245f555/The-Garden-By-Joan-Miro-Paintings-Canvas-Famous-ArtWork-Posters-and-Prints-Abstract-Art-Wall-Pictures.jpg_Q90.jpg_.webp" alt="Second slide" />
                             </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <i class="fab fa-vuejs fa-lg text-success me-3"></i>{" "}
-                            <strong>VueJs Project</strong>
-                          </td>
-                          <td>Trevor Baker</td>
-                          <td>
-                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Lilian Fuller"
-                              >
-                                <img
-                                  src="../assets/img/avatars/5.png"
-                                  alt="Avatar"
-                                  class="rounded-circle"
-                                />
-                              </li>
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Sophia Wilkerson"
-                              >
-                                <img
-                                  src="../assets/img/avatars/6.png"
-                                  alt="Avatar"
-                                  class="rounded-circle"
-                                />
-                              </li>
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Christina Parker"
-                              >
-                                <img
-                                  src="../assets/img/avatars/7.png"
-                                  alt="Avatar"
-                                  class="rounded-circle"
-                                />
-                              </li>
-                            </ul>
-                          </td>
-                          <td>
-                            <span class="badge bg-label-info me-1">
-                              Scheduled
-                            </span>
-                          </td>
-                          <td>
-                            <div class="dropdown">
-                              <button
-                                type="button"
-                                class="btn p-0 dropdown-toggle hide-arrow"
-                                data-bs-toggle="dropdown"
-                              >
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu">
-                                <a
-                                  class="dropdown-item"
-                                  href="javascript:void(0);"
-                                >
-                                  <i class="bx bx-edit-alt me-2"></i> Edit
-                                </a>
-                                <a
-                                  class="dropdown-item"
-                                  href="javascript:void(0);"
-                                >
-                                  <i class="bx bx-trash me-2"></i> Delete
-                                </a>
-                              </div>
+                            <div class="carousel-item">
+                              <img class="d-block w-100" src="..." alt="Third slide" />
                             </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <i class="fab fa-bootstrap fa-lg text-primary me-3"></i>{" "}
-                            <strong>Bootstrap Project</strong>
-                          </td>
-                          <td>Jerry Milton</td>
-                          <td>
-                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Lilian Fuller"
-                              >
-                                <img
-                                  src="../assets/img/avatars/5.png"
-                                  alt="Avatar"
-                                  class="rounded-circle"
-                                />
-                              </li>
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Sophia Wilkerson"
-                              >
-                                <img
-                                  src="../assets/img/avatars/6.png"
-                                  alt="Avatar"
-                                  class="rounded-circle"
-                                />
-                              </li>
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Christina Parker"
-                              >
-                                <img
-                                  src="../assets/img/avatars/7.png"
-                                  alt="Avatar"
-                                  class="rounded-circle"
-                                />
-                              </li>
-                            </ul>
-                          </td>
-                          <td>
-                            <span class="badge bg-label-warning me-1">
-                              Pending
-                            </span>
-                          </td>
-                          <td>
-                            <div class="dropdown">
-                              <button
-                                type="button"
-                                class="btn p-0 dropdown-toggle hide-arrow"
-                                data-bs-toggle="dropdown"
-                              >
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu">
-                                <a
-                                  class="dropdown-item"
-                                  href="javascript:void(0);"
-                                >
-                                  <i class="bx bx-edit-alt me-2"></i> Edit
-                                </a>
-                                <a
-                                  class="dropdown-item"
-                                  href="javascript:void(0);"
-                                >
-                                  <i class="bx bx-trash me-2"></i> Delete
-                                </a>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                          </div>
+                          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                          </a>
+                        </div>
+                        {/*  end of image slider */}
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">
+                            This is a longer card with supporting text below as a natural lead-in to additional content.
+                            This content is a little bit longer.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                
+
+
+           
+            
                   </div>
+
+
                 </div>
-                {/* <!--/ Basic Bootstrap Table --> */}
-
-                <hr class="my-5" />
-
-               
-              </div>
+           
               {/* <!-- / Content -->
 
-            <!-- Footer --> */}
-              <footer class="content-footer footer bg-footer-theme">
-                <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                  <div class="mb-2 mb-md-0">
-                    ©<script>document.write(new Date().getFullYear());</script>,
-                    made with ❤️ by
-                    <a
-                      href="https://themeselection.com"
-                      target="_blank"
-                      class="footer-link fw-bolder"
-                    >
-                      ThemeSelection
-                    </a>
-                  </div>
-                  <div>
-                    <a
-                      href="https://themeselection.com/license/"
-                      class="footer-link me-4"
-                      target="_blank"
-                    >
-                      License
-                    </a>
-                    <a
-                      href="https://themeselection.com/"
-                      target="_blank"
-                      class="footer-link me-4"
-                    >
-                      More Themes
-                    </a>
-
-                    <a
-                      href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                      target="_blank"
-                      class="footer-link me-4"
-                    >
-                      Documentation
-                    </a>
-
-                    <a
-                      href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                      target="_blank"
-                      class="footer-link me-4"
-                    >
-                      Support
-                    </a>
-                  </div>
-                </div>
-              </footer>
+        <!-- Footer --> */}
+              <Footer />
               {/* <!-- / Footer --> */}
 
               <div class="content-backdrop fade"></div>
@@ -665,6 +117,4 @@ const Table = () => {
     </>
   );
 }
-   
-
-export default Table
+export default Create
