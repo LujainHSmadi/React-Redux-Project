@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { editAd } from "../redux/adSlice";
+import Sidebar from "../layouts/Sidebar";
+import Footer from "../layouts/Footer";
 const Edit = () => {
   const dispatch = useDispatch();
   const allAds = useSelector(state => state.ad.ads);

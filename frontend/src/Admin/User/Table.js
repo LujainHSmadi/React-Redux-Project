@@ -7,13 +7,13 @@ import { useDispatch,useSelector} from "react-redux";
 
 const Table =()=>{
   const dispatch = useDispatch();
-  const user=useSelector((state)=>state.users);
+  const user=useSelector((state)=>state.user);
 
   useEffect(() => {
     dispatch(getUsers())
   }, [dispatch])
 
-  console.log(user);
+  console.log("user",user);
   
   return (
     <>
@@ -21,8 +21,7 @@ const Table =()=>{
       <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
           {/* <!-- Menu --> */}
-
-         <Sidebar />
+          <Sidebar />
           {/* <!-- / Menu -->
 
 
@@ -30,13 +29,6 @@ const Table =()=>{
           <div class="layout-page">
             {/* <!-- Navbar --> */}
 
-          
-            
-               
-                
-               
-           
-         
 
             {/* <!-- / Navbar --> */}
 
