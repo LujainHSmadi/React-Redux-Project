@@ -4,6 +4,7 @@ import Reducer from "../../../Store/Reducer/SignIn";
 export const store = configureStore({
     reducer: {
         ad: adSlice,
-        
+        // user: userSlice,
+
     },
 });

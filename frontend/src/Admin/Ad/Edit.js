@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { editAd } from "../redux/adSlice";
 const Edit = () => {
   const dispatch = useDispatch();
   const allAds = useSelector(state => state.ad.ads);
   const { id } = useParams();
   let navigate = useNavigate();
-  const [itemData, setItemData] = useState({ title: "", description: "", type: "", phone: "", location: "", image: "",image_2:"",image_3:"",image_4:"" });
+  const [addData, setaddData] = useState({ title: "", description: "", type: "", phone: "", location: "", image: "",image_2:"",image_3:"",image_4:"" });
   let obj = {};
 
   allAds.forEach(element => {
@@ -26,30 +27,30 @@ const Edit = () => {
   });
 
   useEffect(() => {
-    setItemData(obj)
-  }, [allItems]);
+    setaddData(obj)
+  }, [allAds]);
 
 
   const handleChange = (e) => {
     e.preventDefault()
-    const value = e.target.value;
-    setItemData({
-      ...itemData,
-      [e.target.name]: value
-    })
+    // const value = e.target.value;
+    // setaddData({
+    //   ...addData,
+    //   [e.target.name]: value
+    // })
   }
 
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const value = e.target.value;
-    setItemData({
-      ...itemData,
+    // const value = e.target.value;
+    // setaddData({
+    //   ...addData,
 
-    })
+    // })
 
-    dispatch(updateItem(itemData));
-    navigate('/main', { replace: true })
+    // dispatch(updateItem(addData));
+    // navigate('/main', { replace: true })
   }
 
 
@@ -279,7 +280,7 @@ const Edit = () => {
                         </small>
                       </div>
                       <div class="card-body">
-                        <form onSubmit={handelSubmit}>
+                        <form >
                           <div class="row mb-3">
                             <label
                               class="col-sm-2 col-form-label"
@@ -293,7 +294,7 @@ const Edit = () => {
                                 class="form-control"
                                 id="basic-default-name"
                                 placeholder="John Doe"
-                                ref={title}
+                                
                               />
                             </div>
                           </div>
@@ -310,7 +311,7 @@ const Edit = () => {
                                 class="form-control"
                                 id="basic-default-company"
                                 placeholder="ACME Inc."
-                                ref={type}
+                                
                               />
                             </div>
                           </div>
@@ -327,7 +328,7 @@ const Edit = () => {
                                 class="form-control"
                                 id="basic-default-company"
                                 placeholder="ACME Inc."
-                                ref={location}
+                               
                               />
                             </div>
                           </div>
@@ -347,7 +348,7 @@ const Edit = () => {
                                 placeholder="658 799 8941"
                                 aria-label="658 799 8941"
                                 aria-describedby="basic-default-phone"
-                                ref={phone}
+                                
                               />
                             </div>
                           </div>
@@ -365,7 +366,7 @@ const Edit = () => {
                                 placeholder="Hi, Do you have a moment to talk Joe?"
                                 aria-label="Hi, Do you have a moment to talk Joe?"
                                 aria-describedby="basic-icon-default-message2"
-                                ref={description}
+                                
                               ></textarea>
                             </div>
                           </div>
@@ -385,7 +386,7 @@ const Edit = () => {
                                 placeholder="658 799 8941"
                                 aria-label="658 799 8941"
                                 aria-describedby="basic-default-phone"
-                                ref={image}
+                                
                               />
                             </div>
                           </div>
@@ -405,7 +406,7 @@ const Edit = () => {
                                 placeholder="658 799 8941"
                                 aria-label="658 799 8941"
                                 aria-describedby="basic-default-phone"
-                                ref={image_2}
+                                
                               />
                             </div>
                           </div>
@@ -426,7 +427,7 @@ const Edit = () => {
                                 placeholder="658 799 8941"
                                 aria-label="658 799 8941"
                                 aria-describedby="basic-default-phone"
-                                ref={image_3}
+                                
                               />
                             </div>
                           </div>
@@ -447,7 +448,7 @@ const Edit = () => {
                                 placeholder="658 799 8941"
                                 aria-label="658 799 8941"
                                 aria-describedby="basic-default-phone"
-                                ref={image_4}
+                                
                               />
                             </div>
                           </div>
@@ -534,5 +535,5 @@ const Edit = () => {
       {/* <!-- / Layout wrapper --> */}
     </>
   );
-};
+}
 export default Edit;
