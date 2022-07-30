@@ -16,7 +16,7 @@ import CreateUser from "./Admin/User/Create";
 import TableUser  from "./Admin/User/Table";
 import EditUser  from "./Admin/User/Edit";
 import CreateAd from "./Admin/Ad/Create";
-import Table from "./Admin/Ad/Table";
+import TableAd from "./Admin/Ad/Table";
 import EditAd from "./Admin/Ad/Edit";
 import CreatePost from "./Admin/Post/Create";
 import TablePost from "./Admin/Post/Table";
@@ -49,20 +49,18 @@ function App() {
           <Route path="usercreate" element={<CreateUser />} />
           <Route path="useredit" element={<EditUser />} />
           <Route path="usertable" element={<TableUser />} />
-          {/* Ads */}
-          <Route path="commentcreate" element={<CreateAd />} />
-          <Route path="commentedit" element={<EditAd />} />
-          <Route path="adtable" element={<Table />} />
-            {/* Comments */}
-          <Route path="adcreate" element={<CreateComments />} />
-          <Route path="adedit" element={<EditComments />} />
-          <Route path="commenttable" element={<TableComments />} />
+          {/* Comments */}
+          <Route path="commentcreate" element={<CreateComments />} />
+          <Route path="commentedit" element={<TableComments />} />
+          <Route path="commenttable" element={<EditComments />} />
+            {/* Ads */}
+          <Route path="adcreate" element={<CreateAd/>} />
+          <Route path="adedit" element={<EditAd />} />
+          <Route path="adtable" element={<TableAd />} />
             {/* Posts */}
           <Route path="postcreate" element={<CreatePost />} />
           <Route path="postedit" element={<EditPost />} />
           <Route path="posttable" element={<TablePost />} />
-     
- 
         </Routes>
       </BrowserRouter>
       <></>
