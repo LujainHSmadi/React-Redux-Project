@@ -25,6 +25,7 @@ class CreateAdsTable extends Migration
             $table->string('phone');
             $table->text('location');
             $table->timestamps();
+
         });
     }
 
