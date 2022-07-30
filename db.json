@@ -1,0 +1,204 @@
+{
+  "posts": [
+    {
+      "title": "fdfd",
+      "body": "fdfdf",
+      "userId": 1,
+      "date": "2022-07-29T21:38:40.282Z",
+      "reactions": {
+        "thumbsUp": 0,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      },
+      "id": 2
+    },
+    {
+      "title": "dsd",
+      "body": "dsdsd",
+      "userId": 1,
+      "date": "2022-07-29T22:26:41.799Z",
+      "reactions": {
+        "thumbsUp": 1,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      },
+      "id": 3
+    },
+    {
+      "title": "sssssssssssssssss",
+      "body": "sa",
+      "userId": 1,
+      "date": "2022-07-29T22:27:15.676Z",
+      "reactions": {
+        "thumbsUp": 9,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      },
+      "id": 4
+    },
+    {
+      "title": "ds",
+      "body": "dsdsdsd",
+      "userId": 1,
+      "date": "2022-07-29T22:51:16.619Z",
+      "reactions": {
+        "thumbsUp": 4,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      },
+      "id": 5
+    },
+    {
+      "title": "w",
+      "body": "w",
+      "userId": 1,
+      "date": "2022-07-29T22:57:48.830Z",
+      "reactions": {
+        "thumbsUp": 9,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      },
+      "id": 6
+    },
+    {
+      "title": "query",
+      "body": "jnfksndkjfnsdkvnksdnvknsdnvmnsdvnsdvnsdmnvsdmnv smndv mnsd vmsd",
+      "userId": 1,
+      "date": "2022-07-30T00:14:06.724Z",
+      "reactions": {
+        "thumbsUp": 4,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      },
+      "id": 7
+    },
+    {
+      "title": "sas",
+      "body": "asasas",
+      "userId": 1,
+      "date": "2022-07-30T00:24:05.645Z",
+      "reactions": {
+        "thumbsUp": 0,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      },
+      "id": 8
+    },
+    {
+      "title": "wwwwwwwwww",
+      "body": "ewewewewe",
+      "userId": 1,
+      "date": "2022-07-30T00:24:23.438Z",
+      "reactions": {
+        "thumbsUp": 0,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      },
+      "id": 9
+    },
+    {
+      "title": "rt",
+      "body": "gf",
+      "userId": 1,
+      "date": "2022-07-30T00:25:08.331Z",
+      "reactions": {
+        "thumbsUp": 1,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      },
+      "id": 10
+    },
+    {
+      "title": "ew",
+      "body": "ew",
+      "userId": 2,
+      "date": "2022-07-30T00:26:00.273Z",
+      "reactions": {
+        "thumbsUp": 0,
+        "wow": 2,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      },
+      "id": 11
+    },
+    {
+      "title": "ewew",
+      "body": "eweew",
+      "userId": 1,
+      "date": "2022-07-30T00:34:07.134Z",
+      "reactions": {
+        "thumbsUp": 8,
+        "wow": 2,
+        "heart": 6,
+        "rocket": 0,
+        "coffee": 0
+      },
+      "id": 12
+    },
+    {
+      "title": "fbbf",
+      "body": "dfbbfbf",
+      "userId": 1,
+      "date": "2022-07-30T15:43:42.114Z",
+      "reactions": {
+        "thumbsUp": 0,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      },
+      "id": 13
+    },
+    {
+      "title": "query",
+      "body": "Tips And Tricks To Have Your Dream Home At A Low Cost\n",
+      "userId": 1,
+      "date": "2022-07-30T15:44:01.446Z",
+      "reactions": {
+        "thumbsUp": 0,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      },
+      "id": 14
+    },
+    {
+      "title": "sasas",
+      "body": "asasasa",
+      "userId": 1,
+      "date": "2022-07-30T16:12:34.209Z",
+      "reactions": {
+        "thumbsUp": 5,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      },
+      "id": 15
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
