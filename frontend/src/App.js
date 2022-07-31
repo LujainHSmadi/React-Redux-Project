@@ -40,7 +40,7 @@ function App() {
     <div className="App">
     <BrowserRouter>
    
-      {/* <NavBar /> */}
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
