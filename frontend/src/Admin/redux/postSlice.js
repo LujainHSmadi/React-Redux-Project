@@ -3,17 +3,37 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 // show comments
 
+export const getPosts = createAsyncThunk(
+    "posts/getPosts",
+    async (_, thunkAPI) => {
+      const { rejectWithValue } = thunkAPI;
+      try{
+      const response = await fetch('http://localhost:8001/posts', {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json; charest=UTF-8",
+        },
+      });
+      const result = await response.json();
+      console.log('amal',result);
+
+      return result;
+  }
+  catch{
+    return rejectWithValue();
+  }
+  }
+  );
 
 
 
-
-//delete comments
+//delete posts
 export const deletePosts = createAsyncThunk(
   "posts/deletePosts",
   async (id, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try{
-    const response = await fetch(`http://127.0.0.1:8000/api/posts/${id}`, {
+    const response = await fetch(`http://localhost:8001/posts/${id}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json; charest=UTF-8",
@@ -24,7 +44,7 @@ export const deletePosts = createAsyncThunk(
     return result;
 }
 catch{
-  return rejectWithValue(error.message);
+  return rejectWithValue();
 }
 }
 );
@@ -36,7 +56,7 @@ const postSlice = createSlice({
     },
     extraReducers: {
 
-        //reducer for get comments
+        //reducer for get posts
         [getPosts.pending]: (state, action) => {
             state.loading = true;
             
@@ -54,7 +74,7 @@ const postSlice = createSlice({
 
 
         //....
-        // Reducer for fetching ads
+        // Reducer for delete posts
         
         [deletePosts.pending]: (state, action) => { 
             state.loading = true;
