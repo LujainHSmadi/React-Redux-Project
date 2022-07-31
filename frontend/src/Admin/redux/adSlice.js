@@ -34,9 +34,34 @@ export const editAd = createAsyncThunk('ad/editAd', async (data, thunkAPI) => {
 
     }
 });
-// export const deleteAd = createAsyncThunk('ad/deleteAd', async (id, thunkAPI) => {
 
-// });
+export const deleteAd = createAsyncThunk('ad/deleteAd', async (id, thunkAPI) => {
+    const { rejectWithValue } = thunkAPI;
+    try {
+        const response = await fetch(`http://127.0.0.1:8000/api/ads/${id}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+        })
+        // const ad = await response.data;
+        // console.log('delete', ad);
+        // return ad;
+        // if (response.ok) {
+        //     Swal.fire({
+        //         title: "Item",
+        //         text: "Has been deleted Successfully",
+        //         type: "success"
+        //     });
+        // }
+        const res = response.json();
+        return res;
+
+
+    }
+    catch (error) {
+        console.error(error);
+        return rejectWithValue(error.message);
+    }
+});
 
 const adSlice = createSlice({
     name: 'ad',
@@ -98,8 +123,25 @@ const adSlice = createSlice({
             state.error = action.payload;
             state.loading = false;
             console.log(state.ads);
+        },
+        // Reducer for deleting ads
+        [deleteAd.pending]: (state, action) => {
+            state.loading = true;
+            console.log(action);
         }
-            
+        ,
+        [deleteAd.fulfilled]: (state, action) => {
+            const { id } = action.payload;
+            state.ads = state.ads.filter((ad) => ad.id !== id);
+            state.loading = false;
+            console.log(state.ads);
+        },
+        [deleteAd.rejected]: (state, action) => {
+            state.error = action.payload;
+            state.loading = false;
+            console.log(state.ads);
+        },
+
 
     }
 });

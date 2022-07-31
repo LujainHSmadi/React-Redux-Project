@@ -35,28 +35,7 @@ class AdController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'title' => 'required',
-        //     'description' => 'required',
-        //     'price' => 'required',
-        //     'type' => 'required',
-        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        //     'image_2' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        //     'image_3' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        //     'image_4' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // ]);
 
-        // $newad = new Ad([
-        //     'title' => $request->title,
-        //     'description' => $request->description,
-        //     'price' => $request->price,
-        //     'type' => $request->type,
-        //     'image' => $request->image->store('public/images'),
-        //     'image_2' => $request->image_2->store('public/images'),
-        //     'image_3' => $request->image_3->store('public/images'),
-        //     'image_4' => $request->image_4->store('public/images'),
-
-        // ]);
         $newad = $request->all();
         // return  $newad;
 
@@ -92,7 +71,7 @@ class AdController extends Controller
 
         }
 
-        $storAd=Ad::create($newad);
+        $storAd = Ad::create($newad);
         return response()->json($storAd);
     }
 
@@ -126,33 +105,25 @@ class AdController extends Controller
      * @param  \App\Models\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ad $ad)
+    public function update(Ad $ad , Request $request) 
     {
-        // $ad = Ad::findOrFail($id);
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'type' => 'required',
-            'price' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-        // $ad->title = $request->get('name');
-        // $ad->description = $request->get('description');
-        // $ad->type = $request->get('type');
-        // $ad->price = $request->get('price');
-        // $ad->image = $request->get('image')->store('public/images');
-        // $ad->image_2 = $request->get('image_2')->store('public/images');
-        // $ad->image_3 = $request->get('image_3')->store('public/images');
-        // $ad->image_4 = $request->get('image_4')->store('public/images');
-        // $ad->save();
+        return $request;
+     
+        
+       $ad = Ad::findOrFail($id);
+            $ad->title = $request->get('title');
+            $ad->description = $request->get('description');
+            $ad->type = $request->get('type');
+            $ad->location = $request->get('location');
+            $ad->phone = $request->get('phone');
+           
 
-        $newad = $request->all();
 
         if ($request->file('image')) {
             $file = $request->file('image');
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('Image'), $filename);
-            $newad['image'] = "$filename";
+            $ad->image =$filename ;
 
         }
 
@@ -160,7 +131,7 @@ class AdController extends Controller
             $file = $request->file('image_2');
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('Image'), $filename);
-            $newad['image_2'] = "$filename";
+            $ad->image_2 = $filename;
 
         }
 
@@ -168,7 +139,7 @@ class AdController extends Controller
             $file = $request->file('image_3');
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('Image'), $filename);
-            $newad['image_3'] = "$filename";
+           $ad->image_3 = $filename;
 
         }
 
@@ -176,13 +147,13 @@ class AdController extends Controller
             $file = $request->file('image_4');
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('Image'), $filename);
-            $newad['image_4'] = "$filename";
+            $ad->image_4 = $filename;
 
         }
-
-        $addupdate=Ad::update($newad);
-        return response()->json($addupdate);
-
+        // return $ad;
+        $ad->save();
+        return response()->json($ad);
+            
     }
 
     /**
@@ -193,8 +164,8 @@ class AdController extends Controller
      */
     public function destroy($id)
     {
-        $ad = Ad::findOrFail($id);
+        $ad = Ad::find($id);
         $ad->delete();
-        return response()->json($ad::all());
+        // return response()->json($ad);
     }
 }
