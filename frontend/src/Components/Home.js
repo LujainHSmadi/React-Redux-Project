@@ -17,7 +17,7 @@ const Home = () => {
     }, [dispatch]);
     console.log("title", ads);
 
-    const allads = ads.map(ad => {
+    const allads = ads.slice(0, 3).map(ad => {
         return (
             <>
                      
@@ -60,7 +60,7 @@ const Home = () => {
                                                             <i class="fa fa-inbox"></i> 3
                                                         </span>
                                                     </li>
-                                                    <li class="list-inline-item">
+                                                   <li class="list-inline-item">
                                                         <span>
                                                             area <br />
                                                             <i class="fa fa-map"></i> 4300 sq ft
@@ -68,7 +68,7 @@ const Home = () => {
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <div class="card__image-footer">
+                                            {/* <div class="card__image-footer">
                                                 <figure>
                                                     <img src="images/80x80.jpg" alt="" class="img-fluid rounded-circle" />
                                                 </figure>
@@ -88,7 +88,7 @@ const Home = () => {
                                                     </li>
 
                                                 </ul>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
 
@@ -126,7 +126,7 @@ const Home = () => {
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active banner-max-height">
-                                <img class="d-block w-100" src="images/bg.jpg" alt="First slide" />
+                                <img class="d-block w-100" src="images/bg15.jpg" alt="First slide" />
                                 <div class="carousel-caption banner__slide-overlay d-flex h-100">
                                     <div class="carousel__content">
                                         <div class="container">
@@ -156,7 +156,7 @@ const Home = () => {
                                 </div>
                             </div>
                             <div class="carousel-item banner-max-height">
-                                <img class="d-block w-100" src="images/bg15.jpg" alt="Second slide" />
+                                <img class="d-block w-100" src="images/bg.jpg" alt="Second slide" />
                                 <div class="carousel-caption banner__slide-overlay d-flex h-100">
                                     <div class="carousel__content">
                                         <div class="container">
@@ -439,162 +439,31 @@ const Home = () => {
 
 
             {/* 
-    <!-- BLOG --> */}
-            <section class="blog__home bg-light">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-lg-6 mx-auto">
-                            <div class="title__head">
-                                <h2 class="text-center text-capitalize">
-                                    lastest news
-                                </h2>
-                                <p class="text-center text-capitalize">Find Of The Most Popular Real Estate Company All Around
-                                    Indonesia.</p>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            {/* <!-- BLOG  --> */}
-                            <div class="card__image">
-                                <div class="card__image-header h-250">
-                                    <img src="images/500x400.jpg" alt="" class="img-fluid w100 img-transition" />
-                                    <div class="info"> event</div>
-                                </div>
-                                <div class="card__image-body">
-                                    <span class="badge badge-secondary p-1 text-capitalize mb-3">May 08, 2019 </span>
-                                    <h6 class="text-capitalize">
-                                        <a href="/blog-single.html">Best Interior Oppertunity </a>
-                                    </h6>
-                                    <p class=" mb-0">
-                                        Real estate festival is one of the famous feval for explain to you how all this mistaolt
-                                        deand praising pain
-                                        wasnad I will give complete
+    <!-- About --> */}
+             <section class="home__about bg-theme-v4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="title__leading">
+                        <h6 class="text-uppercase">trusted By thousands</h6> 
+                        <h2 class="text-capitalize"> why choose use?</h2>
+                        <p>
+                            The first step in selling your property is to get a valuation from local experts. They will
+                            inspect your home and take into account its unique features, the area and market conditions
+                            before providing you with the most accurate valuation.
+                        </p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod libero amet, laborum qui nulla
+                            quae alias tempora. Placeat voluptatem eum numquam quas distinctio obcaecati quaerat,
+                            repudiandae qui! Quia, omnis, doloribus! Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Quod libero amet, laborum qui nullas tempora.</p>
 
-                                    </p>
-
-
-                                </div>
-                                <div class="card__image-footer">
-                                    <figure>
-                                        <img src="images/80x80.jpg" alt="" class="img-fluid rounded-circle" />
-                                    </figure>
-                                    <ul class="list-inline my-auto">
-                                        <li class="list-inline-item ">
-                                            <a href="#">
-                                                tom wilson
-                                            </a>
-
-                                        </li>
-
-                                    </ul>
-                                    <ul class="list-inline my-auto ml-auto">
-                                        <li class="list-inline-item ">
-                                            <a href="/blog-single.html" class="btn btn-sm btn-primary "><small
-                                                class="text-white ">read more <i
-                                                    class="fa fa-angle-right ml-1"></i></small></a>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                            {/* <!-- END BLOG --> */}
-                        </div>
-                        <div class="col-md-4">
-                            {/* <!-- BLOG  --> */}
-                            <div class="card__image">
-                                <div class="card__image-header h-250">
-                                    <img src="images/500x400.jpg" alt="" class="img-fluid w100 img-transition" />
-                                    <div class="info"> event</div>
-                                </div>
-                                <div class="card__image-body">
-                                    <span class="badge badge-secondary p-1 text-capitalize mb-3">May 08, 2019 </span>
-                                    <h6 class="text-capitalize">
-                                        <a href="#">Tips & Trick buy real estate </a>
-                                    </h6>
-                                    <p class=" mb-0">
-                                        Real estate festival is one of the famous feval for explain to you how all this mistaolt
-                                        deand praising pain
-                                        wasnad I will give complete
-
-                                    </p>
-
-
-                                </div>
-                                <div class="card__image-footer">
-                                    <figure>
-                                        <img src="images/80x80.jpg" alt="" class="img-fluid rounded-circle" />
-                                    </figure>
-                                    <ul class="list-inline my-auto">
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                tom wilson
-                                            </a>
-
-                                        </li>
-
-                                    </ul>
-                                    <ul class="list-inline my-auto ml-auto">
-                                        <li class="list-inline-item">
-                                            <a href="#" class="btn btn-sm btn-primary "><small class="text-white ">read more <i
-                                                class="fa fa-angle-right ml-1"></i></small></a>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                            {/* <!-- END BLOG -->
-                </div> */}
-                            <div class="col-md-4">
-                                {/* <!-- BLOG  --> */}
-                                {/* <div class="card__image">
-                        <div class="card__image-header h-250">
-                            <img src="images/500x400.jpg" alt="" class="img-fluid w100 img-transition"/>
-                            <div class="info"> event</div>
-                        </div>
-                        <div class="card__image-body">
-                            <span class="badge badge-secondary p-1 text-capitalize mb-3">May 08, 2019 </span> 
-                            <h6 class="text-capitalize">
-                                <a href="#">Our Must Popular Deluxe House </a>
-                            </h6>
-                            <p class=" mb-0">
-                                Real estate festival is one of the famous feval for explain to you how all this mistaolt
-                                deand praising pain
-                                wasnad I will give complete
-
-                            </p>
-
-
-                        </div>
-                        <div class="card__image-footer">
-                            <figure>
-                                <img src="images/80x80.jpg" alt="" class="img-fluid rounded-circle"/>
-                            </figure>
-                            <ul class="list-inline  my-auto">
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        tom wilson
-                                    </a>
-
-                                </li>
-
-                            </ul>
-                            <ul class="list-inline  my-auto ml-auto">
-                                <li class="list-inline-item">
-                                    <a href="#" class="btn btn-sm btn-primary "><small class="text-white ">read more <i
-                                                class="fa fa-angle-right ml-1"></i></small></a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div> */}
-                                {/* <!-- END BLOG --> */}
-                            </div>
-                        </div>
+                        <a href="#" class="btn btn-primary mt-3 text-capitalize"> read more
+                            <i class="fa fa-angle-right ml-3 "></i></a>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </section>
             {/* <!-- END BLOG --> */}
 
             {/* <!-- CALL TO ACTION --> */}

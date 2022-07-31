@@ -17,11 +17,7 @@ const About = ()=>{
                                         home
                                     </a>
                                 </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-white">
-                                        page
-                                    </a>
-                                </li>
+                               
                                 <li class="list-inline-item">
                                     <a href="#" class="text-white">
                                         about us
@@ -65,13 +61,13 @@ const About = ()=>{
                     <div class="about__image">
                         <div class="about__image-top">
                             <div class="about__image-top-hover">
-                                <img src="images/600x400.jpg" alt="" class="img-fluid"/>
+                                <img src="images/gallery16.jpg" alt="" class="img-fluid"/>
                             </div>
 
                         </div>
                         <div class="about__image-bottom">
                             <div class="about__image-bottom-hover">
-                                <img src="images/600x400.jpg" alt="" class="img-fluid"/>
+                                <img src="images/gallery18.jpg" alt="" class="img-fluid"/>
                             </div>
                         </div>
                     </div>
