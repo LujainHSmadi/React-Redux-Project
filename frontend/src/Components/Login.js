@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import swal from "sweetalert";
-import { Login } from "../Store/actions/actions";
+import {login} from "../Store/Reducer/SignIn";
 
 const SignIn = () => {
   const initialState = {
-    id: null,
+   
     email: "",
       password: "",
 
@@ -24,35 +24,38 @@ const SignIn = () => {
   const save = () => {
     const { email, password, role } = User;
 
-    dispatch(Login(email, password, role))
+    dispatch(login({ email, password, role }))
+      .unwrap()
       .then((data) => {
+        console.log(data);
+         console.log(User);
         setUser({
           id: data.id,
           email: data.email,
           password: data.password,
           roles: ["Admin"],
         });
-   localStorage.setItem("user", JSON.stringify(data));
-        // let isLoggedIn = JSON.parse(localStorage.getItem("user"));
-        // if (isLoggedIn.logged_user.role == "admin") {
-        //   swal({
-        //     title: "Admin!",
+        localStorage.setItem("user", JSON.stringify(data));
+        let isLoggedIn = JSON.parse(localStorage.getItem("user"));
+        if (isLoggedIn.logged_user.role == "admin") {
+          swal({
+            title: "Admin!",
 
-        //     icon: "warning",
-        //     button: "sure!",
-        //   }).then(function () {
-        //     window.location.href = "/";
-        //   });
-        // } else {
-        //   swal({
-        //     title: "User!",
-        //     text: "You are not Admin!!",
-        //     icon: "warning",
-        //     button: "sure!",
-        //   }).then(function () {
-        //     window.location.href = "/";
-        //   });
-        // }
+            icon: "warning",
+            button: "sure!",
+          }).then(function () {
+            window.location.href = "/";
+          });
+        } else {
+          swal({
+            title: "User!",
+            text: "You are not Admin!!",
+            icon: "warning",
+            button: "sure!",
+          }).then(function () {
+            window.location.href = "/";
+          });
+        }
 
         setSubmitted(true);
       })
@@ -123,7 +126,8 @@ const SignIn = () => {
                       class="form-control"
                       placeholder="Username"
                       type="email"
-                      onChange={handleInputChange}
+                      onChange={(event)=>handleInputChange(event)}
+                      value={User.email || ""}
                       required
                       name="email"
                     />
@@ -135,6 +139,7 @@ const SignIn = () => {
                       placeholder="Password"
                       type="password"
                       onChange={handleInputChange}
+                      value={User.password || ""}
                       required
                       name="password"
                     />
