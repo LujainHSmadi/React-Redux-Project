@@ -31,6 +31,10 @@ const UserPage = () => {
     return (                       
 
         <div style={{  textTransform: 'capitalize',border:'1px solid'}} >
+             <figure>
+
+<img style={{ height: '90px', width: '90px' }} src="https://i0.wp.com/betterthanblended.com/wp-content/uploads/2017/05/Icons-01.png?w=1080&ssl=1" alt="" class="img-fluid img-circle" />
+</figure>
             <h2 style={{  textTransform: 'capitalize'}} >{user?.name}</h2> <span>reviews</span>
 
             <hr/>

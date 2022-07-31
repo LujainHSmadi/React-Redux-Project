@@ -24,17 +24,17 @@ const Layout = () => {
                                         <ul >
                                             <li class="list-inline-item">
 
-                                                <Link style={{ color: "red", fontWeight: 'bold' }} to="post">Add a review  </Link>
+                                                <Link className='btn-primary ' style={{ color: "white", fontWeight: 'bold' }} to="post">Add a review <i class="fa fa-plus-circle mr-1"></i> </Link>
                                             </li>
                                             <li class="list-inline-item">
 
-                                                <Link style={{ color: "red", fontWeight: 'bold' }} to="posts">Reviews</Link>
+                                                <Link className='btn-primary ' style={{ color: "white", fontWeight: 'bold' }} to="posts">Reviews</Link>
                                             </li>
 
 
                                             <li class="list-inline-item">
 
-                                                <Link style={{ color: "red", fontWeight: 'bold' }} to="user">Filter</Link>
+                                                <Link className='btn-primary ' style={{ color: "white", fontWeight: 'bold' }} to="user">Filter</Link>
                                             </li>
 
                                         </ul>

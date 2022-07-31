@@ -50,7 +50,7 @@ const AddPostForm = () => {
     return (
         <section>
             <h2>Add a New Review</h2><br/>
-            <form style={{border:'1.5px solid',padding:'15px'}}>
+            <div style={{border:'1.5px solid',padding:'15px'}}>
                 <label htmlFor="postTitle">Review Title:</label><br/>
                 <input
                     type="text"
@@ -78,7 +78,7 @@ const AddPostForm = () => {
                     onClick={onSavePostClicked}
                     disabled={!canSave}
                 >Post <i class="fa fa-plus-circle mr-1"></i></button>
-            </form>
+            </div>
         </section>
     )
 }

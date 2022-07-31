@@ -3,7 +3,7 @@ import { useAddReactionMutation } from './postsSlice'
 const reactionEmoji = {
     thumbsUp: '👍',
      //wow: '😮',
-    // heart: '❤️',
+    heart: '❤️',
     // rocket: '🚀',
     // coffee: '☕'
 }
@@ -13,7 +13,7 @@ const ReactionButtons = ({ post }) => {
 
     const reactionButtons = Object.entries(reactionEmoji).map(([name, emoji]) => {
         return (
-            <button
+            <button style={{border:'none'}}
                 key={name}
                 type="button"
                 className="reactionButton"

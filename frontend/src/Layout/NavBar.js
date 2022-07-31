@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 const NavBar = () => {
   return (
     <>
+    
       <div class="topbar d-none d-sm-block">
         <div class="container ">
           <div class="row">

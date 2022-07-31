@@ -35,16 +35,16 @@ class AdController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'price' => 'required',
-            'type' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image_2' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image_3' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image_4' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+        // $request->validate([
+        //     'title' => 'required',
+        //     'description' => 'required',
+        //     'price' => 'required',
+        //     'type' => 'required',
+        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        //     'image_2' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        //     'image_3' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        //     'image_4' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ]);
 
         // $newad = new Ad([
         //     'title' => $request->title,
@@ -58,12 +58,13 @@ class AdController extends Controller
 
         // ]);
         $newad = $request->all();
+        // return  $newad;
 
         if ($request->file('image')) {
             $file = $request->file('image');
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('Image'), $filename);
-            $newad['image'] = "$filename";
+            $newad['image'] = $filename;
 
         }
 
@@ -71,7 +72,7 @@ class AdController extends Controller
             $file = $request->file('image_2');
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('Image'), $filename);
-            $newad['image_2'] = "$filename";
+            $newad['image_2'] = $filename;
 
         }
 
@@ -79,7 +80,7 @@ class AdController extends Controller
             $file = $request->file('image_3');
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('Image'), $filename);
-            $newad['image_3'] = "$filename";
+            $newad['image_3'] = $filename;
 
         }
 
@@ -87,7 +88,7 @@ class AdController extends Controller
             $file = $request->file('image_4');
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('Image'), $filename);
-            $newad['image_4'] = "$filename";
+            $newad['image_4'] = $filename;
 
         }
 

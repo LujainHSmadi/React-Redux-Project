@@ -1,9 +1,53 @@
+// import PostsList from "./PostFeatures/posts/PostsList";
+// import AddPostForm from "./PostFeatures/posts/AddPostForm";
+// import SinglePostPage from "./PostFeatures/posts/SinglePostPage";
+// import EditPostForm from "./PostFeatures/posts/EditPostForm";
+// import UsersList from "./PostFeatures/users/UsersList";
+// import UserPage from './PostFeatures/users/UserPage';
+// import Layout from "./PostComponents/Layout";
+// import { Routes, Route, Navigate } from 'react-router-dom';
+// import SignIn from "./Components/Login";
+// function App() {
+//   return (
+    // <Routes>
+      
+    //   <Route path="/" element={<Layout />}>
+    //   <Route path="login" element={<SignIn />} />
+    //     <Route index element={<PostsList />} />
+
+    //     <Route path="post">
+    //       <Route index element={<AddPostForm />} />
+    //       <Route path=":postId" element={<SinglePostPage />} />
+    //       <Route path="edit/:postId" element={<EditPostForm />} />
+    //     </Route>
+
+    //     <Route path="user">
+    //       <Route index element={<UsersList />} />
+    //       <Route path=":userId" element={<UserPage />} />
+    //     </Route>
+
+    //     {/* Catch all - replace with 404 component if you want */}
+    //     <Route path="*" element={<Navigate to="/" replace />} />
+
+    //   </Route>
+    // </Routes>
 
 
+
+
+//   );
+// }
+
+// export default App;
+
+
+
+
+import PostsList from "./PostFeatures/posts/PostsList";
+import Layout from "./PostComponents/Layout";
 import Home from './Components/Home'
 import About from "./Components/About";
 import List from "./Components/List";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AgencyDetails from "./Components/AgencyDetails";
 import SingleDetail from "./Components/SingleDetail";
 import Agency from "./Components/Agency";
@@ -25,21 +69,21 @@ import CreateComments from "./Admin/Comments/Create";
 import TableComments from "./Admin/Comments/Table";
 import EditComments from "./Admin/Comments/Edit";
 import Blog from "./Components/Blog";
-import PostsList from "./PostFeatures/posts/PostsList";
 import AddPostForm from "./PostFeatures/posts/AddPostForm";
 import SinglePostPage from "./PostFeatures/posts/SinglePostPage";
 import EditPostForm from "./PostFeatures/posts/EditPostForm";
 import UsersList from "./PostFeatures/users/UsersList";
 import UserPage from './PostFeatures/users/UserPage';
-import Layout from "./PostComponents/Layout";
 import { Routes, Route, Navigate, BrowserRouter } from 'react-router-dom';
 
+
 function App() {
+
   return (
     <div className="App">
     <BrowserRouter>
    
-      <NavBar />
+      {/* <NavBar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
@@ -70,33 +114,33 @@ function App() {
         <Route path="postcreate" element={<CreatePost />} />
         <Route path="postedit" element={<EditPost />} />
         <Route path="posttable" element={<TablePost />} />
-        
-         {/* <Route path="/" element={<Layout />}>
-          <Route index element={<PostsList />} />
+        <Route path="/posts" element={<Layout />}>
+       <Route path="login" element={<SignIn />} />
+         <Route index element={<PostsList />} />
 
-          <Route path="post">
-            <Route index element={<AddPostForm />} />
-            <Route index path=":postId" element={<SinglePostPage />} />
-            <Route index path="edit/:postId" element={<EditPostForm />} />
-          </Route>
+         <Route path="post">
+          <Route index element={<AddPostForm />} />
+          <Route path=":postId" element={<SinglePostPage />} />
+         <Route path="edit/:postId" element={<EditPostForm />} />
+         </Route>
 
-          <Route path="user"> 
-            <Route index element={<UsersList />} />
-            <Route path=":userId" element={<UserPage />} />
-          </Route> */}
-
-          {/* Catch all - replace with 404 component if you want */}
-          {/* <Route path="*" element={<Navigate to="/" replace />} />
-
+       <Route path="user">
+          <Route index element={<UsersList />} />
+          <Route path=":userId" element={<UserPage />} />
         </Route>
-      </Routes> */}
-      </Routes>
+
+        {/* Catch all - replace with 404 component if you want */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+
+      </Route>
+
+       </Routes>
+
+   
+      
     </BrowserRouter>
  
   </div>
-
-         
-
   );
 }
 

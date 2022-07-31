@@ -26,7 +26,7 @@ const SinglePostPage = () => {
     <div class="wrap__profile-author">
     <figure>
     
-                <img style={{height:'90px'}} src="https://www.pythoneasy.com/static/img/landing/avatar.png" alt="" class="img-fluid img-circle" />
+                <img style={{height:'90px'}} src="https://i0.wp.com/betterthanblended.com/wp-content/uploads/2017/05/Icons-01.png?w=1080&ssl=1" alt="" class="img-fluid img-circle" />
             </figure>
         <article class="wrap__profile-author-detail" >
         <p style={{fontWeight:'bold',float:'right'}} className="postCredit">
