@@ -1,134 +1,11 @@
 {
   "posts": [
-    {
-      "title": "fdfd",
-      "body": "fdfdf",
-      "userId": 1,
-      "date": "2022-07-29T21:38:40.282Z",
-      "reactions": {
-        "thumbsUp": 0,
-        "wow": 0,
-        "heart": 0,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 2
-    },
-    {
-      "title": "dsd",
-      "body": "dsdsd",
-      "userId": 1,
-      "date": "2022-07-29T22:26:41.799Z",
-      "reactions": {
-        "thumbsUp": 1,
-        "wow": 0,
-        "heart": 0,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 3
-    },
-    {
-      "title": "sssssssssssssssss",
-      "body": "sa",
-      "userId": 1,
-      "date": "2022-07-29T22:27:15.676Z",
-      "reactions": {
-        "thumbsUp": 9,
-        "wow": 0,
-        "heart": 0,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 4
-    },
-    {
-      "title": "ds",
-      "body": "dsdsdsd",
-      "userId": 1,
-      "date": "2022-07-29T22:51:16.619Z",
-      "reactions": {
-        "thumbsUp": 4,
-        "wow": 0,
-        "heart": 0,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 5
-    },
-    {
-      "title": "w",
-      "body": "w",
-      "userId": 1,
-      "date": "2022-07-29T22:57:48.830Z",
-      "reactions": {
-        "thumbsUp": 9,
-        "wow": 0,
-        "heart": 1,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 6
-    },
-    {
-      "title": "query",
-      "body": "jnfksndkjfnsdkvnksdnvknsdnvmnsdvnsdvnsdmnvsdmnv smndv mnsd vmsd",
-      "userId": 1,
-      "date": "2022-07-30T00:14:06.724Z",
-      "reactions": {
-        "thumbsUp": 4,
-        "wow": 0,
-        "heart": 0,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 7
-    },
-    {
-      "title": "sas",
-      "body": "asasas",
-      "userId": 1,
-      "date": "2022-07-30T00:24:05.645Z",
-      "reactions": {
-        "thumbsUp": 0,
-        "wow": 0,
-        "heart": 0,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 8
-    },
-    {
-      "title": "rt",
-      "body": "gf",
-      "userId": 1,
-      "date": "2022-07-30T00:25:08.331Z",
-      "reactions": {
-        "thumbsUp": 1,
-        "wow": 0,
-        "heart": 0,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 10
-    },
-    {
-      "title": "ew",
-      "body": "ew",
-      "userId": 2,
-      "date": "2022-07-30T00:26:00.273Z",
-      "reactions": {
-        "thumbsUp": 0,
-        "wow": 2,
-        "heart": 0,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 11
-    },
+
+  
+   
     {
       "id": 12,
-      "title": "ewew",
+      "title": "help",
       "body": "Tips And Tricks To Have YouTips And Tricks To Have Your Dream Home At A Low Cost r Dream Home At A Low Cost\n\n",
       "userId": 1,
       "date": "2022-07-30T18:35:22.607Z",
@@ -142,7 +19,7 @@
     },
     {
       "id": 13,
-      "title": "fbbf",
+      "title": "hello",
       "body": "Tips And Tricks To Have YouTips And Tricks To Have Your Dream Home At A Low Cost r Dream Home At A Low Cost\n\n",
       "userId": 1,
       "date": "2022-07-30T18:35:07.723Z",
@@ -156,7 +33,7 @@
     },
     {
       "id": 15,
-      "title": "sasas",
+      "title": "query",
       "body": "Tips And Tricks To Have YouTips And Tricks To Have Your Dream Home At A Low Cost\n\nr Dream Home At A Low Cost\n\n",
       "userId": 1,
       "date": "2022-07-30T18:12:46.831Z",
@@ -167,21 +44,8 @@
         "rocket": 0,
         "coffee": 0
       }
-    },
-    {
-      "title": " cc",
-      "body": "cc",
-      "userId": 1,
-      "date": "2022-07-31T16:57:41.801Z",
-      "reactions": {
-        "thumbsUp": 0,
-        "wow": 0,
-        "heart": 1,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 16
     }
+    
   ],
   "comments": [],
   "profile": {
