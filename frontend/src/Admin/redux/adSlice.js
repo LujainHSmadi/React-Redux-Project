@@ -55,9 +55,10 @@ export const editAd = createAsyncThunk('ad/editAd', async (data, thunkAPI) => {
 
 export const deleteAd = createAsyncThunk('ad/deleteAd', async (id) => {
     // const { rejectWithValue } = thunkAPI;
+    console.log('id', id);
     try {
         const response = await fetch(`http://127.0.0.1:8000/api/ads/${id}`, {
-            method: 'DELETE',
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
         })
         console.log('delete', id);
@@ -150,7 +151,7 @@ const adSlice = createSlice({
         }
         ,
         [deleteAd.fulfilled]: (state, action) => {
-            state.ads = state.ads.filter(ad => ad.id !== action.payload.id);
+            state.ads = state.ads.filter(ad => ad.id !== action.payload);
             state.loading = false;
             console.log(state.ads);
         },
