@@ -107,10 +107,10 @@ class AdController extends Controller
      */
     public function update(Ad $ad , Request $request)
     {
-        return $request;
+        // return $request;
 
 
-       $ad = Ad::findOrFail($id);
+    //    $ad = Ad::findOrFail($id);
             $ad->title = $request->get('title');
             $ad->description = $request->get('description');
             $ad->type = $request->get('type');
