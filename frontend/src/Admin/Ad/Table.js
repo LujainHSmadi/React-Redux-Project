@@ -11,6 +11,7 @@ const Table = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const ads = useSelector(state => state.ad.ads);
+  console.log(ads);
   const loading = useSelector(state => state.ad.loading);
 
   useEffect(() => {
@@ -65,8 +66,9 @@ const Table = () => {
                 <i class="bx bx-edit-alt me-1 "></i>
               </a>
               <a class="mg-2" onClick={(e) => {
-                // e.preventDefault();
+                e.preventDefault();
                 dispatch(deleteAd(ad.id))
+                console.log("ad Id",ad.id);
                 navigate('/adtable', { replace: true })
               }
               }

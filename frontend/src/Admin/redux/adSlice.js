@@ -35,13 +35,32 @@ export const editAd = createAsyncThunk('ad/editAd', async (data, thunkAPI) => {
     }
 });
 
-export const deleteAd = createAsyncThunk('ad/deleteAd', async (id, thunkAPI) => {
-    const { rejectWithValue } = thunkAPI;
+// export const deleteAd = createAsyncThunk('ad/deleteAd', async (id, thunkAPI) => {
+//     const { rejectWithValue } = thunkAPI;
+//     try {
+//         const response = await axios.delete(`http://127.0.0.1:8000/api/ads/${id}`);
+//         const ad = await response.data;
+//         console.log('delete', ad);
+//         return ad;
+
+    
+
+//     }
+//     catch (error) {
+//         console.error(error);
+//         return rejectWithValue(error.message);
+//     }
+// });
+
+
+export const deleteAd = createAsyncThunk('ad/deleteAd', async (id) => {
+    // const { rejectWithValue } = thunkAPI;
     try {
         const response = await fetch(`http://127.0.0.1:8000/api/ads/${id}`, {
-            method: 'POST',
+            method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
         })
+        console.log('delete', id);
         // const ad = await response.data;
         // console.log('delete', ad);
         // return ad;
@@ -59,7 +78,7 @@ export const deleteAd = createAsyncThunk('ad/deleteAd', async (id, thunkAPI) => 
     }
     catch (error) {
         console.error(error);
-        return rejectWithValue(error.message);
+        // return rejectWithValue(error.message);
     }
 });
 
@@ -131,8 +150,7 @@ const adSlice = createSlice({
         }
         ,
         [deleteAd.fulfilled]: (state, action) => {
-            const { id } = action.payload;
-            state.ads = state.ads.filter((ad) => ad.id !== id);
+            state.ads = state.ads.filter(ad => ad.id !== action.payload.id);
             state.loading = false;
             console.log(state.ads);
         },
@@ -141,7 +159,7 @@ const adSlice = createSlice({
             state.loading = false;
             console.log(state.ads);
         },
-
+            
 
     }
 });
