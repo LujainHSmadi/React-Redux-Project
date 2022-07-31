@@ -1,22 +1,5 @@
 {
   "posts": [
-
-  
-   
-    {
-      "id": 12,
-      "title": "help",
-      "body": "Tips And Tricks To Have YouTips And Tricks To Have Your Dream Home At A Low Cost r Dream Home At A Low Cost\n\n",
-      "userId": 1,
-      "date": "2022-07-30T18:35:22.607Z",
-      "reactions": {
-        "thumbsUp": 6,
-        "wow": 0,
-        "heart": 7,
-        "rocket": 0,
-        "coffee": 0
-      }
-    },
     {
       "id": 13,
       "title": "hello",
@@ -45,7 +28,6 @@
         "coffee": 0
       }
     }
-    
   ],
   "comments": [],
   "profile": {

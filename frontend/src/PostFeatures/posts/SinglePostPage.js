@@ -32,7 +32,7 @@ const SinglePostPage = () => {
         <p style={{fontWeight:'bold',float:'right'}} className="postCredit">
             
             {/* if statment will be here */}
-        &nbsp;&nbsp;  . <Link to={`/post/edit/${post.id}`}>Edit Post</Link>
+        &nbsp;&nbsp;  . <Link to={`/posts/edit/${post.id}`}>Edit Post</Link>
                
             </p>   
             <span style={{  textTransform: 'capitalize'}}><PostAuthor userId={post.userId} /> </span>

@@ -22,7 +22,7 @@ const Layout = () => {
                                         <ul >
                                             <li class="list-inline-item">
 
-                                                <Link className='btn-primary ' style={{ color: "white", fontWeight: 'bold' }} to="post">Add a review <i class="fa fa-plus-circle mr-1"></i> </Link>
+                                                <Link className='btn-primary ' style={{ color: "white", fontWeight: 'bold' }} to="/posts/add">Add a review <i class="fa fa-plus-circle mr-1"></i> </Link>
                                             </li>
                                             <li class="list-inline-item">
 
@@ -32,7 +32,7 @@ const Layout = () => {
 
                                             <li class="list-inline-item">
 
-                                                <Link className='btn-primary ' style={{ color: "white", fontWeight: 'bold' }} to="user">Filter</Link>
+                                                <Link className='btn-primary ' style={{ color: "white", fontWeight: 'bold' }} to="/posts/user">Filter</Link>
                                             </li>
 
                                         </ul>
