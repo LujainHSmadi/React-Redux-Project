@@ -1,68 +1,51 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import swal from "sweetalert";
-import {login} from "../Store/Reducer/SignIn";
+import { updateUser } from "../Store/Reducer/SignIn";
+import { Link, useParams } from "react-router-dom";
+import Auth from "../Store//Services/Auth";
 
-const SignIn = () => {
+const Profile = () => {
+    let isLoggedIn = JSON.parse(localStorage.getItem("user"));
   const initialState = {
-   
+    id: null,
+    name: "",
     email: "",
-      password: "",
-
+    image: "",
   };
 
   const [User, setUser] = useState(initialState);
-  const [loggeduser, setLoggeduser] = useState({});
-  const [submitted, setSubmitted] = useState(false);
   const dispatch = useDispatch();
+  const getUser = (id) => {
+    Auth.get(`users/${isLoggedIn.logged_user.id}`)
+      .then((response) => {
+        setUser(response.data);
+        console.log(response.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+  useEffect(() => {
+    getUser(isLoggedIn.logged_user.id);
+  }, [isLoggedIn.logged_user.id]);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-
     setUser({ ...User, [name]: value });
   };
 
   const save = () => {
-    const { email, password, role } = User;
-
-    dispatch(login({ email, password, role }))
-      .unwrap()
-      .then((data) => {
-        console.log(data);
-         console.log(User);
-        setUser({
-          id: data.id,
-          email: data.email,
-          password: data.password,
-          roles: ["Admin"],
-        });
-        localStorage.setItem("user", JSON.stringify(data));
-        let isLoggedIn = JSON.parse(localStorage.getItem("user"));
-        if (isLoggedIn.logged_user.role == "admin") {
-          swal({
-            title: "Admin!",
-
-            icon: "warning",
-            button: "sure!",
-          }).then(function () {
-            window.location.href = "/";
+        dispatch(
+          updateUser({ id: User.id, data: User })
+        )
+          .unwrap()
+          .then((response) => {
+            console.log(response);
+            setMessage("The tutorial was updated successfully!");
+          })
+          .catch((e) => {
+            console.log(e);
           });
-        } else {
-          swal({
-            title: "User!",
-            text: "You are not Admin!!",
-            icon: "warning",
-            button: "sure!",
-          }).then(function () {
-            window.location.href = "/";
-          });
-        }
-
-        setSubmitted(true);
-      })
-
-      .catch((e) => {
-        console.log(e);
-      });
   };
 
   return (
@@ -73,7 +56,7 @@ const SignIn = () => {
           <div class="container">
             <div class="row d-flex justify-content-center">
               <div class="col-md-8 text-center">
-                <h2 class="text-capitalize text-white">login</h2>
+                <h2 class="text-capitalize text-white">register</h2>
                 <ul class="list-inline ">
                   <li class="list-inline-item">
                     <a href="#" class="text-white">
@@ -87,7 +70,7 @@ const SignIn = () => {
                   </li>
                   <li class="list-inline-item">
                     <a href="#" class="text-white">
-                      login
+                      register
                     </a>
                   </li>
                 </ul>
@@ -96,96 +79,101 @@ const SignIn = () => {
           </div>
         </section>
       </div>
-      {/* // <!-- END BREADCRUMB --> */}
+      {/* <!-- END BREADCRUMB --> */}
 
       <div class="clearfix"></div>
 
-      {/* // <!-- LISTING LIST --> */}
+      {/* <!-- LISTING LIST --> */}
       <section>
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
-              {/* <!-- Form Login --> */}
-              <div class="card mx-auto" style={{ maxWidth: "380px" }}>
+              {/* <!-- Form Register --> */}
+
+              <div class="card mx-auto" style={{ maxWidth: "520px" }}>
                 <div class="card-body">
                   <h4 class="card-title mb-4">Sign in</h4>
 
-                  <a
-                    href="#"
-                    class="btn btn-facebook btn-block mb-2 text-white"
-                  >
-                    {" "}
-                    <i class="fa fa-facebook"></i> &nbsp; Sign in with Facebook
-                  </a>
-                  <a href="#" class="btn btn-primary btn-block mb-4">
-                    {" "}
-                    <i class="fa fa-google"></i> &nbsp; Sign in with Google
-                  </a>
-                  <div class="form-group">
-                    <input
-                      class="form-control"
-                      placeholder="Username"
-                      type="email"
-                      onChange={(event)=>handleInputChange(event)}
-                      value={User.email || ""}
-                      required
-                      name="email"
-                    />
+                  <div class="form-row">
+                    <div class="col form-group col-md-12">
+                      <label>Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter your name"
+                        onChange={handleInputChange}
+                        name="name"
+                        value={User.name}
+                      />
+                    </div>
+                    <div class="form-group col-md-12">
+                      <label>Email</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        placeholder=""
+                        onChange={handleInputChange}
+                        name="email"
+                        value={User.email}
+                      />
+                      <small class="form-text text-muted"></small>
+                    </div>
                   </div>
-                  {/* <!-- form-group// --> */}
-                  <div class="form-group">
-                    <input
-                      class="form-control"
-                      placeholder="Password"
-                      type="password"
-                      onChange={handleInputChange}
-                      value={User.password || ""}
-                      required
-                      name="password"
-                    />
-                  </div>
-                  {/* <!-- form-group// --> */}
 
+                  {/* <!-- form-row.// --> */}
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label>image</label>
+                      <input
+                        class="form-control"
+                        type="file"
+                        onChange={handleInputChange}
+                        name="image"
+                    
+                      />
+                    </div>
+
+                    {/* <div class="form-group col-md-6">
+                        <label>Repeat password</label>
+                        <input class="form-control" type="password" />
+                      </div> */}
+                  </div>
                   <div class="form-group">
-                    <a href="#" class="float-right">
-                      Forgot password?
-                    </a>
-                    <label class="float-left custom-control custom-checkbox">
+                    <button
+                      type="submit"
+                      onClick={save}
+                      class="btn btn-primary btn-block"
+                    >
+                      {" "}
+                      Register{" "}
+                    </button>
+                  </div>
+                  {/* <!-- form-group// --> */}
+                  <div class="form-group">
+                    <label class="custom-control custom-checkbox">
                       {" "}
                       <input
                         type="checkbox"
                         class="custom-control-input"
                         checked=""
                       />
-                      <span class="custom-control-label"> Remember </span>
+                      <span class="custom-control-label">
+                        {" "}
+                        I am agree with <a href="#">
+                          terms and contitions
+                        </a>{" "}
+                      </span>
                     </label>
                   </div>
-                  {/* <!-- form-group form-check .// --> */}
-                  <div class="form-group">
-                    <button
-                      type="submit"
-                      class="btn btn-primary btn-block"
-                      onClick={save}
-                    >
-                      {" "}
-                      Login{" "}
-                    </button>
-                  </div>
-                  {/* <!-- form-group// --> */}
+                  {/* <!-- form-group end.// --> */}
                 </div>
                 {/* <!-- card-body.// --> */}
               </div>
-              {/* <!-- card .// --> */}
-
-              <p class="text-center mt-4">
-                Don't have account? <a href="#">Sign up</a>
-              </p>
             </div>
           </div>
         </div>
       </section>
       {/* <!-- END LISTING LIST -->
-
 
 
     <!-- CALL TO ACTION --> */}
@@ -210,9 +198,9 @@ const SignIn = () => {
           </div>
         </div>
       </section>
-      {/* <!-- END CALL TO ACTION --> */}
+      {/* <!-- END CALL TO ACTION -->
 
-      {/* <!-- Footer  --> */}
+    <!-- Footer  --> */}
       <footer>
         <div class="wrapper__footer bg-theme-footer">
           <div class="container">
@@ -275,7 +263,7 @@ const SignIn = () => {
               </div>
               {/* <!-- END ADDRESS -->
 
-                    <!-- QUICK LINKS --> */}
+                <!-- QUICK LINKS --> */}
               <div class="col-md-4">
                 <div class="widget__footer">
                   <h4 class="footer-title">Quick Links</h4>
@@ -330,7 +318,7 @@ const SignIn = () => {
               {/* <!-- END QUICK LINKS -->
 
 
-                    <!-- NEWSLETTERS --> */}
+                <!-- NEWSLETTERS --> */}
               <div class="col-md-4">
                 <div class="widget__footer">
                   <h4 class="footer-title">follow us </h4>
@@ -385,8 +373,8 @@ const SignIn = () => {
             </div>
           </div>
         </div>
-        {/* 
-        <!-- Footer Bottom --> */}
+
+        {/* <!-- Footer Bottom --> */}
         <div class="bg__footer-bottom-v1">
           <div class="container">
             <div class="row flex-column-reverse flex-md-row">
@@ -418,13 +406,8 @@ const SignIn = () => {
         </div>
         {/* <!-- End Footer  --> */}
       </footer>
-
-      {/* <!-- SCROLL TO TOP --> */}
-      <a href="javascript:" id="return-to-top">
-        <i class="fa fa-chevron-up"></i>
-      </a>
-      {/* <!-- END SCROLL TO TOP --> */}
     </>
   );
 };
-export default SignIn;
+
+export default Profile

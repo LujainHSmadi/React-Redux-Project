@@ -1,9 +1,11 @@
+import NavBar from "../Layout/NavBar"
 const Home = () => {
     
     return(
 
  <>
-    
+              <NavBar/>
+
 
     {/* <!-- CAROUSEL --> */}
     <div class="slider-container">

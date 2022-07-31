@@ -40,9 +40,9 @@ class PostController extends Controller
             'description' => 'required'
         ]);
         $newPost = new Post([
-            'title'=>$request->title,
-            'description'=>$request->description,
-            'user_id'=>$request->user_id
+            'title'=>$request->postTitle,
+            'body'=>$request->postContent,
+            'userId'=>$request->userId
         ]);
     }
 
