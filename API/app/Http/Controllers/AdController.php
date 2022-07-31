@@ -105,26 +105,22 @@ class AdController extends Controller
      * @param  \App\Models\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function update(Ad $ad , Request $request)
+    public function update($id, Request $request)
     {
-        return $request;
 
-
-       $ad = Ad::findOrFail($id);
-            $ad->title = $request->get('title');
-            $ad->description = $request->get('description');
-            $ad->type = $request->get('type');
-            $ad->location = $request->get('location');
-            $ad->phone = $request->get('phone');
-            $ad->price = $request->get('price');
-
-
+        $ad = Ad::findOrFail($id);
+        console . log("controller ads", $ad);
+        $ad->title = $request->get('title');
+        $ad->description = $request->get('description');
+        $ad->type = $request->get('type');
+        $ad->location = $request->get('location');
+        $ad->phone = $request->get('phone');
 
         if ($request->file('image')) {
             $file = $request->file('image');
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('Image'), $filename);
-            $ad->image =$filename ;
+            $ad->image = $filename;
 
         }
 
@@ -140,7 +136,7 @@ class AdController extends Controller
             $file = $request->file('image_3');
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('Image'), $filename);
-           $ad->image_3 = $filename;
+            $ad->image_3 = $filename;
 
         }
 
