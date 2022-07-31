@@ -27,18 +27,18 @@ const Home = () => {
                                         <div class="card__image card__box-v1">
                                             <div class="card__image-header h-250">
                                                 <div class="ribbon text-capitalize">featured</div>
-                                                <img src="images/600x400.jpg" alt="" class="img-fluid w100 img-transition" />
+                                                <img src={'http://127.0.0.1:8000/image/'+ad.image} alt="" class="img-fluid w100 img-transition" />
                                                 <div class="info"> for sale</div>
                                             </div>
                                             <div class="card__image-body">
-                                                <span class="badge badge-primary text-capitalize mb-2">house</span>
+                                                <span class="badge badge-primary text-capitalize mb-2">{ad.type}</span>
                                                 <h6 class="text-capitalize">
-                                                    vila in coral gables
+                                                  {ad.title}
                                                 </h6>
 
                                                 <p class="text-capitalize">
                                                     <i class="fa fa-map-marker"></i>
-                                                    west flaminggo road, las vegas
+                                                    {ad.location}
                                                 </p>
                                                 <ul class="list-inline card__content">
                                                     <li class="list-inline-item">

@@ -105,11 +105,11 @@ class AdController extends Controller
      * @param  \App\Models\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function update($id , Request $request) 
+    public function update(Ad $ad , Request $request)
     {
-      
-     
-        
+        return $request;
+
+
        $ad = Ad::findOrFail($id);
        console.log("controller ads",$ad);
             $ad->title = $request->get('title');
@@ -117,7 +117,8 @@ class AdController extends Controller
             $ad->type = $request->get('type');
             $ad->location = $request->get('location');
             $ad->phone = $request->get('phone');
-           
+            $ad->price = $request->get('price');
+
 
 
         if ($request->file('image')) {
@@ -154,7 +155,7 @@ class AdController extends Controller
         // return $ad;
         $ad->save();
         return response()->json($ad);
-            
+
     }
 
     /**
