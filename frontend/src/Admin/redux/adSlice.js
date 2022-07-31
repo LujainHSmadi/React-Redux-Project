@@ -24,7 +24,7 @@ export const addAd = createAsyncThunk('ad/addAd', async (data, thunkAPI) => {
 export const editAd = createAsyncThunk('ad/editAd', async (data, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-        const response = await axios.post(`http://127.0.0.1:8000/api/ads/${data.id}`, data);
+        const response = await axios.put(`http://127.0.0.1:8000/api/ads/${data.id}`, data);
         const ad = await response.data;
         console.log('edit', ad);
         return ad;
@@ -58,7 +58,7 @@ export const deleteAd = createAsyncThunk('ad/deleteAd', async (id) => {
     console.log('id', id);
     try {
         const response = await fetch(`http://127.0.0.1:8000/api/ads/${id}`, {
-            method: 'POST',
+            method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
         })
         console.log('delete', id);
