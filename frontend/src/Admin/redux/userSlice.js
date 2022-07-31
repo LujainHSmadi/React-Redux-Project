@@ -11,6 +11,34 @@ export const getUsers = createAsyncThunk('user/getUsers', async () => {
 });
 
 
+
+
+
+export const deleteUsers = createAsyncThunk('user/deleteUsers', async (id, thunkAPI) => {
+    const { rejectWithValue } = thunkAPI;
+    try {
+        const response = await fetch(`http://127.0.0.1:8000/api/users/${id}`,{
+        method:'DELETE',
+        headers:{
+         'Content-type':'application/json; charset=UTF-8',
+},
+        
+    });
+    const data = await response.json();
+    return data;
+}
+    catch (error) {
+        console.error(error);
+        return rejectWithValue(error.message);
+    }
+});
+
+
+
+
+
+
+
 const userSlice = createSlice({
     name: 'user',
     initialState: {
@@ -18,13 +46,13 @@ const userSlice = createSlice({
         loading: false,
     },
     extraReducers: {
-        // Reducer for fetching ads
+        // Reducer for fetching Users
         [getUsers.pending]: (state, action) => { 
             state.loading = true;
             console.log(action);
         },
         [getUsers.fulfilled]: (state, action) => {
-            state.ads = action.payload;
+            state.users = action.payload;
             state.loading = false;
             console.log(state.users);
         },
@@ -33,6 +61,22 @@ const userSlice = createSlice({
             state.loading = false;
             console.log(state.users);
         },
+
+
+
+        // Reducer for deleting Users
+        [deleteUsers.pending]: (state, action) => { 
+            state.loading = true;
+            console.log(action);
+        },
+        [deleteUsers.fulfilled]: (state, action) => {
+   
+        },
+        [deleteUsers.rejected]: (state, action) => {
+            state.error = action.payload;
+            console.log(state.users);
+        },
+        
     
 
     }

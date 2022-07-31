@@ -17,23 +17,19 @@ const NavBar = () => {
   // }
   return (
     <>
-    
+
       <div class="topbar d-none d-sm-block">
         <div class="container ">
           <div class="row">
             <div class="col-sm-12 col-md-5">
               <div class="topbar-left">
-                <div class="topbar-text">Monday, March 22, 2020</div>
+                <div class="topbar-text">Monday, Augest 1, 2022</div>
               </div>
             </div>
             <div class="col-sm-12 col-md-7">
               <div class="list-unstyled topbar-right">
                 <ul class="topbar-link">
-                  <li>
-                    <a href="#" title="">
-                      Career
-                    </a>
-                  </li>
+
                   <li>
                     <a href="#" title="">
                       Contact Us
@@ -85,12 +81,14 @@ const NavBar = () => {
             <ul class="navbar-nav  mx-auto">
               <li class="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  data-toggle="dropdown"
-                >
-                  {" "}
-                  Pages{" "}
+                  class="nav-link"
+                  href="/list">
+                  Properties
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/">
+                  Ask
                 </a>
               </li>
               <li class="nav-item">
@@ -99,26 +97,24 @@ const NavBar = () => {
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="/contact.html">
-                  {" "}
-                  contact{" "}
-                </a>
+                <a class="nav-link" href="/about">
+                  About                </a>
               </li>
+
               <li class="nav-item">
-                <a class="nav-link" href="/contact.html">
-                  {" "}
-                  contact{" "}
+                <a class="nav-link" href="/profile">
+                  Profile
                 </a>
               </li>
             </ul>
 
             {/* <!-- Search bar.// --> */}
             <ul class="navbar-nav">
-              {/* <li>
-                <a href="#" class="btn btn-primary text-capitalize">
-                  <i class="fa fa-plus-circle mr-1"></i> add listing
+              <li>
+                <a href="/" class="btn btn-primary text-capitalize">
+                  <i class="fa fa-plus-circle mr-1"></i> add post
                 </a>
-              </li> */}
+              </li> 
               
               {/* {!isLoggedIn ? (
                 <li className="nav-item">
