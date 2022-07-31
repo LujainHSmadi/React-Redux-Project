@@ -176,7 +176,7 @@
       "reactions": {
         "thumbsUp": 0,
         "wow": 0,
-        "heart": 0,
+        "heart": 1,
         "rocket": 0,
         "coffee": 0
       },

@@ -8,7 +8,6 @@ import { storePost } from './app/store';
 import { Provider } from 'react-redux';
 import { extendedApiSlice } from './PostFeatures/posts/postsSlice';
 import { usersApiSlice } from './PostFeatures/users/usersSlice';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 storePost.dispatch(extendedApiSlice.endpoints.getPosts.initiate());
 storePost.dispatch(usersApiSlice.endpoints.getUsers.initiate());
