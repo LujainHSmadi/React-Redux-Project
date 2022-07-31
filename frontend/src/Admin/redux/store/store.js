@@ -1,19 +1,18 @@
-// import { configureStore } from "@reduxjs/toolkit";
-// import adSlice from "../adSlice";
-// import userSlice from "../userSlice";
+import { configureStore } from "@reduxjs/toolkit";
+import adSlice from "../adSlice";
+import usersReducer from "../../../Store/Reducer/SignIn";
+import userSlice from "../userSlice";
+import commentsSlice from "../../redux/commentsSlice";
+import postSlice from "../../redux/postSlice";
 
-<<<<<<< HEAD
+
 export const store = configureStore({
     reducer: {
         ad: adSlice,
         user: userSlice,
-        
-=======
-// export const store = configureStore({
-//     reducer: {
-//         ad: adSlice,
-//         user: userSlice,
->>>>>>> 7e000e91a0d00f4171c977c9bfa317c368eee419
+        users: usersReducer,
+        comments: commentsSlice,
+        posts: postSlice,
 
-//     },
-// });
+    },
+});

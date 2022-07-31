@@ -1,12 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useRef, useState } from "react";
+import { useRef, useEffect } from "react";
 import Sidebar from "../layouts/Sidebar";
 import Footer from "../layouts/Footer";
 import { editAd } from "../redux/adSlice";
+import { getAds } from "../redux/adSlice";
 const Create = () => {
-
-
-  const dispatch = useDispatch();
+  
   const title = useRef(null);
   const description = useRef(null);
   const type = useRef(null);
@@ -16,9 +15,17 @@ const Create = () => {
   const image_4 = useRef(null);
   const phone = useRef(null);
   const location = useRef(null);
-  const ads = useSelector(state => state.ad);
-console.log("adssss",ads);
+ 
+  const dispatch = useDispatch();
+  const ads = useSelector(state => state.ad.ads);
+  // console.log("Esraa",ads);
+  // console.log("id esraa",ads[0].id);
+  const loading = useSelector(state => state.ad.loading);
 
+  useEffect(() => {
+    dispatch(getAds());
+
+  }, [dispatch]);
 
   const handelSubmit = (e) => {
 
@@ -37,8 +44,8 @@ console.log("adssss",ads);
     formData.append("location", location.current.value);
     console.log(formData);
     console.log(image.current.files[0]);
-    dispatch(editAd(formData));
- 
+    dispatch(editAd(ads[0].id,formData));
+
   }
 
 

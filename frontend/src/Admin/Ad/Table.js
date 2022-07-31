@@ -65,7 +65,13 @@ const Table = () => {
               <a class="ml-5 px-3" href={`adedit/${ad.id}`}>
                 <i class="bx bx-edit-alt me-1 "></i>
               </a>
-              <a class="mg-2" onClick={(e) => {
+              <button type="submit" class="bx bx-trash me-2" onClick={() => {
+                dispatch(deleteAd(ad.id));
+                navigate('/adtable', { replace: true });
+              }}>
+              </button>
+
+              {/* <a class="mg-2" onClick={(e) => {
                 // e.preventDefault();
                 dispatch(deleteAd(ad.id))
                 console.log("ad Id",ad.id);
@@ -74,7 +80,7 @@ const Table = () => {
               }
                 href="/adtable">
                 <i class="bx bx-trash me-2"></i>
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

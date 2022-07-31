@@ -10,7 +10,6 @@ const Create = () => {
   const title = useRef(null);
   const description = useRef(null);
   const type = useRef(null);
-  const price = useRef(null);
   const image = useRef(null);
   const image_2 = useRef(null);
   const image_3 = useRef(null);
@@ -24,7 +23,6 @@ const Create = () => {
     formData.append("title", title.current.value);
     formData.append("description", description.current.value);
     formData.append("type", type.current.value);
-    formData.append("price", type.current.value);
     formData.append("image", image.current.files[0]);
     formData.append("image_2", image_2.current.files[0]);
     formData.append("image_3", image_3.current.files[0]);
@@ -136,25 +134,6 @@ const Create = () => {
                                 id="basic-default-company"
                                 placeholder="ACME Inc."
                                 ref={location}
-                              />
-                            </div>
-                          </div>
-
-
-                          <div class="row mb-3">
-                            <label
-                              class="col-sm-2 col-form-label"
-                              for="basic-default-company"
-                            >
-                             Price 
-                            </label>
-                            <div class="col-sm-10">
-                              <input
-                                type="text"
-                                class="form-control"
-                                id="basic-default-company"
-                                placeholder="ACME Inc."
-                                ref={price}
                               />
                             </div>
                           </div>
