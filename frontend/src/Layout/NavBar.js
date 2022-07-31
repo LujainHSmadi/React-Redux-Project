@@ -1,39 +1,35 @@
 import swal from "sweetalert";
 import { Link } from "react-router-dom";
 const NavBar = () => {
-  let isLoggedIn = JSON.parse(localStorage.getItem("user"));
+  // let isLoggedIn = JSON.parse(localStorage.getItem("user"));
 
   
-  function logout() {
-    swal({
-      title: "logging out!",
-      text: "Are you sure you want to log out!",
-      icon: "warning",
-      button: "sure!",
-    }).then(function () {
-      window.location.href = "/";
-    });
-    localStorage.clear();
-  }
+  // function logout() {
+  //   swal({
+  //     title: "logging out!",
+  //     text: "Are you sure you want to log out!",
+  //     icon: "warning",
+  //     button: "sure!",
+  //   }).then(function () {
+  //     window.location.href = "/";
+  //   });
+  //   localStorage.clear();
+  // }
   return (
     <>
-    
+
       <div class="topbar d-none d-sm-block">
         <div class="container ">
           <div class="row">
             <div class="col-sm-12 col-md-5">
               <div class="topbar-left">
-                <div class="topbar-text">Monday, March 22, 2020</div>
+                <div class="topbar-text">Monday, Augest 1, 2022</div>
               </div>
             </div>
             <div class="col-sm-12 col-md-7">
               <div class="list-unstyled topbar-right">
                 <ul class="topbar-link">
-                  <li>
-                    <a href="#" title="">
-                      Career
-                    </a>
-                  </li>
+
                   <li>
                     <a href="#" title="">
                       Contact Us
@@ -85,50 +81,50 @@ const NavBar = () => {
             <ul class="navbar-nav  mx-auto">
               <li class="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  data-toggle="dropdown"
-                >
-                  {" "}
-                  Pages{" "}
+                  class="nav-link"
+                  href="/list">
+                  Properties
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/contact.html">
-                  {" "}
-                  contact{" "}
+                <a class="nav-link" href="/">
+                  Ask
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/contact.html">
-                  {" "}
-                  contact{" "}
-                </a>
+              <Link class="nav-link" to="posts">reviews</Link>
+
               </li>
+
               <li class="nav-item">
-                <a class="nav-link" href="/contact.html">
-                  {" "}
-                  contact{" "}
+                <a class="nav-link" href="/about">
+                  About                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/profile">
+                  Profile
                 </a>
               </li>
             </ul>
 
             {/* <!-- Search bar.// --> */}
             <ul class="navbar-nav">
-              {/* <li>
-                <a href="#" class="btn btn-primary text-capitalize">
-                  <i class="fa fa-plus-circle mr-1"></i> add listing
+              <li>
+                <a href="/" class="btn btn-primary text-capitalize">
+                  <i class="fa fa-plus-circle mr-1"></i> add post
                 </a>
-              </li> */}
-              {!isLoggedIn ? (
+              </li> 
+              
+              {/* {!isLoggedIn ? (
                 <li className="nav-item">
                   <a className="nav-link" href="/login">
                     Log in
                   </a>
                 </li>
-              ) : null}
+              ) : null} */}
 
-              {isLoggedIn ? (
+              {/* {isLoggedIn ? (
                 <>
                   <Link to={"/users/" + isLoggedIn.logged_user.id}>
                     Profile
@@ -140,7 +136,7 @@ const NavBar = () => {
                     </a>
                   </li>
                 </>
-              ) : null}
+              ) : null} */}
             </ul>
             {/* <!-- Search content bar.// --> */}
             <div class="top-search navigation-shadow">

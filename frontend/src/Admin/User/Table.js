@@ -1,7 +1,7 @@
 import Sidebar from "../layouts/Sidebar";
 import Footer from "../layouts/Footer";
 import { useEffect } from "react";
-import { getUsers } from "../redux/userSlice"
+import { getUsers, deleteUsers } from "../redux/userSlice"
 import { useDispatch, useSelector } from "react-redux";
 
 
@@ -9,14 +9,59 @@ const Table = () => {
 
   const dispatch = useDispatch();
   const users = useSelector((state) => state.user.users);
-console.log(users);
+
 
   useEffect(() => {
     dispatch(getUsers())
   }, [dispatch])
-
   
+var counter=1;
+
+  console.log(users.name);
+
+  const showUsers = users.map(user => {
+
+    return (
+      <tr>
+        <td>
+          <i class="fab fa-angular fa-lg text-danger me-3"></i>{" "}
+          <strong>{counter++}</strong>
+        </td>
+        <td>{user.name}</td>
+        <td>
+        {user.email}
+        </td>
+        <td>
+          <span class="badge bg-label-primary me-1">
+          {user.phonenumber}
+          </span>
+        </td>
+        <td>
+          <a
+            href="/">
+            <i class="bx bx-edit-alt me-1 "></i>
+          </a>
+          <a
+
+            href="/">
+            <i class="bx bx-trash me-2"></i>
+          </a>
+
+        </td>
+      </tr>
+
+    )
+
+
+
+  });
+
+
+
+
+
   return (
+
     <>
 
 
@@ -32,13 +77,6 @@ console.log(users);
         <!-- Layout container --> */}
           <div class="layout-page">
             {/* <!-- Navbar --> */}
-
-
-
-
-
-
-
 
 
             {/* <!-- / Navbar --> */}
@@ -68,14 +106,8 @@ console.log(users);
                       </thead>
                       <tbody class="table-border-bottom-0">
 
-                     
-                      
-              
-                          
-                             
-                            
+                        {showUsers}
 
-                        
 
                       </tbody>
                     </table>
