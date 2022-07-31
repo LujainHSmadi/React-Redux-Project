@@ -41,7 +41,7 @@ const Profile = () => {
           .unwrap()
           .then((response) => {
             console.log(response);
-            setMessage("The tutorial was updated successfully!");
+            // setMessage("The tutorial was updated successfully!");
           })
           .catch((e) => {
             console.log(e);
