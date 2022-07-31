@@ -29,4 +29,3 @@ Route::apiResource('/users', UserController::class);
 Route::post('/login', [UserController::class, 'log']);
 
 
-

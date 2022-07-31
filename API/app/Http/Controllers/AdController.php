@@ -105,12 +105,13 @@ class AdController extends Controller
      * @param  \App\Models\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function update(Ad $ad , Request $request) 
+    public function update($id , Request $request) 
     {
-        return $request;
+      
      
         
        $ad = Ad::findOrFail($id);
+       console.log("controller ads",$ad);
             $ad->title = $request->get('title');
             $ad->description = $request->get('description');
             $ad->type = $request->get('type');
