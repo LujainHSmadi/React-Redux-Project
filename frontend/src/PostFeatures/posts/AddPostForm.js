@@ -25,8 +25,10 @@ const AddPostForm = () => {
 
     const onSavePostClicked = async () => {
                     {/* if statment will be here */}
-
+//   if(NaN()){alert('dsds')}
+//   else
         if (true) {
+            
             try {
                 await addNewPost({ title, body: content, userId }).unwrap()
 

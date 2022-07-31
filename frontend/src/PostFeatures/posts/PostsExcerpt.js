@@ -21,7 +21,7 @@ console.log(post);
         //     <ReactionButtons post={post} />
         // </article>
         <>
-        <div  style={{ border:'2px dotted ',padding:'15px'}} class="wrap__profile">
+        <div  style={{ border:'1.5px solid ',borderRadius:'15px',padding:'15px'}} class="wrap__profile">
         <div class="wrap__profile-author">
 
             <figure>

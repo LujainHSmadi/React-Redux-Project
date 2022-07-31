@@ -73,6 +73,7 @@ const EditPostForm = () => {
 
     return (
         <section>
+            {/* if */}
             <h2>Edit Post</h2>
             <form style={{border:'1px solid',padding:'15px'}}>
                 <label htmlFor="postTitle">Post Title:</label><br/>

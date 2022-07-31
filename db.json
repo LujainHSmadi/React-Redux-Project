@@ -64,7 +64,7 @@
       "reactions": {
         "thumbsUp": 9,
         "wow": 0,
-        "heart": 0,
+        "heart": 1,
         "rocket": 0,
         "coffee": 0
       },
@@ -133,9 +133,9 @@
       "userId": 1,
       "date": "2022-07-30T18:35:22.607Z",
       "reactions": {
-        "thumbsUp": 4,
+        "thumbsUp": 6,
         "wow": 0,
-        "heart": 5,
+        "heart": 7,
         "rocket": 0,
         "coffee": 0
       }
@@ -167,6 +167,20 @@
         "rocket": 0,
         "coffee": 0
       }
+    },
+    {
+      "title": " cc",
+      "body": "cc",
+      "userId": 1,
+      "date": "2022-07-31T16:57:41.801Z",
+      "reactions": {
+        "thumbsUp": 0,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      },
+      "id": 16
     }
   ],
   "comments": [],

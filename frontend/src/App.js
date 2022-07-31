@@ -1,46 +1,3 @@
-// import PostsList from "./PostFeatures/posts/PostsList";
-// import AddPostForm from "./PostFeatures/posts/AddPostForm";
-// import SinglePostPage from "./PostFeatures/posts/SinglePostPage";
-// import EditPostForm from "./PostFeatures/posts/EditPostForm";
-// import UsersList from "./PostFeatures/users/UsersList";
-// import UserPage from './PostFeatures/users/UserPage';
-// import Layout from "./PostComponents/Layout";
-// import { Routes, Route, Navigate } from 'react-router-dom';
-// import SignIn from "./Components/Login";
-// function App() {
-//   return (
-    // <Routes>
-      
-    //   <Route path="/" element={<Layout />}>
-    //   <Route path="login" element={<SignIn />} />
-    //     <Route index element={<PostsList />} />
-
-    //     <Route path="post">
-    //       <Route index element={<AddPostForm />} />
-    //       <Route path=":postId" element={<SinglePostPage />} />
-    //       <Route path="edit/:postId" element={<EditPostForm />} />
-    //     </Route>
-
-    //     <Route path="user">
-    //       <Route index element={<UsersList />} />
-    //       <Route path=":userId" element={<UserPage />} />
-    //     </Route>
-
-    //     {/* Catch all - replace with 404 component if you want */}
-    //     <Route path="*" element={<Navigate to="/" replace />} />
-
-    //   </Route>
-    // </Routes>
-
-
-
-
-//   );
-// }
-
-// export default App;
-
-
 
 
 import PostsList from "./PostFeatures/posts/PostsList";
@@ -114,6 +71,9 @@ function App() {
         <Route path="postcreate" element={<CreatePost />} />
         <Route path="postedit" element={<EditPost />} />
         <Route path="posttable" element={<TablePost />} />
+
+
+        {/* User Posts */}
         <Route path="/posts" element={<Layout />}>
        <Route path="login" element={<SignIn />} />
          <Route index element={<PostsList />} />
@@ -126,7 +86,7 @@ function App() {
 
        <Route path="user">
           <Route index element={<UsersList />} />
-          <Route path=":userId" element={<UserPage />} />
+          <Route  path=":userId" element={<UserPage />} />
         </Route>
 
         {/* Catch all - replace with 404 component if you want */}

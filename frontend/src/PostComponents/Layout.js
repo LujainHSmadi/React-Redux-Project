@@ -15,9 +15,7 @@ const Layout = () => {
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="single__blog-detail">
-                                <h1>
-                                    Tips And Tricks To Have Your Dream Home At A Low Cost
-                                </h1>
+                                
 
                                 <header className="blog__tags mb-4 Header">
                                     <nav>
@@ -28,7 +26,7 @@ const Layout = () => {
                                             </li>
                                             <li class="list-inline-item">
 
-                                                <Link className='btn-primary ' style={{ color: "white", fontWeight: 'bold' }} to="posts">Reviews</Link>
+                                                <Link className='btn-primary ' style={{ color: "white", fontWeight: 'bold' }} to="">Reviews</Link>
                                             </li>
 
 
@@ -40,6 +38,9 @@ const Layout = () => {
                                         </ul>
                                     </nav>
                                 </header>
+                                <h1>
+                                   Latest Reviews
+                                </h1>
                                 <Outlet />
 
 
