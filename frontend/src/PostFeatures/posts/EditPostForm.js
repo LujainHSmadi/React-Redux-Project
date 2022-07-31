@@ -42,7 +42,7 @@ const EditPostForm = () => {
                 setTitle('')
                 setContent('')
                 setUserId('')
-                navigate(`/post/${postId}`)
+                navigate(`/posts/${postId}`)
                 alert('post was edited succesfully')
             } catch (err) {
                 console.error('Failed to save the post', err)
@@ -64,7 +64,7 @@ const EditPostForm = () => {
             setTitle('')
             setContent('')
             setUserId('')
-            navigate('/')
+            navigate('/posts')
             alert('post was deleted succesfully')
         } catch (err) {
             console.error('Failed to delete the post', err)
@@ -84,11 +84,11 @@ const EditPostForm = () => {
                     value={title}
                     onChange={onTitleChanged}
                 /><br/><br/>
-                <label htmlFor="postAuthor">Author:</label><br/>
+                {/* <label htmlFor="postAuthor">Author:</label><br/>
                 <select id="postAuthor" value={userId} onChange={onAuthorChanged}>
                     <option value=""></option>
                     {usersOptions}
-                </select><br/><br/>
+                </select><br/><br/> */}
                 <label htmlFor="postContent">Content:</label><br/>
                 <textarea
                     id="postContent"
@@ -97,7 +97,7 @@ const EditPostForm = () => {
                     onChange={onContentChanged}
                 /><br/><br/>
                 <button 
-                   class=" btn-primary "
+                   class=" btn-primary"
 
                     type="button"
                     onClick={onSavePostClicked}

@@ -66,7 +66,7 @@ const Table = () => {
                 <i class="bx bx-edit-alt me-1 "></i>
               </a>
               <a class="mg-2" onClick={(e) => {
-                e.preventDefault();
+                // e.preventDefault();
                 dispatch(deleteAd(ad.id))
                 console.log("ad Id",ad.id);
                 navigate('/adtable', { replace: true })

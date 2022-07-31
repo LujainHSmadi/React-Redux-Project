@@ -1,3 +1,4 @@
+// import swal from "sweetalert";
 
 import { Link } from "react-router-dom";
 const NavBar = () => {
@@ -115,16 +116,15 @@ const NavBar = () => {
                   <i class="fa fa-plus-circle mr-1"></i> add post
                 </a>
               </li> 
-              
               {/* {!isLoggedIn ? (
                 <li className="nav-item">
                   <a className="nav-link" href="/login">
                     Log in
                   </a>
                 </li>
-              ) : null} */}
+              ) : null}
 
-              {/* {isLoggedIn ? (
+              {isLoggedIn ? (
                 <>
                   <Link to={"/users/" + isLoggedIn.logged_user.id}>
                     Profile

@@ -75,19 +75,26 @@ function App() {
 
         {/* User Posts */}
         <Route path="/posts" element={<Layout />}>
+          
+        <Route path="add"  element={<AddPostForm />} />
+          <Route index path=":postId" element={<SinglePostPage />} />
+        <Route path="edit/:postId" element={<EditPostForm />} />
+
        <Route path="login" element={<SignIn />} />
          <Route index element={<PostsList />} />
 
-         <Route path="post">
-          <Route index element={<AddPostForm />} />
-          <Route path=":postId" element={<SinglePostPage />} />
-         <Route path="edit/:postId" element={<EditPostForm />} />
-         </Route>
+         {/* <Route path="post">
+         
 
-       <Route path="user">
-          <Route index element={<UsersList />} />
-          <Route  path=":userId" element={<UserPage />} />
-        </Route>
+         
+         </Route> */}
+           <Route path="user" element={<UsersList />} />
+
+          <Route  path="user/:userId" element={<UserPage />} />
+
+       {/* <Route path="user">
+         
+        </Route> */}
 
         {/* Catch all - replace with 404 component if you want */}
         <Route path="*" element={<Navigate to="/" replace />} />
