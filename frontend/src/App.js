@@ -40,7 +40,7 @@ function App() {
     <div className="App">
     <BrowserRouter>
    
-      {/* <NavBar /> */}
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
@@ -65,7 +65,7 @@ function App() {
         <Route path="commenttable" element={<EditComments />} />
           {/* Ads */}
         <Route path="adcreate" element={<CreateAd/>} />
-        <Route path="adedit" element={<EditAd />} />
+          <Route path="adedit/:id" element={<EditAd />} />
         <Route path="adtable" element={<TableAd />} />
           {/* Posts */}
         <Route path="postcreate" element={<CreatePost />} />

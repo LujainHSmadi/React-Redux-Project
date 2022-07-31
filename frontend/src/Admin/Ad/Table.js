@@ -3,39 +3,44 @@ import Footer from "../layouts/Footer";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAds } from "../redux/adSlice";
+import { deleteAd } from "../redux/adSlice";
+import { useNavigate } from "react-router-dom";
 
 
 const Table = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const ads = useSelector(state => state.ad.ads);
+  console.log(ads);
   const loading = useSelector(state => state.ad.loading);
 
   useEffect(() => {
     dispatch(getAds());
 
   }, [dispatch]);
-  console.log("title", ads);
+  // console.log("title", ads);
   
   const allads = ads.map(ad => { 
     return (
       <>
-        <div class="col">
+      
+        <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card h-100">
 
             {/* image slider */}
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img class="d-block w-100" src={ ad.image } alt="First slide" />
+                  <img class="d-block w-100" src={'http://127.0.0.1:8000/image/'+ad.image} alt="First slide" width={350} height={350} />
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block w-100" src={ad.image_2} alt="Second slide" />
+                  <img class="d-block w-100" src={'http://127.0.0.1:8000/image/' + ad.image_2} alt="Second slide" width={350} height={350} />
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block w-100" src={ad.image_3} alt="Third slide" />
+                  <img class="d-block w-100" src={'http://127.0.0.1:8000/image/' + ad.image_3} alt="Third slide" width={350} height={350} />
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block w-100" src={ad.image_4} alt="Third slide" />
+                  <img class="d-block w-100" src={'http://127.0.0.1:8000/image/' + ad.image_4} alt="Third slide" width={350} height={350} />
                 </div>
               </div>
               <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -49,10 +54,27 @@ const Table = () => {
             </div>
             {/*  end of image slider */}
             <div class="card-body">
-              <h5 class="card-title">{ad.title}</h5>
+              <h3 class="card-title">{ad.title}</h3>
+              <h6 class="card-title">{ad.type}</h6>
               <p class="card-text">
                 {ad.description}
               </p>
+              <br /><br />
+              <small class="text-muted">{ad.location}</small><br />
+              <small class="text-muted">{ad.phone}</small>
+              <a class="ml-5 px-3" href={`adedit/${ad.id}`}>
+                <i class="bx bx-edit-alt me-1 "></i>
+              </a>
+              <a class="mg-2" onClick={(e) => {
+                // e.preventDefault();
+                dispatch(deleteAd(ad.id))
+                console.log("ad Id",ad.id);
+                navigate('/adtable', { replace: true })
+              }
+              }
+                href="/adtable">
+                <i class="bx bx-trash me-2"></i>
+              </a>
             </div>
           </div>
         </div>
