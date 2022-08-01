@@ -34,6 +34,8 @@ import EditPostForm from "./PostFeatures/posts/EditPostForm";
 import UsersList from "./PostFeatures/users/UsersList";
 import UserPage from './PostFeatures/users/UserPage';
 import { Routes, Route, Navigate, BrowserRouter } from 'react-router-dom';
+import Contact from "./Components/Contact";
+import Footer from "./Layout/Footer";
 
 
 function App() {
@@ -56,6 +58,7 @@ function App() {
         <Route path="list/SingleDetail/:id" element={<SingleDetail />} />
         <Route path="/Agency" element={<Agency />} />
         <Route path="/AgentsDetail" element={<AgentsDetail />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/Agents" element={<Agents />} />
         <Route path="login" element={<SignIn />} />
         <Route path="blog" element={<Blog />} />
@@ -112,7 +115,7 @@ function App() {
        </Routes>
 
    
-      
+      <Footer />
     </BrowserRouter>
  
   </div>

@@ -36,7 +36,7 @@ const NavBar = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="#" title="">
+                    <a href="/login" title="">
                       Login / Register
                     </a>
                   </li>
@@ -86,57 +86,59 @@ const NavBar = () => {
                   Properties
                 </a>
               </li>
+             
+              <li   class="nav-item">
+              <Link class="nav-link" to="posts">Ask</Link>
+
+              </li>
               <li class="nav-item">
-                <a class="nav-link" href="/">
-                  Ask
+                <a class="nav-link" href="/contact">
+                  Contact
                 </a>
               </li>
-              <li class="nav-item">
-              <Link class="nav-link" to="posts">reviews</Link>
-
-              </li>
-
               <li class="nav-item">
                 <a class="nav-link" href="/about">
                   About                </a>
               </li>
 
-              <li class="nav-item">
-                <a class="nav-link" href="/profile">
-                  Profile
-                </a>
-              </li>
+              <li class="nav-item dropdown">
+                            <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown"> Account </a>
+                            <ul class="dropdown-menu dropdown-menu-left animate fade-up">
+
+                            {!isLoggedIn ? (
+                                <li><a class="dropdown-item" href="/login">Login</a></li>    ) : null}
+
+
+
+                            {isLoggedIn ? (
+                              <>
+                                <li><a class="dropdown-item"    href="/"> <Link style={{color:"black"}} to={"/users/" + isLoggedIn.logged_user.id}>
+                                Profile
+                                
+                              </Link> </a></li>
+                              <li><a class="dropdown-item" href="/#"  onClick={logout}>Logout</a></li> 
+
+                              </>
+                              
+                                ) : null} 
+                            </ul>
+                        </li>
+
+                     
+      
+          
             </ul>
 
-            {/* <!-- Search bar.// --> */}
+
             <ul class="navbar-nav">
               <li>
                 <a href="/" class="btn btn-primary text-capitalize">
                   <i class="fa fa-plus-circle mr-1"></i> add post
                 </a>
               </li> 
-               {!isLoggedIn ? (
-                <li className="nav-item">
-                  <a className="nav-link" href="/login">
-                    Log in
-                  </a>
-                </li>
-              ) : null}
-
-              {isLoggedIn ? (
-                <>
-                  <Link to={"/users/" + isLoggedIn.logged_user.id}>
-                    Profile
-                    
-                  </Link>
-                  <li className="nav-item">
-                    <a className="nav-link" onClick={logout}>
-                      Log out
-                    </a>
-                  </li>
-                </>
-              ) : null} 
             </ul>
+
+
             {/* <!-- Search content bar.// --> */}
             <div class="top-search navigation-shadow">
               <div class="container">
