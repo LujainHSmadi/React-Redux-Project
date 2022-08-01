@@ -192,7 +192,7 @@ const adSlice = createSlice({
             console.log(action);
         },
         [singleAd.fulfilled]: (state, action) => {
-            state.ad = action.payload;
+            state.ads = action.payload;
             state.loading = false;
             console.log(state.ad);
         },

@@ -11,23 +11,23 @@ const SingleDetail = () => {
 
   const dispatch = useDispatch();
   const ads = useSelector(state => state.ad.ads);
-const params = useParams();
+  const {id} = useParams();
   useEffect(() => {
-      dispatch(singleAd(params.id));
+    dispatch(singleAd(id));
+    console.log("luj", ads.id);
 
-  }, );
+  }, [dispatch]);
 
-//   if(ads.id === params.id){
- console.log("luj",params.id);
+  //   if(ads.id === params.id){
 
-//   }
- 
-  
+  //   }
+
+
   return (
 
-    
+
     <>
-    
+
       <div class="bg-theme-overlay">
         <section class="section__breadcrumb ">
           <div class="container">
@@ -40,10 +40,11 @@ const params = useParams();
                       home
                     </a>
                   </li>
-                
+
                   <li class="list-inline-item">
                     <a href="#" class="text-white">
-                  Property Details
+                      Property Details
+                      {/* {ads.title} */}
                     </a>
                   </li>
                 </ul>
@@ -249,7 +250,7 @@ const params = useParams();
                       </div>
                       <h4 class="text-capitalize">amal Family Home</h4>
                       <p class="text-uppercase">
-                  </p>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -342,34 +343,31 @@ const params = useParams();
               <div class="row">
                 <div class="col-md-9 col-lg-9">
                   <div class="single__detail-title mt-4">
-                    <h3 class="text-capitalize">Vila In Coral Gables</h3>
+                    <h3 class="text-capitalize">dvv</h3>
                     <p>Read Below For More Details</p>
                   </div>
                 </div>
                 <div class="col-md-3 col-lg-3">
                   <div class="single__detail-price mt-4">
                     <h3 class="text-capitalize text-gray">$13.000/mo</h3>
-               
+
                   </div>
                 </div>
               </div>
 
 
               <div class="single__detail-features">
-                    <h6 class="text-capitalize detail-heading">
-                      property views
-                    </h6>
-                    {/* <!-- CANVAS --> */}
-                    <div class="wrapper">
-                      
-
-                        <img src="images/gallery12.jpg" alt=""></img>
-                    
-                    </div>
-                  </div>
+                <h6 class="text-capitalize detail-heading">
+                  property views
+                </h6>
+                {/* <!-- CANVAS --> */}
+                <div class="wrapper">
+                  <canvas id="myChart" class="chart"></canvas>
+                </div>
+              </div>
 
 
-              
+
               {/* <!-- DESCRIPTION --> */}
               <div class="row">
                 <div class="col-lg-12">
@@ -395,9 +393,9 @@ const params = useParams();
                         incredible walk-in closet and storage space.
                       </p>
 
-                   
 
-                 
+
+
                     </div>
                   </div>
                   <div class="clearfix"></div>
@@ -421,7 +419,7 @@ const params = useParams();
                             <li>
                               <b>Price:</b> $484,400
                             </li>
-                         
+
                             <li>
                               <b>Bedrooms:</b> 4
                             </li>
@@ -450,15 +448,15 @@ const params = useParams();
                           </ul>
                         </div>
                       </div>
-                    
-                   
+
+
                     </div>
                     {/* <!-- END INFO PROPERTY DETAIL --> */}
                   </div>
                   {/* <!-- END PROPERTY DETAILS SPEC --> */}
                   <div class="clearfix"></div>
 
-               
+
 
                   <div class="single__detail-features">
                     <h6 class="text-capitalize detail-heading">floor plan</h6>
@@ -578,7 +576,7 @@ const params = useParams();
                       </div>
                     </div>
                   </div>
-                
+
                   <div class="single__detail-features">
                     <h6 class="text-capitalize detail-heading">location</h6>
                     {/* <!-- FILTER VERTICAL --> */}
@@ -587,8 +585,8 @@ const params = useParams();
                       id="pills-tab"
                       role="tablist"
                     >
-                  
-                  <h5 className="nav-link active">Amman</h5>
+
+                      <h5 className="nav-link active">Amman</h5>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
                       <div
@@ -626,8 +624,8 @@ const params = useParams();
                   </div>
                   {/* <!-- END LOCATION --> */}
 
-                 
-             
+
+
                 </div>
               </div>
               {/* <!-- END DESCRIPTION --> */}
@@ -850,7 +848,7 @@ const params = useParams();
               </div>
               {/* <!-- END FORM FILTER -->
                     <!-- FORM FILTER --> */}
-            
+
               {/* <!-- END FORM FILTER --> */}
               <div class="sticky-top">
                 {/* <!-- PROFILE AGENT --> */}
@@ -932,13 +930,13 @@ const params = useParams();
                     </div>
                   </div>
                 </div>
-       
-            
+
+
               </div>
             </div>
           </div>
 
- 
+
         </div>
       </section>
       {/* <!-- END SINGLE DETAIL -->
