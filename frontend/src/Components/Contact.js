@@ -1,12 +1,34 @@
-import React from 'react'
+
+import emailjs from '@emailjs/browser';
+import React, { useRef } from 'react';
 
 export default function Contact() {
+
+
+    const form = useRef();
+
+    function sendEmail(e) {
+       e.preventDefault();
+
+       emailjs.sendForm('service_ow9xrmn', 'template_kss99vt', form.current, 'PnvT6EB3r4gvRXEnb')
+           .then((result) => {
+               console.log(result.text);
+           }, (error) => {
+               console.log(error.text);
+           });
+           e.target.reset();
+
+   }
+
+
+
   return (
+
   <>
   
   
   <body>
-    <!-- HEADER -->
+  
     <header>
    
         <div class="bg-theme-overlay">
@@ -38,28 +60,31 @@ export default function Contact() {
                 </div>
             </section>
         </div>
-        <!-- END BREADCRUMB -->
+       
     </header>
     <div class="clearfix"></div>
 
-    <!-- Form contact -->
+
     <section class="wrap__contact-form">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
                     <h5>contact us</h5>
                     <div class="row">
+                    <form onSubmit={sendEmail} ref={form}>
                         <div class="col-md-6">
+                            
                             <div class="form-group form-group-name">
+
                                 <label>Your name <span class="required"></span></label>
-                                <input type="text" class="form-control" name="name" required="">
+                                <input type="text" class="form-control" name="name" required=""/>
 
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group form-group-name">
                                 <label>Your email <span class="required"></span></label>
-                                <input type="email" class="form-control" name="email" required="">
+                                <input type="email" class="form-control" name="email" required=""/>
 
                             </div>
                         </div>
@@ -67,14 +92,14 @@ export default function Contact() {
                         <div class="col-md-6">
                             <div class="form-group form-group-name">
                                 <label>website <span class="required"></span></label>
-                                <input type="text" class="form-control" name="website" required="">
+                                <input type="text" class="form-control" name="website" required=""/>
 
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group form-group-name">
                                 <label>Subject <span class="required"></span></label>
-                                <input type="text" class="form-control" name="subject" required="">
+                                <input type="text" class="form-control" name="subject" required=""/>
 
                             </div>
                         </div>
@@ -83,10 +108,11 @@ export default function Contact() {
                                 <label>Your message </label>
                                 <textarea class="form-control" rows="9" name="message"></textarea>
                             </div>
-                            <div class="form-group float-right mb-0">
-                                <button type="submit" class="btn btn-primary btn-contact">Submit</button>
+                            <div class="form-group  mb-0 text-left">
+                                <button type="submit" class="btn btn-primary btn-contact text-left">Submit</button>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
 
@@ -174,10 +200,7 @@ export default function Contact() {
             </div>
         </div>
     </section>
-    <!-- End Form contact  -->
-
-
-    <!-- CALL TO ACTION -->
+  
     <section class="cta-v1 py-5">
     <div class="container">
         <div class="row align-items-center">
@@ -196,177 +219,12 @@ export default function Contact() {
     </div>
 </section>
 
-<footer>
-    <div class="wrapper__footer bg-theme-footer">
-        <div class="container">
-            <div class="row">
-               
-                <div class="col-md-4">
-                    <div class="widget__footer">
-                        <figure>
-                            <img src="images/logo-blue.png" alt="" class="logo-footer"/>
-                        </figure>
-                        <p>
-                            Rethouse Real Estate is a premium Property template based on Bootstrap 4. Rethouse Real
-                            Estate helped thousands of clients to find the right property for their needs.
-
-                        </p>
-
-                        <ul class="list-unstyled mb-0 mt-3">
-                            <li> <b> <i class="fa fa-map-marker"></i></b><span>214 West Arnold St. New York, NY
-                                    10002</span> </li>
-                            <li> <b><i class="fa fa-phone-square"></i></b><span>(123) 345-6789</span> </li>
-                            <li> <b><i class="fa fa-phone-square"></i></b><span>(+100) 123 456 7890</span> </li>
-                            <li> <b><i class="fa fa-headphones"></i></b><span>support@realvilla.demo</span> </li>
-                            <li> <b><i class="fa fa-clock-o"></i></b><span>Mon - Sun / 9:00AM - 8:00PM</span> </li>
-                        </ul>
-                    </div>
-
-                </div>
-        
-                <div class="col-md-4">
-                    <div class="widget__footer">
-                        <h4 class="footer-title">Quick Links</h4>
-                        <div class="link__category-two-column">
-                            <ul class="list-unstyled ">
-                                <li class="list-inline-item">
-                                    <a href="#">Commercial</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">business</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">House</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">Residential</a>
-                                </li>
-
-                                <li class="list-inline-item">
-                                    <a href="#">Residential Tower</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">Beverly Hills</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">Los angeles</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">The beach</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">Property Listing</a>
-                                </li>
-
-                                <li class="list-inline-item">
-                                    <a href="#">Clasic</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">Modern Home</a>
-                                </li>
-
-                                <li class="list-inline-item">
-                                    <a href="#">Luxury</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">Beach Pasadena</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-          
-                <div class="col-md-4">
-                    <div class="widget__footer">
-                        <h4 class="footer-title">follow us </h4>
-                        <p class="mb-2">
-                            Follow us and stay in touch to get the latest news
-                        </p>
-                        <p>
-                            <button class="btn btn-social btn-social-o facebook mr-1">
-                                <i class="fa fa-facebook-f"></i>
-                            </button>
-                            <button class="btn btn-social btn-social-o twitter mr-1">
-                                <i class="fa fa-twitter"></i>
-                            </button>
-
-                            <button class="btn btn-social btn-social-o linkedin mr-1">
-                                <i class="fa fa-linkedin"></i>
-                            </button>
-                            <button class="btn btn-social btn-social-o instagram mr-1">
-                                <i class="fa fa-instagram"></i>
-                            </button>
-
-                            <button class="btn btn-social btn-social-o youtube mr-1">
-                                <i class="fa fa-youtube"></i>
-                            </button>
-                        </p>
-                        <br/>
-                        <h4 class="footer-title">newsletter</h4>
-             
-                        <div class="widget__form-newsletter ">
-                            <p>
-
-                                Don’t miss to subscribe to our news feeds, kindly fill the form below
-                            </p>
-                            <div class="mt-3">
-                                <input type="text" class="form-control mb-2" placeholder="Your email address"/>
-
-                                <button class="btn btn-primary btn-block text-capitalize" type="button">subscribe
-
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-          
-            </div>
-        </div>
-    </div>
-
-      <div class="bg__footer-bottom-v1">
-        <div class="container">
-            <div class="row flex-column-reverse flex-md-row">
-                <div class="col-md-6">
-                    <span>
-                        © 2020 Rethouse Real Estate - Premium real estate & theme &amp; theme by
-                        <a href="#">retenvi.com</a>
-                    </span>
-                </div>
-                <div class="col-md-6">
-                    <ul class="list-inline ">
-                        <li class="list-inline-item">
-                            <a href="#">
-                                privacy
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                contact
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                about
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                faq
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Footer  -->
-</footer>
 
 
 
-    <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
+
+
+
 
 <script type="text/javascript" src="./js/index.bundle.js?10eb1139a9f2b8f356b2"></script></body>
   
@@ -380,5 +238,3 @@ export default function Contact() {
   )
 }
 
-       
-export default Contact;
