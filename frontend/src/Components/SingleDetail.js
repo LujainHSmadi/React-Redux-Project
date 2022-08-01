@@ -361,6 +361,31 @@ const SingleDetail = () => {
                 {/* <!-- CANVAS --> */}
                 <div class="wrapper">
                   <canvas id="myChart" class="chart"></canvas>
+
+                  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="d-block w-100" src={'http://127.0.0.1:8000/image/' + ads.image} alt="First slide" width={300} height={ 300} />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100" src={'http://127.0.0.1:8000/image/' + ads.image_2} alt="Second slide" width={300} height={300} />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100" src={'http://127.0.0.1:8000/image/' + ads.image_3} alt="Third slide" width={300} height={300} />
+                      </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+
+
+
                 </div>
               </div>
 

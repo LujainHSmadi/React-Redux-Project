@@ -8,26 +8,30 @@ export const getAds = createAsyncThunk('ad/getAds', async () => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
 export const addAd = createAsyncThunk('ad/addAd', async (data, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
         const response = await axios.post('http://127.0.0.1:8000/api/ads', data);
         const ad = await response.data;
         // console.log('add', ad);
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
         return ad;
     }
     catch (error) {
         console.error(error);
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
         return rejectWithValue(error.message);
     }
 });
@@ -40,10 +44,26 @@ export const editAd = createAsyncThunk('ad/editAd', async (data, thunkAPI) => {
         const ad = await response.data;
 
         console.log('yousef', ad);
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
         return ad;
 
     }
     catch (error) {
+        console.error(error);
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
+        return rejectWithValue(error.message);
 
     }
 });
@@ -86,6 +106,13 @@ export const deleteAd = createAsyncThunk('ad/deleteAd', async (id) => {
         //     });
         // }
         const res = response.json();
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Has been deleted Successfully',
+            showConfirmButton: false,
+            timer: 1500
+        })
         return res;
 
 
