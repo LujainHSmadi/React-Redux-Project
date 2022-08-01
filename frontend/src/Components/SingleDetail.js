@@ -343,7 +343,7 @@ const SingleDetail = () => {
               <div class="row">
                 <div class="col-md-9 col-lg-9">
                   <div class="single__detail-title mt-4">
-                    <h3 class="text-capitalize">dvv</h3>
+                    <h3 class="text-capitalize">{ads.title}</h3>
                     <p>Read Below For More Details</p>
                   </div>
                 </div>
@@ -375,11 +375,7 @@ const SingleDetail = () => {
                     <h6 class="text-capitalize detail-heading">description</h6>
                     <div class="">
                       <p>
-                        Evans Tower very high demand corner junior one bedroom
-                        plus a large balcony boasting full open NYC views. You
-                        need to see the views to believe them. Mint condition
-                        with new hardwood floors. Lots of closets plus washer
-                        and dryer.
+                        {ads.description}
                       </p>
                       <p>
                         Fully furnished. Elegantly appointed condominium unit
@@ -411,10 +407,10 @@ const SingleDetail = () => {
                         <div class="col-md-6 col-lg-6">
                           <ul class="property__detail-info-list list-unstyled">
                             <li>
-                              <b>Property ID:</b> RV151
+                              <b>Property ID:</b> RV{ads.id}
                             </li>
                             <li>
-                              <b>Tilte:</b> villa
+                              <b>Tilte:</b> {ads.title}
                             </li>
                             <li>
                               <b>Price:</b> $484,400
@@ -431,16 +427,16 @@ const SingleDetail = () => {
                         <div class="col-md-6 col-lg-6">
                           <ul class="property__detail-info-list list-unstyled">
                             <li>
-                              <b>Phone:</b> 1
+                              <b>Phone:</b> {ads.phone}
                             </li>
                             <li>
-                              <b>Location:</b> 458 SqFt
+                              <b>Location:</b> {ads.location}
                             </li>
                             <li>
                               <b>Year Built:</b> 2019-01-09
                             </li>
                             <li>
-                              <b>Property Type:</b> Full Family Home
+                              <b>Property Type:</b> Full Family {ads.type}
                             </li>
                             <li>
                               <b>Property Status:</b> For rent
@@ -586,7 +582,7 @@ const SingleDetail = () => {
                       role="tablist"
                     >
 
-                      <h5 className="nav-link active">Amman</h5>
+                      <h5 className="nav-link active">{ads.location}</h5>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
                       <div
