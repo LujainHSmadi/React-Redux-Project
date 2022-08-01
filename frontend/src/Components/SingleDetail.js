@@ -18,9 +18,7 @@ const SingleDetail = () => {
 
   }, [dispatch]);
 
-  //   if(ads.id === params.id){
 
-  //   }
 
 
   return (
@@ -343,7 +341,7 @@ const SingleDetail = () => {
               <div class="row">
                 <div class="col-md-9 col-lg-9">
                   <div class="single__detail-title mt-4">
-                    <h3 class="text-capitalize">dvv</h3>
+                    <h3 class="text-capitalize">{ads.title}</h3>
                     <p>Read Below For More Details</p>
                   </div>
                 </div>
