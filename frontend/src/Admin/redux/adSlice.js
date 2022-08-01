@@ -34,11 +34,12 @@ export const addAd = createAsyncThunk('ad/addAd', async (data, thunkAPI) => {
 
 export const editAd = createAsyncThunk('ad/editAd', async (data, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
-    console.log('edit', data);
+    console.log('edit', data.params);
     try {
-        const response = await axios.put(`http://127.0.0.1:8000/api/ads/${data.id}`, data);
+        const response = await axios.put(`http://127.0.0.1:8000/api/ads/${data.params}`, data.formData);
         const ad = await response.data;
-        console.log('edit', data);
+
+        console.log('yousef', ad);
         return ad;
 
     }
@@ -55,7 +56,7 @@ export const editAd = createAsyncThunk('ad/editAd', async (data, thunkAPI) => {
 //         console.log('delete', ad);
 //         return ad;
 
-    
+
 
 //     }
 //     catch (error) {
@@ -101,7 +102,7 @@ export const singleAd = createAsyncThunk('ad/singleAd', async (data) => {
     try {
         const response = await fetch(`http://127.0.0.1:8000/api/ads/${data}`);
         const sdata = await response.json();
-        console.log("sdata",sdata)
+        console.log("sdata", sdata)
         return sdata;
     }
     catch (error) {
@@ -157,13 +158,25 @@ const adSlice = createSlice({
             console.log(action);
         },
         [editAd.fulfilled]: (state, action) => {
-            state.ads = state.ads.map(ad => {
-                if (ad.id === action.payload.id) {
-                    return action.payload;
-                }
-                return ad;
-            }
-            );
+            console.log("amaaaaaaaa2222l", action.payload);
+            state.ads=action.payload;
+            console.log("amaaaaaaaal", state.ads);
+            // const ad = state.ads.find(ad => ad.id === action.payload.id);
+            // if (ad) {
+
+            //     ad.title = action.payload.title;
+            //     ad.description = action.payload.description;
+            //     ad.type = action.payload.type;
+            //     ad.image = action.payload.image;
+            //     ad.image_2 = action.payload.image_2;
+            //     ad.image_3 = action.payload.image_3;
+            //     ad.image_4 = action.payload.image_4;
+            //     ad.location = action.payload.location;
+            //     ad.phone = action.payload.phone;
+
+            // }
+            // return ad;
+
         },
         [editAd.rejected]: (state, action) => {
             state.error = action.payload;
@@ -201,7 +214,7 @@ const adSlice = createSlice({
             state.loading = false;
             console.log(state.ad);
         }
-            
+
 
     }
 
