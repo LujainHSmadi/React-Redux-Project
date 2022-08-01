@@ -21,7 +21,9 @@ const Create = () => {
   const params = useParams();
 
 
-  console.log('params ',params.id);
+  console.log('params ', params.id);
+  
+  
   const dispatch = useDispatch();
   const ads = useSelector(state => state.ad);
   console.log("Esraa",ads);
