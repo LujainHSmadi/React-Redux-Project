@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAds } from "../Admin/redux/adSlice";
-
+import { Link } from "react-router-dom";
 
 const List = ()=>{
 
@@ -12,7 +12,7 @@ const List = ()=>{
       dispatch(getAds());
 
   }, [dispatch]);
-  console.log("title", ads);
+
 
   const allads = ads.map(ad => {
       return (
@@ -24,8 +24,10 @@ const List = ()=>{
                                         <div class="card__image card__box-v1">
                                             <div class="card__image-header h-250">
                                                 <div class="ribbon text-capitalize">featured</div>
+                                                 <Link to={"SingleDetail/" + ad.id}>
                                                 <img src={'http://127.0.0.1:8000/image/'+ad.image} alt="" class="img-fluid w100 img-transition" />
                                                 <div class="info"> for sale</div>
+                                                 </Link>
                                             </div>
                                             <div class="card__image-body">
                                                 <span class="badge badge-primary text-capitalize mb-2">{ad.type}</span>

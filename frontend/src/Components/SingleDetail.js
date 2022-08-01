@@ -1,6 +1,33 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { singleAd } from "../Admin/redux/adSlice";
+import { Link, useParams } from "react-router-dom";
+// import { Params } from "react-router-dom";
+
+
+
+
 const SingleDetail = () => {
+
+  const dispatch = useDispatch();
+  const ads = useSelector(state => state.ad.ads);
+const params = useParams();
+  useEffect(() => {
+      dispatch(singleAd(params.id));
+
+  }, );
+
+//   if(ads.id === params.id){
+ console.log("luj",params.id);
+
+//   }
+ 
+  
   return (
+
+    
     <>
+    
       <div class="bg-theme-overlay">
         <section class="section__breadcrumb ">
           <div class="container">
@@ -222,7 +249,7 @@ const SingleDetail = () => {
                       </div>
                       <h4 class="text-capitalize">amal Family Home</h4>
                       <p class="text-uppercase">
-Read below for more details                      </p>
+                  </p>
                     </div>
                   </div>
                 </div>
@@ -315,7 +342,7 @@ Read below for more details                      </p>
               <div class="row">
                 <div class="col-md-9 col-lg-9">
                   <div class="single__detail-title mt-4">
-                    <h3 class="text-capitalize">Luxury Family Home</h3>
+                    <h3 class="text-capitalize">h</h3>
                     <p>Read Below For More Details</p>
                   </div>
                 </div>
@@ -326,6 +353,20 @@ Read below for more details                      </p>
                   </div>
                 </div>
               </div>
+
+
+              <div class="single__detail-features">
+                    <h6 class="text-capitalize detail-heading">
+                      property views
+                    </h6>
+                    {/* <!-- CANVAS --> */}
+                    <div class="wrapper">
+                      <canvas id="myChart" class="chart"></canvas>
+                    </div>
+                  </div>
+
+
+              
               {/* <!-- DESCRIPTION --> */}
               <div class="row">
                 <div class="col-lg-12">
@@ -582,16 +623,6 @@ Read below for more details                      </p>
                   </div>
                   {/* <!-- END LOCATION --> */}
 
-                  {/* <!-- PROPERTY VIEWS --> */}
-                  <div class="single__detail-features">
-                    <h6 class="text-capitalize detail-heading">
-                      property views
-                    </h6>
-                    {/* <!-- CANVAS --> */}
-                    <div class="wrapper">
-                      <canvas id="myChart" class="chart"></canvas>
-                    </div>
-                  </div>
                  
              
                 </div>

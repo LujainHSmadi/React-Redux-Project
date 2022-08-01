@@ -7,6 +7,17 @@ export const getAds = createAsyncThunk('ad/getAds', async () => {
     return data;
 });
 
+
+
+
+
+
+
+
+
+
+
+
 export const addAd = createAsyncThunk('ad/addAd', async (data, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
@@ -87,8 +98,9 @@ export const deleteAd = createAsyncThunk('ad/deleteAd', async (id) => {
 export const singleAd = createAsyncThunk('ad/singleAd', async (data) => {
 
     try {
-        const response = await fetch(`http://127.0.0.1:8000/api/ads/${data.id}`);
+        const response = await fetch(`http://127.0.0.1:8000/api/ads/${data}`);
         const sdata = await response.json();
+        console.log("sdata",sdata)
         return sdata;
     }
     catch (error) {

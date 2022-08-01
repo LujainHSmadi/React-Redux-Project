@@ -1,34 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+import React from 'react'
 
-<head>
-
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Rethouse - Real Estate HTML Template">
-<meta name="keywords" content="Real Estate, Property, Directory Listing, Marketing, Agency" />
-<meta name="author" content="mardianto - retenvi.com">
-<title>Rethouse - Real Estate HTML Template</title>
-
-<!-- Facebook and Twitter integration -->
-<meta property="og:title" content="" />
-<meta property="og:image" content="" />
-<meta property="og:url" content="" />
-<meta property="og:site_name" content="" />
-<meta property="og:description" content="" />
-<meta name="twitter:title" content="" />
-<meta name="twitter:image" content="" />
-<meta name="twitter:url" content="" />
-<meta name="twitter:card" content="" />
-
-<link rel="manifest" href="site.webmanifest">
-<!-- favicon.ico in the root directory -->
-<link rel="apple-touch-icon" href="icon.png">
-<meta name="theme-color" content="#3454d1">
-<link href="./css/styles.css?10eb1139a9f2b8f356b2" rel="stylesheet"></head>
-
-<body>
+export default function Contact() {
+  return (
+  <>
+  
+  
+  <body>
     <!-- HEADER -->
     <header>
    
@@ -218,18 +195,16 @@
         </div>
     </div>
 </section>
-    <!-- END CALL TO ACTION -->
 
-    <!-- Footer  -->
 <footer>
     <div class="wrapper__footer bg-theme-footer">
         <div class="container">
             <div class="row">
-                <!-- ADDRESS -->
+               
                 <div class="col-md-4">
                     <div class="widget__footer">
                         <figure>
-                            <img src="images/logo-blue.png" alt="" class="logo-footer">
+                            <img src="images/logo-blue.png" alt="" class="logo-footer"/>
                         </figure>
                         <p>
                             Rethouse Real Estate is a premium Property template based on Bootstrap 4. Rethouse Real
@@ -248,9 +223,7 @@
                     </div>
 
                 </div>
-                <!-- END ADDRESS -->
-
-                <!-- QUICK LINKS -->
+        
                 <div class="col-md-4">
                     <div class="widget__footer">
                         <h4 class="footer-title">Quick Links</h4>
@@ -302,10 +275,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- END QUICK LINKS -->
-
-
-                <!-- NEWSLETTERS -->
+          
                 <div class="col-md-4">
                     <div class="widget__footer">
                         <h4 class="footer-title">follow us </h4>
@@ -331,16 +301,16 @@
                                 <i class="fa fa-youtube"></i>
                             </button>
                         </p>
-                        <br>
+                        <br/>
                         <h4 class="footer-title">newsletter</h4>
-                        <!-- Form Newsletter -->
+             
                         <div class="widget__form-newsletter ">
                             <p>
 
                                 Don’t miss to subscribe to our news feeds, kindly fill the form below
                             </p>
                             <div class="mt-3">
-                                <input type="text" class="form-control mb-2" placeholder="Your email address">
+                                <input type="text" class="form-control mb-2" placeholder="Your email address"/>
 
                                 <button class="btn btn-primary btn-block text-capitalize" type="button">subscribe
 
@@ -350,13 +320,12 @@
 
                     </div>
                 </div>
-                <!-- END NEWSLETTER -->
+          
             </div>
         </div>
     </div>
 
-    <!-- Footer Bottom -->
-    <div class="bg__footer-bottom-v1">
+      <div class="bg__footer-bottom-v1">
         <div class="container">
             <div class="row flex-column-reverse flex-md-row">
                 <div class="col-md-6">
@@ -400,5 +369,16 @@
     <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
 
 <script type="text/javascript" src="./js/index.bundle.js?10eb1139a9f2b8f356b2"></script></body>
+  
+  
+  
+  
+  
+  
+  
+  </>
+  )
+}
 
-</html>
+       
+export default Contact;

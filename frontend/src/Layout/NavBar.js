@@ -1,20 +1,20 @@
 import swal from "sweetalert";
 import { Link } from "react-router-dom";
 const NavBar = () => {
-  // let isLoggedIn = JSON.parse(localStorage.getItem("user"));
+  let isLoggedIn = JSON.parse(localStorage.getItem("user"));
 
   
-  // function logout() {
-  //   swal({
-  //     title: "logging out!",
-  //     text: "Are you sure you want to log out!",
-  //     icon: "warning",
-  //     button: "sure!",
-  //   }).then(function () {
-  //     window.location.href = "/";
-  //   });
-  //   localStorage.clear();
-  // }
+  function logout() {
+    swal({
+      title: "logging out!",
+      text: "Are you sure you want to log out!",
+      icon: "warning",
+      button: "sure!",
+    }).then(function () {
+      window.location.href = "/";
+    });
+    localStorage.clear();
+  }
   return (
     <>
 
@@ -115,7 +115,7 @@ const NavBar = () => {
                   <i class="fa fa-plus-circle mr-1"></i> add post
                 </a>
               </li> 
-              {/* {!isLoggedIn ? (
+               {!isLoggedIn ? (
                 <li className="nav-item">
                   <a className="nav-link" href="/login">
                     Log in
@@ -135,7 +135,7 @@ const NavBar = () => {
                     </a>
                   </li>
                 </>
-              ) : null} */}
+              ) : null} 
             </ul>
             {/* <!-- Search content bar.// --> */}
             <div class="top-search navigation-shadow">
