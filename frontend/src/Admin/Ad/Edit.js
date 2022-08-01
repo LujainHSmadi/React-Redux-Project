@@ -19,9 +19,11 @@ const Create = () => {
   const phone = useRef(null);
   const location = useRef(null);
   const params = useParams();
+
+
   console.log('params ',params.id);
   const dispatch = useDispatch();
-  const ads = useSelector(state => state.ad.ads);
+  const ads = useSelector(state => state.ad);
   console.log("Esraa",ads);
   // console.log("id esraa",ads[0].id);
   const loading = useSelector(state => state.ad.loading);
@@ -47,9 +49,9 @@ const Create = () => {
     formData.append("image_4", image_4.current.files[0]);
     formData.append("phone", phone.current.value);
     formData.append("location", location.current.value);
-    console.log(formData);
+    console.log("formdtaa",formData.get('title'));
     console.log(image.current.files[0]);
-    dispatch(editAd({params},formData));
+    dispatch(editAd(params,formData)).unwrap();
 
   }
 
@@ -108,9 +110,8 @@ const Create = () => {
                                 type="text"
                                 class="form-control"
                                 id="basic-default-name"
-                                placeholder="John Doe"
                                 ref={title}
-                                value={ads.title}
+                              //  value={ads.ad.title}
                               />
                             </div>
                           </div>
@@ -126,7 +127,6 @@ const Create = () => {
                                 type="text"
                                 class="form-control"
                                 id="basic-default-company"
-                                placeholder="ACME Inc."
                                 ref={type}
                               />
                             </div>
@@ -143,7 +143,8 @@ const Create = () => {
                                 type="text"
                                 class="form-control"
                                 id="basic-default-company"
-                                placeholder="ACME Inc."
+                               
+                                
                                 ref={location}
                               />
                             </div>
@@ -161,9 +162,10 @@ const Create = () => {
                                 type="text"
                                 id="basic-default-phone"
                                 class="form-control phone-mask"
-                                placeholder="658 799 8941"
+                               
                                 aria-label="658 799 8941"
                                 aria-describedby="basic-default-phone"
+                                
                                 ref={phone}
                               />
                             </div>
@@ -179,9 +181,10 @@ const Create = () => {
                               <textarea
                                 id="basic-default-message"
                                 class="form-control"
-                                placeholder="Hi, Do you have a moment to talk Joe?"
+                               
                                 aria-label="Hi, Do you have a moment to talk Joe?"
                                 aria-describedby="basic-icon-default-message2"
+                                
                                 ref={description}
                               ></textarea>
                             </div>
@@ -199,9 +202,10 @@ const Create = () => {
                                 type="file"
                                 id="basic-default-phone"
                                 class="form-control phone-mask"
-                                placeholder="658 799 8941"
+                               
                                 aria-label="658 799 8941"
                                 aria-describedby="basic-default-phone"
+
                                 ref={image}
                               />
                             </div>
@@ -219,7 +223,7 @@ const Create = () => {
                                 type="file"
                                 id="basic-default-phone"
                                 class="form-control phone-mask"
-                                placeholder="658 799 8941"
+                               
                                 aria-label="658 799 8941"
                                 aria-describedby="basic-default-phone"
                                 ref={image_2}
@@ -240,7 +244,7 @@ const Create = () => {
                                 type="file"
                                 id="basic-default-phone"
                                 class="form-control phone-mask"
-                                placeholder="658 799 8941"
+                                
                                 aria-label="658 799 8941"
                                 aria-describedby="basic-default-phone"
                                 ref={image_3}
@@ -261,7 +265,7 @@ const Create = () => {
                                 type="file"
                                 id="basic-default-phone"
                                 class="form-control phone-mask"
-                                placeholder="658 799 8941"
+                               
                                 aria-label="658 799 8941"
                                 aria-describedby="basic-default-phone"
                                 ref={image_4}

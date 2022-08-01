@@ -23,10 +23,11 @@ export const addAd = createAsyncThunk('ad/addAd', async (data, thunkAPI) => {
 
 export const editAd = createAsyncThunk('ad/editAd', async (data, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
+    console.log('edit', data);
     try {
         const response = await axios.put(`http://127.0.0.1:8000/api/ads/${data.id}`, data);
         const ad = await response.data;
-        console.log('edit', ad);
+        console.log('edit', data);
         return ad;
 
     }
@@ -87,7 +88,7 @@ export const deleteAd = createAsyncThunk('ad/deleteAd', async (id) => {
 export const singleAd = createAsyncThunk('ad/singleAd', async (data) => {
 
     try {
-        const response = await fetch(`http://127.0.0.1:8000/api/ads/${data.id}`);
+        const response = await fetch(`http://127.0.0.1:8000/api/ads/${data}`);
         const sdata = await response.json();
         return sdata;
     }

@@ -109,14 +109,16 @@ class AdController extends Controller
     {
 
 
-
-       $ad = Ad::findOrFail($id);
-      // console.log("controller ads",$ad);
-            $ad->title = $request->get('title');
-            $ad->description = $request->get('description');
-            $ad->type = $request->get('type');
-            $ad->location = $request->get('location');
-            $ad->phone = $request->get('phone');
+        $ad = Ad::findOrFail($id);
+       
+       
+    //    $ad = Ad::findOrFail($id);
+    //   // console.log("controller ads",$ad);
+    //         $ad->title = $request->get('title');
+    //         $ad->description = $request->get('description');
+    //         $ad->type = $request->get('type');
+    //         $ad->location = $request->get('location');
+    //         $ad->phone = $request->get('phone');
 
 
 
@@ -153,6 +155,8 @@ class AdController extends Controller
         }
         // return $ad;
         $ad->save();
+        $ad->update($request->all());
+
         return response()->json($ad);
 
     }
