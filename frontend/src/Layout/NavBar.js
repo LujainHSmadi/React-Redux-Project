@@ -1,5 +1,4 @@
-// import swal from "sweetalert";
-
+import swal from "sweetalert";
 import { Link } from "react-router-dom";
 const NavBar = () => {
   // let isLoggedIn = JSON.parse(localStorage.getItem("user"));
