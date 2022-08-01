@@ -1,9 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { useRef, useEffect } from "react";
 import Sidebar from "../layouts/Sidebar";
 import Footer from "../layouts/Footer";
 import { editAd } from "../redux/adSlice";
-import { getAds } from "../redux/adSlice";
+// import { getAds } from "../redux/adSlice";
+import { singleAd } from "../redux/adSlice";
+
 const Create = () => {
   
   const title = useRef(null);
@@ -15,15 +18,17 @@ const Create = () => {
   const image_4 = useRef(null);
   const phone = useRef(null);
   const location = useRef(null);
- 
+  const params = useParams();
+  console.log('params ',params.id);
   const dispatch = useDispatch();
   const ads = useSelector(state => state.ad.ads);
-  // console.log("Esraa",ads);
+  console.log("Esraa",ads);
   // console.log("id esraa",ads[0].id);
   const loading = useSelector(state => state.ad.loading);
 
   useEffect(() => {
-    dispatch(getAds());
+    dispatch(singleAd(params.id));
+    console.log("single Ad", ads);
 
   }, [dispatch]);
 
@@ -44,7 +49,7 @@ const Create = () => {
     formData.append("location", location.current.value);
     console.log(formData);
     console.log(image.current.files[0]);
-    dispatch(editAd(ads[0].id,formData));
+    dispatch(editAd({params},formData));
 
   }
 
@@ -105,6 +110,7 @@ const Create = () => {
                                 id="basic-default-name"
                                 placeholder="John Doe"
                                 ref={title}
+                                value={ads.title}
                               />
                             </div>
                           </div>

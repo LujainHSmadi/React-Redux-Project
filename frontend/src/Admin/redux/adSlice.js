@@ -83,6 +83,19 @@ export const deleteAd = createAsyncThunk('ad/deleteAd', async (id) => {
     }
 });
 
+
+export const singleAd = createAsyncThunk('ad/singleAd', async (data) => {
+
+    try {
+        const response = await fetch(`http://127.0.0.1:8000/api/ads/${data.id}`);
+        const sdata = await response.json();
+        return sdata;
+    }
+    catch (error) {
+        console.error(error);
+    }
+});
+
 const adSlice = createSlice({
     name: 'ad',
     initialState: {
@@ -160,9 +173,25 @@ const adSlice = createSlice({
             state.loading = false;
             console.log(state.ads);
         },
+        // Reducer for fetching single ad
+        [singleAd.pending]: (state, action) => {
+            state.loading = true;
+            console.log(action);
+        },
+        [singleAd.fulfilled]: (state, action) => {
+            state.ad = action.payload;
+            state.loading = false;
+            console.log(state.ad);
+        },
+        [singleAd.rejected]: (state, action) => {
+            state.error = action.payload;
+            state.loading = false;
+            console.log(state.ad);
+        }
             
 
     }
+
 });
 
 export default adSlice.reducer;
