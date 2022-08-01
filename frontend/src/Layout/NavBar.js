@@ -66,7 +66,7 @@ const NavBar = () => {
       {/* <!-- END NAVBAR TOP --> */}
       <div class="navbar navbar-hover navbar-expand-lg navbar-soft">
         <div class="container">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/">
             <img src="images/logo-blue-stiky.png" alt="" class="img-fluid" />
           </a>
           <button

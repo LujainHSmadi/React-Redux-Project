@@ -12,6 +12,7 @@ import AgentsDetail from "./Components/AgentsDetail";
 import Agents from "./Components/Agents";
 import NavBar from "./Layout/NavBar";
 import SignIn from "./Components/Login";
+import SignUp from "./Components/Register";
 import Admin from "./Admin/Home";
 import CreateUser from "./Admin/User/Create";
 import TableUser  from "./Admin/User/Table";
@@ -81,6 +82,7 @@ function App() {
         <Route path="edit/:postId" element={<EditPostForm />} />
 
        <Route path="login" element={<SignIn />} />
+       <Route path="register" element={<SignUp/>} />
          <Route index element={<PostsList />} />
 
          {/* <Route path="post">
