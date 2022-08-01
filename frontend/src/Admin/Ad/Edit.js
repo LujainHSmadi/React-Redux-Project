@@ -23,7 +23,7 @@ const Create = () => {
 
   console.log('params ', params.id);
   
-  
+
   const dispatch = useDispatch();
   const ads = useSelector(state => state.ad);
   console.log("Esraa",ads);
@@ -53,7 +53,7 @@ const Create = () => {
     formData.append("location", location.current.value);
     console.log("formdtaa",formData.get('title'));
     console.log(image.current.files[0]);
-    dispatch(editAd(params,formData)).unwrap();
+    dispatch(editAd({params:params.id,formData}));
 
   }
 
