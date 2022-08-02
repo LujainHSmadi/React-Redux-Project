@@ -38,11 +38,27 @@ const SignUp = () => {
           confirm_password: data.confirm_password,
         });
 
+        swal({
+          title: "Admin!",
+
+          icon: "warning",
+          button: "sure!",
+        }).then(function () {
+          window.location.href = "/";
+        });
         setSubmitted(true);
       })
 
       .catch((e) => {
         console.log(e);
+        swal({
+          title: "Admin!",
+
+          icon: "warning",
+          button: "wrong!",
+        }).then(function () {
+          window.location.href = "/adtable";
+        });
       });
   };
 

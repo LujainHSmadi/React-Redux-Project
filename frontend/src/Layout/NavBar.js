@@ -31,15 +31,11 @@ const NavBar = () => {
                 <ul class="topbar-link">
 
                   <li>
-                    <a href="#" title="">
+                    <a href="/contact" title="">
                       Contact Us
                     </a>
                   </li>
-                  <li>
-                    <a href="/login" title="">
-                      Login / Register
-                    </a>
-                  </li>
+                
                 </ul>
                 <ul class="topbar-sosmed">
                   <li>
@@ -82,6 +78,16 @@ const NavBar = () => {
               <li class="nav-item dropdown">
                 <a
                   class="nav-link"
+                  href="/">
+                  Home
+                </a>
+              </li>
+
+
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link"
                   href="/list">
                   Properties
                 </a>
@@ -106,7 +112,11 @@ const NavBar = () => {
                             <ul class="dropdown-menu dropdown-menu-left animate fade-up">
 
                             {!isLoggedIn ? (
-                                <li><a class="dropdown-item" href="/login">Login</a></li>    ) : null}
+                              <>
+                                <li><a class="dropdown-item" href="/login">Login</a></li>
+                                <li><a class="dropdown-item" href="/signup">Register</a></li>
+                                </>
+                                ) : null}
 
 
 
@@ -132,7 +142,7 @@ const NavBar = () => {
 
             <ul class="navbar-nav">
               <li>
-                <a href="/" class="btn btn-primary text-capitalize">
+                <a href="/posts/add" class="btn btn-primary text-capitalize">
                   <i class="fa fa-plus-circle mr-1"></i> add post
                 </a>
               </li> 

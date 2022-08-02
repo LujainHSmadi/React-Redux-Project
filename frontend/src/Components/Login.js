@@ -45,7 +45,7 @@ const SignIn = () => {
             icon: "warning",
             button: "sure!",
           }).then(function () {
-            window.location.href = "/";
+            window.location.href = "/adtable";
           });
         } else {
           swal({
@@ -107,7 +107,7 @@ const SignIn = () => {
               <span>Login</span>
             </button>{" "}
             <p class="text-center mt-4">
-              Don't have account? <a href="/register">Sign up</a>
+              Don't have account? <a href="/signup">Sign up</a>
             </p>
           </div>
 

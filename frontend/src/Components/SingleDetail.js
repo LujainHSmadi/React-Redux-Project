@@ -341,7 +341,7 @@ const SingleDetail = () => {
               <div class="row">
                 <div class="col-md-9 col-lg-9">
                   <div class="single__detail-title mt-4">
-                    <h3 class="text-capitalize">{ads.title}</h3>
+                    <h3 class="text-capitalize text-left">{ads.title}</h3>
                     <p>Read Below For More Details</p>
                   </div>
                 </div>
@@ -360,7 +360,7 @@ const SingleDetail = () => {
                 </h6>
                 {/* <!-- CANVAS --> */}
                 <div class="wrapper">
-                  <canvas id="myChart" class="chart"></canvas>
+                  
 
                   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">

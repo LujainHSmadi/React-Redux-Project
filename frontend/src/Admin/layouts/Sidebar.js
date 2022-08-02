@@ -73,7 +73,8 @@ export default function sidebar() {
                 <ul class="menu-sub">
                   <li class="menu-item">
                     <a
-                      href="pages-account-settings-account.html"
+                      href="
+                      -account-settings-account.html"
                       class="menu-link"
                     >
                       <div data-i18n="Account">Account</div>

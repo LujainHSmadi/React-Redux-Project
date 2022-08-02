@@ -10,6 +10,9 @@ const Register = (data) => {
 const update = (id, data) => {
   return http.put(`/users/${id}`, data);
 };
+const remove = (id, data) => {
+  return http.delete(`/users/${id}`, data);
+};
 const get = (id) => {
   return http.get(`${id}`);
 };
@@ -18,6 +21,7 @@ const Auth = {
   Register,
   update,
   get,
+  remove,
 };
 export default Auth;
 // function findByName(name) {
