@@ -1,10 +1,10 @@
 {
   "posts": [
     {
-      "title": "search",
-      "body": "do you have a branch in karak?",
-      "userId": 1,
-      "date": "2022-08-01T09:04:15.104Z",
+      "title": "dfdeg",
+      "body": "grg",
+      "userId": 5,
+      "date": "2022-08-02T14:38:32.558Z",
       "reactions": {
         "thumbsUp": 0,
         "wow": 0,
@@ -12,35 +12,7 @@
         "rocket": 0,
         "coffee": 0
       },
-      "id": 16
-    },
-    {
-      "title": "tghgfh",
-      "body": "hfhfh",
-      "userId": 1,
-      "date": "2022-08-01T11:40:37.348Z",
-      "reactions": {
-        "thumbsUp": 0,
-        "wow": 0,
-        "heart": 0,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 18
-    },
-    {
-      "title": "sas",
-      "body": "asas",
-      "userId": 1,
-      "date": "2022-08-01T11:42:11.188Z",
-      "reactions": {
-        "thumbsUp": 2,
-        "wow": 0,
-        "heart": 2,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 19
+      "id": 1
     }
   ],
   "comments": [],

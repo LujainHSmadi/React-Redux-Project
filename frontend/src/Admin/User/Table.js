@@ -40,10 +40,10 @@ var counter=1;
        
 
 
-          <button style={{color:"#007bff"}} onClick={(e)=>dispatch(deleteUser({id:user.id})).unwrap()(e)}
+          <button style={{backgroundColor:"#007bff",borderColor:"white"}} onClick={(e)=>dispatch(deleteUser({id:user.id})).unwrap()(e)}
 
             href="/usertable">
-            <i  style={{color:"#007bff"}}class="bx bx-trash me-2"></i>
+            <i  style={{color:"white"}}class="bx bx-trash me-2"></i>
           </button>
 
         </td>
