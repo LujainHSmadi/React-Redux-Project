@@ -12,9 +12,17 @@ class AdController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Ad::all();
+         $title=$request->title;
+         if(isset($title)){
+           
+         return Ad::Where('title',$title)->get();
+           
+      }
+          else{
+           return  Ad::all();
+    }
     }
 
     /**

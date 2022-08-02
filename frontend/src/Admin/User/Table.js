@@ -1,7 +1,7 @@
 import Sidebar from "../layouts/Sidebar";
 import Footer from "../layouts/Footer";
 import { useEffect } from "react";
-import { getUsers, deleteUsers } from "../redux/userSlice"
+import { getUsers, deleteUser } from "../redux/userSlice"
 import { useDispatch, useSelector } from "react-redux";
 
 
@@ -37,15 +37,14 @@ var counter=1;
           </span>
         </td>
         <td>
-          <a
-            href="/">
-            <i class="bx bx-edit-alt me-1 "></i>
-          </a>
-          <a
+       
 
-            href="/">
-            <i class="bx bx-trash me-2"></i>
-          </a>
+
+          <button style={{backgroundColor:"#007bff",borderColor:"white"}} onClick={(e)=>dispatch(deleteUser({id:user.id})).unwrap()(e)}
+
+            href="/usertable">
+            <i  style={{color:"white"}}class="bx bx-trash me-2"></i>
+          </button>
 
         </td>
       </tr>

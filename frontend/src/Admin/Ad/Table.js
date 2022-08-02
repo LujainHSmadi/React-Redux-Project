@@ -54,8 +54,8 @@ const Table = () => {
             </div>
             {/*  end of image slider */}
             <div class="card-body">
-              <h3 class="card-title">{ad.title}</h3>
-              <h6 class="card-title">{ad.type}</h6>
+              <h3 class=" text-left" style={{fontSize:"20px",textTransform:"capitalize", letterSpacing:'0px'}}>{ad.title}</h3>
+              <h6 class="card-title" style={{fontSize:"15px"}}>{ad.type}</h6>
               <p class="card-text">
                 {ad.description}
               </p>
