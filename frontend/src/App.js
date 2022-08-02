@@ -64,7 +64,7 @@ function App() {
         <Route path="blog" element={<Blog />} />
         <Route path="users/:id" element={<Profile />} />
        <Route path="login" element={<SignIn />} />
-       <Route path="register" element={<SignUp/>} />
+       <Route path="signup" element={<SignUp/>} />
     
         {/* admin Routes */}
          {/* User */}
