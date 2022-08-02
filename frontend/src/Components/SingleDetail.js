@@ -1,26 +1,48 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { singleAd } from "../Admin/redux/adSlice";
+import { Link, useParams } from "react-router-dom";
+// import { Params } from "react-router-dom";
+
+
+
+
 const SingleDetail = () => {
+
+  const dispatch = useDispatch();
+  const ads = useSelector(state => state.ad.ads);
+  const {id} = useParams();
+  useEffect(() => {
+    dispatch(singleAd(id));
+    console.log("luj", ads.id);
+
+  }, [dispatch]);
+
+
+
+
   return (
+
+
     <>
+
       <div class="bg-theme-overlay">
         <section class="section__breadcrumb ">
           <div class="container">
             <div class="row d-flex justify-content-center">
               <div class="col-md-8 text-center">
-                <h2 class="text-capitalize text-white">about us</h2>
+                <h2 class="text-capitalize text-white"> Property Details</h2>
                 <ul class="list-inline ">
                   <li class="list-inline-item">
                     <a href="#" class="text-white">
                       home
                     </a>
                   </li>
+
                   <li class="list-inline-item">
                     <a href="#" class="text-white">
-                      page
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#" class="text-white">
-                      about us
+                      Property Details
+                      {/* {ads.title} */}
                     </a>
                   </li>
                 </ul>
@@ -224,9 +246,8 @@ const SingleDetail = () => {
                       <div class="price">
                         <h5 class="text-capitalize">$13,000/mo</h5>
                       </div>
-                      <h4 class="text-capitalize">Luxury Family Home</h4>
+                      <h4 class="text-capitalize">amal Family Home</h4>
                       <p class="text-uppercase">
-                        166 welling street, collingwood, vic 3066
                       </p>
                     </div>
                   </div>
@@ -320,46 +341,64 @@ const SingleDetail = () => {
               <div class="row">
                 <div class="col-md-9 col-lg-9">
                   <div class="single__detail-title mt-4">
-                    <h3 class="text-capitalize">Luxury Family Home</h3>
-                    <p> 166 welling street, collingwood, vic 3066</p>
+                    <h3 class="text-capitalize">{ads.title}</h3>
+                    <p>Read Below For More Details</p>
                   </div>
                 </div>
                 <div class="col-md-3 col-lg-3">
                   <div class="single__detail-price mt-4">
                     <h3 class="text-capitalize text-gray">$13.000/mo</h3>
-                    <ul class="list-inline">
-                      <li class="list-inline-item">
-                        <a href="#" class="badge badge-primary p-2 rounded">
-                          <i class="fa fa-print"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="badge badge-primary p-2 rounded">
-                          <i class="fa fa-exchange"></i>
-                        </a>
-                      </li>
 
-                      <li class="list-inline-item">
-                        <a href="#" class="badge badge-primary p-2 rounded">
-                          <i class="fa fa-heart"></i>
-                        </a>
-                      </li>
-                    </ul>
                   </div>
                 </div>
               </div>
+
+
+              <div class="single__detail-features">
+                <h6 class="text-capitalize detail-heading">
+                  property views
+                </h6>
+                {/* <!-- CANVAS --> */}
+                <div class="wrapper">
+                  <canvas id="myChart" class="chart"></canvas>
+
+                  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="d-block w-100" src={'http://127.0.0.1:8000/image/' + ads.image} alt="First slide" width={300} height={ 300} />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100" src={'http://127.0.0.1:8000/image/' + ads.image_2} alt="Second slide" width={300} height={300} />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100" src={'http://127.0.0.1:8000/image/' + ads.image_3} alt="Third slide" width={300} height={300} />
+                      </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+
+
+
+                </div>
+              </div>
+
+
+
               {/* <!-- DESCRIPTION --> */}
               <div class="row">
                 <div class="col-lg-12">
                   <div class="single__detail-desc">
                     <h6 class="text-capitalize detail-heading">description</h6>
-                    <div class="show__more">
+                    <div class="">
                       <p>
-                        Evans Tower very high demand corner junior one bedroom
-                        plus a large balcony boasting full open NYC views. You
-                        need to see the views to believe them. Mint condition
-                        with new hardwood floors. Lots of closets plus washer
-                        and dryer.
+                        {ads.description}
                       </p>
                       <p>
                         Fully furnished. Elegantly appointed condominium unit
@@ -373,21 +412,9 @@ const SingleDetail = () => {
                         incredible walk-in closet and storage space.
                       </p>
 
-                      <p>
-                        Fully furnished. Elegantly appointed condominium unit
-                        situated on premier location. PS6. The wide entry hall
-                        leads to a large living room with dining area. This
-                        expansive 2 bedroom and 2 renovated marble bathroom
-                        apartment has great windows. Despite the interior views,
-                        the apartments Southern and Eastern exposures allow for
-                        lovely natural light to fill every room. The master
-                        suite is surrounded by handcrafted milkwork and features
-                        incredible walk-in closet and storage space.
-                      </p>
 
-                      <a href="javascript:void(0)" class="show__more-button ">
-                        read more
-                      </a>
+
+
                     </div>
                   </div>
                   <div class="clearfix"></div>
@@ -403,14 +430,15 @@ const SingleDetail = () => {
                         <div class="col-md-6 col-lg-6">
                           <ul class="property__detail-info-list list-unstyled">
                             <li>
-                              <b>Property ID:</b> RV151
+                              <b>Property ID:</b> RV{ads.id}
+                            </li>
+                            <li>
+                              <b>Tilte:</b> {ads.title}
                             </li>
                             <li>
                               <b>Price:</b> $484,400
                             </li>
-                            <li>
-                              <b>Property Size:</b> 1466 Sq Ft
-                            </li>
+
                             <li>
                               <b>Bedrooms:</b> 4
                             </li>
@@ -422,16 +450,16 @@ const SingleDetail = () => {
                         <div class="col-md-6 col-lg-6">
                           <ul class="property__detail-info-list list-unstyled">
                             <li>
-                              <b>Garage:</b> 1
+                              <b>Phone:</b> {ads.phone}
                             </li>
                             <li>
-                              <b>Garage Size:</b> 458 SqFt
+                              <b>Location:</b> {ads.location}
                             </li>
                             <li>
                               <b>Year Built:</b> 2019-01-09
                             </li>
                             <li>
-                              <b>Property Type:</b> Full Family Home
+                              <b>Property Type:</b> Full Family {ads.type}
                             </li>
                             <li>
                               <b>Property Status:</b> For rent
@@ -439,75 +467,16 @@ const SingleDetail = () => {
                           </ul>
                         </div>
                       </div>
-                      <h6 class="text-primary">Additional details</h6>
-                      <div class="row">
-                        <div class="col-md-6 col-lg-6">
-                          <ul class="property__detail-info-list list-unstyled">
-                            <li>
-                              <b>Property ID:</b> RV151
-                            </li>
-                            <li>
-                              <b>Price:</b> $484,400
-                            </li>
-                            <li>
-                              <b>Property Size:</b> 1466 Sq Ft
-                            </li>
-                            <li>
-                              <b>Bedrooms:</b> 4
-                            </li>
-                            <li>
-                              <b>Bathrooms:</b> 2
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="col-md-6 col-lg-6">
-                          <ul class="property__detail-info-list list-unstyled">
-                            <li>
-                              <b>Garage:</b> 1
-                            </li>
-                            <li>
-                              <b>Garage Size:</b> 458 SqFt
-                            </li>
-                            <li>
-                              <b>Year Built:</b> 2019-01-09
-                            </li>
-                            <li>
-                              <b>Property Type:</b> Full Family Home
-                            </li>
-                            <li>
-                              <b>Property Status:</b> For rent
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
+
+
                     </div>
                     {/* <!-- END INFO PROPERTY DETAIL --> */}
                   </div>
                   {/* <!-- END PROPERTY DETAILS SPEC --> */}
                   <div class="clearfix"></div>
 
-                  {/* <!-- FEATURES --> */}
-                  <div class="single__detail-features">
-                    <h6 class="text-capitalize detail-heading">features</h6>
-                    <ul class="list-unstyled icon-checkbox">
-                      <li>air conditioning</li>
-                      <li>swiming pool</li>
-                      <li>Central Heating</li>
-                      <li>spa & massage</li>
-                      <li>pets allow</li>
 
-                      <li>air conditioning</li>
-                      <li>gym</li>
-                      <li>alarm</li>
 
-                      <li>window Covering</li>
-                      <li>free wiFi</li>
-                      <li>car parking </li>
-                    </ul>
-                  </div>
-                  {/* <!-- END FEATURES -->
-
-                            <!-- FLOR PLAN --> */}
                   <div class="single__detail-features">
                     <h6 class="text-capitalize detail-heading">floor plan</h6>
                     {/* <!-- FLOR PLAN IMAGE --> */}
@@ -626,31 +595,7 @@ const SingleDetail = () => {
                       </div>
                     </div>
                   </div>
-                  {/* <!-- END FLOR PLAN --> */}
-                  <div class="single__detail-features">
-                    <h6 class="text-capitalize detail-heading">
-                      property video
-                    </h6>
-                    <div class="single__detail-features-video">
-                      <figure class=" mb-0">
-                        <div class="home__video-area text-center">
-                          <img
-                            src="images/1920x1080.jpg"
-                            alt=""
-                            class="img-fluid"
-                          />
-                          <a
-                            href="https://youtu.be/dQtLx6dsbcI"
-                            class="play-video-1 "
-                          >
-                            <i class="icon fa fa-play text-white"></i>
-                          </a>
-                        </div>
-                      </figure>
-                    </div>
-                  </div>
-                  {/* 
-                            <!-- LOCATION --> */}
+
                   <div class="single__detail-features">
                     <h6 class="text-capitalize detail-heading">location</h6>
                     {/* <!-- FILTER VERTICAL --> */}
@@ -659,32 +604,8 @@ const SingleDetail = () => {
                       id="pills-tab"
                       role="tablist"
                     >
-                      <li class="nav-item">
-                        <a
-                          class="nav-link active"
-                          id="pills-map-location-tab"
-                          data-toggle="pill"
-                          href="#pills-map-location"
-                          role="tab"
-                          aria-controls="pills-map-location"
-                          aria-selected="true"
-                        >
-                          <i class="fa fa-map-marker"></i>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          class="nav-link"
-                          id="pills-street-view-tab"
-                          data-toggle="pill"
-                          href="#pills-street-view"
-                          role="tab"
-                          aria-controls="pills-street-view"
-                          aria-selected="false"
-                        >
-                          <i class="fa fa-street-view "></i>
-                        </a>
-                      </li>
+
+                      <h5 className="nav-link active">{ads.location}</h5>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
                       <div
@@ -722,226 +643,8 @@ const SingleDetail = () => {
                   </div>
                   {/* <!-- END LOCATION --> */}
 
-                  {/* <!-- PROPERTY VIEWS --> */}
-                  <div class="single__detail-features">
-                    <h6 class="text-capitalize detail-heading">
-                      property views
-                    </h6>
-                    {/* <!-- CANVAS --> */}
-                    <div class="wrapper">
-                      <canvas id="myChart" class="chart"></canvas>
-                    </div>
-                  </div>
-                  {/* <!-- END PROPERTY VIEWS -->
 
-                            <!-- NEARBY --> */}
-                  <div class="single__detail-features">
-                    <h6 class="text-capitalize detail-heading">
-                      what's nearby
-                    </h6>
-                    <div class="single__detail-features-nearby">
-                      <h6 class="text-capitalize">
-                        <span>
-                          <i class="fa fa-building "></i>
-                        </span>
-                        education
-                      </h6>
-                      <ul class="list-unstyled">
-                        <li>
-                          <span>Eladia's Kids</span>
-                          <p>2.5 km</p>
-                        </li>
-                        <li>
-                          <span>Brooklyn Brainery</span>
-                          <p>3.5 km</p>
-                        </li>
-                        <li>
-                          <span>Wikdom Senior High Scool</span>
-                          <p>2.5 km</p>
-                        </li>
-                      </ul>
 
-                      <h6 class="text-capitalize">
-                        <span>
-                          <i class="fa fa-ambulance"></i>
-                        </span>
-                        health & medical
-                      </h6>
-                      <ul class="list-unstyled">
-                        <li>
-                          <span>Eladia's Kids</span>
-                          <p>2.5 km</p>
-                        </li>
-                        <li>
-                          <span>Brooklyn Brainery</span>
-                          <p>3.5 km</p>
-                        </li>
-                        <li>
-                          <span>Wikdom Senior High Scool</span>
-                          <p>2.5 km</p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  {/* <!-- END NEARBY -->
-
-                            <!-- RATE US  WRITE --> */}
-                  <div class="single__detail-features">
-                    <h6 class="text-capitalize detail-heading">
-                      Rate us and Write a Review
-                    </h6>
-                    <div class="single__detail-features-review">
-                      <div class="media mt-4">
-                        <img
-                          class="mr-3 img-fluid rounded-circle"
-                          src="images/80x80.jpg"
-                          alt=""
-                        />
-                        <div class="media-body">
-                          <h6 class="mt-0">Jhon doe</h6>
-                          <span class="mb-3">Mei 13, 2020</span>
-                          <ul class="list-inline">
-                            <li class="list-inline-item">
-                              <i class="fa fa-star selected"></i>
-                              <i class="fa fa-star selected"></i>
-                              <i class="fa fa-star selected"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <li class="list-inline-item">3/5</li>
-                          </ul>
-                          <p>
-                            {" "}
-                            Cras sit amet nibh libero, in gravida nulla. Nulla
-                            vel metus scelerisque ante sollicitudin. Cras purus
-                            odio, vestibulum in vulputate at, tempus viverra
-                            turpis. Fusce condimentum nunc ac nisi vulputate
-                            fringilla. Donec lacinia congue felis in faucibus.
-                          </p>
-
-                          <div class="media mt-4">
-                            <a class="pr-3" href="#">
-                              <img
-                                src="images/80x80.jpg"
-                                alt=""
-                                class="img-fluid rounded-circle"
-                              />
-                            </a>
-                            <div class="media-body">
-                              <h6 class="mt-0">Christine </h6>
-                              <span class="mb-3">Mei 13, 2020</span>
-                              <ul class="list-inline">
-                                <li class="list-inline-item">
-                                  <i class="fa fa-star selected"></i>
-                                  <i class="fa fa-star selected"></i>
-                                  <i class="fa fa-star selected"></i>
-                                  <i class="fa fa-star selected"></i>
-                                  <i class="fa fa-star selected"></i>
-                                </li>
-                                <li class="list-inline-item">5/5</li>
-                              </ul>
-                              <p>
-                                {" "}
-                                Cras sit amet nibh libero, in gravida nulla.
-                                Nulla vel metus scelerisque ante sollicitudin.{" "}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="media mt-4">
-                        <img
-                          class="mr-3 img-fluid rounded-circle"
-                          src="images/80x80.jpg"
-                          alt=""
-                        />
-                        <div class="media-body">
-                          <h6 class="mt-0">Jhon Doe</h6>
-                          <span class="mb-3">Mei 13, 2020</span>
-                          <ul class="list-inline">
-                            <li class="list-inline-item">
-                              <i class="fa fa-star selected"></i>
-                              <i class="fa fa-star selected"></i>
-                              <i class="fa fa-star selected"></i>
-                              <i class="fa fa-star selected"></i>
-                              <i class="fa fa-star selected"></i>
-                            </li>
-                            <li class="list-inline-item">5/5</li>
-                          </ul>
-                          <p>
-                            {" "}
-                            Cras sit amet nibh libero, in gravida nulla. Nulla
-                            vel metus scelerisque ante sollicitudin. Cras purus
-                            odio, vestibulum in vulputate at, tempus viverra
-                            turpis. Fusce condimentum nunc ac nisi vulputate
-                            fringilla. Donec lacinia congue felis in faucibus.
-                          </p>
-                        </div>
-                      </div>
-                      {/* <!-- COMMENT --> */}
-                      <hr />
-                      <div class="row">
-                        <div class="col-md-12">
-                          <p class="mb-2">Your rating for this listing:</p>
-                          <ul class="list-inline">
-                            <li class="list-inline-item">
-                              <i class="fa fa-star selected"></i>
-                              <i class="fa fa-star selected"></i>
-                              <i class="fa fa-star selected"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <li class="list-inline-item">3/5</li>
-                          </ul>
-                          <div class="form-group">
-                            <label>Your Name</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              required="required"
-                            />
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label>What's your Email?</label>
-                            <input
-                              type="email"
-                              class="form-control"
-                              required="required"
-                            />
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label>Subject</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              required="required"
-                            />
-                          </div>
-                        </div>
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label>Your message</label>
-                            <textarea class="form-control" rows="4"></textarea>
-                          </div>
-                        </div>
-                      </div>
-
-                      <button
-                        type="submit"
-                        class="btn btn-primary float-right "
-                      >
-                        {" "}
-                        Submit review <i class="fa fa-paper-plane ml-2"></i>
-                      </button>
-                      {/* <!-- END COMMENT --> */}
-                    </div>
-                  </div>
-                  {/* <!-- END RATE US  WRITE --> */}
                 </div>
               </div>
               {/* <!-- END DESCRIPTION --> */}
@@ -1164,77 +867,6 @@ const SingleDetail = () => {
               </div>
               {/* <!-- END FORM FILTER -->
                     <!-- FORM FILTER --> */}
-              <div class="products__filter mb-30">
-                <div class="products__filter__group">
-                  <div class="products__filter__header">
-                    <h5 class="text-center text-capitalize">
-                      simulation calculator{" "}
-                    </h5>
-                  </div>
-                  <div class="products__filter__body">
-                    <div class="form-group">
-                      <label>Sale Price</label>
-
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">$</span>
-                        </div>
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="$130.000"
-                        />
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label>Down Payment</label>
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">$</span>
-                        </div>
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="$6.000"
-                        />
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label>Long Term (Years)</label>
-                      <select class="select_option wide">
-                        <option value="1">10</option>
-                        <option value="2">15</option>
-                        <option value="3">20</option>
-                        <option value="4">25</option>
-                      </select>
-                    </div>
-
-                    <div class="form-group">
-                      <label>Interest Rate</label>
-
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">%</span>
-                        </div>
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="10%"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="products__filter__footer">
-                    <div class="form-group mb-0">
-                      <button class="btn btn-primary text-capitalize btn-block">
-                        {" "}
-                        calculate
-                        <i class="fa fa-calculator ml-1"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
               {/* <!-- END FORM FILTER --> */}
               <div class="sticky-top">
@@ -1317,630 +949,13 @@ const SingleDetail = () => {
                     </div>
                   </div>
                 </div>
-                {/* <!-- END PROFILE AGENT --> */}
-                <div class="download mb-0">
-                  <h5 class="text-center text-capitalize">
-                    Property Attachments
-                  </h5>
-                  <div class="download__item">
-                    <a href="#" target="_blank">
-                      <i class="fa fa-file-pdf-o mr-3" aria-hidden="true"></i>
-                      Download Document.Pdf
-                    </a>
-                  </div>
-                  <div class="download__item">
-                    <a href="#" target="_blank">
-                      <i class="fa fa-file-word-o mr-3" aria-hidden="true"></i>
-                      Presentation 2016-17.Doc
-                    </a>
-                  </div>
-                </div>
+
+
               </div>
             </div>
           </div>
 
-          {/* <!-- SIMILIAR PROPERTY --> */}
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="similiar__item">
-                <h6 class="text-capitalize detail-heading">
-                  similiar properties
-                </h6>
-                <div class="similiar__property-carousel owl-carousel owl-theme">
-                  <div class="item">
-                    {/* <!-- ONE --> */}
-                    <div class="card__image">
-                      <div class="card__image-header h-250">
-                        <div class="ribbon text-capitalize">featured</div>
-                        <img
-                          src="images/1920x1080.jpg"
-                          alt=""
-                          class="img-fluid w100 img-transition"
-                        />
-                        <div class="info"> for sale</div>
-                      </div>
-                      <div class="card__image-body">
-                        <span class="badge badge-primary text-capitalize mb-2">
-                          house
-                        </span>
-                        <h6 class="text-capitalize">
-                          <a href="#">vila in coral gables</a>
-                        </h6>
 
-                        <p class="text-capitalize">
-                          <i class="fa fa-map-marker"></i>
-                          west flaminggo road, las vegas
-                        </p>
-                        <ul class="list-inline card__content">
-                          <li class="list-inline-item">
-                            <span>
-                              baths <br />
-                              <i class="fa fa-bath"></i> 2
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              beds <br />
-                              <i class="fa fa-bed"></i> 3
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              rooms <br />
-                              <i class="fa fa-inbox"></i> 3
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              area <br />
-                              <i class="fa fa-map"></i> 4300 sq ft
-                            </span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="card__image-footer">
-                        <figure>
-                          <img
-                            src="images/80x80.jpg"
-                            alt=""
-                            class="img-fluid rounded-circle"
-                          />
-                        </figure>
-                        <ul class="list-inline my-auto">
-                          <li class="list-inline-item">
-                            <a href="#">
-                              tom wilson <br />
-                            </a>
-                          </li>
-                        </ul>
-                        <ul class="list-inline my-auto ml-auto">
-                          <li class="list-inline-item">
-                            <h6 class="text-primary">$350.000</h6>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    {/* <!-- TWO --> */}
-                    <div class="card__image">
-                      <div class="card__image-header h-250">
-                        <div class="ribbon text-capitalize">featured</div>
-                        <img
-                          src="images/1920x1080.jpg"
-                          alt=""
-                          class="img-fluid w100 img-transition"
-                        />
-                        <div class="info"> for sale</div>
-                      </div>
-                      <div class="card__image-body">
-                        <span class="badge badge-primary text-capitalize mb-2">
-                          house
-                        </span>
-                        <h6 class="text-capitalize">
-                          <a href="#">Ample Apartment At Last Floor</a>
-                        </h6>
-
-                        <p class="text-capitalize">
-                          <i class="fa fa-map-marker"></i>
-                          west flaminggo road, las vegas
-                        </p>
-                        <ul class="list-inline card__content">
-                          <li class="list-inline-item">
-                            <span>
-                              baths <br />
-                              <i class="fa fa-bath"></i> 2
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              beds <br />
-                              <i class="fa fa-bed"></i> 3
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              rooms <br />
-                              <i class="fa fa-inbox"></i> 3
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              area <br />
-                              <i class="fa fa-map"></i> 4300 sq ft
-                            </span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="card__image-footer">
-                        <figure>
-                          <img
-                            src="images/80x80.jpg"
-                            alt=""
-                            class="img-fluid rounded-circle"
-                          />
-                        </figure>
-                        <ul class="list-inline my-auto">
-                          <li class="list-inline-item">
-                            <a href="#">
-                              tom wilson <br />
-                            </a>
-                          </li>
-                        </ul>
-                        <ul class="list-inline my-auto ml-auto">
-                          <li class="list-inline-item">
-                            <h6 class="text-primary">$350.000</h6>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    {/* <!-- THREE --> */}
-                    <div class="card__image">
-                      <div class="card__image-header h-250">
-                        <div class="ribbon text-capitalize">featured</div>
-                        <img
-                          src="images/1920x1080.jpg"
-                          alt=""
-                          class="img-fluid w100 img-transition"
-                        />
-                        <div class="info"> for sale</div>
-                      </div>
-                      <div class="card__image-body">
-                        <span class="badge badge-primary text-capitalize mb-2">
-                          house
-                        </span>
-                        <h6 class="text-capitalize">
-                          <a href="#">Contemporary Apartment</a>
-                        </h6>
-
-                        <p class="text-capitalize">
-                          <i class="fa fa-map-marker"></i>
-                          west flaminggo road, las vegas
-                        </p>
-                        <ul class="list-inline card__content">
-                          <li class="list-inline-item">
-                            <span>
-                              baths <br />
-                              <i class="fa fa-bath"></i> 2
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              beds <br />
-                              <i class="fa fa-bed"></i> 3
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              rooms <br />
-                              <i class="fa fa-inbox"></i> 3
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              area <br />
-                              <i class="fa fa-map"></i> 4300 sq ft
-                            </span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="card__image-footer">
-                        <figure>
-                          <img
-                            src="images/80x80.jpg"
-                            alt=""
-                            class="img-fluid rounded-circle"
-                          />
-                        </figure>
-                        <ul class="list-inline my-auto">
-                          <li class="list-inline-item">
-                            <a href="#">
-                              tom wilson <br />
-                            </a>
-                          </li>
-                        </ul>
-                        <ul class="list-inline my-auto ml-auto">
-                          <li class="list-inline-item">
-                            <h6 class="text-primary">$350.000</h6>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    {/* <!-- FOUR --> */}
-                    <div class="card__image">
-                      <div class="card__image-header h-250">
-                        <div class="ribbon text-capitalize">featured</div>
-                        <img
-                          src="images/1920x1080.jpg"
-                          alt=""
-                          class="img-fluid w100 img-transition"
-                        />
-                        <div class="info"> for sale</div>
-                      </div>
-                      <div class="card__image-body">
-                        <span class="badge badge-primary text-capitalize mb-2">
-                          house
-                        </span>
-                        <h6 class="text-capitalize">
-                          <a href="#">Family Home For Sale</a>
-                        </h6>
-
-                        <p class="text-capitalize">
-                          <i class="fa fa-map-marker"></i>
-                          west flaminggo road, las vegas
-                        </p>
-                        <ul class="list-inline card__content">
-                          <li class="list-inline-item">
-                            <span>
-                              baths <br />
-                              <i class="fa fa-bath"></i> 2
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              beds <br />
-                              <i class="fa fa-bed"></i> 3
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              rooms <br />
-                              <i class="fa fa-inbox"></i> 3
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              area <br />
-                              <i class="fa fa-map"></i> 4300 sq ft
-                            </span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="card__image-footer">
-                        <figure>
-                          <img
-                            src="images/80x80.jpg"
-                            alt=""
-                            class="img-fluid rounded-circle"
-                          />
-                        </figure>
-                        <ul class="list-inline my-auto">
-                          <li class="list-inline-item">
-                            <a href="#">
-                              tom wilson <br />
-                            </a>
-                          </li>
-                        </ul>
-                        <ul class="list-inline my-auto ml-auto">
-                          <li class="list-inline-item">
-                            <h6 class="text-primary">$350.000</h6>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    {/* <!-- FIVE --> */}
-                    <div class="card__image">
-                      <div class="card__image-header h-250">
-                        <div class="ribbon text-capitalize">featured</div>
-                        <img
-                          src="images/1920x1080.jpg"
-                          alt=""
-                          class="img-fluid w100 img-transition"
-                        />
-                        <div class="info"> for sale</div>
-                      </div>
-                      <div class="card__image-body">
-                        <span class="badge badge-primary text-capitalize mb-2">
-                          house
-                        </span>
-                        <h6 class="text-capitalize">
-                          <a href="#">184 Lexington Avenue</a>
-                        </h6>
-
-                        <p class="text-capitalize">
-                          <i class="fa fa-map-marker"></i>
-                          west flaminggo road, las vegas
-                        </p>
-                        <ul class="list-inline card__content">
-                          <li class="list-inline-item">
-                            <span>
-                              baths <br />
-                              <i class="fa fa-bath"></i> 2
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              beds <br />
-                              <i class="fa fa-bed"></i> 3
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              rooms <br />
-                              <i class="fa fa-inbox"></i> 3
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              area <br />
-                              <i class="fa fa-map"></i> 4300 sq ft
-                            </span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="card__image-footer">
-                        <figure>
-                          <img
-                            src="images/80x80.jpg"
-                            alt=""
-                            class="img-fluid rounded-circle"
-                          />
-                        </figure>
-                        <ul class="list-inline my-auto">
-                          <li class="list-inline-item">
-                            <a href="#">
-                              tom wilson <br />
-                            </a>
-                          </li>
-                        </ul>
-                        <ul class="list-inline my-auto ml-auto">
-                          <li class="list-inline-item">
-                            <h6 class="text-primary">$350.000</h6>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    {/* <!-- SIX --> */}
-                    <div class="card__image">
-                      <div class="card__image-header h-250">
-                        <div class="ribbon text-capitalize">featured</div>
-                        <img
-                          src="images/1920x1080.jpg"
-                          alt=""
-                          class="img-fluid w100 img-transition"
-                        />
-                        <div class="info"> for sale</div>
-                      </div>
-                      <div class="card__image-body">
-                        <span class="badge badge-primary text-capitalize mb-2">
-                          house
-                        </span>
-                        <h6 class="text-capitalize">
-                          <a href="#">Luxury Villa With Pool</a>
-                        </h6>
-
-                        <p class="text-capitalize">
-                          <i class="fa fa-map-marker"></i>
-                          west flaminggo road, las vegas
-                        </p>
-                        <ul class="list-inline card__content">
-                          <li class="list-inline-item">
-                            <span>
-                              baths <br />
-                              <i class="fa fa-bath"></i> 2
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              beds <br />
-                              <i class="fa fa-bed"></i> 3
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              rooms <br />
-                              <i class="fa fa-inbox"></i> 3
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              area <br />
-                              <i class="fa fa-map"></i> 4300 sq ft
-                            </span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="card__image-footer">
-                        <figure>
-                          <img
-                            src="images/80x80.jpg"
-                            alt=""
-                            class="img-fluid rounded-circle"
-                          />
-                        </figure>
-                        <ul class="list-inline my-auto">
-                          <li class="list-inline-item">
-                            <a href="#">
-                              tom wilson <br />
-                            </a>
-                          </li>
-                        </ul>
-                        <ul class="list-inline my-auto ml-auto">
-                          <li class="list-inline-item">
-                            <h6 class="text-primary">$350.000</h6>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="card__image">
-                      <div class="card__image-header h-250">
-                        <div class="ribbon text-capitalize">featured</div>
-                        <img
-                          src="images/1920x1080.jpg"
-                          alt=""
-                          class="img-fluid w100 img-transition"
-                        />
-                        <div class="info"> for sale</div>
-                      </div>
-                      <div class="card__image-body">
-                        <span class="badge badge-primary text-capitalize mb-2">
-                          house
-                        </span>
-                        <h6 class="text-capitalize">
-                          <a href="#">The Citizen Apartment 5th Floor</a>
-                        </h6>
-
-                        <p class="text-capitalize">
-                          <i class="fa fa-map-marker"></i>
-                          west flaminggo road, las vegas
-                        </p>
-                        <ul class="list-inline card__content">
-                          <li class="list-inline-item">
-                            <span>
-                              baths <br />
-                              <i class="fa fa-bath"></i> 2
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              beds <br />
-                              <i class="fa fa-bed"></i> 3
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              rooms <br />
-                              <i class="fa fa-inbox"></i> 3
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              area <br />
-                              <i class="fa fa-map"></i> 4300 sq ft
-                            </span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="card__image-footer">
-                        <figure>
-                          <img
-                            src="images/80x80.jpg"
-                            alt=""
-                            class="img-fluid rounded-circle"
-                          />
-                        </figure>
-                        <ul class="list-inline my-auto">
-                          <li class="list-inline-item">
-                            <a href="#">
-                              tom wilson <br />
-                            </a>
-                          </li>
-                        </ul>
-                        <ul class="list-inline my-auto ml-auto">
-                          <li class="list-inline-item">
-                            <h6 class="text-primary">$350.000</h6>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    {/* <!-- SEVEN --> */}
-                    <div class="card__image">
-                      <div class="card__image-header h-250">
-                        <div class="ribbon text-capitalize">featured</div>
-                        <img
-                          src="images/1920x1080.jpg"
-                          alt=""
-                          class="img-fluid w100 img-transition"
-                        />
-                        <div class="info"> for sale</div>
-                      </div>
-                      <div class="card__image-body">
-                        <span class="badge badge-primary text-capitalize mb-2">
-                          house
-                        </span>
-                        <h6 class="text-capitalize">
-                          <a href="#">Family Home For Sale</a>
-                        </h6>
-
-                        <p class="text-capitalize">
-                          <i class="fa fa-map-marker"></i>
-                          west flaminggo road, las vegas
-                        </p>
-                        <ul class="list-inline card__content">
-                          <li class="list-inline-item">
-                            <span>
-                              baths <br />
-                              <i class="fa fa-bath"></i> 2
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              beds <br />
-                              <i class="fa fa-bed"></i> 3
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              rooms <br />
-                              <i class="fa fa-inbox"></i> 3
-                            </span>
-                          </li>
-                          <li class="list-inline-item">
-                            <span>
-                              area <br />
-                              <i class="fa fa-map"></i> 4300 sq ft
-                            </span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="card__image-footer">
-                        <figure>
-                          <img
-                            src="images/80x80.jpg"
-                            alt=""
-                            class="img-fluid rounded-circle"
-                          />
-                        </figure>
-                        <ul class="list-inline my-auto">
-                          <li class="list-inline-item">
-                            <a href="#">tom wilson</a>
-                          </li>
-                        </ul>
-                        <ul class="list-inline my-auto ml-auto">
-                          <li class="list-inline-item">
-                            <h6 class="text-primary">$350.000</h6>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* <!-- END SIMILIAR PROPERTY --> */}
         </div>
       </section>
       {/* <!-- END SINGLE DETAIL -->
@@ -1967,220 +982,8 @@ const SingleDetail = () => {
           </div>
         </div>
       </section>
-      {/* <!-- END CALL TO ACTION -->
-
-    <!-- Footer  --> */}
-      <footer>
-        <div class="wrapper__footer bg-theme-footer">
-          <div class="container">
-            <div class="row">
-              {/* <!-- ADDRESS --> */}
-              <div class="col-md-4">
-                <div class="widget__footer">
-                  <figure>
-                    <img
-                      src="images/logo-blue.png"
-                      alt=""
-                      class="logo-footer"
-                    />
-                  </figure>
-                  <p>
-                    Rethouse Real Estate is a premium Property template based on
-                    Bootstrap 4. Rethouse Real Estate helped thousands of
-                    clients to find the right property for their needs.
-                  </p>
-
-                  <ul class="list-unstyled mb-0 mt-3">
-                    <li>
-                      {" "}
-                      <b>
-                        {" "}
-                        <i class="fa fa-map-marker"></i>
-                      </b>
-                      <span>214 West Arnold St. New York, NY 10002</span>{" "}
-                    </li>
-                    <li>
-                      {" "}
-                      <b>
-                        <i class="fa fa-phone-square"></i>
-                      </b>
-                      <span>(123) 345-6789</span>{" "}
-                    </li>
-                    <li>
-                      {" "}
-                      <b>
-                        <i class="fa fa-phone-square"></i>
-                      </b>
-                      <span>(+100) 123 456 7890</span>{" "}
-                    </li>
-                    <li>
-                      {" "}
-                      <b>
-                        <i class="fa fa-headphones"></i>
-                      </b>
-                      <span>support@realvilla.demo</span>{" "}
-                    </li>
-                    <li>
-                      {" "}
-                      <b>
-                        <i class="fa fa-clock-o"></i>
-                      </b>
-                      <span>Mon - Sun / 9:00AM - 8:00PM</span>{" "}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              {/* <!-- END ADDRESS -->
-
-                    <!-- QUICK LINKS --> */}
-              <div class="col-md-4">
-                <div class="widget__footer">
-                  <h4 class="footer-title">Quick Links</h4>
-                  <div class="link__category-two-column">
-                    <ul class="list-unstyled ">
-                      <li class="list-inline-item">
-                        <a href="#">Commercial</a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#">business</a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#">House</a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#">Residential</a>
-                      </li>
-
-                      <li class="list-inline-item">
-                        <a href="#">Residential Tower</a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#">Beverly Hills</a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#">Los angeles</a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#">The beach</a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#">Property Listing</a>
-                      </li>
-
-                      <li class="list-inline-item">
-                        <a href="#">Clasic</a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#">Modern Home</a>
-                      </li>
-
-                      <li class="list-inline-item">
-                        <a href="#">Luxury</a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#">Beach Pasadena</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              {/* <!-- END QUICK LINKS -->
-
-
-                    <!-- NEWSLETTERS --> */}
-              <div class="col-md-4">
-                <div class="widget__footer">
-                  <h4 class="footer-title">follow us </h4>
-                  <p class="mb-2">
-                    Follow us and stay in touch to get the latest news
-                  </p>
-                  <p>
-                    <button class="btn btn-social btn-social-o facebook mr-1">
-                      <i class="fa fa-facebook-f"></i>
-                    </button>
-                    <button class="btn btn-social btn-social-o twitter mr-1">
-                      <i class="fa fa-twitter"></i>
-                    </button>
-
-                    <button class="btn btn-social btn-social-o linkedin mr-1">
-                      <i class="fa fa-linkedin"></i>
-                    </button>
-                    <button class="btn btn-social btn-social-o instagram mr-1">
-                      <i class="fa fa-instagram"></i>
-                    </button>
-
-                    <button class="btn btn-social btn-social-o youtube mr-1">
-                      <i class="fa fa-youtube"></i>
-                    </button>
-                  </p>
-                  <br />
-                  <h4 class="footer-title">newsletter</h4>
-                  {/* <!-- Form Newsletter --> */}
-                  <div class="widget__form-newsletter ">
-                    <p>
-                      Don’t miss to subscribe to our news feeds, kindly fill the
-                      form below
-                    </p>
-                    <div class="mt-3">
-                      <input
-                        type="text"
-                        class="form-control mb-2"
-                        placeholder="Your email address"
-                      />
-
-                      <button
-                        class="btn btn-primary btn-block text-capitalize"
-                        type="button"
-                      >
-                        subscribe
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* <!-- END NEWSLETTER --> */}
-            </div>
-          </div>
-        </div>
-
-        {/* <!-- Footer Bottom --> */}
-        <div class="bg__footer-bottom-v1">
-          <div class="container">
-            <div class="row flex-column-reverse flex-md-row">
-              <div class="col-md-6">
-                <span>
-                  © 2020 Rethouse Real Estate - Premium real estate & theme
-                  &amp; theme by
-                  <a href="#">retenvi.com</a>
-                </span>
-              </div>
-              <div class="col-md-6">
-                <ul class="list-inline ">
-                  <li class="list-inline-item">
-                    <a href="#">privacy</a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#">contact</a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#">about</a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#">faq</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* <!-- End Footer  --> */}
-      </footer>
-
-      {/* 
-    <!-- SCROLL TO TOP --> */}
-      <a href="javascript:" id="return-to-top">
-        <i class="fa fa-chevron-up"></i>
-      </a>
+   
+   
     </>
   );
 };

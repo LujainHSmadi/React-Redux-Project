@@ -1,21 +1,20 @@
-// import swal from "sweetalert";
-
+import swal from "sweetalert";
 import { Link } from "react-router-dom";
 const NavBar = () => {
-  // let isLoggedIn = JSON.parse(localStorage.getItem("user"));
+  let isLoggedIn = JSON.parse(localStorage.getItem("user"));
 
   
-  // function logout() {
-  //   swal({
-  //     title: "logging out!",
-  //     text: "Are you sure you want to log out!",
-  //     icon: "warning",
-  //     button: "sure!",
-  //   }).then(function () {
-  //     window.location.href = "/";
-  //   });
-  //   localStorage.clear();
-  // }
+  function logout() {
+    swal({
+      title: "logging out!",
+      text: "Are you sure you want to log out!",
+      icon: "warning",
+      button: "sure!",
+    }).then(function () {
+      window.location.href = "/";
+    });
+    localStorage.clear();
+  }
   return (
     <>
 
@@ -37,7 +36,7 @@ const NavBar = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="#" title="">
+                    <a href="/login" title="">
                       Login / Register
                     </a>
                   </li>
@@ -67,7 +66,7 @@ const NavBar = () => {
       {/* <!-- END NAVBAR TOP --> */}
       <div class="navbar navbar-hover navbar-expand-lg navbar-soft">
         <div class="container">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/">
             <img src="images/logo-blue-stiky.png" alt="" class="img-fluid" />
           </a>
           <button
@@ -102,42 +101,44 @@ const NavBar = () => {
                   About                </a>
               </li>
 
-              <li class="nav-item">
-                <a class="nav-link" href="/profile">
-                  Profile
-                </a>
-              </li>
+              <li class="nav-item dropdown">
+                            <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown"> Account </a>
+                            <ul class="dropdown-menu dropdown-menu-left animate fade-up">
+
+                            {!isLoggedIn ? (
+                                <li><a class="dropdown-item" href="/login">Login</a></li>    ) : null}
+
+
+
+                            {isLoggedIn ? (
+                              <>
+                                <li><a class="dropdown-item"    href="/"> <Link style={{color:"black"}} to={"/users/" + isLoggedIn.logged_user.id}>
+                                Profile
+                                
+                              </Link> </a></li>
+                              <li><a class="dropdown-item" href="/#"  onClick={logout}>Logout</a></li> 
+
+                              </>
+                              
+                                ) : null} 
+                            </ul>
+                        </li>
+
+                     
+      
+          
             </ul>
 
-            {/* <!-- Search bar.// --> */}
+
             <ul class="navbar-nav">
               <li>
                 <a href="/" class="btn btn-primary text-capitalize">
                   <i class="fa fa-plus-circle mr-1"></i> add post
                 </a>
               </li> 
-              {/* {!isLoggedIn ? (
-                <li className="nav-item">
-                  <a className="nav-link" href="/login">
-                    Log in
-                  </a>
-                </li>
-              ) : null}
-
-              {isLoggedIn ? (
-                <>
-                  <Link to={"/users/" + isLoggedIn.logged_user.id}>
-                    Profile
-                    
-                  </Link>
-                  <li className="nav-item">
-                    <a className="nav-link" onClick={logout}>
-                      Log out
-                    </a>
-                  </li>
-                </>
-              ) : null} */}
             </ul>
+
+
             {/* <!-- Search content bar.// --> */}
             <div class="top-search navigation-shadow">
               <div class="container">

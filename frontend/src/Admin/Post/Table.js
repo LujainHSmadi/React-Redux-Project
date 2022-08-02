@@ -1,22 +1,109 @@
-
 import Sidebar from "../layouts/Sidebar";
 import Footer from "../layouts/Footer";
-const Table = () => {
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getPosts } from "../redux/postSlice";
+
+
+// 
+//   const dispatch = useDispatch();
+//     const post = useSelector(state => getPosts(state, state.posts))
+// console.log(post);
+// useEffect(() => {
+//   dispatch(getPosts());
+
+// }, [dispatch]);
+// const allads = post.map(post => { 
+
+
+
+
+
+  const Table =()=>{
+
+
+    const response =  fetch('http://localhost:8001/posts', {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json; charest=UTF-8",
+      },
+    });
+    const result =  response.json();
+    console.log('amal',result);
+  //   const dispatch = useDispatch();
+  //   const posts = useSelector(state => state.posts);
+  
+  //   useEffect(() => {
+  //       dispatch(getPosts());
+  
+  //   }, [dispatch]);
+  // console.log('llll',posts);
+//     const allposts = posts.map(post => {
+//         return (
+//             <>
+//             <tr>
+//                           <td>
+//                             <i class="fab fa-angular fa-lg text-danger me-3"></i>{" "}
+//                             <strong>Angular Project</strong>
+//                           </td>
+//                           <td>Albert Cook</td>
+//                           <td>
+// 14-4-2000
+//                           </td>
+//                           <td>
+//                             <span class="badge bg-label-primary me-1">
+//                             <a 
+//                                   href="/">
+//                                   <i class="bx bx-edit-alt me-1 "></i> 
+//                                 </a>
+//                                 <a
+                                 
+//                                   href="/">
+//                                   <i class="bx bx-trash me-2"></i> 
+//                                 </a>
+//                             </span>
+//                           </td>
+                         
+//                         </tr>
+//             </> )
+
+// });
+
+
+
+
+
+
+
+
+
+
+
 
   return (
+  
     <>
+   
       {/* <!-- Layout wrapper --> */}
       <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
           {/* <!-- Menu --> */}
 
-          <Sidebar />
+         <Sidebar />
           {/* <!-- / Menu -->
 
 
-    <!-- Layout container --> */}
+        <!-- Layout container --> */}
           <div class="layout-page">
             {/* <!-- Navbar --> */}
+
+          
+            
+               
+                
+               
+           
+         
 
             {/* <!-- / Navbar --> */}
 
@@ -26,73 +113,39 @@ const Table = () => {
 
               <div class="container-xxl flex-grow-1 container-p-y">
                 <h4 class="fw-bold py-3 mb-4">
-                  <span class="text-muted fw-light">Forms/</span> Horizontal
-                  Layouts
+                  <span class="text-muted fw-light">User Information</span>
                 </h4>
 
-
-
-
-                <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
-                  <div class="col">
-                    <div class="card h-100">
-                      {/* image slider */}
-                      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <img class="d-block w-100" src="https://static-resources.mirai.com/wp-content/uploads/sites/1745/20211124094735/Joan-Mir%C3%B3.jpg" alt="First slide" />
-                          </div>
-                          <div class="carousel-item">
-                            <img class="d-block w-100" src="https://ae01.alicdn.com/kf/Hdfc51cd5a1664db692a422ec15245f555/The-Garden-By-Joan-Miro-Paintings-Canvas-Famous-ArtWork-Posters-and-Prints-Abstract-Art-Wall-Pictures.jpg_Q90.jpg_.webp" alt="Second slide" />
-                          </div>
-                          <div class="carousel-item">
-                            <img class="d-block w-100" src="..." alt="Third slide" />
-                          </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Next</span>
-                        </a>
-                      </div>
-                      {/*  end of image slider */}
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                          This is a longer card with supporting text below as a natural lead-in to additional content.
-                          This content is a little bit longer.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-                  <div class="col">
-                    <div class="card h-100">
-                      <img class="card-img-top" src="../assets/img/elements/18.jpg" alt="Card image cap" />
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                          This is a longer card with supporting text below as a natural lead-in to additional content.
-                          This content is a little bit longer.
-                        </p>
-                      </div>
-                    </div>
+                {/* <!-- Basic Bootstrap Table --> */}
+                <div class="card">
+                  <h5 class="card-header">Users</h5>
+                  <div class="table-responsive text-nowrap">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th> title</th>
+                          <th> body</th>
+                          <th>date</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody class="table-border-bottom-0">
+                        {/* {allposts} */}
+                    
+                      </tbody>
+                    </table>
                   </div>
                 </div>
+                {/* <!--/ Basic Bootstrap Table --> */}
 
+                <hr class="my-5" />
 
+               
               </div>
-
               {/* <!-- / Content -->
 
-        <!-- Footer --> */}
-              <Footer />
+            <!-- Footer --> */}
+             <Footer />
               {/* <!-- / Footer --> */}
 
               <div class="content-backdrop fade"></div>
@@ -107,7 +160,8 @@ const Table = () => {
       </div>
       {/* <!-- / Layout wrapper --> */}
     </>
-  );
+  )
+;
 }
    
 

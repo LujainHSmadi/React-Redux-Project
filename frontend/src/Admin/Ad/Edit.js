@@ -1,12 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useRef, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useRef, useEffect } from "react";
 import Sidebar from "../layouts/Sidebar";
 import Footer from "../layouts/Footer";
 import { editAd } from "../redux/adSlice";
+// import { getAds } from "../redux/adSlice";
+import { singleAd } from "../redux/adSlice";
+
 const Create = () => {
-
-
-  const dispatch = useDispatch();
+  
   const title = useRef(null);
   const description = useRef(null);
   const type = useRef(null);
@@ -16,9 +18,23 @@ const Create = () => {
   const image_4 = useRef(null);
   const phone = useRef(null);
   const location = useRef(null);
-  const ads = useSelector(state => state.ad);
-console.log("adssss",ads);
+  const params = useParams();
 
+
+  console.log('params ', params.id);
+  
+
+  const dispatch = useDispatch();
+  const ads = useSelector(state => state.ad);
+  console.log("Esraa",ads);
+  // console.log("id esraa",ads[0].id);
+  const loading = useSelector(state => state.ad.loading);
+
+  useEffect(() => {
+    dispatch(singleAd(params.id));
+    console.log("single Ad", ads);
+
+  }, [dispatch]);
 
   const handelSubmit = (e) => {
 
@@ -35,10 +51,10 @@ console.log("adssss",ads);
     formData.append("image_4", image_4.current.files[0]);
     formData.append("phone", phone.current.value);
     formData.append("location", location.current.value);
-    console.log(formData);
+    console.log("formdtaa",formData.get('title'));
     console.log(image.current.files[0]);
-    dispatch(editAd(formData));
- 
+    dispatch(editAd({params:params.id,formData}));
+
   }
 
 
@@ -96,8 +112,8 @@ console.log("adssss",ads);
                                 type="text"
                                 class="form-control"
                                 id="basic-default-name"
-                                placeholder="John Doe"
                                 ref={title}
+                              //  value={ads.ad.title}
                               />
                             </div>
                           </div>
@@ -113,7 +129,6 @@ console.log("adssss",ads);
                                 type="text"
                                 class="form-control"
                                 id="basic-default-company"
-                                placeholder="ACME Inc."
                                 ref={type}
                               />
                             </div>
@@ -130,7 +145,8 @@ console.log("adssss",ads);
                                 type="text"
                                 class="form-control"
                                 id="basic-default-company"
-                                placeholder="ACME Inc."
+                               
+                                
                                 ref={location}
                               />
                             </div>
@@ -148,9 +164,10 @@ console.log("adssss",ads);
                                 type="text"
                                 id="basic-default-phone"
                                 class="form-control phone-mask"
-                                placeholder="658 799 8941"
+                               
                                 aria-label="658 799 8941"
                                 aria-describedby="basic-default-phone"
+                                
                                 ref={phone}
                               />
                             </div>
@@ -166,9 +183,10 @@ console.log("adssss",ads);
                               <textarea
                                 id="basic-default-message"
                                 class="form-control"
-                                placeholder="Hi, Do you have a moment to talk Joe?"
+                               
                                 aria-label="Hi, Do you have a moment to talk Joe?"
                                 aria-describedby="basic-icon-default-message2"
+                                
                                 ref={description}
                               ></textarea>
                             </div>
@@ -186,9 +204,10 @@ console.log("adssss",ads);
                                 type="file"
                                 id="basic-default-phone"
                                 class="form-control phone-mask"
-                                placeholder="658 799 8941"
+                               
                                 aria-label="658 799 8941"
                                 aria-describedby="basic-default-phone"
+
                                 ref={image}
                               />
                             </div>
@@ -206,7 +225,7 @@ console.log("adssss",ads);
                                 type="file"
                                 id="basic-default-phone"
                                 class="form-control phone-mask"
-                                placeholder="658 799 8941"
+                               
                                 aria-label="658 799 8941"
                                 aria-describedby="basic-default-phone"
                                 ref={image_2}
@@ -227,7 +246,7 @@ console.log("adssss",ads);
                                 type="file"
                                 id="basic-default-phone"
                                 class="form-control phone-mask"
-                                placeholder="658 799 8941"
+                                
                                 aria-label="658 799 8941"
                                 aria-describedby="basic-default-phone"
                                 ref={image_3}
@@ -248,7 +267,7 @@ console.log("adssss",ads);
                                 type="file"
                                 id="basic-default-phone"
                                 class="form-control phone-mask"
-                                placeholder="658 799 8941"
+                               
                                 aria-label="658 799 8941"
                                 aria-describedby="basic-default-phone"
                                 ref={image_4}

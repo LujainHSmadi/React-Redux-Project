@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAds } from "../Admin/redux/adSlice";
-
+import { Link } from "react-router-dom";
 
 
 
@@ -17,7 +17,7 @@ const Home = () => {
     }, [dispatch]);
     console.log("title", ads);
 
-    const allads = ads.map(ad => {
+    const allads = ads.slice(0, 3).map(ad => {
         return (
             <>
                      
@@ -27,7 +27,9 @@ const Home = () => {
                                         <div class="card__image card__box-v1">
                                             <div class="card__image-header h-250">
                                                 <div class="ribbon text-capitalize">featured</div>
+                                                <Link to={"SingleDetail/" + ad.id}>
                                                 <img src={'http://127.0.0.1:8000/image/'+ad.image} alt="" class="img-fluid w100 img-transition" />
+                                                </Link>
                                                 <div class="info"> for sale</div>
                                             </div>
                                             <div class="card__image-body">
@@ -60,7 +62,7 @@ const Home = () => {
                                                             <i class="fa fa-inbox"></i> 3
                                                         </span>
                                                     </li>
-                                                    <li class="list-inline-item">
+                                                   <li class="list-inline-item">
                                                         <span>
                                                             area <br />
                                                             <i class="fa fa-map"></i> 4300 sq ft
@@ -68,7 +70,7 @@ const Home = () => {
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <div class="card__image-footer">
+                                            {/* <div class="card__image-footer">
                                                 <figure>
                                                     <img src="images/80x80.jpg" alt="" class="img-fluid rounded-circle" />
                                                 </figure>
@@ -88,7 +90,7 @@ const Home = () => {
                                                     </li>
 
                                                 </ul>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
 
@@ -126,7 +128,7 @@ const Home = () => {
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active banner-max-height">
-                                <img class="d-block w-100" src="images/bg.jpg" alt="First slide" />
+                                <img class="d-block w-100" src="images/bg15.jpg" alt="First slide" />
                                 <div class="carousel-caption banner__slide-overlay d-flex h-100">
                                     <div class="carousel__content">
                                         <div class="container">
@@ -156,7 +158,7 @@ const Home = () => {
                                 </div>
                             </div>
                             <div class="carousel-item banner-max-height">
-                                <img class="d-block w-100" src="images/bg15.jpg" alt="Second slide" />
+                                <img class="d-block w-100" src="images/bg.jpg" alt="Second slide" />
                                 <div class="carousel-caption banner__slide-overlay d-flex h-100">
                                     <div class="carousel__content">
                                         <div class="container">
@@ -199,7 +201,7 @@ const Home = () => {
 
                                                             This is real estate website template based on Bootstrap 4 framework.
                                                         </p>
-                                                        <a href="#" class="btn btn-primary text-uppercase animated fadeInUp">
+                                                        <a href="/contact" class="btn btn-primary text-uppercase animated fadeInUp">
                                                             contact us
                                                             <i class="fa fa-angle-right arrow-btn "></i></a>
                                                     </div>
@@ -439,162 +441,31 @@ const Home = () => {
 
 
             {/* 
-    <!-- BLOG --> */}
-            <section class="blog__home bg-light">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-lg-6 mx-auto">
-                            <div class="title__head">
-                                <h2 class="text-center text-capitalize">
-                                    lastest news
-                                </h2>
-                                <p class="text-center text-capitalize">Find Of The Most Popular Real Estate Company All Around
-                                    Indonesia.</p>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            {/* <!-- BLOG  --> */}
-                            <div class="card__image">
-                                <div class="card__image-header h-250">
-                                    <img src="images/500x400.jpg" alt="" class="img-fluid w100 img-transition" />
-                                    <div class="info"> event</div>
-                                </div>
-                                <div class="card__image-body">
-                                    <span class="badge badge-secondary p-1 text-capitalize mb-3">May 08, 2019 </span>
-                                    <h6 class="text-capitalize">
-                                        <a href="/blog-single.html">Best Interior Oppertunity </a>
-                                    </h6>
-                                    <p class=" mb-0">
-                                        Real estate festival is one of the famous feval for explain to you how all this mistaolt
-                                        deand praising pain
-                                        wasnad I will give complete
+    <!-- About --> */}
+             <section class="home__about bg-theme-v4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="title__leading">
+                        <h6 class="text-uppercase">trusted By thousands</h6> 
+                        <h2 class="text-capitalize"> why choose use?</h2>
+                        <p>
+                            The first step in selling your property is to get a valuation from local experts. They will
+                            inspect your home and take into account its unique features, the area and market conditions
+                            before providing you with the most accurate valuation.
+                        </p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod libero amet, laborum qui nulla
+                            quae alias tempora. Placeat voluptatem eum numquam quas distinctio obcaecati quaerat,
+                            repudiandae qui! Quia, omnis, doloribus! Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Quod libero amet, laborum qui nullas tempora.</p>
 
-                                    </p>
-
-
-                                </div>
-                                <div class="card__image-footer">
-                                    <figure>
-                                        <img src="images/80x80.jpg" alt="" class="img-fluid rounded-circle" />
-                                    </figure>
-                                    <ul class="list-inline my-auto">
-                                        <li class="list-inline-item ">
-                                            <a href="#">
-                                                tom wilson
-                                            </a>
-
-                                        </li>
-
-                                    </ul>
-                                    <ul class="list-inline my-auto ml-auto">
-                                        <li class="list-inline-item ">
-                                            <a href="/blog-single.html" class="btn btn-sm btn-primary "><small
-                                                class="text-white ">read more <i
-                                                    class="fa fa-angle-right ml-1"></i></small></a>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                            {/* <!-- END BLOG --> */}
-                        </div>
-                        <div class="col-md-4">
-                            {/* <!-- BLOG  --> */}
-                            <div class="card__image">
-                                <div class="card__image-header h-250">
-                                    <img src="images/500x400.jpg" alt="" class="img-fluid w100 img-transition" />
-                                    <div class="info"> event</div>
-                                </div>
-                                <div class="card__image-body">
-                                    <span class="badge badge-secondary p-1 text-capitalize mb-3">May 08, 2019 </span>
-                                    <h6 class="text-capitalize">
-                                        <a href="#">Tips & Trick buy real estate </a>
-                                    </h6>
-                                    <p class=" mb-0">
-                                        Real estate festival is one of the famous feval for explain to you how all this mistaolt
-                                        deand praising pain
-                                        wasnad I will give complete
-
-                                    </p>
-
-
-                                </div>
-                                <div class="card__image-footer">
-                                    <figure>
-                                        <img src="images/80x80.jpg" alt="" class="img-fluid rounded-circle" />
-                                    </figure>
-                                    <ul class="list-inline my-auto">
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                tom wilson
-                                            </a>
-
-                                        </li>
-
-                                    </ul>
-                                    <ul class="list-inline my-auto ml-auto">
-                                        <li class="list-inline-item">
-                                            <a href="#" class="btn btn-sm btn-primary "><small class="text-white ">read more <i
-                                                class="fa fa-angle-right ml-1"></i></small></a>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                            {/* <!-- END BLOG -->
-                </div> */}
-                            <div class="col-md-4">
-                                {/* <!-- BLOG  --> */}
-                                {/* <div class="card__image">
-                        <div class="card__image-header h-250">
-                            <img src="images/500x400.jpg" alt="" class="img-fluid w100 img-transition"/>
-                            <div class="info"> event</div>
-                        </div>
-                        <div class="card__image-body">
-                            <span class="badge badge-secondary p-1 text-capitalize mb-3">May 08, 2019 </span> 
-                            <h6 class="text-capitalize">
-                                <a href="#">Our Must Popular Deluxe House </a>
-                            </h6>
-                            <p class=" mb-0">
-                                Real estate festival is one of the famous feval for explain to you how all this mistaolt
-                                deand praising pain
-                                wasnad I will give complete
-
-                            </p>
-
-
-                        </div>
-                        <div class="card__image-footer">
-                            <figure>
-                                <img src="images/80x80.jpg" alt="" class="img-fluid rounded-circle"/>
-                            </figure>
-                            <ul class="list-inline  my-auto">
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        tom wilson
-                                    </a>
-
-                                </li>
-
-                            </ul>
-                            <ul class="list-inline  my-auto ml-auto">
-                                <li class="list-inline-item">
-                                    <a href="#" class="btn btn-sm btn-primary "><small class="text-white ">read more <i
-                                                class="fa fa-angle-right ml-1"></i></small></a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div> */}
-                                {/* <!-- END BLOG --> */}
-                            </div>
-                        </div>
+                        <a href="/about" class="btn btn-primary mt-3 text-capitalize"> read more
+                            <i class="fa fa-angle-right ml-3 "></i></a>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </section>
             {/* <!-- END BLOG --> */}
 
             {/* <!-- CALL TO ACTION --> */}
@@ -618,183 +489,6 @@ const Home = () => {
             </section>
             {/* <!-- END CALL TO ACTION --> */}
 
-            {/* <!-- Footer  --> */}
-            <footer>
-                <div class="wrapper__footer bg-theme-footer">
-                    <div class="container">
-                        <div class="row">
-                            {/* <!-- ADDRESS --> */}
-                            <div class="col-md-4">
-                                <div class="widget__footer">
-                                    <figure>
-                                        <img src="images/logo-blue.png" alt="" class="logo-footer" />
-                                    </figure>
-                                    <p>
-                                        Rethouse Real Estate is a premium Property template based on Bootstrap 4. Rethouse Real
-                                        Estate helped thousands of clients to find the right property for their needs.
-
-                                    </p>
-
-                                    <ul class="list-unstyled mb-0 mt-3">
-                                        <li> <b> <i class="fa fa-map-marker"></i></b><span>214 West Arnold St. New York, NY
-                                            10002</span> </li>
-                                        <li> <b><i class="fa fa-phone-square"></i></b><span>(123) 345-6789</span> </li>
-                                        <li> <b><i class="fa fa-phone-square"></i></b><span>(+100) 123 456 7890</span> </li>
-                                        <li> <b><i class="fa fa-headphones"></i></b><span>support@realvilla.demo</span> </li>
-                                        <li> <b><i class="fa fa-clock-o"></i></b><span>Mon - Sun / 9:00AM - 8:00PM</span> </li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                            {/* <!-- END ADDRESS --> */}
-
-                            {/* <!-- QUICK LINKS --> */}
-                            <div class="col-md-4">
-                                <div class="widget__footer">
-                                    <h4 class="footer-title">Quick Links</h4>
-                                    <div class="link__category-two-column">
-                                        <ul class="list-unstyled ">
-                                            <li class="list-inline-item">
-                                                <a href="#">Commercial</a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">business</a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">House</a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">Residential</a>
-                                            </li>
-
-                                            <li class="list-inline-item">
-                                                <a href="#">Residential Tower</a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">Beverly Hills</a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">Los angeles</a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">The beach</a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">Property Listing</a>
-                                            </li>
-
-                                            <li class="list-inline-item">
-                                                <a href="#">Clasic</a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">Modern Home</a>
-                                            </li>
-
-                                            <li class="list-inline-item">
-                                                <a href="#">Luxury</a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">Beach Pasadena</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            {/* <!-- END QUICK LINKS --> */}
-
-
-                            {/* <!-- NEWSLETTERS --> */}
-                            <div class="col-md-4">
-                                <div class="widget__footer">
-                                    <h4 class="footer-title">follow us </h4>
-                                    <p class="mb-2">
-                                        Follow us and stay in touch to get the latest news
-                                    </p>
-                                    <p>
-                                        <button class="btn btn-social btn-social-o facebook mr-1">
-                                            <i class="fa fa-facebook-f"></i>
-                                        </button>
-                                        <button class="btn btn-social btn-social-o twitter mr-1">
-                                            <i class="fa fa-twitter"></i>
-                                        </button>
-
-                                        <button class="btn btn-social btn-social-o linkedin mr-1">
-                                            <i class="fa fa-linkedin"></i>
-                                        </button>
-                                        <button class="btn btn-social btn-social-o instagram mr-1">
-                                            <i class="fa fa-instagram"></i>
-                                        </button>
-
-                                        <button class="btn btn-social btn-social-o youtube mr-1">
-                                            <i class="fa fa-youtube"></i>
-                                        </button>
-                                    </p>
-                                    <br />
-                                    <h4 class="footer-title">newsletter</h4>
-                                    {/* <!-- Form Newsletter --> */}
-                                    <div class="widget__form-newsletter ">
-                                        <p>
-
-                                            Don’t miss to subscribe to our news feeds, kindly fill the form below
-                                        </p>
-                                        <div class="mt-3">
-                                            <input type="text" class="form-control mb-2" placeholder="Your email address" />
-
-                                            <button class="btn btn-primary btn-block text-capitalize" type="button">subscribe
-
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            {/* <!-- END NEWSLETTER --> */}
-                        </div>
-                    </div>
-                </div>
-
-                {/* <!-- Footer Bottom --> */}
-                <div class="bg__footer-bottom-v1">
-                    <div class="container">
-                        <div class="row flex-column-reverse flex-md-row">
-                            <div class="col-md-6">
-                                <span>
-                                    © 2020 Rethouse Real Estate - Premium real estate & theme &amp; theme by
-                                    <a href="#">retenvi.com</a>
-                                </span>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="list-inline ">
-                                    <li class="list-inline-item">
-                                        <a href="#">
-                                            privacy
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">
-                                            contact
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">
-                                            about
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">
-                                            faq
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/* <!-- End Footer  --> */}
-            </footer>
-
-            {/* <!-- SCROLL TO TOP --> */}
-            <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
         </>
     )
 }

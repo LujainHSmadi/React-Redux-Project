@@ -12,6 +12,8 @@ import AgentsDetail from "./Components/AgentsDetail";
 import Agents from "./Components/Agents";
 import NavBar from "./Layout/NavBar";
 import SignIn from "./Components/Login";
+import SignUp from "./Components/Register";
+import Profile from "./Components/Profile";
 import Admin from "./Admin/Home";
 import CreateUser from "./Admin/User/Create";
 import TableUser  from "./Admin/User/Table";
@@ -32,11 +34,18 @@ import EditPostForm from "./PostFeatures/posts/EditPostForm";
 import UsersList from "./PostFeatures/users/UsersList";
 import UserPage from './PostFeatures/users/UserPage';
 import { Routes, Route, Navigate, BrowserRouter } from 'react-router-dom';
+import Contact from "./Components/Contact";
+import Footer from "./Layout/Footer";
 
 
 function App() {
 
+
+
+
   return (
+
+
     <div className="App">
     <BrowserRouter>
    
@@ -46,12 +55,16 @@ function App() {
         <Route path="/About" element={<About />} />
         <Route path="/List" element={<List />} />
         <Route path="/AgencyDetails" element={<AgencyDetails />} />
-        <Route path="/SingleDetail" element={<SingleDetail />} />
+        <Route path="list/SingleDetail/:id" element={<SingleDetail />} />
         <Route path="/Agency" element={<Agency />} />
         <Route path="/AgentsDetail" element={<AgentsDetail />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/Agents" element={<Agents />} />
         <Route path="login" element={<SignIn />} />
         <Route path="blog" element={<Blog />} />
+        <Route path="users/:id" element={<Profile />} />
+       <Route path="login" element={<SignIn />} />
+       <Route path="register" element={<SignUp/>} />
     
         {/* admin Routes */}
          {/* User */}
@@ -79,8 +92,6 @@ function App() {
         <Route path="add"  element={<AddPostForm />} />
         <Route index path=":postId" element={<SinglePostPage />} />
         <Route path="edit/:postId" element={<EditPostForm />} />
-
-       <Route path="login" element={<SignIn />} />
          <Route index element={<PostsList />} />
 
          {/* <Route path="post">
@@ -104,7 +115,7 @@ function App() {
        </Routes>
 
    
-      
+      <Footer />
     </BrowserRouter>
  
   </div>

@@ -7,30 +7,63 @@ export const getAds = createAsyncThunk('ad/getAds', async () => {
     return data;
 });
 
+
 export const addAd = createAsyncThunk('ad/addAd', async (data, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
         const response = await axios.post('http://127.0.0.1:8000/api/ads', data);
         const ad = await response.data;
         // console.log('add', ad);
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
         return ad;
     }
     catch (error) {
         console.error(error);
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
         return rejectWithValue(error.message);
     }
 });
 
 export const editAd = createAsyncThunk('ad/editAd', async (data, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
+    console.log('edit', data.params);
     try {
-        const response = await axios.post(`http://127.0.0.1:8000/api/ads/${data.id}`, data);
+        const response = await axios.put(`http://127.0.0.1:8000/api/ads/${data.params}`, data.formData);
         const ad = await response.data;
-        console.log('edit', ad);
+
+        console.log('yousef', ad);
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
         return ad;
 
     }
     catch (error) {
+        console.error(error);
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
+        return rejectWithValue(error.message);
 
     }
 });
@@ -43,7 +76,7 @@ export const editAd = createAsyncThunk('ad/editAd', async (data, thunkAPI) => {
 //         console.log('delete', ad);
 //         return ad;
 
-    
+
 
 //     }
 //     catch (error) {
@@ -58,7 +91,7 @@ export const deleteAd = createAsyncThunk('ad/deleteAd', async (id) => {
     console.log('id', id);
     try {
         const response = await fetch(`http://127.0.0.1:8000/api/ads/${id}`, {
-            method: 'POST',
+            method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
         })
         console.log('delete', id);
@@ -73,6 +106,13 @@ export const deleteAd = createAsyncThunk('ad/deleteAd', async (id) => {
         //     });
         // }
         const res = response.json();
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Has been deleted Successfully',
+            showConfirmButton: false,
+            timer: 1500
+        })
         return res;
 
 
@@ -80,6 +120,20 @@ export const deleteAd = createAsyncThunk('ad/deleteAd', async (id) => {
     catch (error) {
         console.error(error);
         // return rejectWithValue(error.message);
+    }
+});
+
+
+export const singleAd = createAsyncThunk('ad/singleAd', async (data) => {
+
+    try {
+        const response = await fetch(`http://127.0.0.1:8000/api/ads/${data}`);
+        const sdata = await response.json();
+        console.log("sdata", sdata)
+        return sdata;
+    }
+    catch (error) {
+        console.error(error);
     }
 });
 
@@ -131,13 +185,25 @@ const adSlice = createSlice({
             console.log(action);
         },
         [editAd.fulfilled]: (state, action) => {
-            state.ads = state.ads.map(ad => {
-                if (ad.id === action.payload.id) {
-                    return action.payload;
-                }
-                return ad;
-            }
-            );
+            console.log("amaaaaaaaa2222l", action.payload);
+            state.ads=action.payload;
+            console.log("amaaaaaaaal", state.ads);
+            // const ad = state.ads.find(ad => ad.id === action.payload.id);
+            // if (ad) {
+
+            //     ad.title = action.payload.title;
+            //     ad.description = action.payload.description;
+            //     ad.type = action.payload.type;
+            //     ad.image = action.payload.image;
+            //     ad.image_2 = action.payload.image_2;
+            //     ad.image_3 = action.payload.image_3;
+            //     ad.image_4 = action.payload.image_4;
+            //     ad.location = action.payload.location;
+            //     ad.phone = action.payload.phone;
+
+            // }
+            // return ad;
+
         },
         [editAd.rejected]: (state, action) => {
             state.error = action.payload;
@@ -160,9 +226,25 @@ const adSlice = createSlice({
             state.loading = false;
             console.log(state.ads);
         },
-            
+        // Reducer for fetching single ad
+        [singleAd.pending]: (state, action) => {
+            state.loading = true;
+            console.log(action);
+        },
+        [singleAd.fulfilled]: (state, action) => {
+            state.ads = action.payload;
+            state.loading = false;
+            console.log(state.ad);
+        },
+        [singleAd.rejected]: (state, action) => {
+            state.error = action.payload;
+            state.loading = false;
+            console.log(state.ad);
+        }
+
 
     }
+
 });
 
 export default adSlice.reducer;
