@@ -31,7 +31,7 @@ const NavBar = () => {
                 <ul class="topbar-link">
 
                   <li>
-                    <a href="#" title="">
+                    <a href="/contact" title="">
                       Contact Us
                     </a>
                   </li>
@@ -79,6 +79,16 @@ const NavBar = () => {
           </button>
           <div class="collapse navbar-collapse" id="main_nav99">
             <ul class="navbar-nav  mx-auto">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link"
+                  href="/">
+                  Home
+                </a>
+              </li>
+
+
+
               <li class="nav-item dropdown">
                 <a
                   class="nav-link"
@@ -132,7 +142,7 @@ const NavBar = () => {
 
             <ul class="navbar-nav">
               <li>
-                <a href="/" class="btn btn-primary text-capitalize">
+                <a href="/posts/add" class="btn btn-primary text-capitalize">
                   <i class="fa fa-plus-circle mr-1"></i> add post
                 </a>
               </li> 
