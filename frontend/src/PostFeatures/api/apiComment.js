@@ -3,7 +3,7 @@ export const getComments = async (text) => {
   return [
     {
       id: "1",
-      body: 'd',
+      body: 'Wait for a reply',
       username: "Admin",
       userId: "1",
       parentId: null,
