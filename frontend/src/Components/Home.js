@@ -255,7 +255,7 @@ const Home = () => {
                         <div class="filterizr-control">
                             <ul class="list-inline filterizr-filter">
                                 <a href="/list">
-                                <li class="list-inline-item filtr-active btn-filter" data-filter="all">All Property</li>
+                                <li class="list-inline-item filtr-active btn-filter" data-filter="all">All Properties</li>
                                 </a>
 
                             </ul>
