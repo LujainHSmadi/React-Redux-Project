@@ -44,81 +44,73 @@ function App() {
 
 
   return (
-
-
     <div className="App">
-    <BrowserRouter>
-   
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/List" element={<List />} />
-        <Route path="/AgencyDetails" element={<AgencyDetails />} />
-        <Route path="list/SingleDetail/:id" element={<SingleDetail />} />
-        <Route path="/Agency" element={<Agency />} />
-        <Route path="/AgentsDetail" element={<AgentsDetail />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/Agents" element={<Agents />} />
-        <Route path="login" element={<SignIn />} />
-        <Route path="blog" element={<Blog />} />
-        <Route path="users/:id" element={<Profile />} />
-       <Route path="login" element={<SignIn />} />
-       <Route path="register" element={<SignUp/>} />
-    
-        {/* admin Routes */}
-         {/* User */}
-        <Route path="Admin" element={<Admin />} />
-        <Route path="usercreate" element={<CreateUser />} />
-        <Route path="useredit" element={<EditUser />} />
-        <Route path="usertable" element={<TableUser />} />
-        {/* Comments */}
-        <Route path="commentcreate" element={<CreateComments />} />
-        <Route path="commentedit" element={<TableComments />} />
-        <Route path="commenttable" element={<EditComments />} />
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/List" element={<List />} />
+          <Route path="/AgencyDetails" element={<AgencyDetails />} />
+          <Route path="list/SingleDetail/:id" element={<SingleDetail />} />
+          <Route path="/Agency" element={<Agency />} />
+          <Route path="/AgentsDetail" element={<AgentsDetail />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/Agents" element={<Agents />} />
+          <Route path="login" element={<SignIn />} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="users/:id" element={<Profile />} />
+          <Route path="login" element={<SignIn />} />
+          <Route path="signup" element={<SignUp />} />
+
+          {/* admin Routes */}
+          {/* User */}
+          <Route path="Admin" element={<Admin />} />
+          <Route path="usercreate" element={<CreateUser />} />
+          <Route path="useredit" element={<EditUser />} />
+          <Route path="usertable" element={<TableUser />} />
+          {/* Comments */}
+          <Route path="commentcreate" element={<CreateComments />} />
+          <Route path="commentedit" element={<TableComments />} />
+          <Route path="commenttable" element={<EditComments />} />
           {/* Ads */}
-        <Route path="adcreate" element={<CreateAd/>} />
+          <Route path="adcreate" element={<CreateAd />} />
           <Route path="adedit/:id" element={<EditAd />} />
-        <Route path="adtable" element={<TableAd />} />
+          <Route path="adtable" element={<TableAd />} />
           {/* Posts */}
-        <Route path="postcreate" element={<CreatePost />} />
-        <Route path="postedit" element={<EditPost />} />
-        <Route path="posttable" element={<TablePost />} />
+          <Route path="postcreate" element={<CreatePost />} />
+          <Route path="postedit" element={<EditPost />} />
+          <Route path="posttable" element={<TablePost />} />
 
+          {/* User Posts */}
+          <Route path="/posts" element={<Layout />}>
+            <Route path="add" element={<AddPostForm />} />
+            <Route index path=":postId" element={<SinglePostPage />} />
+            <Route path="edit/:postId" element={<EditPostForm />} />
+            <Route index path="posttable" element={<TablePost />} />
+            <Route index element={<PostsList />} />
 
-        {/* User Posts */}
-        <Route path="/posts" element={<Layout />}>
-          
-        <Route path="add"  element={<AddPostForm />} />
-          <Route index path=":postId" element={<SinglePostPage />} />
-        <Route path="edit/:postId" element={<EditPostForm />} />
-         <Route index element={<PostsList />} />
-
-         {/* <Route path="post">
+            {/* <Route path="post">
          
 
          
          </Route> */}
-           <Route path="user" element={<UsersList />} />
+            <Route path="user" element={<UsersList />} />
 
-          <Route  path="user/:userId" element={<UserPage />} />
+            <Route path="user/:userId" element={<UserPage />} />
 
-       {/* <Route path="user">
+            {/* <Route path="user">
          
         </Route> */}
 
-        {/* Catch all - replace with 404 component if you want */}
-        <Route path="*" element={<Navigate to="/" replace />} />
+            {/* Catch all - replace with 404 component if you want */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Route>
+        </Routes>
 
-      </Route>
-
-       </Routes>
-
-   
-      <Footer />
-    </BrowserRouter>
- 
-  </div>
+        <Footer />
+      </BrowserRouter>
+    </div>
   );
 }
 

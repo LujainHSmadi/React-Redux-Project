@@ -35,10 +35,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
+       $request->validate([
+            'name' => 'required|min:3',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8',
+            'confirm_password'=>'required|same:password',
         ]);
         // $newUser = new User([
         //     'name' => $request->name,
@@ -57,7 +58,11 @@ class UserController extends Controller
         }
 
         $storeUser = User::create($newUser);
-        return response()->json($storeUser);
+        return response()->json([
+            'storeUser'=>$storeUser,
+            'status' => true,
+            'message' => " save successfully!",
+        ], 200);
 
     }
 
