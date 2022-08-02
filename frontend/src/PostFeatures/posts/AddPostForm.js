@@ -24,7 +24,6 @@ const AddPostForm = () => {
     const canSave = [title, content, userId].every(Boolean) && !isLoading;
 
     const onSavePostClicked = async () => {
-                   
         if (true) {
             if (!localStorage.getItem('user'))
             {
@@ -54,9 +53,9 @@ const AddPostForm = () => {
 
     return (
         <section>
-            <h2>Add a New Review</h2><br/>
+            <h2>Add a question</h2><br/>
             <div style={{border:'1.5px solid',padding:'15px'}}>
-                <label htmlFor="postTitle">Review Title:</label><br/>
+                <label htmlFor="postTitle">Question Title:</label><br/>
                 <input
                     type="text"
                     id="postTitle"

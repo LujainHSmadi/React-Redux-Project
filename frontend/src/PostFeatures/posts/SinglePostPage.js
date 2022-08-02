@@ -1,10 +1,9 @@
-
+import Comments from '../../comments/Comments';
 import { useSelector } from 'react-redux'
 import { selectPostById } from './postsSlice';
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
 import ReactionButtons from "./ReactionButtons";
-
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import {useEffect, useState } from 'react';
@@ -57,17 +56,25 @@ const SinglePostPage = () => {
             </p>   
             <span style={{  textTransform: 'capitalize'}}><PostAuthor userId={post.userId} /> </span>
               <TimeAgo timestamp={post.date} /> 
-            <h2>{post.title}</h2>
-            <p>{post.body}</p>
+            <h5>About {post.title}</h5>
+            <h6>{post.body}</h6>
             
             <ReactionButtons post={post} />
             <br/>
-            
-            <input type={'text'} placeholder={'Add a comment...'}></input>
+            <Comments
+        // commentsUrl="http://localhost:3000/comments"
+        currentUserId="1"
+      />
+            {/* <input type={'text'} placeholder={'Add a comment...'}></input>
             <hr/>
             <hr/>
             <hr/>
-            <hr/>
+            <hr/> */}
+
+            {/* <Comments
+        commentsUrl="http://localhost:3004/comments"
+        currentUserId="1"
+      /> */}
         </article>
         </div>
         
