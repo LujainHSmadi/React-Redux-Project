@@ -1,11 +1,22 @@
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import { Link } from 'react-router-dom';
+import {  useNavigate } from "react-router-dom";
 
 const Layout = () => {
+
+    const navigate = useNavigate()
+    const check=()=>{
+
+        if(!localStorage.getItem("user")) {alert('please login first')}         
+     else
+
+     navigate('/posts/add')
+     
+    }
+    
     return (
         <>
-
 
             <section>
 
@@ -20,24 +31,24 @@ const Layout = () => {
                                         <ul >
                                             <li class="list-inline-item">
 
-                                                <Link className='btn-primary ' style={{ color: "white", fontWeight: 'bold' }} to="/posts/add">Add a review <i class="fa fa-plus-circle mr-1"></i> </Link>
-                                            </li>
+                                                <button onClick={check} className='btn-primary ' style={{ color: "white", fontWeight: 'bold' }} >Add a question <i class="fa fa-plus-circle mr-1"></i> </button>
+                                            </li>  <br/>
                                             <li class="list-inline-item">
 
-                                                <Link className='btn-primary ' style={{ color: "white", fontWeight: 'bold' }} to="">Reviews</Link>
+                                                <Link className='btn-primary ' style={{ color: "white", fontWeight: 'bold' }} to="">Questions</Link>
                                             </li>
 
 
                                             <li class="list-inline-item">
 
-                                                <Link className='btn-primary ' style={{ color: "white", fontWeight: 'bold' }} to="/posts/user">Filter</Link>
+                                                <Link className='btn-primary ' style={{ color: "white", fontWeight: 'bold' }} to="/posts/user">Filter by users</Link>
                                             </li>
 
                                         </ul>
                                     </nav>
                                 </header>
                                 <h1>
-                                   Latest Reviews
+                                   Latest Questions
                                 </h1>
                                 <Outlet />
 
