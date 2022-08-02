@@ -1,20 +1,5 @@
 {
-  "posts": [
-    {
-      "title": "dfdeg",
-      "body": "grg",
-      "userId": 5,
-      "date": "2022-08-02T14:38:32.558Z",
-      "reactions": {
-        "thumbsUp": 1,
-        "wow": 0,
-        "heart": 0,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 1
-    }
-  ],
+  "posts": [],
   "comments": [
     {
       "id": "10",
