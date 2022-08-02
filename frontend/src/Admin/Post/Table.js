@@ -3,107 +3,54 @@ import Footer from "../layouts/Footer";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "../redux/postSlice";
+import PostsExcerpt from "../../PostFeatures/posts/Table";
+import { useGetPostsQuery } from "../../PostFeatures/posts/postsSlice";
+import { selectPostIds } from "../../PostFeatures/posts/postsSlice";
 
 
-// 
-//   const dispatch = useDispatch();
-//     const post = useSelector(state => getPosts(state, state.posts))
-// console.log(post);
-// useEffect(() => {
-//   dispatch(getPosts());
 
-// }, [dispatch]);
+
 // const allads = post.map(post => { 
 
 
 
 
 
-  const Table =()=>{
+const Table = ({ postId }) => {
+   const { isLoading, isSuccess, isError, error } = useGetPostsQuery();
 
+   const orderedPostIds = useSelector(selectPostIds);
 
-    const response =  fetch('http://localhost:8001/posts', {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json; charest=UTF-8",
-      },
-    });
-    const result =  response.json();
-    console.log('amal',result);
-  //   const dispatch = useDispatch();
-  //   const posts = useSelector(state => state.posts);
-  
-  //   useEffect(() => {
-  //       dispatch(getPosts());
-  
-  //   }, [dispatch]);
-  // console.log('llll',posts);
-//     const allposts = posts.map(post => {
-//         return (
-//             <>
-//             <tr>
-//                           <td>
-//                             <i class="fab fa-angular fa-lg text-danger me-3"></i>{" "}
-//                             <strong>Angular Project</strong>
-//                           </td>
-//                           <td>Albert Cook</td>
-//                           <td>
-// 14-4-2000
-//                           </td>
-//                           <td>
-//                             <span class="badge bg-label-primary me-1">
-//                             <a 
-//                                   href="/">
-//                                   <i class="bx bx-edit-alt me-1 "></i> 
-//                                 </a>
-//                                 <a
-                                 
-//                                   href="/">
-//                                   <i class="bx bx-trash me-2"></i> 
-//                                 </a>
-//                             </span>
-//                           </td>
-                         
-//                         </tr>
-//             </> )
-
-// });
-
-
-
-
-
-
-
-
-
-
+   let content;
+   if (isLoading) {
+     content = <p>"Loading..."</p>;
+   } else if (isSuccess) {
+     content = orderedPostIds.map((postId) => (
+       <PostsExcerpt key={postId} postId={postId} />
+     ));
+   } else if (isError) {
+     content = <p>{error}</p>;
+   }
 
 
   return (
-  
     <>
-   
+      {" "}
+ 
+      {content}
+      {/* { && .map((cloth, index) => ({ cloth }))} */}
       {/* <!-- Layout wrapper --> */}
       <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
           {/* <!-- Menu --> */}
 
-         <Sidebar />
+          <Sidebar />
           {/* <!-- / Menu -->
 
 
         <!-- Layout container --> */}
           <div class="layout-page">
             {/* <!-- Navbar --> */}
-
-          
-            
-               
-                
-               
-           
-         
 
             {/* <!-- / Navbar --> */}
 
@@ -131,7 +78,6 @@ import { getPosts } from "../redux/postSlice";
                       </thead>
                       <tbody class="table-border-bottom-0">
                         {/* {allposts} */}
-                    
                       </tbody>
                     </table>
                   </div>
@@ -139,13 +85,11 @@ import { getPosts } from "../redux/postSlice";
                 {/* <!--/ Basic Bootstrap Table --> */}
 
                 <hr class="my-5" />
-
-               
               </div>
               {/* <!-- / Content -->
 
             <!-- Footer --> */}
-             <Footer />
+              <Footer />
               {/* <!-- / Footer --> */}
 
               <div class="content-backdrop fade"></div>
@@ -160,9 +104,8 @@ import { getPosts } from "../redux/postSlice";
       </div>
       {/* <!-- / Layout wrapper --> */}
     </>
-  )
-;
-}
+  );
+};
    
 
 export default Table
