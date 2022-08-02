@@ -3,7 +3,7 @@ import CommentForm from "./CommentForm";
 import Comment from "./Comment";
 import {
   getComments as getCommentsApi,
-  createComment as createCommentApi,
+  CreateComment as createCommentApi,
   updateComment as updateCommentApi,
   deleteComment as deleteCommentApi,
 } from "../PostFeatures/api/apiComment";

@@ -109,4 +109,17 @@ class CommentController extends Controller
         $comment->delete();
         return response()->json($comment);
     }
+
+    public function addcomments(Request $request)
+    {
+       
+    
+        $comm = new Comment();
+        $comm->id = $request->id;
+
+        $comm->comment = $request->comment;
+        $comm->save();
+       
+
+    }
 }

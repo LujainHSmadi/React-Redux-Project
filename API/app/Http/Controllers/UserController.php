@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Comment;
 
 class UserController extends Controller
 {
@@ -120,7 +121,7 @@ class UserController extends Controller
         ], 200);
 
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *

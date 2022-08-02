@@ -6,7 +6,7 @@
       "userId": 5,
       "date": "2022-08-02T14:38:32.558Z",
       "reactions": {
-        "thumbsUp": 0,
+        "thumbsUp": 1,
         "wow": 0,
         "heart": 0,
         "rocket": 0,
@@ -16,7 +16,6 @@
     }
   ],
   "comments": [
-  
     {
       "id": "10",
       "title": "json-server is not bad. Its great!",
