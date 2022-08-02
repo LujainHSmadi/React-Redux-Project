@@ -87,13 +87,13 @@ const NavBar = () => {
                   Properties
                 </a>
               </li>
-              <li class="nav-item">
+              {/* <li class="nav-item">
                 <a class="nav-link" href="/">
                   Ask
                 </a>
-              </li>
+              </li> */}
               <li class="nav-item">
-              <Link class="nav-link" to="posts">reviews</Link>
+              <Link class="nav-link" to="posts">Ask</Link>
 
               </li>
 

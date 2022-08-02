@@ -36,7 +36,10 @@ const SignIn = () => {
           roles: ["Admin"],
         });
         localStorage.setItem("user", JSON.stringify(data));
+        
         let isLoggedIn = JSON.parse(localStorage.getItem("user"));
+        
+        console.log(isLoggedIn.logged_user.id)
         if (isLoggedIn.logged_user.role == "admin") {
           swal({
             title: "Admin!",
@@ -49,7 +52,7 @@ const SignIn = () => {
         } else {
           swal({
             title: "User!",
-            text: "You are not Admin!!",
+            text: "You are logged in!!",
             icon: "warning",
             button: "sure!",
           }).then(function () {

@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 import { selectAllUsers } from "../users/usersSlice";
-import { useNavigate } from "react-router-dom";
+import { resolvePath, useNavigate } from "react-router-dom";
 import { useAddNewPostMutation } from "./postsSlice";
-
+import Layout from "../../PostComponents/Layout";
 const AddPostForm = () => {
     const [addNewPost, { isLoading }] = useAddNewPostMutation()
 
@@ -12,7 +12,7 @@ const AddPostForm = () => {
 
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
-    const [userId, setUserId] = useState('1')
+    const [userId, setUserId] = useState(JSON.parse(localStorage.getItem("user")).logged_user.id)
 
     const users = useSelector(selectAllUsers)
 
@@ -24,19 +24,22 @@ const AddPostForm = () => {
     const canSave = [title, content, userId].every(Boolean) && !isLoading;
 
     const onSavePostClicked = async () => {
-                    {/* if statment will be here */}
-//   if(NaN()){alert('dsds')}
-//   else
+                   
         if (true) {
-            
+            if (!localStorage.getItem('user'))
+            {
+                alert('you must logged in')
+            }
+            else
             try {
                 await addNewPost({ title, body: content, userId }).unwrap()
 
                 setTitle('')
                 setContent('')
                 setUserId('')
-                navigate('/')
                 alert('post was added succesfully')
+                
+                navigate('/posts')
             } catch (err) {
                 console.error('Failed to save the post', err)
             }

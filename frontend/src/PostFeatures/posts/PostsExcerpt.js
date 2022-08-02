@@ -9,6 +9,7 @@ import { selectPostById } from "./postsSlice";
 const PostsExcerpt = ({ postId }) => {
     const post = useSelector(state => selectPostById(state, postId))
 console.log(post);
+
     return (
         // <article>
         //     <h2>{post.title}</h2>
@@ -42,7 +43,7 @@ console.log(post);
                 <ul  class="list-inline">
                   <p  style={{backgroundColor:'beige'}}><ReactionButtons post={post} /></p>  
                 </ul>
-                    &nbsp;&nbsp; <Link to={`post/${post.id}`}><span style={{backgroundColor:'beige',padding: '1px'}} >Comment</span></Link>
+                    &nbsp;&nbsp; <Link to={`/posts/${post.id}`}><span style={{backgroundColor:'beige',padding: '1px'}} >Comment</span></Link>
                     &nbsp;&nbsp; <Link to={`/posts/${post.id}`}><span style={{backgroundColor:'beige',padding: '1px'}} >View</span></Link>
 
                 </span>
