@@ -38,12 +38,13 @@ export const addAd = createAsyncThunk('ad/addAd', async (data, thunkAPI) => {
 
 export const editAd = createAsyncThunk('ad/editAd', async (data, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
+    const id = data.params;
     console.log('edit', data.params);
     try {
-        const response = await axios.put(`http://127.0.0.1:8000/api/ads/${data.params}`, data.formData);
+        const response = await axios.put(`http://127.0.0.1:8000/api/ads/${id}`, data.formData);
         const ad = await response.data;
 
-        console.log('yousef', ad);
+        console.log('omar', ad);
         Swal.fire({
             position: 'center',
             icon: 'success',
@@ -68,22 +69,6 @@ export const editAd = createAsyncThunk('ad/editAd', async (data, thunkAPI) => {
     }
 });
 
-// export const deleteAd = createAsyncThunk('ad/deleteAd', async (id, thunkAPI) => {
-//     const { rejectWithValue } = thunkAPI;
-//     try {
-//         const response = await axios.delete(`http://127.0.0.1:8000/api/ads/${id}`);
-//         const ad = await response.data;
-//         console.log('delete', ad);
-//         return ad;
-
-
-
-//     }
-//     catch (error) {
-//         console.error(error);
-//         return rejectWithValue(error.message);
-//     }
-// });
 
 
 export const deleteAd = createAsyncThunk('ad/deleteAd', async (id) => {
@@ -95,16 +80,7 @@ export const deleteAd = createAsyncThunk('ad/deleteAd', async (id) => {
             headers: { 'Content-Type': 'application/json' },
         })
         console.log('delete', id);
-        // const ad = await response.data;
-        // console.log('delete', ad);
-        // return ad;
-        // if (response.ok) {
-        //     Swal.fire({
-        //         title: "Item",
-        //         text: "Has been deleted Successfully",
-        //         type: "success"
-        //     });
-        // }
+        
         const res = response.json();
         Swal.fire({
             position: 'center',
@@ -186,23 +162,24 @@ const adSlice = createSlice({
         },
         [editAd.fulfilled]: (state, action) => {
             console.log("amaaaaaaaa2222l", action.payload);
-            state.ads=action.payload;
-            console.log("amaaaaaaaal", state.ads);
-            // const ad = state.ads.find(ad => ad.id === action.payload.id);
+            const { id } = action.payload;
+            console.log("amaaaaaaaal", id);
+           
+            const ad = state.ads.ads.find(ad => ad.id === id);
             // if (ad) {
 
-            //     ad.title = action.payload.title;
-            //     ad.description = action.payload.description;
-            //     ad.type = action.payload.type;
-            //     ad.image = action.payload.image;
-            //     ad.image_2 = action.payload.image_2;
-            //     ad.image_3 = action.payload.image_3;
-            //     ad.image_4 = action.payload.image_4;
-            //     ad.location = action.payload.location;
-            //     ad.phone = action.payload.phone;
+                ad.title = action.payload.title;
+                ad.description = action.payload.description;
+                ad.type = action.payload.type;
+                ad.image = action.payload.image;
+                ad.image_2 = action.payload.image_2;
+                ad.image_3 = action.payload.image_3;
+                ad.image_4 = action.payload.image_4;
+                ad.location = action.payload.location;
+                ad.phone = action.payload.phone;
 
             // }
-            // return ad;
+            return ad;
 
         },
         [editAd.rejected]: (state, action) => {
