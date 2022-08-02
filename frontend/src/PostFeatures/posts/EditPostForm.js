@@ -37,6 +37,11 @@ const EditPostForm = () => {
     const onSavePostClicked = async () => {
         if (canSave) {
             try {
+                if (JSON.parse(localStorage.getItem("user")).logged_user.id != userId)
+                {      
+                      alert('you can only edit or delete your posts')
+                } 
+                   else{
                 await updatePost({ id: post.id, title, body: content, userId }).unwrap()
 
                 setTitle('')
@@ -44,7 +49,7 @@ const EditPostForm = () => {
                 setUserId('')
                 navigate(`/posts/${postId}`)
                 alert('post was edited succesfully')
-            } catch (err) {
+            }} catch (err) {
                 console.error('Failed to save the post', err)
             }
         }
@@ -58,7 +63,16 @@ const EditPostForm = () => {
     ))
 
     const onDeletePostClicked = async () => {
+          // console.log()
+          let uid=JSON.parse(localStorage.getItem("user")).logged_user.id;
+         
+
         try {
+            if (JSON.parse(localStorage.getItem("user")).logged_user.id !==userId)
+            {      
+                  alert('you can only edit or delete your posts ')
+            } 
+               else{
             await deletePost({ id: post.id }).unwrap()
 
             setTitle('')
@@ -66,6 +80,7 @@ const EditPostForm = () => {
             setUserId('')
             navigate('/posts')
             alert('post was deleted succesfully')
+               }
         } catch (err) {
             console.error('Failed to delete the post', err)
         }

@@ -90,7 +90,7 @@ function App() {
         <Route path="/posts" element={<Layout />}>
           
         <Route path="add"  element={<AddPostForm />} />
-          <Route index path=":postId" element={<SinglePostPage />} />
+        <Route index path=":postId" element={<SinglePostPage />} />
         <Route path="edit/:postId" element={<EditPostForm />} />
          <Route index element={<PostsList />} />
 
