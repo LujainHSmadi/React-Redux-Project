@@ -22,7 +22,7 @@ export default function sidebar() {
                 <span class="menu-header-text">Users</span>
               </li>
               {/* <!-- Dashboard --> */}
-              <li class="menu-item active open">
+              <li class="menu-item">
                 <a href="/usertable" class="menu-link">
                   <i class="menu-icon tf-icons bx bx-user"></i>
                   <div data-i18n="Analytics">Show Users</div>
@@ -35,14 +35,14 @@ export default function sidebar() {
               <li class="menu-header small text-uppercase">
                 <span class="menu-header-text">Properties</span>
               </li>
-              <li class="menu-item active open">
+              <li class="menu-item ">
                 <a href="/adcreate" class="menu-link ">
                   <i class="menu-icon tf-icons bx bx-detail"></i>
                   <div data-i18n="Account Settings">Add Properties </div>
                 </a>
              
               </li>
-              <li class="menu-item active open">
+              <li class="menu-item ">
                 <a href="/adtable" class="menu-link menu-toggl">
                   <i class="menu-icon tf-icons bx bx-home-circle"></i>
                   <div data-i18n="Authentications">Show Properties</div>
@@ -56,7 +56,7 @@ export default function sidebar() {
               </li>
            
             
-              <li class="menu-item active open">
+              <li class="menu-item ">
                 <a href="/posttable" class="menu-link ">
                   <i class="menu-icon tf-icons bx bx-table"></i>
                   <div data-i18n="Form Layouts"> ShowPosts</div>
@@ -68,7 +68,7 @@ export default function sidebar() {
                 <span class="menu-header-text"> Comments</span>
               </li>
 
-              <li class="menu-item active open">
+              <li class="menu-item ">
                 <a href="/posttable" class="menu-link ">
                   <i class="menu-icon tf-icons bx bx-table"></i>
                   <div data-i18n="Form Layouts"> ShowComments</div>
