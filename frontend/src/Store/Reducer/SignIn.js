@@ -9,10 +9,20 @@ export const login = createAsyncThunk(
     return res.data;
   }
 );
-export const Register = createAsyncThunk("register", async ({ name,email, password ,role,image}) => {
-  const res = await Auth.Register({ name,email, password,role ,image});
-  return res.data;
-});
+export const Register = createAsyncThunk(
+  "register",
+  async ({ name, email, password, role, image, confirm_password }) => {
+    const res = await Auth.Register({
+      name,
+      email,
+      password,
+      role,
+      image,
+      confirm_password,
+    });
+    return res.data;
+  }
+);
 // export const getAll = createAsyncThunk(
 //   "",
 //   async () => {

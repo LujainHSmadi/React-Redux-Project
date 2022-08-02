@@ -5,10 +5,11 @@ import { Register } from "../Store/Reducer/SignIn";
 const SignUp = () => {
   const initialState = {
     email: "",
-      password: "",
-      name: '',
-      role: 'user',
-      image:'esraa'
+    password: "",
+    name: "",
+    role: "user",
+    image: "esraa",
+    confirm_password:''
   };
 
   const [User, setUser] = useState(initialState);
@@ -21,9 +22,9 @@ const SignUp = () => {
   };
 
   const save = () => {
-    const { name, email, password, role, image } = User;
+    const { name, email, password, role, image, confirm_password } = User;
 
-    dispatch(Register({ name, email, password, role, image }))
+    dispatch(Register({ name, email, password, role, image, confirm_password }))
       .unwrap()
       .then((data) => {
         console.log(data);
@@ -34,6 +35,7 @@ const SignUp = () => {
           password: data.password,
           role: data.role,
           image: data.image,
+          confirm_password: data.confirm_password,
         });
 
         setSubmitted(true);
@@ -46,8 +48,6 @@ const SignUp = () => {
 
   return (
     <>
-     
-
       {/* <!-- LISTING LIST --> */}
 
       <div class="allWrapper">
@@ -56,9 +56,9 @@ const SignUp = () => {
             src="./register/images/20945158-removebg-preview.png"
             alt=""
             class="image-1"
-            style={{ height: "600px", width: "550px" , left: '-387px'}}
+            style={{ height: "600px", width: "550px", left: "-387px" }}
           />
-          <form action="" class="register">
+          <div class="register">
             <h3>New Account?</h3>
 
             <div class="form-holderr">
@@ -68,6 +68,7 @@ const SignUp = () => {
                 class="form-controll"
                 placeholder=" name"
                 onChange={handleInputChange}
+                value={User.name || ""}
                 name="name"
               />
             </div>
@@ -101,17 +102,19 @@ const SignUp = () => {
                 type="password"
                 class="form-controll"
                 placeholder="Confirm Password"
+                onChange={handleInputChange}
+                required
+                value={User.confirm_password || ""}
+                name="confirm_password"
               />
             </div>
             <button class="registerBtn" type="submit" onClick={save}>
               <span>Register</span>
             </button>
-          </form>
+          </div>
           <img src="" alt="" class="image-2" />
         </div>
       </div>
-
-    
     </>
   );
 };

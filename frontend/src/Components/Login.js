@@ -77,7 +77,7 @@ const SignIn = () => {
             class="image-1"
             style={{ height: "600px", width: "550px" }}
           />
-          <form action="" class="register">
+          <div class="register">
             <h3>New Account?</h3>
             <div class="form-holderr">
               <span class="lnr lnr-envelope"></span>
@@ -109,7 +109,7 @@ const SignIn = () => {
             <p class="text-center mt-4">
               Don't have account? <a href="/register">Sign up</a>
             </p>
-          </form>
+          </div>
 
           <img src="" alt="" class="image-2" />
         </div>
