@@ -3,7 +3,23 @@ import { useRef, useState } from "react";
 import Sidebar from "../layouts/Sidebar";
 import Footer from "../layouts/Footer";
 import { addAd } from "../redux/adSlice";
+
 const Create = () => {
+
+  let isLoggedIn = JSON.parse(localStorage.getItem("user"));
+
+
+  if( isLoggedIn.logged_user.role !== "admin"){
+window.location.href="/login";
+
+}
+
+
+
+
+
+
+
 
 
   const dispatch = useDispatch();

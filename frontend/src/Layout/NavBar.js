@@ -35,11 +35,7 @@ const NavBar = () => {
                       Contact Us
                     </a>
                   </li>
-                  <li>
-                    <a href="/login" title="">
-                      Login / Register
-                    </a>
-                  </li>
+                
                 </ul>
                 <ul class="topbar-sosmed">
                   <li>
@@ -116,7 +112,11 @@ const NavBar = () => {
                             <ul class="dropdown-menu dropdown-menu-left animate fade-up">
 
                             {!isLoggedIn ? (
-                                <li><a class="dropdown-item" href="/login">Login</a></li>    ) : null}
+                              <>
+                                <li><a class="dropdown-item" href="/login">Login</a></li>
+                                <li><a class="dropdown-item" href="/signup">Register</a></li>
+                                </>
+                                ) : null}
 
 
 

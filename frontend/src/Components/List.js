@@ -89,125 +89,7 @@ const List = () => {
                         </div>
                       </div>
 
-                      <div class="form-group mb-0 mt-2">
-                        <a
-                          class="btn btn-outline-primary btn-block text-capitalize advanced-filter"
-                          data-toggle="collapse"
-                          href="#multiCollapseExample1"
-                          aria-controls="multiCollapseExample1"
-                        >
-                          <i class="fa fa-plus-circle"></i> advanced filter
-                        </a>
-
-                        <div
-                          class="collapse multi-collapse"
-                          id="multiCollapseExample1"
-                        >
-                          <div class="advancedfilter">
-                            <div class="checkbox checkbox-primary">
-                              <input id="checkbox2" type="checkbox" />
-                              <label
-                                for="checkbox2"
-                                class="label-brand text-capitalize"
-                              >
-                                Air Conditioning
-                              </label>
-                            </div>
-                            <div class="checkbox checkbox-primary">
-                              <input id="checkbox3" type="checkbox" />
-                              <label
-                                for="checkbox3"
-                                class="label-brand text-capitalize"
-                              >
-                                Swiming Pool
-                              </label>
-                            </div>
-                            <div class="checkbox checkbox-primary">
-                              <input id="checkbox4" type="checkbox" />
-                              <label
-                                for="checkbox4"
-                                class="label-brand text-capitalize"
-                              >
-                                Central Heating
-                              </label>
-                            </div>
-                            <div class="checkbox checkbox-primary">
-                              <input id="checkbox5" type="checkbox" />
-                              <label
-                                for="checkbox5"
-                                class="label-brand text-capitalize"
-                              >
-                                Spa & Massage
-                              </label>
-                            </div>
-                            <div class="checkbox checkbox-primary">
-                              <input id="checkbox6" type="checkbox" />
-                              <label
-                                for="checkbox6"
-                                class="label-brand text-capitalize"
-                              >
-                                Pets Allow
-                              </label>
-                            </div>
-                            <div class="checkbox checkbox-primary">
-                              <input id="checkbox7" type="checkbox" />
-                              <label
-                                for="checkbox7"
-                                class="label-brand text-capitalize"
-                              >
-                                Air Conditioning
-                              </label>
-                            </div>
-
-                            <div class="checkbox checkbox-primary">
-                              <input id="checkbox8" type="checkbox" />
-                              <label
-                                for="checkbox8"
-                                class="label-brand text-capitalize"
-                              >
-                                Gym
-                              </label>
-                            </div>
-
-                            <div class="checkbox checkbox-primary">
-                              <input id="checkbox9" type="checkbox" />
-                              <label
-                                for="checkbox9"
-                                class="label-brand text-capitalize"
-                              >
-                                Alarm
-                              </label>
-                            </div>
-                            <div class="checkbox checkbox-primary">
-                              <input id="checkbox10" type="checkbox" />
-                              <label
-                                for="checkbox10"
-                                class="label-brand text-capitalize"
-                              >
-                                Window Covering
-                              </label>
-                            </div>
-                            <div class="checkbox checkbox-primary">
-                              <input id="checkbox11" type="checkbox" />
-                              <label
-                                for="checkbox11"
-                                class="label-brand text-capitalize"
-                              >
-                                Free WiFi
-                              </label>
-                            </div>
-                            <div class="checkbox checkbox-primary">
-                              <input id="checkbox12" type="checkbox" />
-                              <label
-                                for="checkbox12"
-                                class="label-brand text-capitalize"
-                              >
-                                Car Parking
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                 
                     </div>
                     <div class="products__filter__footer">
                       <div class="form-group mb-0">
@@ -325,6 +207,7 @@ const List = () => {
                         aria-labelledby="pills-tab-two"
                       >
                         <div class="clearfix"></div>
+                        <div className="row">
                      {ads &&
                           ads.map((ad, index) => (
                             <div class="col-md-6 col-lg-6">  
@@ -406,6 +289,7 @@ const List = () => {
                                             </div> */}
                          </div>   
                             </div>     ))} 
+                            </div>
                       
                         {/* <!-- LISTING LIST --> */}
                         <div class="cleafix"></div>

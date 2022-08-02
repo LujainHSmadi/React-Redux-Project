@@ -39,13 +39,27 @@
       "userId": 1,
       "date": "2022-08-02T08:23:06.704Z",
       "reactions": {
-        "thumbsUp": 0,
+        "thumbsUp": 16,
         "wow": 0,
         "heart": 0,
         "rocket": 0,
         "coffee": 0
       },
       "id": 4
+    },
+    {
+      "title": "wdwfef3",
+      "body": "etregtergfgefgr",
+      "userId": 1,
+      "date": "2022-08-02T09:05:50.363Z",
+      "reactions": {
+        "thumbsUp": 0,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 0
+      },
+      "id": 5
     }
   ],
   "comments": [

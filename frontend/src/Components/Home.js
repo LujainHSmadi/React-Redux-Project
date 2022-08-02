@@ -27,7 +27,7 @@ const Home = () => {
                                         <div class="card__image card__box-v1">
                                             <div class="card__image-header h-250">
                                                 <div class="ribbon text-capitalize">featured</div>
-                                                <Link to={"SingleDetail/" + ad.id}>
+                                                <Link to={"list/SingleDetail/" + ad.id}>
                                                 <img src={'http://127.0.0.1:8000/image/'+ad.image} alt="" class="img-fluid w100 img-transition" />
                                                 </Link>
                                                 <div class="info"> for sale</div>
@@ -254,7 +254,9 @@ const Home = () => {
                     <div class="card__image-filter">
                         <div class="filterizr-control">
                             <ul class="list-inline filterizr-filter">
+                                <a href="/list">
                                 <li class="list-inline-item filtr-active btn-filter" data-filter="all">All Property</li>
+                                </a>
 
                             </ul>
                         </div>
