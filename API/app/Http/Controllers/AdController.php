@@ -14,10 +14,11 @@ class AdController extends Controller
      */
     public function index(Request $request)
     {
-         $title=$request->title;
-         if(isset($title)){
+        
+         $type=$request->type;
+         if(isset($type)){
            
-         return Ad::Where('title',$title)->get();
+         return Ad::Where('type',$type)->get();
            
       }
           else{
@@ -121,12 +122,12 @@ class AdController extends Controller
        
        
     //    $ad = Ad::findOrFail($id);
-    //   // console.log("controller ads",$ad);
-    //         $ad->title = $request->get('title');
-    //         $ad->description = $request->get('description');
-    //         $ad->type = $request->get('type');
-    //         $ad->location = $request->get('location');
-    //         $ad->phone = $request->get('phone');
+      // console.log("controller ads",$ad);
+            // $ad->title = $request->title;
+            // $ad->description = $request->get('description');
+            // $ad->type = $request->get('type');
+            // $ad->location = $request->get('location');
+            // $ad->phone = $request->get('phone');
 
 
 
@@ -180,5 +181,13 @@ class AdController extends Controller
         $ad = Ad::find($id);
         $ad->delete();
         // return response()->json($ad);
+    }
+
+
+    public function updateAd( Request $request,$id)
+    {
+        $ad = Ad::find($id);
+        $ad->update($request->all());
+        return response()->json($ad);
     }
 }

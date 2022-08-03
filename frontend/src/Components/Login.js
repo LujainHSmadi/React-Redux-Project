@@ -78,7 +78,7 @@ const SignIn = () => {
             style={{ height: "600px", width: "550px" }}
           />
           <div class="register">
-            <h3>New Account?</h3>
+            <h3>Please login to your account</h3>
             <div class="form-holderr">
               <span class="lnr lnr-envelope"></span>
               <input

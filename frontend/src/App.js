@@ -1,8 +1,6 @@
-
-
 import PostsList from "./PostFeatures/posts/PostsList";
 import Layout from "./PostComponents/Layout";
-import Home from './Components/Home'
+import Home from "./Components/Home";
 import About from "./Components/About";
 import List from "./Components/List";
 import AgencyDetails from "./Components/AgencyDetails";
@@ -16,8 +14,8 @@ import SignUp from "./Components/Register";
 import Profile from "./Components/Profile";
 import Admin from "./Admin/Home";
 import CreateUser from "./Admin/User/Create";
-import TableUser  from "./Admin/User/Table";
-import EditUser  from "./Admin/User/Edit";
+import TableUser from "./Admin/User/Table";
+import EditUser from "./Admin/User/Edit";
 import CreateAd from "./Admin/Ad/Create";
 import TableAd from "./Admin/Ad/Table";
 import EditAd from "./Admin/Ad/Edit";
@@ -32,17 +30,12 @@ import AddPostForm from "./PostFeatures/posts/AddPostForm";
 import SinglePostPage from "./PostFeatures/posts/SinglePostPage";
 import EditPostForm from "./PostFeatures/posts/EditPostForm";
 import UsersList from "./PostFeatures/users/UsersList";
-import UserPage from './PostFeatures/users/UserPage';
-import { Routes, Route, Navigate, BrowserRouter } from 'react-router-dom';
+import UserPage from "./PostFeatures/users/UserPage";
+import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 import Contact from "./Components/Contact";
 import Footer from "./Layout/Footer";
 
-
 function App() {
-
-
-
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -96,7 +89,7 @@ function App() {
          
          </Route> */}
             <Route path="user" element={<UsersList />} />
-
+            <Route path="users" element={<postProfile />} />
             <Route path="user/:userId" element={<UserPage />} />
 
             {/* <Route path="user">
@@ -115,5 +108,3 @@ function App() {
 }
 
 export default App;
-
-

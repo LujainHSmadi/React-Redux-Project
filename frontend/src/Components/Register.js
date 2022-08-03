@@ -8,8 +8,8 @@ const SignUp = () => {
     password: "",
     name: "",
     role: "user",
-    image: "esraa",
-    confirm_password:''
+    image: "https://bootdey.com/img/Content/avatar/avatar7.png",
+    confirm_password: "",
   };
 
   const [User, setUser] = useState(initialState);
@@ -38,27 +38,27 @@ const SignUp = () => {
           confirm_password: data.confirm_password,
         });
 
-        swal({
-          title: "Admin!",
+      //   swal({
+      //     title: "Welcome to RETHOUSE!",
 
-          icon: "warning",
-          button: "sure!",
-        }).then(function () {
-          window.location.href = "/";
-        });
-        setSubmitted(true);
-      })
+      //     icon: "warning",
+      //     button: "sure!",
+      //   }).then(function () {
+      //     window.location.href = "/";
+      //   });
+      //   setSubmitted(true);
+      // })
 
-      .catch((e) => {
-        console.log(e);
-        swal({
-          title: "Admin!",
+      // .catch((e) => {
+      //   console.log(e);
+      //   swal({
+      //     title: "SOMETHING WRON!",
 
-          icon: "warning",
-          button: "wrong!",
-        }).then(function () {
-          window.location.href = "/adtable";
-        });
+      //     icon: "warning",
+      //     button: "wrong!",
+      //   }).then(function () {
+      //     window.location.href = "/signup";
+      //   });
       });
   };
 

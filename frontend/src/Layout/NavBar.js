@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
   let isLoggedIn = JSON.parse(localStorage.getItem("user"));
 
-  
   function logout() {
     swal({
       title: "logging out!",
@@ -17,7 +16,6 @@ const NavBar = () => {
   }
   return (
     <>
-
       <div class="topbar d-none d-sm-block">
         <div class="container ">
           <div class="row">
@@ -29,13 +27,11 @@ const NavBar = () => {
             <div class="col-sm-12 col-md-7">
               <div class="list-unstyled topbar-right">
                 <ul class="topbar-link">
-
                   <li>
                     <a href="/contact" title="">
                       Contact Us
                     </a>
                   </li>
-                
                 </ul>
                 <ul class="topbar-sosmed">
                   <li>
@@ -98,56 +94,73 @@ const NavBar = () => {
                 </a>
               </li> */}
               <li class="nav-item">
-              <Link class="nav-link" to="posts">Ask</Link>
-
+                <Link class="nav-link" to="posts">
+                  Ask
+                </Link>
               </li>
 
               <li class="nav-item">
                 <a class="nav-link" href="/about">
-                  About                </a>
+                  About{" "}
+                </a>
               </li>
 
               <li class="nav-item dropdown">
-                            <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown"> Account </a>
-                            <ul class="dropdown-menu dropdown-menu-left animate fade-up">
+                <a
+                  class="nav-link active dropdown-toggle"
+                  href="#"
+                  data-toggle="dropdown"
+                >
+                  {" "}
+                  Account{" "}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-left animate fade-up">
+                  {!isLoggedIn ? (
+                    <>
+                      <li>
+                        <a class="dropdown-item" href="/login">
+                          Login
+                        </a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="/signup">
+                          Register
+                        </a>
+                      </li>
+                    </>
+                  ) : null}
 
-                            {!isLoggedIn ? (
-                              <>
-                                <li><a class="dropdown-item" href="/login">Login</a></li>
-                                <li><a class="dropdown-item" href="/signup">Register</a></li>
-                                </>
-                                ) : null}
-
-
-
-                            {isLoggedIn ? (
-                              <>
-                                <li><a class="dropdown-item"    href="/"> <Link style={{color:"black"}} to={"/users/" + isLoggedIn.logged_user.id}>
-                                Profile
-                                
-                              </Link> </a></li>
-                              <li><a class="dropdown-item" href="/#"  onClick={logout}>Logout</a></li> 
-
-                              </>
-                              
-                                ) : null} 
-                            </ul>
-                        </li>
-
-                     
-      
-          
+                  {isLoggedIn ? (
+                    <>
+                      <li>
+                        <a class="dropdown-item" href="/">
+                          {" "}
+                          <Link
+                            style={{ color: "black" }}
+                            to={"/users/" + isLoggedIn.logged_user.id}
+                          >
+                            Profile
+                          </Link>{" "}
+                        </a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="/#" onClick={logout}>
+                          Logout
+                        </a>
+                      </li>
+                    </>
+                  ) : null}
+                </ul>
+              </li>
             </ul>
-
 
             <ul class="navbar-nav">
               <li>
                 <a href="/posts/add" class="btn btn-primary text-capitalize">
                   <i class="fa fa-plus-circle mr-1"></i> add post
                 </a>
-              </li> 
+              </li>
             </ul>
-
 
             {/* <!-- Search content bar.// --> */}
             <div class="top-search navigation-shadow">

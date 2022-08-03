@@ -28,5 +28,6 @@ Route::apiResource('/posts', PostController::class);
 Route::apiResource('/users', UserController::class);
 Route::post('/login', [UserController::class, 'log']);
 // Route::post('/addcomments', [CommentController::class, 'store']);
+// Route::patch('/ads/{id}', [AdController::class, 'updateAd']);
 
 

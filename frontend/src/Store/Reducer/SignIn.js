@@ -1,5 +1,6 @@
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import swal from "sweetalert";
 import Auth from "../Services/Auth";
 const initialState = [];
 export const login = createAsyncThunk(
@@ -11,16 +12,29 @@ export const login = createAsyncThunk(
 );
 export const Register = createAsyncThunk(
   "register",
-  async ({ name, email, password, role, image, confirm_password }) => {
-    const res = await Auth.Register({
-      name,
-      email,
-      password,
-      role,
-      image,
-      confirm_password,
-    });
-    return res.data;
+  async ({ name, email, password, role, image, confirm_password},{rejectWithValue}) => {
+      try {
+        const res = await Auth.Register({
+          name,
+          email,
+          password,
+          role,
+          image,
+          confirm_password,
+        });
+        return res.data;
+  
+      } catch (error) {
+        console.error(error);
+        swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        return rejectWithValue(error.message);
+      }
   }
 );
 // export const getAll = createAsyncThunk(
@@ -30,13 +44,11 @@ export const Register = createAsyncThunk(
 //     return res.data;
 //   }
 // );
-export const updateUser = createAsyncThunk(
-  "profile",
-  async ({ id, data }) => {
-    const res = await Auth.update(id, data);
-    return res.data;
-  }
-);
+export const updateUser = createAsyncThunk("/users/profile", async ({ id, data }) => {
+  const res = await Auth.update(id, data);
+  console.log(res.data);  
+  return ;
+});
 // export const deleteUser = createAsyncThunk(
 //   "",
 //   async ({ id }) => {
@@ -72,19 +84,22 @@ const AuthSlice = createSlice({
     //   return [...action.payload];
     // },
     [updateUser.fulfilled]: (state, action) => {
-      const index = state.findIndex(
-        (user) => user.id === action.payload.id
-      );
-      state[index] = {
-        ...state[index],
-        ...action.payload,
-      };
+      state.loading = false;
+      const {
+        arg: { id },
+      } = action.meta;
+      if (id) {
+    
+        state.users = state.users.map((item) =>
+          item._id === id ? action.payload : item
+        );
+      }
     },
     // [deleteUser.fulfilled]: (state, action) => {
     //   let index = state.findIndex(({ id }) => id === action.payload.id);
     //   state.splice(index, 1);
     // },
- 
+
     // [findByTitle.fulfilled]: (state, action) => {
     //   return [...action.payload];
     // },
