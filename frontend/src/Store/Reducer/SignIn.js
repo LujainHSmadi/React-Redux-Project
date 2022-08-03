@@ -1,5 +1,6 @@
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import swal from "sweetalert";
 import Auth from "../Services/Auth";
 const initialState = [];
 export const login = createAsyncThunk(
@@ -11,7 +12,7 @@ export const login = createAsyncThunk(
 );
 export const Register = createAsyncThunk(
   "register",
-  async ({ name, email, password, role, image, confirm_password }) => {
+  async ({ name, email, password, role, image, confirm_password},{rejectWithValue}) => {
       try {
         const res = await Auth.Register({
           name,
@@ -25,7 +26,7 @@ export const Register = createAsyncThunk(
   
       } catch (error) {
         console.error(error);
-        Swal.fire({
+        swal.fire({
           position: "center",
           icon: "error",
           title: "Your work has been saved",
