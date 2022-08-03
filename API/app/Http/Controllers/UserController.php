@@ -41,6 +41,7 @@ class UserController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
             'confirm_password'=>'required|same:password',
+            ['name'=>'min:3|required','image'=>'mimes:jpg,png|image' ]
         ]);
         // $newUser = new User([
         //     'name' => $request->name,
@@ -50,20 +51,16 @@ class UserController extends Controller
         // ]);
         $newUser = $request->all();
 
-        if ($request->file('image')) {
-            $file = $request->file('image');
-            $filename = date('YmdHi') . $file->getClientOriginalName();
-            $file->move(public_path('Image'), $filename);
-            $newUser['image'] = "$filename";
-
+        if($request->hasfile('image')){
+            $file=$request->file('image');
+            $ex=$file->getClientOriginalExtension();
+            $filename=time().'.'.$ex;
+            $file->move('uploads/user',$filename);
+            $newUser->image=$filename;
         }
-
+    
         $storeUser = User::create($newUser);
-        return response()->json([
-            'storeUser'=>$storeUser,
-            'status' => true,
-            'message' => " save successfully!",
-        ], 200);
+   
 
     }
 
@@ -99,26 +96,24 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-     $id=$request->id;
-        $user = User::find($id);
-        // if($request->hasfile('image')){
-        //     $file=$request->file('image');
-        //     $ex=$file->getClientOriginalExtension();
-        //     $filename=time().'.'.$ex;
-        //     $file->move('uploads/clothes',$filename);
-        //     $cloth->image=$filename;
-        // }
+
+ $user = User::findOrFail($id);
+        if($request->hasfile('image')){
+            $file=$request->file('image');
+            $ex=$file->getClientOriginalExtension();
+            $filename=time().'.'.$ex;
+            $file->move('uploads/users',$filename);
+            $user->image=$filename;
+        }
     
-        $user->name=$request->name;
-          $user->email=$request->email;
-          $user->image=$request->image	;
-       
-     
         $user->save();
-         return response()->json([
-            'status' => true,
-            'message' => "User save successfully!",
-        ], 200);
+        $user->update($request->all());
+
+        return response()->json($user);
+        
+
+       
+   
 
     }
     
@@ -166,3 +161,6 @@ class UserController extends Controller
         }
     }
 }
+// $obj = (object)array();
+// $obj->success =true;
+// print_r($obj);

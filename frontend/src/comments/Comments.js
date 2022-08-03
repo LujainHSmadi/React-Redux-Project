@@ -21,8 +21,7 @@ const Comments = ({ commentsUrl, currentUserId }) => {
         (a, b) =>
           new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
       );
-      let c=JSON.parse(localStorage.getItem("user")).logged_user.id;
-  const addComment = (text, parentId,c) => {
+  const addComment = (text, parentId) => {
     createCommentApi(text, parentId).then((comment) => {
       setBackendComments([comment, ...backendComments]);
       setActiveComment(null);
