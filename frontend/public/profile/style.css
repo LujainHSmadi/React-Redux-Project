@@ -217,17 +217,17 @@ h3 {
   top: 0px;
   width: 100%;
 }
-.bg-picture {
+.bg-picture2 {
   -webkit-background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background:#00b5ec;
-  margin-top: -22px;
+  background:#0f53f3e2 ;
+  margin-top: -2px;
   padding: 100px 0px;
   position: relative;
 }
-.bg-picture > .bg-picture-overlay {
+.bg-picture2 > .bg-picture-overlay2 {
   background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0, rgba(0, 0, 0, 0.4) 100%);
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(rgba(0, 0, 0, 0.4)));
   background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0, rgba(0, 0, 0, 0.4) 100%);
@@ -238,7 +238,7 @@ h3 {
   right: 0;
   top: 0;
 }
-.profile-info-name {
+.profile-info-name2 {
   position: relative;
 }
 .profile-tab-content {

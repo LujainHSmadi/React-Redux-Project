@@ -21,6 +21,7 @@ const Table = () => {
   // console.log("title", ads);
   
   const allads = ads.map(ad => { 
+    
     return (
       <>
       

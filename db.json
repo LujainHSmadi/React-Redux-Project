@@ -41,6 +41,34 @@
         "coffee": 0
       },
       "id": 19
+    },
+    {
+      "title": "fgd",
+      "body": "dfg",
+      "userId": 14,
+      "date": "2022-08-02T16:04:26.989Z",
+      "reactions": {
+        "thumbsUp": 1,
+        "wow": 0,
+        "heart": 1,
+        "rocket": 0,
+        "coffee": 0
+      },
+      "id": 20
+    },
+    {
+      "title": "asdsad@fgdfg",
+      "body": "asd",
+      "userId": 14,
+      "date": "2022-08-03T05:54:42.427Z",
+      "reactions": {
+        "thumbsUp": 2,
+        "wow": 0,
+        "heart": 1,
+        "rocket": 0,
+        "coffee": 0
+      },
+      "id": 22
     }
   ],
   "comments": [],
