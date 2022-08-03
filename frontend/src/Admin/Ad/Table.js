@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAds } from "../redux/adSlice";
 import { deleteAd } from "../redux/adSlice";
 import { useNavigate } from "react-router-dom";
-
+import Swal from "sweetalert2";
 
 const Table = () => {
-  const navigate = useNavigate();
+  
   const dispatch = useDispatch();
   const ads = useSelector(state => state.ad.ads);
   console.log(ads);
@@ -18,7 +18,32 @@ const Table = () => {
     dispatch(getAds());
 
   }, [dispatch]);
-  // console.log("title", ads);
+ 
+  const handleDelete = id => {
+    
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+   
+      if (result.isConfirmed) {
+        dispatch(deleteAd(id));
+   
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
+
+      
+
+      // navigate('/adtable', { replace: true }); 
+    
+  }
+
+
   
   const allads = ads.map(ad => { 
     
@@ -67,8 +92,7 @@ const Table = () => {
                 <i class="bx bx-edit-alt me-1 "></i>
               </a>
               <button type="submit" class="bx bx-trash me-2" onClick={() => {
-                dispatch(deleteAd(ad.id));
-                navigate('/adtable', { replace: true });
+                handleDelete(ad.id)
               }}>
               </button>
 

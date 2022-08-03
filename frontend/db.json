@@ -1,11 +1,6 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    },
-    {
       "title": "isn",
       "body": "r45t",
       "userId": 1,
@@ -88,43 +83,9 @@
         "coffee": 0
       },
       "id": 7
-    },
-    {
-      "title": "aaaaaaa",
-      "body": "hbhmb",
-      "userId": 1,
-      "date": "2022-08-03T09:59:35.513Z",
-      "reactions": {
-        "thumbsUp": 0,
-        "wow": 0,
-        "heart": 0,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 8
-    },
-    {
-      "title": "dddddddd",
-      "body": "dfxzdfxdg",
-      "userId": 1,
-      "date": "2022-08-03T10:00:05.668Z",
-      "reactions": {
-        "thumbsUp": 0,
-        "wow": 0,
-        "heart": 0,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 9
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
+  "comments": [],
   "profile": {
     "name": "typicode"
   }

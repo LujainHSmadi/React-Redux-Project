@@ -14,16 +14,15 @@ class AdController extends Controller
      */
     public function index(Request $request)
     {
-        
-         $type=$request->type;
-         if(isset($type)){
-           
-         return Ad::Where('type',$type)->get();
-           
-      }
-          else{
-           return  Ad::all();
-    }
+
+        $type = $request->type;
+        if (isset($type)) {
+
+            return Ad::Where('type', $type)->get();
+
+        } else {
+            return Ad::all();
+        }
     }
 
     /**
@@ -114,29 +113,25 @@ class AdController extends Controller
      * @param  \App\Models\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function update($id , Request $request)
+    public function update($id, Request $request)
     {
-
-
+        // return $request->all();
         $ad = Ad::findOrFail($id);
-       
-       
-    //    $ad = Ad::findOrFail($id);
-      // console.log("controller ads",$ad);
-            // $ad->title = $request->title;
-            // $ad->description = $request->get('description');
-            // $ad->type = $request->get('type');
-            // $ad->location = $request->get('location');
-            // $ad->phone = $request->get('phone');
 
-
+        //    $ad = Ad::findOrFail($id);
+        // console.log("controller ads",$ad);
+        $ad->title = $request->title??$ad->title;
+        $ad->description = $request->get('description')??$ad->description;
+        $ad->type = $request->get('type')??$ad->type;
+        $ad->location = $request->get('location')??$ad->location;
+        $ad->phone = $request->get('phone')??$ad->phone;
 
         if ($request->file('image')) {
             $file = $request->file('image');
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('Image'), $filename);
-            $ad->image =$filename ;
-
+            $ad->image = $filename;
+            // return $filename;
         }
 
         if ($request->file('image_2')) {
@@ -151,7 +146,7 @@ class AdController extends Controller
             $file = $request->file('image_3');
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('Image'), $filename);
-           $ad->image_3 = $filename;
+            $ad->image_3 = $filename;
 
         }
 
@@ -163,8 +158,8 @@ class AdController extends Controller
 
         }
         // return $ad;
-        $ad->save();
-        $ad->update($request->all());
+        // $ad->save();
+        $ad->update();
 
         return response()->json($ad);
 
@@ -180,14 +175,8 @@ class AdController extends Controller
     {
         $ad = Ad::find($id);
         $ad->delete();
-        // return response()->json($ad);
+        return response()->json($id);
     }
 
-
-    public function updateAd( Request $request,$id)
-    {
-        $ad = Ad::find($id);
-        $ad->update($request->all());
-        return response()->json($ad);
-    }
+   
 }
