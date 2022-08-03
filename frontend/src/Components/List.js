@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 const List = () => {
-  const [title, setSearchType] = useState("");
+  const [type, setSearchType] = useState("");
   const dispatch = useDispatch();
   const ads = useSelector((state) => state.ad.ads);
 
@@ -14,11 +14,11 @@ const List = () => {
 
   const onChangeSearchTitle = (e) => {
     const type = e.target.value;
-    setSearchType(title);
+    setSearchType(type);
   };
   const findByName = (e) => {
     // refreshData();
-    dispatch(findByTitle({ title: title }));
+    dispatch(findByTitle({ type: type }));
   };
 
   return (
@@ -63,38 +63,41 @@ const List = () => {
                       </h5>
                     </div>
                     <div class="products__filter__body">
-                      <div class="form-group">
+                      {/* <div class="form-group">
                         <label class="mb-3">property Type</label>
                         <div class="filter__price">
-                          {/* <input
+                          <input
                             class="price-range"
                             type="text"
                             name="type"
                             placeholder="search..."
                             value={type}
                             onChange={onChangeSearchTitle}
-                          /> */}
+                          />
                         </div>
+                      </div> */}
+                      <div>
+                        <select
+                          class="form-group"
+                          value={type}
+                          onChange={onChangeSearchTitle}
+                        >
+                          <option value="">property Type</option>
+                          <option value="villa">villa</option>
+                          <option value="Home">Home</option>
+                        </select>
                       </div>
-                      {/* <select value={type} onChange={onChangeSearchTitle}>
-                        <option value="">dd</option>
-                        <option value="asdasd">esraa</option>
-                        <option value="asd">Cherry</option>
-                      </select> */}
-                      <div class="form-group">
+                      {/* <div class="form-group">
                         <label class="mb-3">property Location</label>
                         <div class="filter__price">
                           <input
                             class="price-range"
                             type="text"
                             name="my_range"
-                      
                             placeholder="amman.."
-                            value={title}
-                            onChange={onChangeSearchTitle}
                           />
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                     <div class="products__filter__footer">
                       <div class="form-group mb-0">

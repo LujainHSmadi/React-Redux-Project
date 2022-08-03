@@ -22,14 +22,7 @@ export const Register = createAsyncThunk(
           confirm_password,
         });
         return res.data;
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Your work has been saved",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        return ad;
+  
       } catch (error) {
         console.error(error);
         Swal.fire({
