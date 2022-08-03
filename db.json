@@ -1,10 +1,10 @@
 {
   "posts": [
     {
-      "title": "sasa",
-      "body": "asas",
-      "userId": 2,
-      "date": "2022-08-03T06:52:37.730Z",
+      "title": "aa",
+      "body": "sws",
+      "userId": 3,
+      "date": "2022-08-03T09:01:24.846Z",
       "reactions": {
         "thumbsUp": 0,
         "wow": 0,
@@ -13,34 +13,6 @@
         "coffee": 0
       },
       "id": 1
-    },
-    {
-      "title": "sasasa",
-      "body": "sssssssss",
-      "userId": 2,
-      "date": "2022-08-03T06:53:18.514Z",
-      "reactions": {
-        "thumbsUp": 0,
-        "wow": 0,
-        "heart": 0,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 2
-    },
-    {
-      "title": "xxxxxxxxxxxxxxxxxxxx",
-      "body": "s",
-      "userId": 2,
-      "date": "2022-08-03T06:53:36.974Z",
-      "reactions": {
-        "thumbsUp": 1,
-        "wow": 0,
-        "heart": 0,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 3
     }
   ],
   "comments": [
