@@ -4,16 +4,17 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 const List = () => {
-  const [title, setSearchName] = useState("");
+  const [title, setSearchType] = useState("");
   const dispatch = useDispatch();
   const ads = useSelector((state) => state.ad.ads);
 
   useEffect(() => {
     dispatch(getAds());
   }, [dispatch]);
+
   const onChangeSearchTitle = (e) => {
     const title = e.target.value;
-    setSearchName(title);
+    setSearchType(title);
   };
   const findByName = (e) => {
     // refreshData();
@@ -65,17 +66,21 @@ const List = () => {
                       <div class="form-group">
                         <label class="mb-3">property Type</label>
                         <div class="filter__price">
-                          <input
+                          {/* <input
                             class="price-range"
                             type="text"
                             name="title"
                             placeholder="search..."
-                            value={title}
+                            value={type}
                             onChange={onChangeSearchTitle}
-                          />
+                          /> */}
                         </div>
                       </div>
-
+                      <select value={title} onChange={onChangeSearchTitle}>
+                        <option value="">dd</option>
+                        <option value="asdasd">esraa</option>
+                        {/* <option value="asd">Cherry</option> */}
+                      </select>
                       <div class="form-group">
                         <label class="mb-3">property Location</label>
                         <div class="filter__price">
@@ -88,8 +93,6 @@ const List = () => {
                           />
                         </div>
                       </div>
-
-                 
                     </div>
                     <div class="products__filter__footer">
                       <div class="form-group mb-0">
@@ -208,65 +211,65 @@ const List = () => {
                       >
                         <div class="clearfix"></div>
                         <div className="row">
-                     {ads &&
-                          ads.map((ad, index) => (
-                            <div class="col-md-6 col-lg-6">  
-                              <div class="card__image card__box-v1"> 
-                                <div class="card__image-header h-250">
-                                  <div class="ribbon text-capitalize">
-                                    featured
+                          {ads &&
+                            ads.map((ad, index) => (
+                              <div class="col-md-6 col-lg-6">
+                                <div class="card__image card__box-v1">
+                                  <div class="card__image-header h-250">
+                                    <div class="ribbon text-capitalize">
+                                      featured
+                                    </div>
+                                    <Link to={"SingleDetail/" + ad.id}>
+                                      <img
+                                        src={
+                                          "http://127.0.0.1:8000/image/" +
+                                          ad.image
+                                        }
+                                        alt=""
+                                        class="img-fluid w100 img-transition"
+                                      />
+                                      <div class="info"> for sale</div>
+                                    </Link>
                                   </div>
-                                  <Link to={"SingleDetail/" + ad.id}>
-                                    <img
-                                      src={
-                                        "http://127.0.0.1:8000/image/" +
-                                        ad.image
-                                      }
-                                      alt=""
-                                      class="img-fluid w100 img-transition"
-                                    />
-                                    <div class="info"> for sale</div>
-                                  </Link>
-                                </div>
-                                <div class="card__image-body">
-                                  <span class="badge badge-primary text-capitalize mb-2">
-                                    {ad.type}
-                                  </span>
-                                  <h6 class="text-capitalize">{ad.title}</h6>
+                                  <div class="card__image-body">
+                                    <span class="badge badge-primary text-capitalize mb-2">
+                                      {ad.type}
+                                    </span>
+                                    <h6 class="text-capitalize">{ad.title}</h6>
 
-                                  <p class="text-capitalize">
-                                    <i class="fa fa-map-marker"></i>
-                                    {ad.location}
-                                    ++
-                                  </p>
-                                  <ul class="list-inline card__content">
-                                    <li class="list-inline-item">
-                                      <span>
-                                        baths <br />
-                                        <i class="fa fa-bath"></i> 2
-                                      </span>
-                                    </li>
-                                    <li class="list-inline-item">
-                                      <span>
-                                        beds <br />
-                                        <i class="fa fa-bed"></i> 3
-                                      </span>
-                                    </li>
-                                    <li class="list-inline-item">
-                                      <span>
-                                        rooms <br />
-                                        <i class="fa fa-inbox"></i> 3
-                                      </span>
-                                    </li>
-                                    <li class="list-inline-item">
-                                      <span>
-                                        area <br />
-                                        <i class="fa fa-map"></i> 4300 sq ft
-                                      </span>
-                                    </li>
-                                  </ul>
-                                </div>
-                                {/* <div class="card__image-footer">
+                                    <p class="text-capitalize">
+                                      <i class="fa fa-map-marker"></i>
+                                      {ad.location}
+                                      ++
+                                    </p>
+                                    <ul class="list-inline card__content">
+                                      <li class="list-inline-item">
+                                        <span>
+                                          baths <br />
+                                          <i class="fa fa-bath"></i> 2
+                                        </span>
+                                      </li>
+                                      <li class="list-inline-item">
+                                        <span>
+                                          beds <br />
+                                          <i class="fa fa-bed"></i> 3
+                                        </span>
+                                      </li>
+                                      <li class="list-inline-item">
+                                        <span>
+                                          rooms <br />
+                                          <i class="fa fa-inbox"></i> 3
+                                        </span>
+                                      </li>
+                                      <li class="list-inline-item">
+                                        <span>
+                                          area <br />
+                                          <i class="fa fa-map"></i> 4300 sq ft
+                                        </span>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  {/* <div class="card__image-footer">
                                                 <figure>
                                                     <img src="images/80x80.jpg" alt="" class="img-fluid rounded-circle" />
                                                 </figure>
@@ -287,10 +290,11 @@ const List = () => {
 
                                                 </ul>
                                             </div> */}
-                         </div>   
-                            </div>     ))} 
-                            </div>
-                      
+                                </div>
+                              </div>
+                            ))}
+                        </div>
+
                         {/* <!-- LISTING LIST --> */}
                         <div class="cleafix"></div>
                       </div>

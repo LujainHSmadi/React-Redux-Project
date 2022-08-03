@@ -8,8 +8,8 @@ const SignUp = () => {
     password: "",
     name: "",
     role: "user",
-    image: "esraa",
-    confirm_password:''
+    image: "https://bootdey.com/img/Content/avatar/avatar7.png",
+    confirm_password: "",
   };
 
   const [User, setUser] = useState(initialState);

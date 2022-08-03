@@ -30,13 +30,11 @@ export const Register = createAsyncThunk(
 //     return res.data;
 //   }
 // );
-export const updateUser = createAsyncThunk(
-  "profile",
-  async ({ id, data }) => {
-    const res = await Auth.update(id, data);
-    return res.data;
-  }
-);
+export const updateUser = createAsyncThunk("/users/profile", async ({ id, data }) => {
+  const res = await Auth.update(id, data);
+  console.log(res.data);  
+  return ;
+});
 // export const deleteUser = createAsyncThunk(
 //   "",
 //   async ({ id }) => {
@@ -72,19 +70,22 @@ const AuthSlice = createSlice({
     //   return [...action.payload];
     // },
     [updateUser.fulfilled]: (state, action) => {
-      const index = state.findIndex(
-        (user) => user.id === action.payload.id
-      );
-      state[index] = {
-        ...state[index],
-        ...action.payload,
-      };
+      state.loading = false;
+      const {
+        arg: { id },
+      } = action.meta;
+      if (id) {
+    
+        state.users = state.users.map((item) =>
+          item._id === id ? action.payload : item
+        );
+      }
     },
     // [deleteUser.fulfilled]: (state, action) => {
     //   let index = state.findIndex(({ id }) => id === action.payload.id);
     //   state.splice(index, 1);
     // },
- 
+
     // [findByTitle.fulfilled]: (state, action) => {
     //   return [...action.payload];
     // },
