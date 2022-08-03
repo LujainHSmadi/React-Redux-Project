@@ -39,7 +39,7 @@ const SignUp = () => {
         });
 
         swal({
-          title: "Admin!",
+          title: "Welcome to RETHOUSE!",
 
           icon: "warning",
           button: "sure!",
@@ -52,12 +52,12 @@ const SignUp = () => {
       .catch((e) => {
         console.log(e);
         swal({
-          title: "Admin!",
+          title: "SOMETHING WRONG!",
 
           icon: "warning",
           button: "wrong!",
         }).then(function () {
-          window.location.href = "/adtable";
+          window.location.href = "/signup";
         });
       });
   };

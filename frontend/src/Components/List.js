@@ -13,12 +13,12 @@ const List = () => {
   }, [dispatch]);
 
   const onChangeSearchTitle = (e) => {
-    const title = e.target.value;
-    setSearchType(title);
+    const type = e.target.value;
+    setSearchType(type);
   };
   const findByName = (e) => {
     // refreshData();
-    dispatch(findByTitle({ title: title }));
+    dispatch(findByTitle({ type: type }));
   };
 
   return (
