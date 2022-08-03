@@ -14,25 +14,25 @@ export const getComments = async (text) => {
 };
 
 export const CreateComment = async (text, parentId = null) => {
-  // let data = { 
-  //   id: '1', 
-  //   comment: text, 
-  // }
-  // const response =fetch('http://localhost:8000/api/addcomments', {
-  // method: 'POST',
-  // headers: {
-  // ContentType: 'application/json',
-  // },
-  // body: JSON.stringify({ id: '2' , comment:text }),
-  // })
-  // .then(response => response.json())
-  // .catch(error => console.error('Error:', error))
-  // .then(response => console.log('Success:', JSON.stringify(response)));
-  // if(response.ok){
-  //   alert('Replay Added Successfully');
-  //  }else{
-  //   alert('There is something wrong');
-  //  }
+  let data = { 
+    id: '1', 
+    comment: text, 
+  }
+  const response =fetch('http://localhost:8000/api/addcomments', {
+  method: 'POST',
+  headers: {
+  ContentType: 'application/json',
+  },
+  body: JSON.stringify({ id: '2' , comment:text }),
+  })
+  .then(response => response.json())
+  .catch(error => console.error('Error:', error))
+  .then(response => console.log('Success:', JSON.stringify(response)));
+  if(response.ok){
+    alert('Replay Added Successfully');
+   }else{
+    alert('There is something wrong');
+   }
 
 
   return {
