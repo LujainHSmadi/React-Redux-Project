@@ -68,7 +68,7 @@ const List = () => {
                           <input
                             class="price-range"
                             type="text"
-                            name="title"
+                            name="type"
                             placeholder="search..."
                             value={title}
                             onChange={onChangeSearchTitle}
