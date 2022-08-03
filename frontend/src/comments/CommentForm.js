@@ -18,7 +18,7 @@ const CommentForm = ({
    
 
   useEffect(() => {
-      if (JSON.parse(localStorage.getItem("user"))!='1')   
+      if (!JSON.parse(localStorage.getItem("user"))=='1')   
       setVisible('none')
       else if (JSON.parse(localStorage.getItem("user")).logged_user.id=='1') 
       { 
