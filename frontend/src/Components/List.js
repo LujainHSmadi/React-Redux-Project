@@ -14,11 +14,11 @@ const List = () => {
 
   const onChangeSearchTitle = (e) => {
     const type = e.target.value;
-    setSearchType(type);
+    setSearchType(title);
   };
   const findByName = (e) => {
     // refreshData();
-    dispatch(findByTitle({ type: type }));
+    dispatch(findByTitle({ title: title }));
   };
 
   return (
@@ -76,11 +76,11 @@ const List = () => {
                           /> */}
                         </div>
                       </div>
-                      <select value={title} onChange={onChangeSearchTitle}>
+                      {/* <select value={type} onChange={onChangeSearchTitle}>
                         <option value="">dd</option>
                         <option value="asdasd">esraa</option>
-                        {/* <option value="asd">Cherry</option> */}
-                      </select>
+                        <option value="asd">Cherry</option>
+                      </select> */}
                       <div class="form-group">
                         <label class="mb-3">property Location</label>
                         <div class="filter__price">
@@ -88,8 +88,10 @@ const List = () => {
                             class="price-range"
                             type="text"
                             name="my_range"
-                            value=""
+                      
                             placeholder="amman.."
+                            value={title}
+                            onChange={onChangeSearchTitle}
                           />
                         </div>
                       </div>

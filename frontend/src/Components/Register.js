@@ -38,27 +38,27 @@ const SignUp = () => {
           confirm_password: data.confirm_password,
         });
 
-        swal({
-          title: "Welcome to RETHOUSE!",
+      //   swal({
+      //     title: "Welcome to RETHOUSE!",
 
-          icon: "warning",
-          button: "sure!",
-        }).then(function () {
-          window.location.href = "/";
-        });
-        setSubmitted(true);
-      })
+      //     icon: "warning",
+      //     button: "sure!",
+      //   }).then(function () {
+      //     window.location.href = "/";
+      //   });
+      //   setSubmitted(true);
+      // })
 
-      .catch((e) => {
-        console.log(e);
-        swal({
-          title: "SOMETHING WRONG!",
+      // .catch((e) => {
+      //   console.log(e);
+      //   swal({
+      //     title: "SOMETHING WRON!",
 
-          icon: "warning",
-          button: "wrong!",
-        }).then(function () {
-          window.location.href = "/signup";
-        });
+      //     icon: "warning",
+      //     button: "wrong!",
+      //   }).then(function () {
+      //     window.location.href = "/signup";
+      //   });
       });
   };
 

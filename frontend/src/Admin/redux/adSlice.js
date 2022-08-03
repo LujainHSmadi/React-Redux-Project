@@ -10,7 +10,8 @@ export const getAds = createAsyncThunk("ad/getAds", async () => {
 export const findByTitle = createAsyncThunk(
     "ads/findByTitle",
     async ({ title }) => {
-        const res = await axios.get(`http://127.0.0.1:8000/api/ads?title=${title}`);
+      const res = await axios.get(`http://127.0.0.1:8000/api/ads?type=${title}`);
+      
         return res.data;
     }
 );

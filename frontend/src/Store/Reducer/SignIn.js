@@ -12,15 +12,35 @@ export const login = createAsyncThunk(
 export const Register = createAsyncThunk(
   "register",
   async ({ name, email, password, role, image, confirm_password }) => {
-    const res = await Auth.Register({
-      name,
-      email,
-      password,
-      role,
-      image,
-      confirm_password,
-    });
-    return res.data;
+      try {
+        const res = await Auth.Register({
+          name,
+          email,
+          password,
+          role,
+          image,
+          confirm_password,
+        });
+        return res.data;
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        return ad;
+      } catch (error) {
+        console.error(error);
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        return rejectWithValue(error.message);
+      }
   }
 );
 // export const getAll = createAsyncThunk(
