@@ -23,10 +23,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 // route::put('/ads/{id}', [AdController::class, 'update']);
 Route::apiResource('ads', AdController::class);
-// Route::apiResource('/comments', CommentController::class);
+Route::apiResource('/comments', CommentController::class);
 Route::apiResource('/posts', PostController::class);
 Route::apiResource('/users', UserController::class);
 Route::post('/login', [UserController::class, 'log']);
-Route::post('/addcomments', [CommentController::class, 'store']);
+// Route::post('/addcomments', [CommentController::class, 'store']);
 
 
