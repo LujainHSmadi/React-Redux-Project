@@ -1,10 +1,10 @@
 {
   "posts": [
     {
-      "title": "aa",
-      "body": "sws",
-      "userId": 3,
-      "date": "2022-08-03T09:01:24.846Z",
+      "title": "Area of Property",
+      "body": "What is the area property (contemporary villa)?",
+      "userId": 9,
+      "date": "2022-08-03T10:43:24.139Z",
       "reactions": {
         "thumbsUp": 0,
         "wow": 0,
@@ -13,6 +13,20 @@
         "coffee": 0
       },
       "id": 1
+    },
+    {
+      "id": 2,
+      "title": "Family Home/Amman",
+      "body": "is the Family Home in Amman Still Available?",
+      "userId": 9,
+      "date": "2022-08-03T11:09:32.086Z",
+      "reactions": {
+        "thumbsUp": 1,
+        "wow": 0,
+        "heart": 1,
+        "rocket": 0,
+        "coffee": 0
+      }
     }
   ],
   "comments": [

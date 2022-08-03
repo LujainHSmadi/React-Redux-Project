@@ -55,7 +55,7 @@ const List = () => {
             <div class="col-lg-4">
               {/* <!-- FORM FILTER --> */}
               <div class="products__filter mb-30">
-                <form>
+                
                   <div class="products__filter__group">
                     <div class="products__filter__header">
                       <h5 class="text-center text-capitalize">
@@ -83,8 +83,11 @@ const List = () => {
                           onChange={onChangeSearchTitle}
                         >
                           <option value="">property Type</option>
-                          <option value="villa">villa</option>
-                          <option value="Home">Home</option>
+                          <option value="Villa">Villa</option>
+                          <option value="House">House</option>
+                          <option value="Apartement">Apartement</option>
+                          <option value="commercial">commercial</option>
+                          <option value="luxury">luxury</option>
                         </select>
                       </div>
                       {/* <div class="form-group">
@@ -111,7 +114,7 @@ const List = () => {
                       </div>
                     </div>
                   </div>{" "}
-                </form>
+                
               </div>
               {/* <!-- END FORM FILTER -->
                     <!-- ARCHIVE CATEGORY --> */}

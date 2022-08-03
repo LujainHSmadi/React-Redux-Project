@@ -30,7 +30,7 @@ const Home = () => {
                                                 <Link to={"list/SingleDetail/" + ad.id}>
                                                 <img src={'http://127.0.0.1:8000/image/'+ad.image} alt="" class="img-fluid w100 img-transition" />
                                                 </Link>
-                                                <div class="info"> for sale</div>
+                                           
                                             </div>
                                             <div class="card__image-body">
                                                 <span class="badge badge-primary text-capitalize mb-2">{ad.type}</span>
