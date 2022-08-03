@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-// route::put('/ads/{id}', [AdController::class, 'update']);
+route::post('/ads/{id}', [AdController::class, 'update']);
 Route::apiResource('/ads', AdController::class);
 Route::apiResource('/comments', CommentController::class);
 Route::apiResource('/posts', PostController::class);
