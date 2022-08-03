@@ -56,15 +56,11 @@ class UserController extends Controller
             $ex=$file->getClientOriginalExtension();
             $filename=time().'.'.$ex;
             $file->move('uploads/user',$filename);
-            $user->image=$filename;
+            $newUser->image=$filename;
         }
     
-        $storeUser = User::create($user);
-        return response()->json([
-            'storeUser'=>$storeUser,
-            'status' => true,
-            'message' => " save successfully!",
-        ], 200);
+        $storeUser = User::create($newUser);
+   
 
     }
 
