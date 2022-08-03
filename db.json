@@ -1,77 +1,92 @@
 {
-  "posts": [
+  "posts": [],
+  "comments": [
     {
-      "title": "search",
-      "body": "do you have a branch in karak?",
-      "userId": 1,
-      "date": "2022-08-01T09:04:15.104Z",
-      "reactions": {
-        "thumbsUp": 0,
-        "wow": 0,
-        "heart": 0,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 16
+      "id": "10",
+      "title": "json-server is not bad. Its great!",
+      "author": "Dwight Shrute"
     },
     {
-      "title": "tghgfh",
-      "body": "hfhfh",
-      "userId": 1,
-      "date": "2022-08-01T11:40:37.348Z",
-      "reactions": {
-        "thumbsUp": 0,
-        "wow": 0,
-        "heart": 0,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 18
+      "id": "100",
+      "title": "json-server is not bad. Its great!",
+      "author": "Dwight Shrute"
     },
     {
-      "title": "sas",
-      "body": "asas",
-      "userId": 1,
-      "date": "2022-08-01T11:42:11.188Z",
-      "reactions": {
-        "thumbsUp": 2,
-        "wow": 0,
-        "heart": 2,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 19
+      "id": "ddddddddddddddddddddd",
+      "title": "ewewe",
+      "author": "ewewewe"
     },
     {
-      "title": "fgd",
-      "body": "dfg",
-      "userId": 14,
-      "date": "2022-08-02T16:04:26.989Z",
-      "reactions": {
-        "thumbsUp": 1,
-        "wow": 0,
-        "heart": 1,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 20
+      "id": "as",
+      "title": "ewewe",
+      "author": "ewewewe"
     },
     {
-      "title": "asdsad@fgdfg",
-      "body": "asd",
-      "userId": 14,
-      "date": "2022-08-03T05:54:42.427Z",
-      "reactions": {
-        "thumbsUp": 2,
-        "wow": 0,
-        "heart": 1,
-        "rocket": 0,
-        "coffee": 0
-      },
-      "id": 22
+      "title": "ewewe",
+      "author": "ewewewe",
+      "id": "O5S3xoZ"
+    },
+    {
+      "title": "ewewe",
+      "author": "ewewewe",
+      "id": "z6_i1TX"
+    },
+    {
+      "title": "ewewe",
+      "author": "ewewewe",
+      "id": "AYCYBNC"
+    },
+    {
+      "title": "ewewe",
+      "author": "ewewewe",
+      "id": "-0LVp_T"
+    },
+    {
+      "id": "z",
+      "title": "ewewe",
+      "author": "ewewewe"
+    },
+    {
+      "id": "zaz",
+      "title": "ewewe",
+      "author": "ewewewe"
+    },
+    {
+      "id": "rere",
+      "title": "ewewe",
+      "author": "ewewewe"
+    },
+    {
+      "id": "sas",
+      "title": "po",
+      "author": "ewewewe"
+    },
+    {
+      "id": "jhjj",
+      "title": "po",
+      "author": "ewewewe"
+    },
+    {
+      "id": "fdfdfff",
+      "title": "po",
+      "author": "Admin"
+    },
+    {
+      "id": "sss",
+      "title": "po",
+      "author": "Admin"
+    },
+    {
+      "id": "res",
+      "title": "po",
+      "author": "Admin"
+    },
+    {
+      "id": "asas",
+      "title": "po",
+      "author": "Admin"
     }
   ],
-  "comments": [],
   "profile": {
     "name": "typicode"
   }

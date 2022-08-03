@@ -43,7 +43,7 @@ console.log(post);
                 <ul  class="list-inline">
                   <p  style={{backgroundColor:'beige'}}><ReactionButtons post={post} /></p>  
                 </ul>
-                    &nbsp;&nbsp; <Link to={`/posts/${post.id}`}><span style={{backgroundColor:'beige',padding: '1px'}} >Comment</span></Link>
+                    &nbsp;&nbsp; <Link to={`/posts/${post.id}`}><span style={{backgroundColor:'beige',padding: '1px'}} >Replies</span></Link>
                     &nbsp;&nbsp; <Link to={`/posts/${post.id}`}><span style={{backgroundColor:'beige',padding: '1px'}} >View</span></Link>
 
                 </span>

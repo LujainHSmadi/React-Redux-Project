@@ -69,16 +69,22 @@ const NavBar = () => {
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="main_nav99">
-            <ul class="navbar-nav  mx-auto">
+          <div class="collapse navbar-collapse" id="main_nav99" >
+            <ul class="navbar-nav  mx-auto" >
               <li class="nav-item dropdown">
-                <a class="nav-link" href="/">
+                <a  
+                  class="nav-link"
+                  href="/">
                   Home
                 </a>
               </li>
 
+              {/* style={{textTransform:'capitalize'}} */}
+
               <li class="nav-item dropdown">
-                <a class="nav-link" href="/list">
+                <a  
+                  class="nav-link"
+                  href="/list">
                   Properties
                 </a>
               </li>

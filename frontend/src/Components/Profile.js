@@ -60,10 +60,10 @@ console.log(User);
         console.log(e);
       });
   };
-  //   const onInputChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setUser({ ...User, [name]: value });
-  // };
+    const onInputChange = (e) => {
+    const { name, value } = e.target;
+    setUser({ ...User, [name]: value });
+  };
 
   // const onImageChange = event => {
   //   console.log(event.target.files[0]);
@@ -331,17 +331,17 @@ console.log(User);
                         <h3 class="panel-title">Edit Profile</h3>
                       </div>
                       <div class="panel-body">
-                        <form
+                        {/* <form
                           role="form"
                           onSubmit={(event) => save(event)}
                           encType="multipart/form-data"
-                        >
+                        > */}
                           <div class="form-group">
                             <label for="FullName">Full Name</label>
                             <input
                               type="text"
-                              // onChange={(event) => onInputChange(event)}
-                              onChange={(e) => setName(e.target.value)}
+                              onChange={(event) => onInputChange(event)}
+                              // onChange={(e) => setName(e.target.value)}
                               name="name"
                               value={User.name}
                               // id="FullName"
@@ -352,8 +352,8 @@ console.log(User);
                             <label for="Email">Email</label>
                             <input
                               type="email"
-                              onChange={(e) => setemail(e.target.value)}
-                              // onChange={(event) => onInputChange(event)}
+                              // onChange={(e) => setemail(e.target.value)}
+                              onChange={(event) => onInputChange(event)}
                               name="email"
                               value={User.email}
                               id="Email"
@@ -397,7 +397,7 @@ console.log(User);
                           >
                             Save
                           </button>{" "}
-                        </form>
+                        {/* </form> */}
                       </div>
                     </div>
                     {/* <!-- Personal-Information --> */}

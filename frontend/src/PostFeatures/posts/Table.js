@@ -31,7 +31,8 @@ const Table = ({ postId }) => {
       setTitle("");
       setContent("");
       setUserId("");
-      navigate("/posts");
+      // navigate("/posts");
+      window.location.href="/posts";
       alert("post was deleted succesfully");
     } catch (err) {
       console.error("Failed to delete the post", err);
@@ -80,7 +81,7 @@ const Table = ({ postId }) => {
                   <h5 class="card-header">Users</h5>
                   <div class="table-responsive text-nowrap">
                     <table class="table">
-                      <thead>
+                      <thead >
                         <tr>
                           <th> title</th>
                           <th> body</th>
@@ -89,7 +90,7 @@ const Table = ({ postId }) => {
                         </tr>
                       </thead>
                       {post.map((post) => (
-                        <tbody class="table-border-bottom-0">
+                        <tbody class="table-border-bottom-0"  >
                           {/* {allposts} */}
                           <th>
                             {" "}
@@ -114,15 +115,18 @@ const Table = ({ postId }) => {
                           <th>
                             {" "}
                             <form>
-                              <button
-                                className=" btn-danger "
+                              <button style={{backgroundColor:"#007bff",borderColor:"white"}}
+                               
                                 type="button"
                                 onClick={(e) =>
                                   deletePost({ id: post.id }).unwrap()(e)
                                 }
                               >
-                                Delete Post
+                           <i  style={{color:"white"}}class="bx bx-trash me-2"></i>
                               </button>
+
+
+                              
                             </form>
                           </th>
                         </tbody>

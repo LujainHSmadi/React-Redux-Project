@@ -135,7 +135,7 @@ const About = ()=>{
         </div>
         <div class="team-title">
             <h6>
-                Martin Smith
+                Lujain Al-Smadi
             </h6>
             <span>
                 Agent Real Estate
@@ -144,6 +144,114 @@ const About = ()=>{
     </div>
 </div>
                 </div>
+             
+                        
+
+                        <div class="col-md-4">
+                            <div class="wrap-agent">
+                                <div class="team-member">
+                                    <div class="team-img">
+                                        <img alt="team member" class="img-fluid w-100" src="images/360x300.jpg" />
+                                    </div>
+                                    <div class="team-hover">
+                                        <div class="desk">
+                                            <h5>
+                                                Hi There !
+                                            </h5>
+                                            <p>
+                                                I am Senior Agent Property
+                                            </p>
+                                            <a class="btn btn-primary" href="#">
+                                                Agent Profile
+                                            </a>
+                                        </div>
+                                        <ul class="list-inline s-link mb-0">
+                                            <li class="list-inline-item">
+                                                <a href="#">
+                                                    <i class="fa fa-facebook">
+                                                    </i>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#">
+                                                    <i class="fa fa-twitter">
+                                                    </i>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#">
+                                                    <i class="fa fa-google-plus">
+                                                    </i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="team-title">
+                                        <h5>
+                                            Amal Al-Abed
+                                        </h5>
+                                        <span>
+                                            Agent Real Estate
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="wrap-agent">
+                                <div class="team-member">
+                                    <div class="team-img">
+                                        <img alt="team member" class="img-fluid w-100" src="images/360x300.jpg" />
+                                    </div>
+                                    <div class="team-hover">
+                                        <div class="desk">
+                                            <h5>
+                                                Hi There !
+                                            </h5>
+                                            <p>
+                                                I am Senior Agent Property
+                                            </p>
+                                            <a class="btn btn-primary" href="#">
+                                                Agent Profile
+                                            </a>
+                                        </div>
+                                        <ul class="list-inline s-link mb-0">
+                                            <li class="list-inline-item">
+                                                <a href="#">
+                                                    <i class="fa fa-facebook">
+                                                    </i>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#">
+                                                    <i class="fa fa-twitter">
+                                                    </i>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#">
+                                                    <i class="fa fa-google-plus">
+                                                    </i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="team-title">
+                                        <h5>
+                                            Esra'a Khalaileh
+                                        </h5>
+                                        <span>
+                                            Agent Real Estate
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
                 <div class="col-md-4">
                     <div class="wrap-agent">
                         <div class="team-member">
@@ -185,7 +293,7 @@ const About = ()=>{
                             </div>
                             <div class="team-title">
                                 <h5>
-                                    Martin Smith
+                                    Ahmad Al-Khalaf
                                 </h5>
                                 <span>
                                     Agent Real Estate
@@ -193,57 +301,59 @@ const About = ()=>{
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="wrap-agent">
-                        <div class="team-member">
-                            <div class="team-img">
-                                <img alt="team member" class="img-fluid w-100" src="images/360x300.jpg"/>
-                            </div>
-                            <div class="team-hover">
-                                <div class="desk">
-                                    <h5>
-                                        Hi There !
-                                    </h5>
-                                    <p>
-                                        I am Senior Agent Property
-                                    </p>
-                                    <a class="btn btn-primary" href="#">
-                                        Agent Profile
-                                    </a>
+                        </div>
+                        
+
+                        <div class="col-md-4">
+                            <div class="wrap-agent">
+                                <div class="team-member">
+                                    <div class="team-img">
+                                        <img alt="team member" class="img-fluid w-100" src="images/360x300.jpg" />
+                                    </div>
+                                    <div class="team-hover">
+                                        <div class="desk">
+                                            <h5>
+                                                Hi There !
+                                            </h5>
+                                            <p>
+                                                I am Senior Agent Property
+                                            </p>
+                                            <a class="btn btn-primary" href="#">
+                                                Agent Profile
+                                            </a>
+                                        </div>
+                                        <ul class="list-inline s-link mb-0">
+                                            <li class="list-inline-item">
+                                                <a href="#">
+                                                    <i class="fa fa-facebook">
+                                                    </i>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#">
+                                                    <i class="fa fa-twitter">
+                                                    </i>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#">
+                                                    <i class="fa fa-google-plus">
+                                                    </i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="team-title">
+                                        <h5>
+                                            Leen Khaled
+                                        </h5>
+                                        <span>
+                                            Agent Real Estate
+                                        </span>
+                                    </div>
                                 </div>
-                                <ul class="list-inline s-link mb-0">
-                                    <li class="list-inline-item">
-                                        <a href="#">
-                                            <i class="fa fa-facebook">
-                                            </i>
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">
-                                            <i class="fa fa-twitter">
-                                            </i>
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">
-                                            <i class="fa fa-google-plus">
-                                            </i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="team-title">
-                                <h5>
-                                    Martin Smith
-                                </h5>
-                                <span>
-                                    Agent Real Estate
-                                </span>
                             </div>
                         </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

@@ -137,17 +137,19 @@ const Home = () => {
                                                     <div class="slider__content-title ">
                                                         <h2 data-animation="fadeInDown" data-delay=".2s" data-duration="1000ms"
                                                             class="text-white animated fadeInDown">
-                                                            The #1 place for commercial
-                                                            property</h2>
+                                                          Let’s find a home that’s perfect for you.</h2>
                                                         <p data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms"
                                                             class="text-white animated fadeInUp">
 
-                                                            This is real estate website template based on Bootstrap 4 framework.
+Let’s find the right selling option for you
+Get your home’s value and see selling options
+
+
                                                         </p>
                                                         <a href="/list" data-animation="fadeInUp" data-delay=".6s"
                                                             data-duration="1000ms"
                                                             class="btn btn-primary text-uppercase animated fadeInUp">
-                                                            properties
+                                                            Start Exploring
                                                             <i class="fa fa-angle-right arrow-btn "></i></a>
 
                                                     </div>
@@ -167,12 +169,11 @@ const Home = () => {
                                                     <div class="slider__content-title ">
                                                         <h2 data-animation="animated fadeInDown"
                                                             class="text-white animated fadeInDown">
-                                                            The #1 place for commercial
-                                                            property</h2>
+                                                           Get the best real estate deals first!</h2>
                                                         <p data-animation="animated fadeInUp"
                                                             class="text-white animated fadeInUp ">
-
-                                                            This is real estate website template based on Bootstrap 4 framework.
+Let’s find the right selling option for you
+Get your home’s value and see selling options
                                                         </p>
                                                         <a href="/list" class="btn btn-primary text-uppercase animated fadeInUp">
                                                             properties
@@ -194,12 +195,13 @@ const Home = () => {
                                                     <div class="slider__content-title ">
                                                         <h2 data-animation="animated fadeInDown"
                                                             class="text-white animated fadeInDown">
-                                                            The #1 place for commercial
-                                                            property</h2>
+                                                          Find homes first.
+                                                          Tour homes fast.</h2>
                                                         <p data-animation="animated fadeInUp"
                                                             class="text-white animated fadeInUp ">
-
-                                                            This is real estate website template based on Bootstrap 4 framework.
+Let’s find the right selling option for you
+Get your home’s value and see selling options
+                                                         
                                                         </p>
                                                         <a href="/contact" class="btn btn-primary text-uppercase animated fadeInUp">
                                                             contact us
@@ -255,7 +257,7 @@ const Home = () => {
                         <div class="filterizr-control">
                             <ul class="list-inline filterizr-filter">
                                 <a href="/list">
-                                <li class="list-inline-item filtr-active btn-filter" data-filter="all">All Property</li>
+                                <li class="list-inline-item filtr-active btn-filter" data-filter="all">All Properties</li>
                                 </a>
 
                             </ul>
