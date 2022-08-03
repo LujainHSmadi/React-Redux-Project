@@ -14,7 +14,7 @@ const SingleDetail = () => {
 
   const dispatch = useDispatch();
   const ads = useSelector(state => state.ad.ads);
-  const {id} = useParams();
+  const { id } = useParams();
   useEffect(() => {
     dispatch(singleAd(id));
     console.log("luj", ads.id);
@@ -24,22 +24,22 @@ const SingleDetail = () => {
   const form = useRef();
 
   function sendEmail(e) {
-     e.preventDefault();
+    e.preventDefault();
 
-     emailjs.sendForm('service_ow9xrmn', 'template_kss99vt', form.current, 'PnvT6EB3r4gvRXEnb')
-         .then((result) => {
-             console.log(result.text);
-         }, (error) => {
-             console.log(error.text);
-         });
-         e.target.reset();
+    emailjs.sendForm('service_ow9xrmn', 'template_kss99vt', form.current, 'PnvT6EB3r4gvRXEnb')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+    e.target.reset();
 
- }
+  }
 
 
   return (
 
-   
+
 
     <>
 
@@ -377,12 +377,12 @@ const SingleDetail = () => {
                 </h6>
                 {/* <!-- CANVAS --> */}
                 <div class="wrapper">
-                  
+
 
                   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img class="d-block w-100" src={'http://127.0.0.1:8000/image/' + ads.image} alt="First slide" width={300} height={ 300} />
+                        <img class="d-block w-100" src={'http://127.0.0.1:8000/image/' + ads.image} alt="First slide" width={300} height={300} />
                       </div>
                       <div class="carousel-item">
                         <img class="d-block w-100" src={'http://127.0.0.1:8000/image/' + ads.image_2} alt="Second slide" width={300} height={300} />
@@ -668,7 +668,7 @@ const SingleDetail = () => {
             </div>
             <div class="col-lg-4">
               {/* <!-- FORM FILTER --> */}
-       
+
               {/* <!-- END FORM FILTER -->
                     <!-- FORM FILTER --> */}
 
@@ -703,53 +703,53 @@ const SingleDetail = () => {
                               Company name
                             </a>
                           </li>
-                    
+
                         </ul>
                       </div>
                     </div>
                     <form onSubmit={sendEmail} ref={form}>
-                    <div class="profile__agent__body">
-                      <div class="form-group">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Your Name"
-                          name="name"
-                        />
+                      <div class="profile__agent__body">
+                        <div class="form-group">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Your Name"
+                            name="name"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Phone"
+                            name="phone"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Email"
+                            name="email"
+                          />
+                        </div>
+                        <div class="form-group mb-0">
+                          <textarea
+                            class="form-control required"
+                            rows="5"
+                            required="required"
+                            placeholder="I'm interest in [ Listing Single ]"
+                          ></textarea>
+                        </div>
                       </div>
-                      <div class="form-group">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Phone"
-                          name="phone"
-                        />
+                      <div class="profile__agent__footer">
+                        <div class="form-group mb-0">
+                          <button class="btn btn-primary text-capitalize btn-block">
+                            {" "}
+                            send message <i class="fa fa-paper-plane ml-1"></i>
+                          </button>
+                        </div>
                       </div>
-                      <div class="form-group">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Email"
-                          name="email"
-                        />
-                      </div>
-                      <div class="form-group mb-0">
-                        <textarea
-                          class="form-control required"
-                          rows="5"
-                          required="required"
-                          placeholder="I'm interest in [ Listing Single ]"
-                        ></textarea>
-                      </div>
-                    </div>
-                    <div class="profile__agent__footer">
-                      <div class="form-group mb-0">
-                        <button class="btn btn-primary text-capitalize btn-block">
-                          {" "}
-                          send message <i class="fa fa-paper-plane ml-1"></i>
-                        </button>
-                      </div>
-                    </div>
                     </form>
                   </div>
                 </div>
@@ -786,8 +786,8 @@ const SingleDetail = () => {
           </div>
         </div>
       </section>
-   
-   
+
+
     </>
   );
 };
