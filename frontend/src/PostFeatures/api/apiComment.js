@@ -13,17 +13,21 @@ export const getComments = async (text) => {
   ];
 };
 
+
+
 export const CreateComment = async (text, parentId = null) => {
   let data = { 
     id: '1', 
     comment: text, 
   }
-  const response =fetch('http://localhost:8000/api/addcomments', {
+
+
+  const response =await fetch('http://localhost:8000/api/comments', {
   method: 'POST',
   headers: {
   ContentType: 'application/json',
   },
-  body: JSON.stringify({ id: '2' , comment:text }),
+  body: JSON.stringify({  comment:text,post_id:1,user_id:1 }),
   })
   .then(response => response.json())
   .catch(error => console.error('Error:', error))
