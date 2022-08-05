@@ -127,7 +127,14 @@
       "id": 9
     }
   ],
-  "comments": [],
+  "comments": [
+    {
+      "body": "dsdsdsds",
+      "userId": 1,
+      "date": "2022-08-05T19:29:04.125Z",
+      "id": 1
+    }
+  ],
   "profile": {
     "name": "typicode"
   }
