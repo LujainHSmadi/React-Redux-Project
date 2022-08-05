@@ -13,7 +13,7 @@ const AddCommentForm = () => {
 
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
-    const [userId, setUserId] = useState()
+    const [userId, setUserId] = useState(JSON.parse(localStorage.getItem("user")).logged_user.id)
 
     const users = useSelector(selectAllUsers)
 
@@ -30,10 +30,8 @@ const AddCommentForm = () => {
             {
                 alert('you must logged in')
             }
-            else   if(JSON.parse(localStorage.getItem("user")))
            
             try {
-                setUserId(localStorage.getItem("user").logged_user.id)
 
                 await addNewPost({  body: content, userId }).unwrap()
 

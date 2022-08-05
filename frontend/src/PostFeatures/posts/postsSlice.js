@@ -24,7 +24,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
                     ...initialComments,
                     userId: Number(initialComments.userId),
                     date: new Date().toISOString(),
-                    //  postId:  useParams(),
+                      postId:  useParams
                  
 
                 }

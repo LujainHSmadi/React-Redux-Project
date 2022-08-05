@@ -2,15 +2,22 @@ import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
 import ReactionButtons from "./ReactionButtons";
 import { Link } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectPostById } from "./postsSlice";
-import { selectcommentById } from "./postsSlice";
 const PostsExcerpt = ({ postId }) => {
     const post = useSelector(state => selectPostById(state, postId))
 console.log(post);
-const comm = useSelector(state => selectcommentById(state, postId))
+// const comm = useSelector(state => selectcommentById(state, postId))
+const navigate = useNavigate()
+const check=()=>{
 
+    if(!localStorage.getItem("user")) {alert('please login first')}         
+ else
+
+ navigate(`/posts/${post.id}`)
+ 
+}
     return (
         // <article>
         //     <h2>{post.title}</h2>
@@ -44,8 +51,8 @@ const comm = useSelector(state => selectcommentById(state, postId))
                 <ul  class="list-inline">
                   <p  style={{backgroundColor:'beige'}}><ReactionButtons post={post} /></p>  
                 </ul>
-                    &nbsp;&nbsp; <Link to={`/posts/${post.id}`}><span style={{backgroundColor:'beige',padding: '1px'}} >Replies</span></Link>
-                    &nbsp;&nbsp; <Link to={`/posts/${post.id}`}><span style={{backgroundColor:'beige',padding: '1px'}} >View</span></Link>
+                    &nbsp;&nbsp; <p style={{cursor:'pointer'}} onClick={check}><span style={{backgroundColor:'beige',padding: '1px'}} >Replay</span></p>
+                    &nbsp;&nbsp; <p style={{cursor:'pointer'}} onClick={check}><span style={{backgroundColor:'beige',padding: '1px'}} >View</span></p>
 
                 </span>
             </div>
