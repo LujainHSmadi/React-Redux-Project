@@ -13,7 +13,7 @@ const AddCommentForm = () => {
 
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
-    const [userId, setUserId] = useState(JSON.parse(localStorage.getItem("user")).logged_user.id)
+    const [userId, setUserId] = useState()
 
     const users = useSelector(selectAllUsers)
 
@@ -21,7 +21,7 @@ const AddCommentForm = () => {
     const onContentChanged = e => setContent(e.target.value)
     const onAuthorChanged = e => setUserId(e.target.value)
 
-
+  
     const canSave = [content, userId].every(Boolean) && !isLoading;
 
     const onSavePostClicked = async () => {
@@ -30,8 +30,11 @@ const AddCommentForm = () => {
             {
                 alert('you must logged in')
             }
-            else
+            else   if(JSON.parse(localStorage.getItem("user")))
+           
             try {
+                setUserId(localStorage.getItem("user").logged_user.id)
+
                 await addNewPost({  body: content, userId }).unwrap()
 
                 // setTitle('')
