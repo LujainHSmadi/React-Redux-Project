@@ -13,13 +13,21 @@ export const getComments = async (text) => {
   ];
 };
 
+const v={
+comment:'',
+post_id:'',
+user_id:''
 
+
+}
+
+
+
+
+  // const {name,value}=event.tr
 
 export const CreateComment = async (text, parentId = null) => {
-  let data = { 
-    id: '1', 
-    comment: text, 
-  }
+
 
 
   const response =await fetch('http://localhost:8000/api/comments', {
@@ -29,15 +37,13 @@ export const CreateComment = async (text, parentId = null) => {
   },
   body: JSON.stringify({  comment:text,post_id:1,user_id:1 }),
   })
-  .then(response => response.json())
-  .catch(error => console.error('Error:', error))
-  .then(response => console.log('Success:', JSON.stringify(response)));
+  
   if(response.ok){
     alert('Replay Added Successfully');
    }else{
     alert('There is something wrong');
    }
-
+  
 
   return {
     id: Math.random().toString(36).substr(2, 9),
@@ -48,6 +54,7 @@ export const CreateComment = async (text, parentId = null) => {
     createdAt: new Date().toISOString(),
   };
 };
+
 // };
 
 export const updateComment = async (text) => {

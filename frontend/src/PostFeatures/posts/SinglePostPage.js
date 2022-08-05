@@ -7,6 +7,8 @@ import ReactionButtons from "./ReactionButtons";
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import {useEffect, useState } from 'react';
+import AddCommentForm from './AddCommentForm';
+import CommentsList from './CommentsList';
 const SinglePostPage = () => {
     const [visible, setVisible] = useState('none');
    
@@ -60,27 +62,21 @@ const SinglePostPage = () => {
             <h6>{post.body}</h6>
             
             <ReactionButtons post={post} />
-            <br/>
-            <Comments
-        // commentsUrl="http://localhost:3000/comments"
-        currentUserId="1"
-      />
-            {/* <input type={'text'} placeholder={'Add a comment...'}></input>
-            <hr/>
-            <hr/>
-            <hr/>
-            <hr/> */}
+
+
 
             {/* <Comments
-        commentsUrl="http://localhost:3004/comments"
+         commentsUrl="http://localhost:8000/comments"
         currentUserId="1"
       /> */}
+                   <AddCommentForm />
+
         </article>
         </div>
         
 
         </div>
-     
+
         </>
     )
     

@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 
 import { useSelector } from "react-redux";
 import { selectPostById } from "./postsSlice";
-
+import { selectcommentById } from "./postsSlice";
 const PostsExcerpt = ({ postId }) => {
     const post = useSelector(state => selectPostById(state, postId))
 console.log(post);
+const comm = useSelector(state => selectcommentById(state, postId))
 
     return (
         // <article>

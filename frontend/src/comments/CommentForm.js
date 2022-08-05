@@ -29,8 +29,9 @@ const CommentForm = ({
  
 
   return (
-    <form style={{display:visible}} onSubmit={onSubmit}>
-     <span> <input style={{width:'400px',}} placeholder="Add a replay"
+    <form method="post" style={{display:visible}} onSubmit={onSubmit}>
+     <span>
+       <input name="comment" style={{width:'400px',}} placeholder="Add a replay"
         className="comment-form-textarea"
         value={text}
         onChange={(e) => setText(e.target.value)}
@@ -38,7 +39,16 @@ const CommentForm = ({
       <button  className="comment-form-button" disabled={isTextareaDisabled}>
         {submitLabel}
       </button></span>
-      {hasCancelButton && (
+      <button 
+          type="button"
+          className="comment-form-button comment-form-cancel-button"
+          onClick={onSubmit}
+        >
+          submit
+        </button>
+
+
+      {/* {hasCancelButton && (
         <button 
           type="button"
           className="comment-form-button comment-form-cancel-button"
@@ -46,7 +56,7 @@ const CommentForm = ({
         >
           Cancel
         </button>
-      )}
+      )} */}
     </form>
   );
 };

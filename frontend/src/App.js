@@ -34,7 +34,7 @@ import UserPage from "./PostFeatures/users/UserPage";
 import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 import Contact from "./Components/Contact";
 import Footer from "./Layout/Footer";
-
+import EditComment from "./PostFeatures/posts/EditComment";
 function App() {
   return (
     <div className="App">
@@ -80,6 +80,8 @@ function App() {
             <Route path="add" element={<AddPostForm />} />
             <Route index path=":postId" element={<SinglePostPage />} />
             <Route path="edit/:postId" element={<EditPostForm />} />
+            <Route path="editcomm/:postId" element={<EditComment />} />
+
             <Route index path="posttable" element={<TablePost />} />
             <Route index element={<PostsList />} />
 
