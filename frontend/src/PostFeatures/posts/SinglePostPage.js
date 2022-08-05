@@ -1,4 +1,3 @@
-import Comments from '../../comments/Comments';
 import { useSelector } from 'react-redux'
 import { selectPostById } from './postsSlice';
 import PostAuthor from "./PostAuthor";
@@ -8,7 +7,6 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import {useEffect, useState } from 'react';
 import AddCommentForm from './AddCommentForm';
-import CommentsList from './CommentsList';
 const SinglePostPage = () => {
     const [visible, setVisible] = useState('none');
    
