@@ -17,16 +17,13 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         //comments
         addNewComment: builder.mutation({
-            query: initialComments => ({
+            query: initialComments => ({  
                 url: '/comments',
                 method: 'POST',
                 body: {
                     ...initialComments,
                     userId: Number(initialComments.userId),
                     date: new Date().toISOString(),
-                    //postId:  useParams()
-                 
-
                 }
             }),
             invalidatesTags: [

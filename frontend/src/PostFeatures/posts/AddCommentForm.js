@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import CommentsList from './CommentsList';
 
 import { selectAllUsers } from "../users/usersSlice";
-import { resolvePath, useNavigate } from "react-router-dom";
+import { resolvePath, useNavigate, useParams } from "react-router-dom";
 import { useAddNewCommentMutation } from "./postsSlice";
 import Layout from "../../PostComponents/Layout";
 const AddCommentForm = () => {
@@ -14,7 +14,7 @@ const AddCommentForm = () => {
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
     const [userId, setUserId] = useState(JSON.parse(localStorage.getItem("user")).logged_user.id)
-
+    const [PostId, setPostId] = useState(useParams())
     const users = useSelector(selectAllUsers)
 
     // const onTitleChanged = e => setTitle(e.target.value)
@@ -22,7 +22,7 @@ const AddCommentForm = () => {
     const onAuthorChanged = e => setUserId(e.target.value)
 
   
-    const canSave = [content, userId].every(Boolean) && !isLoading;
+    const canSave = [content, userId,PostId].every(Boolean) && !isLoading;
 
     const onSavePostClicked = async () => {
         if (true) {
@@ -33,7 +33,7 @@ const AddCommentForm = () => {
            
             try {
 
-                await addNewPost({  body: content, userId }).unwrap()
+                await addNewPost({  body: content, userId,PostId }).unwrap()
 
                 // setTitle('')
                 setContent('')
@@ -47,11 +47,11 @@ const AddCommentForm = () => {
         }
     }
 
-    const usersOptions = users.map(user => (
-        <option key={user.id} value={user.id}>
-            {user.name}
-        </option>
-    ))
+    // const usersOptions = users.map(user => (
+    //     <option key={user.id} value={user.id}>
+    //         {user.name}
+    //     </option>
+    // ))
 
     return (
         <section>

@@ -8,7 +8,7 @@ import { selectcommentById } from "./postsSlice";
 const CommentsExcerpt = ({ postId }) => {
     const post = useSelector(state => selectcommentById(state, postId))
     console.log(post);
-    const comm = useSelector(state => selectcommentById(state, postId))
+    // const comm = useSelector(state => selectcommentById(state, postId))
 
     return (
         // <article>
