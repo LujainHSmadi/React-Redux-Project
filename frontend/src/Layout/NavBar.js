@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 const NavBar = () => {
   const navigate = useNavigate()
-    const check=()=>{
+  const check = () => {
 
-        if(!localStorage.getItem("user")) {alert('please login first')}         
-     else
+    if (!localStorage.getItem("user")) { alert('please login first') }
+    else
 
-     navigate('/posts/add')
-     
-    }
+      navigate('/posts/add')
+
+  }
   let isLoggedIn = JSON.parse(localStorage.getItem("user"));
 
   function logout() {
@@ -31,7 +31,7 @@ const NavBar = () => {
           <div class="row">
             <div class="col-sm-12 col-md-5">
               <div class="topbar-left">
-                <div class="topbar-text">Monday, Augest 1, 2022</div>
+                <div class="topbar-text">Monday, Augest 8, 2022</div>
               </div>
             </div>
             <div class="col-sm-12 col-md-7">
@@ -82,7 +82,7 @@ const NavBar = () => {
           <div class="collapse navbar-collapse" id="main_nav99" >
             <ul class="navbar-nav  mx-auto" >
               <li class="nav-item dropdown">
-                <a  
+                <a
                   class="nav-link"
                   href="/">
                   Home
@@ -92,7 +92,7 @@ const NavBar = () => {
               {/* style={{textTransform:'capitalize'}} */}
 
               <li class="nav-item dropdown">
-                <a  
+                <a
                   class="nav-link"
                   href="/list">
                   Properties

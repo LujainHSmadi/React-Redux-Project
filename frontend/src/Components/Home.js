@@ -295,7 +295,7 @@ Get your home’s value and see selling options
                         <div class="col-lg-5 col-xl-5 col-padd">
                             {/* <!-- CARD IMAGE --> */}
 
-                            <a href="#">
+                            <a href="/list">
                                 <div class="card__image-hover-style-v3">
                                     <div class="card__image-hover-style-v3-thumb h-475">
                                         <img src="images/amman.jpg" alt="" class="img-fluid w-100" />
@@ -313,7 +313,7 @@ Get your home’s value and see selling options
                             <div class="row">
                                 <div class="col-md-6 col-padd">
                                     {/* <!-- CARD IMAGE --> */}
-                                    <a href="#">
+                                    <a href="/list">
                                         <div class="card__image-hover-style-v3">
                                             <div class="card__image-hover-style-v3-thumb h-230">
                                                 <img src="images/irbid.jpg" alt="" class="img-fluid w-100" />
@@ -329,7 +329,7 @@ Get your home’s value and see selling options
                                 </div>
                                 <div class="col-md-6 col-padd">
                                     {/* <!-- CARD IMAGE --> */}
-                                    <a href="#">
+                                    <a href="/list">
                                         <div class="card__image-hover-style-v3">
                                             <div class="card__image-hover-style-v3-thumb h-230">
                                                 <img src="images/jerash.jpg" alt="" class="img-fluid w-100" />
@@ -345,7 +345,7 @@ Get your home’s value and see selling options
                                 </div>
                                 <div class="col-md-6 col-padd">
                                     {/* <!-- CARD IMAGE --> */}
-                                    <a href="#">
+                                    <a href="/list">
                                         <div class="card__image-hover-style-v3">
                                             <div class="card__image-hover-style-v3-thumb h-230">
                                                 <img src="images/madaba.jpg" alt="" class="img-fluid w-100" />
@@ -361,7 +361,7 @@ Get your home’s value and see selling options
                                 </div>
                                 <div class="col-md-6 col-padd">
                                     {/* <!-- CARD IMAGE --> */}
-                                    <a href="#">
+                                    <a href="/list">
                                         <div class="card__image-hover-style-v3">
                                             <div class="card__image-hover-style-v3-thumb h-230">
                                                 <img src="images/aqaba.png" alt="" class="img-fluid w-100" />
