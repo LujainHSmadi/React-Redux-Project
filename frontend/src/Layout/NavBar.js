@@ -21,7 +21,7 @@ const NavBar = () => {
           <div class="row">
             <div class="col-sm-12 col-md-5">
               <div class="topbar-left">
-                <div class="topbar-text">Monday, Augest 1, 2022</div>
+                <div class="topbar-text">Thursday, Augest 4, 2022</div>
               </div>
             </div>
             <div class="col-sm-12 col-md-7">
