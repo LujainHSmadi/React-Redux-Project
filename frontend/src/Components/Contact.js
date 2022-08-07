@@ -137,31 +137,24 @@ export default function Contact() {
                                     <i class="fa fa-home"></i>
                                 </span>
 
-                                PO Box 16122 Collins Street West Victoria
-                                8007 Australia
-
+                                PO Box 21111 King Abdullah Street 
 
                             </li>
                             <li>
                                 <span>
                                     <i class="fa fa-phone"></i>
-                                    <a href="tel:">(+12) 34567 890 123</a>
+                                    <a href="tel:">(+962) 775272717</a>
                                 </span>
 
                             </li>
                             <li>
                                 <span>
                                     <i class="fa fa-envelope"></i>
-                                    <a href="mailto:">mail@example.com</a>
+                                    <a href="mailto:">mail@realestate.com</a>
                                 </span>
 
                             </li>
-                            <li>
-                                <span>
-                                    <i class="fa fa-globe"></i>
-                                    <a href="#" target="_blank"> www.yourdomain.com</a>
-                                </span>
-                            </li>
+                           
                         </ul>
 
                         <div class="social__media">
