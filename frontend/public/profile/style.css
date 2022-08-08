@@ -1,8 +1,9 @@
 .text-white {
-    color: #ffffff;
+  color: #ffffff;
 }
 h3 {
-    line-height: 30px;
+  line-height: 30px;
+  font-family: "Open Sans", sans-serif;
 }
 /* ==============
   Panels
@@ -14,6 +15,7 @@ h3 {
   border: none;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  font-family: "Open Sans", sans-serif;
 }
 .panel .panel-body {
   padding: 20px;
@@ -159,20 +161,20 @@ h3 {
 .panel-fill.panel-inverse {
   background-color: #4a4a4a;
 }
-.panel-group .panel .panel-heading a[data-toggle=collapse].collapsed:before {
-  content: '\f067';
+.panel-group .panel .panel-heading a[data-toggle="collapse"].collapsed:before {
+  content: "\f067";
 }
 .panel-group .panel .panel-heading .accordion-toggle.collapsed:before {
-  content: '\f067';
+  content: "\f067";
 }
-.panel-group .panel .panel-heading a[data-toggle=collapse] {
+.panel-group .panel .panel-heading a[data-toggle="collapse"] {
   display: block;
 }
-.panel-group .panel .panel-heading a[data-toggle=collapse]:before {
-  content: '\f068';
+.panel-group .panel .panel-heading a[data-toggle="collapse"]:before {
+  content: "\f068";
   display: block;
   float: right;
-  font-family: 'FontAwesome';
+  font-family: "FontAwesome";
   font-size: 14px;
   text-align: right;
   width: 25px;
@@ -181,10 +183,10 @@ h3 {
   display: block;
 }
 .panel-group .panel .panel-heading .accordion-toggle:before {
-  content: '\f068';
+  content: "\f068";
   display: block;
   float: right;
-  font-family: 'FontAwesome';
+  font-family: "FontAwesome";
   font-size: 14px;
   text-align: right;
   width: 25px;
@@ -209,9 +211,9 @@ h3 {
 .bg-overlay {
   -moz-border-radius: 6px 6px 0px 0px;
   -webkit-border-radius: 6px 6px 0px 0px;
-  background-color: rgba(49, 126, 235, 0.4);
+  background-color: rgba(51, 124, 226, 0.4);
   border-radius: 6px 6px 0px 0px;
-  height: 100%;
+  height: 30%;
   left: 0px;
   position: absolute;
   top: 0px;
@@ -222,16 +224,18 @@ h3 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background:#0f53f3e2 ;
+  background: #0f53f3e2;
   margin-top: -2px;
-  padding: 100px 0px;
+  padding: 17px 0px;
   position: relative;
 }
 .bg-picture2 > .bg-picture-overlay2 {
-  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0, rgba(0, 0, 0, 0.4) 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(rgba(0, 0, 0, 0.4)));
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0, rgba(0, 0, 0, 0.4) 100%);
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, rgba(0, 0, 0, 0.4) 100%);
+  background-image: -o-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0) 0,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+
   bottom: 0;
   left: 0;
   position: absolute;
