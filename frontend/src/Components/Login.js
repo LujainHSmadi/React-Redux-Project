@@ -5,6 +5,7 @@ import { login } from "../Store/Reducer/SignIn";
 
 const SignIn = () => {
   const initialState = {
+
     email: "",
     password: "",
   };
@@ -28,7 +29,7 @@ const SignIn = () => {
         console.log(data);
         console.log(User);
         setUser({
-          id: data.id,
+        id:data.id,
           email: data.email,
           password: data.password,
           roles: ["Admin"],
@@ -37,7 +38,7 @@ const SignIn = () => {
         
         let isLoggedIn = JSON.parse(localStorage.getItem("user"));
         
-        console.log(isLoggedIn.logged_user.id)
+      
         if (isLoggedIn.logged_user.role == "admin") {
           swal({
             title: "Admin!",
@@ -50,7 +51,7 @@ const SignIn = () => {
         } else {
           swal({
             title: "User!",
-            text: "You are logged in!!",
+            text: "Welcome to RETHOUSE!",
             icon: "warning",
             button: "sure!",
           }).then(function () {

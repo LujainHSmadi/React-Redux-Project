@@ -55,7 +55,14 @@ console.log(User);
      e.preventDefault();
     dispatch(updateUser({ id: User.id, data: User }))
       .unwrap()
-      .then((response) => {})
+      .then((response) => {
+        swal({
+          title: "done!",
+
+          icon: "warning",
+          button: "sure!",
+        });
+      })
       .catch((e) => {
         console.log(e);
       });

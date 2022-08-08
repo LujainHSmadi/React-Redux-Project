@@ -7,6 +7,8 @@ export const login = createAsyncThunk(
   "login",
   async ({ email,password }) => {
     const res = await Auth.Login({ email, password });
+
+  
     return res.data;
   }
 );
