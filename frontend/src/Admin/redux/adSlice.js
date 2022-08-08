@@ -12,6 +12,16 @@ export const findByTitle = createAsyncThunk("ads/findByTitle", async ({ type }) 
 
   return res.data;
 });
+export const findbylocation = createAsyncThunk(
+  "ads/findBylocation",
+  async ({ location }) => {
+    const res = await axios.get(
+      `http://127.0.0.1:8000/api/ads?location=${location}`
+    );
+
+    return res.data;
+  }
+);
 
 export const addAd = createAsyncThunk("ad/addAd", async (data, thunkAPI) => {
   const { rejectWithValue } = thunkAPI;
@@ -166,20 +176,18 @@ const adSlice = createSlice({
     },
     [editAd.fulfilled]: (state, action) => {
       // state.ads = action.payload;
-     
-      const ad = state.ads.find(ad => ad.id === action.payload.id);
+
+      const ad = state.ads.find((ad) => ad.id === action.payload.id);
       if (ad) {
-
-          ad.title = action.payload.title;
-          ad.description = action.payload.description;
-          ad.type = action.payload.type;
-          ad.image = action.payload.image;
-          ad.image_2 = action.payload.image_2;
-          ad.image_3 = action.payload.image_3;
-          ad.image_4 = action.payload.image_4;
-          ad.location = action.payload.location;
-          ad.phone = action.payload.phone;
-
+        ad.title = action.payload.title;
+        ad.description = action.payload.description;
+        ad.type = action.payload.type;
+        ad.image = action.payload.image;
+        ad.image_2 = action.payload.image_2;
+        ad.image_3 = action.payload.image_3;
+        ad.image_4 = action.payload.image_4;
+        ad.location = action.payload.location;
+        ad.phone = action.payload.phone;
       }
       // return ad;
     },
@@ -194,9 +202,9 @@ const adSlice = createSlice({
       console.log(action);
     },
     [deleteAd.fulfilled]: (state, action) => {
-      console.log("delete fulfill",+(action.payload));
+      console.log("delete fulfill", +action.payload);
 
-      state.ads = state.ads.filter((ad) => ad.id !== +(action.payload));
+      state.ads = state.ads.filter((ad) => ad.id !== +action.payload);
       state.loading = false;
       console.log(action.payload);
     },
@@ -222,6 +230,11 @@ const adSlice = createSlice({
     },
 
     [findByTitle.fulfilled]: (state, action) => {
+      state.ads = action.payload;
+      state.loading = false;
+      console.log(state.ads);
+    },
+    [findbylocation.fulfilled]: (state, action) => {
       state.ads = action.payload;
       state.loading = false;
       console.log(state.ads);

@@ -15,14 +15,21 @@ class AdController extends Controller
     public function index(Request $request)
     {
 
-        $type = $request->type;
-        if (isset($type)) {
-
-            return Ad::Where('type', $type)->get();
-
-        } else {
-            return Ad::all();
-        }
+        $type=$request->type;
+           $location=$request->location;
+            if(isset($location)){
+           
+         return Ad::Where('location',$location)->get();
+           
+      }
+         if(isset($type)){
+           
+         return Ad::Where('type',$type)->get();
+           
+      }
+          else{
+           return  Ad::all();
+    }
     }
 
     /**
