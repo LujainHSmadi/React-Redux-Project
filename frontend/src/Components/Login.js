@@ -63,7 +63,14 @@ const SignIn = () => {
       })
 
       .catch((e) => {
-        console.log(e);
+        swal({
+          title: "User!",
+          text: "Check email and password!!",
+          icon: "warning",
+          button: "sure!",
+        }).then(function () {
+          window.location.href = "/";
+        });
       });
   };
 
