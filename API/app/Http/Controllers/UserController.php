@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -36,7 +38,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-       $request->validate([
+       $validator = Validator::make($request->all(),[
             'name' => 'required|min:3',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
@@ -49,18 +51,25 @@ class UserController extends Controller
         //     'password' => $request->password,
         //     'image' => $request->image->store('public/images'),
         // ]);
-        $newUser = $request->all();
-
-        if($request->hasfile('image')){
+         $data=new User(); 
+           if($request->hasfile('image')){
             $file=$request->file('image');
             $ex=$file->getClientOriginalExtension();
             $filename=time().'.'.$ex;
             $file->move('uploads/user',$filename);
-            $newUser->image=$filename;
+            $data->image=$filename;
         }
-    
-        $storeUser = User::create($newUser);
+ 
+        $data->name=$request->get('name');
+        $data->email=$request->get('email');
+ 
+     
+         $data->password = Hash::make($request->get('password'));
+        $data->save();
    
+         if($validator->fails()){
+        return response()->json(['errors'=>$validator->errors(),'status'=>400]);
+           }
 
     }
 
@@ -149,16 +158,16 @@ class UserController extends Controller
                      'message'=> 'Logged In successfully'
                     ]);
                     
-
-      
-            } else {
-                return response()->json(['error'=>'Check email and password']);
-                
+                }
             }
-        } else {
-            return response()->json(['error'=>'email dose not exist']);
+        //     } else {
+        //         return response()->json(['error'=>'Check email and password']);
+                
+        //     }
+        // } else {
+        //     return response()->json(['error'=>'email dose not exist']);
                     
-        }
+        // }
     }
 }
 // $obj = (object)array();

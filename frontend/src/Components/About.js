@@ -49,12 +49,9 @@ const About = ()=>{
                             before providing you with the most accurate valuation.
                         </p>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat.
+                                   We  will inspect your home and take into account its unique features, the area and market conditions. We arranges real estate transactions, putting buyers and sellers together and acting as their representative in negotiations.
                         </p>
-                        <a href="#" class="btn btn-primary mt-3 text-capitalize"> read more
-                            <i class="fa fa-angle-right ml-3 "></i></a>
+                       
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -363,23 +360,7 @@ const About = ()=>{
 
 
     {/* <!-- CALL TO ACTION --> */}
-    <section class="cta-v1 py-5">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-9">
-                <h2 class="text-uppercase text-white">Looking To Sell Or Rent Your Property?</h2>
-                <p class="text-capitalize text-white">We Will Assist You In The Best And Comfortable Property Services
-                    For You
-                </p>
-
-            </div>
-            <div class="col-lg-3">
-                <a href="#" class="btn btn-light text-uppercase ">request a quote
-                    <i class="fa fa-angle-right ml-3 arrow-btn "></i></a>
-            </div>
-        </div>
-    </div>
-</section>
+   
     {/* <!-- END CALL TO ACTION -->
 
     <!-- Footer  --> */}

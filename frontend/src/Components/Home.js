@@ -390,9 +390,7 @@ Get your home’s value and see selling options
                     <div class="row justify-content-center">
                         <div class="col-lg-8 mx-auto">
                             <div class="home__video-area text-center">
-                                <a href="#" class="play-video ">
-                                    <i class="icon fa fa-play text-white"></i>
-                                </a>
+                                
                                 <h2 class="text-white">The #1 Place For Commercial Property</h2>
                             </div>
                         </div>

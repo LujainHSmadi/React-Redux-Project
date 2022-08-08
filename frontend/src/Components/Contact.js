@@ -131,31 +131,24 @@ export default function Contact() {
                                     <i class="fa fa-home"></i>
                                 </span>
 
-                                PO Box 16122 Collins Street West Victoria
-                                8007 Australia
-
+                                PO Box 21111 King Abdullah Street 
 
                             </li>
                             <li>
                                 <span>
                                     <i class="fa fa-phone"></i>
-                                    <a href="tel:">(+12) 34567 890 123</a>
+                                    <a href="tel:">(+962) 775272717</a>
                                 </span>
 
                             </li>
                             <li>
                                 <span>
                                     <i class="fa fa-envelope"></i>
-                                    <a href="mailto:">mail@example.com</a>
+                                    <a href="mailto:">mail@realestate.com</a>
                                 </span>
 
                             </li>
-                            <li>
-                                <span>
-                                    <i class="fa fa-globe"></i>
-                                    <a href="#" target="_blank"> www.yourdomain.com</a>
-                                </span>
-                            </li>
+                           
                         </ul>
 
                         <div class="social__media">
@@ -195,23 +188,6 @@ export default function Contact() {
         </div>
     </section>
   
-    <section class="cta-v1 py-5">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-9">
-                <h2 class="text-uppercase text-white">Looking To Sell Or Rent Your Property?</h2>
-                <p class="text-capitalize text-white">We Will Assist You In The Best And Comfortable Property Services
-                    For You
-                </p>
-
-            </div>
-            <div class="col-lg-3">
-                <a href="#" class="btn btn-light text-uppercase ">request a quote
-                    <i class="fa fa-angle-right ml-3 arrow-btn "></i></a>
-            </div>
-        </div>
-    </div>
-</section>
 
 
 
