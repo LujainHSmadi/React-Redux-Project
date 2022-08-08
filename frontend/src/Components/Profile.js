@@ -11,7 +11,7 @@ import {
 } from "../PostFeatures/users/usersSlice";
 // import ImageUpload from "react-images-uploader                                                                                                                                                                                ";
 import { useGetPostsByUserIdQuery } from "../PostFeatures/posts/postsSlice";
-import swal from "sweetalert";
+
 const Profile = () => {
   const { userId } = useParams();
   let isLoggedIn = JSON.parse(localStorage.getItem("user"));

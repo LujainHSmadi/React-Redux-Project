@@ -95,7 +95,7 @@ const About = ()=>{
                     <div class="wrap-agent">
     <div class="team-member">
         <div class="team-img">
-            <img alt="team member" class="img-fluid w-100" src="images/360x300.jpg"/>
+            <img alt="team member" class="img-fluid w-100" src="images/luj.png" height={100}/>
         </div>
         <div class="team-hover">
             <div class="desk">
@@ -148,7 +148,7 @@ const About = ()=>{
                             <div class="wrap-agent">
                                 <div class="team-member">
                                     <div class="team-img">
-                                        <img alt="team member" class="img-fluid w-100" src="images/360x300.jpg" />
+                                        <img alt="team member" class="img-fluid w-100" src="images/amal.png" />
                                     </div>
                                     <div class="team-hover">
                                         <div class="desk">
@@ -200,7 +200,7 @@ const About = ()=>{
                             <div class="wrap-agent">
                                 <div class="team-member">
                                     <div class="team-img">
-                                        <img alt="team member" class="img-fluid w-100" src="images/360x300.jpg" />
+                                        <img alt="team member" class="img-fluid w-100" src="images/esraa.png" />
                                     </div>
                                     <div class="team-hover">
                                         <div class="desk">
@@ -253,7 +253,7 @@ const About = ()=>{
                     <div class="wrap-agent">
                         <div class="team-member">
                             <div class="team-img">
-                                <img alt="team member" class="img-fluid w-100" src="images/360x300.jpg"/>
+                                <img alt="team member" class="img-fluid w-100" src="images/ahmad.png"/>
                             </div>
                             <div class="team-hover">
                                 <div class="desk">
@@ -305,7 +305,7 @@ const About = ()=>{
                             <div class="wrap-agent">
                                 <div class="team-member">
                                     <div class="team-img">
-                                        <img alt="team member" class="img-fluid w-100" src="images/360x300.jpg" />
+                                        <img alt="team member" class="img-fluid w-100" src="images/leen.png" />
                                     </div>
                                     <div class="team-hover">
                                         <div class="desk">
