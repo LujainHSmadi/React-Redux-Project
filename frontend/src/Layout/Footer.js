@@ -17,7 +17,7 @@ export default function Footer() {
                                         <img src="images/logo-blue.png" alt="" class="logo-footer" />
                                     </figure>
                                     <p>
-                                        Rethouse Real Estate is a premium Property template based on Bootstrap 4. Rethouse Real
+                                        Rethouse Real
                                         Estate helped thousands of clients to find the right property for their needs.
 
                                     </p>
@@ -33,10 +33,9 @@ export default function Footer() {
                                     <h4 class="footer-title">Our Locations</h4>
                                    
                                     <ul class="list-unstyled mb-0 mt-3">
-                                        <li> <b> <i class="fa fa-map-marker"></i></b><span>214 West Arnold St. New York, NY
-                                            10002</span> </li>
-                                        <li> <b><i class="fa fa-phone-square"></i></b><span>(123) 345-6789</span> </li>
-                                        <li> <b><i class="fa fa-phone-square"></i></b><span>(+100) 123 456 7890</span> </li>
+                                        <li> <b> <i class="fa fa-map-marker"></i></b><span>King Abdullah Str Amman Jordan 21111</span> </li>
+                                        <li> <b><i class="fa fa-phone-square"></i></b><span>(06) 345-6789</span> </li>
+                                        <li> <b><i class="fa fa-phone-square"></i></b><span>(+962) 775272717</span> </li>
                                     
                                     
                                     </ul>
@@ -87,7 +86,7 @@ export default function Footer() {
                         <div class="row flex-column-reverse flex-md-row">
                             <div class="col-md-6">
                                 <span>
-                                    © 2022 Rethouse Real Estate - Premium real estates
+                                    © 2022 Rethouse Real Estate 
                                    
                                 </span>
                             </div>
