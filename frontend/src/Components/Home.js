@@ -128,7 +128,7 @@ const Home = () => {
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active banner-max-height">
-                                <img class="d-block w-100" src="images/bg15.jpg" alt="First slide" />
+                                <img class="d-block w-100" src="images/bg15.jpg" alt="First slide" height={'150px'}/>
                                 <div class="carousel-caption banner__slide-overlay d-flex h-100">
                                     <div class="carousel__content">
                                         <div class="container">

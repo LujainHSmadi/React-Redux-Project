@@ -87,11 +87,12 @@ const Table = () => {
               </p>
               <br /><br />
               <small class="text-muted">{ad.location}</small><br />
-              <small class="text-muted">{ad.phone}</small>
-              <a class="ml-5 px-3" href={`adedit/${ad.id}`}>
-                <i class="bx bx-edit-alt me-1 "></i>
-              </a>
-              <button type="submit" class="bx bx-trash me-2" onClick={() => {
+              <small class="text-muted">{ad.phone}</small><br/><br/>
+
+              <button class="bx bx-edit-alt me-1" href={`adedit/${ad.id}`}>
+              </button>
+              
+              <button type="submit" class="bx bx-trash me-1" onClick={() => {
                 handleDelete(ad.id)
               }}>
               </button>

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { updateUser } from "../Store/Reducer/SignIn";
 import { Link, useParams } from "react-router-dom";
 import Auth from "../Store//Services/Auth";
+import swal from "sweetalert";
 import { useSelector } from "react-redux";
 import {
   selectUserById,
@@ -152,13 +153,13 @@ console.log(User);
                 <div class="  bg-picture2 text-center">
                   <div class="bg-overlay bg-picture-overlay2"></div>
                   <div class="profile-info-name2">
-                    <img
+                    {/* <img
                       src="https://bootdey.com/img/Content/avatar/avatar7.png"
                       class="thumb-lg img-circle "
                       alt="profile-image"
                       bg-overlay
-                    />
-                    <h3 class="text-white">{User.name}</h3>
+                    /> */}
+                    <h3 class="text-white">Welcome {User.name} To RetHouse!</h3>
                   </div>
                 </div>
                 {/* <!--/ meta --> */}
@@ -174,10 +175,8 @@ console.log(User);
                       aria-expanded="false"
                       class="active"
                     >
-                      <span class="visible-xs">
-                        <i class="fa fa-home"></i>
-                      </span>
-                      <span class="hidden-xs">About Me</span>
+                     
+                      <span class="hidden-xs">My Posts</span>
                     </a>
                   </li>
 
@@ -187,10 +186,8 @@ console.log(User);
                       data-toggle="tab"
                       aria-expanded="false"
                     >
-                      <span class="visible-xs">
-                        <i class="fa fa-cog"></i>
-                      </span>
-                      <span class="hidden-xs">Settings</span>
+                      
+                      <span class="hidden-xs">Edit Profile</span>
                     </a>
                   </li>
 
@@ -367,7 +364,7 @@ console.log(User);
                               class="form-control"
                             />
                           </div>
-                          <div class="form-group">
+                          {/* <div class="form-group">
                             <label for="image">image</label>
                             <input
                               type="file"
@@ -378,7 +375,7 @@ console.log(User);
                               id="Username"
                               class="form-control"
                             />
-                          </div>
+                          </div> */}
                           {/* <div class="form-group">
                             <label for="Password">Password</label>
                             <input

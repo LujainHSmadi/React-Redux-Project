@@ -89,13 +89,7 @@ export default function Contact() {
                             </div>
                         </div>
 
-                        <div class="col-md-6">
-                            <div class="form-group form-group-name">
-                                <label>website <span class="required"></span></label>
-                                <input type="text" class="form-control" name="website" required=""/>
-
-                            </div>
-                        </div>
+                    
                         <div class="col-md-6">
                             <div class="form-group form-group-name">
                                 <label>Subject <span class="required"></span></label>

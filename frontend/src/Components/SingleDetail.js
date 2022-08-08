@@ -364,7 +364,7 @@ const SingleDetail = () => {
                 </div>
                 <div class="col-md-3 col-lg-3">
                   <div class="single__detail-price mt-4">
-                    <h3 class="text-capitalize text-gray">13.000JOD</h3>
+                    <h3 class="text-capitalize text-gray">130.000JOD</h3>
 
                   </div>
                 </div>

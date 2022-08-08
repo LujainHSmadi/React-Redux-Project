@@ -51,7 +51,7 @@ const check=()=>{
                 <ul  class="list-inline">
                   <p  style={{backgroundColor:'beige'}}><ReactionButtons post={post} /></p>  
                 </ul>
-                    &nbsp;&nbsp; <p style={{cursor:'pointer'}} onClick={check}><span style={{backgroundColor:'beige',padding: '1px'}} >Replay</span></p>
+                    &nbsp;&nbsp; <p style={{cursor:'pointer'}} onClick={check}><span style={{backgroundColor:'beige',padding: '1px'}} >Reply</span></p>
                     &nbsp;&nbsp; <p style={{cursor:'pointer'}} onClick={check}><span style={{backgroundColor:'beige',padding: '1px'}} >View</span></p>
 
                 </span>
