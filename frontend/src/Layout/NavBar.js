@@ -1,6 +1,16 @@
 import swal from "sweetalert";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const NavBar = () => {
+  const navigate = useNavigate()
+  const check = () => {
+
+    if (!localStorage.getItem("user")) { alert('please login first') }
+    else
+
+      navigate('/posts/add')
+
+  }
   let isLoggedIn = JSON.parse(localStorage.getItem("user"));
 
   function logout() {
@@ -21,7 +31,7 @@ const NavBar = () => {
           <div class="row">
             <div class="col-sm-12 col-md-5">
               <div class="topbar-left">
-                <div class="topbar-text">Thursday, Augest 4, 2022</div>
+                <div class="topbar-text">Monday, Augest 8, 2022</div>
               </div>
             </div>
             <div class="col-sm-12 col-md-7">
@@ -72,7 +82,7 @@ const NavBar = () => {
           <div class="collapse navbar-collapse" id="main_nav99" >
             <ul class="navbar-nav  mx-auto" >
               <li class="nav-item dropdown">
-                <a  
+                <a
                   class="nav-link"
                   href="/">
                   Home
@@ -82,7 +92,7 @@ const NavBar = () => {
               {/* style={{textTransform:'capitalize'}} */}
 
               <li class="nav-item dropdown">
-                <a  
+                <a
                   class="nav-link"
                   href="/list">
                   Properties
@@ -155,8 +165,8 @@ const NavBar = () => {
             </ul>
 
             <ul class="navbar-nav">
-              <li>
-                <a href="/posts/add" class="btn btn-primary text-capitalize">
+              <li onClick={check}>
+                <a href="#" class="btn btn-primary text-capitalize">
                   <i class="fa fa-plus-circle mr-1"></i> add post
                 </a>
               </li>

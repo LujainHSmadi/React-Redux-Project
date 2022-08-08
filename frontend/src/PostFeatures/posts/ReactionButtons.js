@@ -2,10 +2,8 @@ import { useAddReactionMutation } from './postsSlice'
 
 const reactionEmoji = {
     thumbsUp: '👍',
-     //wow: '😮',
-    heart: '❤️',
-    // rocket: '🚀',
-    // coffee: '☕'
+    heart: '❤️'
+    
 }
 
 const ReactionButtons = ({ post }) => {
